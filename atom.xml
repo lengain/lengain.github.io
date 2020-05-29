@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Lengain&#39;s Blogs</title>
+  <title>时光地下铁</title>
   <icon>https://www.gravatar.com/avatar/78f96913a8e7af22d2a515e237f3780a</icon>
-  <subtitle>生命不息，奋斗不止</subtitle>
+  <subtitle>走走停停，看看风景</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lengain.github.io/"/>
-  <updated>2020-05-27T07:54:16.583Z</updated>
+  <updated>2020-05-29T01:37:51.362Z</updated>
   <id>http://lengain.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一千种人生</title>
+    <link href="http://lengain.github.io/2020/05/29/%E4%B8%80%E5%8D%83%E7%A7%8D%E4%BA%BA%E7%94%9F/"/>
+    <id>http://lengain.github.io/2020/05/29/一千种人生/</id>
+    <published>2020-05-29T01:16:32.000Z</published>
+    <updated>2020-05-29T01:37:51.362Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;不知道从哪一刻开始，脑海里会如电影胶片般浮现各种场景，似是平行时空，让我觉得那就是我经历的一样。<br>&emsp;&emsp;等到这种想法蹦出的越来越多，越来越频繁的时候，我决定把这些写出来。<br>&emsp;&emsp;我在标签里面添加了一个新标签，叫做<code>一千种人生</code>。<br>&emsp;&emsp;你是否也有一千种人生？</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&amp;emsp;&amp;emsp;不知道从哪一刻开始，脑海里会如电影胶片般浮现各种场景，似是平行时空，让我觉得那就是我经历的一样。&lt;br&gt;&amp;emsp;&amp;emsp;等到这种想法蹦出的越来越多，越来越频繁的时候，我决定把这些写出来。&lt;br&gt;&amp;emsp;&amp;emsp;我在标签里面添加了一个新
+      
+    
+    </summary>
+    
+    
+      <category term="一千种人生" scheme="http://lengain.github.io/tags/%E4%B8%80%E5%8D%83%E7%A7%8D%E4%BA%BA%E7%94%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>一次漫长的AppStore审核经历</title>
