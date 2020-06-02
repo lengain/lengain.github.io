@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lengain.github.io/"/>
-  <updated>2020-06-01T09:24:57.241Z</updated>
+  <updated>2020-06-02T09:11:32.077Z</updated>
   <id>http://lengain.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>写个图床软件叫“简图”</title>
+    <link href="http://lengain.github.io/2020/06/02/%E5%86%99%E4%B8%AA%E5%9B%BE%E5%BA%8A%E8%BD%AF%E4%BB%B6%E5%8F%AB%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D/"/>
+    <id>http://lengain.github.io/2020/06/02/写个图床软件叫“简图”/</id>
+    <published>2020-06-02T08:32:24.000Z</published>
+    <updated>2020-06-02T09:11:32.077Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>我使用<code>MarkDown+Github+PicGo</code>三件套写博客，使用<code>PicGo</code>的时候发现自己有上传手机图片的场景，但是<code>PicGo</code>并没有iOS版本的客户端。我在AppStore经过搜索，发现并没有合适的支持Github图床的App，因此便想着写一个。</p><h2 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h2><p>今天写这个主要是先把我的想法给记录一下，以防忘了这个事儿了。也简单写一下我期望的这个App的功能：</p><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ol><li>支持各种图床。首先适配Github图床，再慢慢添加其他图床。</li><li>支持历史记录，历史记录本地保存或者保存到iCloud。</li><li>纯工具应用，无账号系统。</li><li>尽量对标PicGo，该有的功能都要有。</li></ol><h4 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h4><p>关于这个App的名字，我想了很久一直没有想好。今天突然想到一个不错的名字：<strong>简图</strong>，是<code>简单图床</code>的缩写，英文就叫<code>Easy Picture Bed</code>或者使用缩写<code>EPB</code>。<br>之所以这么命名，是因为我做这个App的目的就是为了图片上传图床变成一个简单的事。</p><h4 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h4><p>最近比较上班比较忙，晚上还要做一些技术学习，因此开发这个App可能比较慢。具体的规划目前还没有，等空下来开始做了就快了。</p><h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p><a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a>是一个快速上传图片并获取图片URL链接的工具。支持Mac，Windows电脑。</p><blockquote><p>支持：<br>七牛图床<br>腾讯云<br>又拍云<br>Github<br>阿里云<br>Imgur</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;引子&quot;&gt;&lt;a href=&quot;#引子&quot; class=&quot;headerlink&quot; title=&quot;引子&quot;&gt;&lt;/a&gt;引子&lt;/h2&gt;&lt;p&gt;我使用&lt;code&gt;MarkDown+Github+PicGo&lt;/code&gt;三件套写博客，使用&lt;code&gt;PicGo&lt;/code&gt;的时候发现自
+      
+    
+    </summary>
+    
+    
+      <category term="软件" scheme="http://lengain.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac电脑Safari浏览器上禁止百度广告</title>
