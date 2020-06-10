@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lengain.github.io/"/>
-  <updated>2020-06-02T09:14:49.876Z</updated>
+  <updated>2020-06-10T05:45:14.593Z</updated>
   <id>http://lengain.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>两天</title>
+    <link href="http://lengain.github.io/2020/06/10/%E4%B8%A4%E5%A4%A9/"/>
+    <id>http://lengain.github.io/2020/06/10/两天/</id>
+    <published>2020-06-10T05:40:58.000Z</published>
+    <updated>2020-06-10T05:45:14.593Z</updated>
+    
+    <content type="html"><![CDATA[<center>今年只有两天<p>一天开心<br>一天悲伤</p><p>一天清爽<br>一天油腻</p></center>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;
+今年只有两天
+
+&lt;p&gt;一天开心&lt;br&gt;一天悲伤&lt;/p&gt;
+&lt;p&gt;一天清爽&lt;br&gt;一天油腻&lt;/p&gt;
+&lt;/center&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="有件小事" scheme="http://lengain.github.io/tags/%E6%9C%89%E4%BB%B6%E5%B0%8F%E4%BA%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>写个图床软件叫“简图”</title>
