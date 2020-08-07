@@ -1001,7 +1001,45 @@
 <li><p>常用的根据无符号数的比较结果进行转移的条件转移指令。<br>字母表示意义如下。e: 表示equal； ne: 表示not equal； b: 表示below； nb: 表示not below； a: 表示above； na: 表示not above</p>
 </li>
 </ul>
-<p>| 指令 | 含义 | 检测的相关标志位|<br>| — | — | — | — |<br>| je| 等于则转移 |zf=1|<br>| jne| 不等于则转移| zf=0|<br>| jb| 低于则转移 |cf=1|<br>| jnb |不低于则转移 |cf=0|<br>|ja |高于则转移 |cf=0且zf=0|<br>|na |不高于则转移 |cf=1或zf=1|</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>含义</th>
+<th>检测的相关标志位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>je</td>
+<td>等于则转移</td>
+<td>zf=1</td>
+</tr>
+<tr>
+<td>jne</td>
+<td>不等于则转移</td>
+<td>zf=0</td>
+</tr>
+<tr>
+<td>jb</td>
+<td>低于则转移</td>
+<td>cf=1</td>
+</tr>
+<tr>
+<td>jnb</td>
+<td>不低于则转移</td>
+<td>cf=0</td>
+</tr>
+<tr>
+<td>ja</td>
+<td>高于则转移</td>
+<td>cf=0且zf=0</td>
+</tr>
+<tr>
+<td>na</td>
+<td>不高于则转移</td>
+<td>cf=1或zf=1</td>
+</tr>
+</tbody></table>
 <ul>
 <li><strong>movesb</strong>指令：串传送指令，功能是将ds: si 指向的内存单元中的字节送入es:di 中， 然后根据标志寄存器df 位的值， 将si 和di 递增或递减。</li>
 <li><strong>movesw</strong>指令：串传送指令，功能是将ds: si 指向的内存字单元中的字送入es:di 中， 然后根据标志寄存器df 位的值， 将si 和di 递增2 或递减2。</li>
