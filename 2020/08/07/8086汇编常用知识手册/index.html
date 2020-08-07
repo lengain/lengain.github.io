@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"lengain.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="8086 16位CPU 80386 32位CPU（王爽 《汇编语言》）AT&amp;T汇编（Mac，iOS模拟器）ARM汇编 （嵌入式，iOS设备） 1.基础知识小结（1）汇编指令是机器指令的助记符，同机器指令一一对应（2）存储器中指令和数据没有区别，都是二进制信息（3）存储单元从零开始顺序编号（4）一个存储单元可以存储8个bit，即8位二进制数（5）1Byte &#x3D; 8bit  1KB &#x3D; 102">
+  <meta name="description" content="8086 16位CPU 80386 32位CPU（王爽 《汇编语言》）AT&amp;T汇编（Mac，iOS模拟器）ARM汇编 （嵌入式，iOS设备） 基础知识小结（1）汇编指令是机器指令的助记符，同机器指令一一对应（2）存储器中指令和数据没有区别，都是二进制信息（3）存储单元从零开始顺序编号（4）一个存储单元可以存储8个bit，即8位二进制数（5）1Byte &#x3D; 8bit  1KB &#x3D; 1024B">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8086汇编常用知识手册">
 <meta property="og:url" content="http://lengain.github.io/2020/08/07/8086%E6%B1%87%E7%BC%96%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/index.html">
 <meta property="og:site_name" content="时光地下铁">
-<meta property="og:description" content="8086 16位CPU 80386 32位CPU（王爽 《汇编语言》）AT&amp;T汇编（Mac，iOS模拟器）ARM汇编 （嵌入式，iOS设备） 1.基础知识小结（1）汇编指令是机器指令的助记符，同机器指令一一对应（2）存储器中指令和数据没有区别，都是二进制信息（3）存储单元从零开始顺序编号（4）一个存储单元可以存储8个bit，即8位二进制数（5）1Byte &#x3D; 8bit  1KB &#x3D; 102">
+<meta property="og:description" content="8086 16位CPU 80386 32位CPU（王爽 《汇编语言》）AT&amp;T汇编（Mac，iOS模拟器）ARM汇编 （嵌入式，iOS设备） 基础知识小结（1）汇编指令是机器指令的助记符，同机器指令一一对应（2）存储器中指令和数据没有区别，都是二进制信息（3）存储单元从零开始顺序编号（4）一个存储单元可以存储8个bit，即8位二进制数（5）1Byte &#x3D; 8bit  1KB &#x3D; 1024B">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://lengain.github.io/2020/08/07/8086%E6%B1%87%E7%BC%96%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D.png">
 <meta property="article:published_time" content="2020-08-07T08:09:03.000Z">
-<meta property="article:modified_time" content="2020-08-07T09:52:28.293Z">
+<meta property="article:modified_time" content="2020-08-07T09:55:52.101Z">
 <meta property="article:author" content="Lengain">
 <meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
@@ -202,10 +202,10 @@
 
       
         <p>8086 16位CPU 80386 32位CPU（王爽 《汇编语言》）<br>AT&amp;T汇编（Mac，iOS模拟器）<br>ARM汇编 （嵌入式，iOS设备）</p>
-<h3 id="1-基础知识小结"><a href="#1-基础知识小结" class="headerlink" title="1.基础知识小结"></a>1.基础知识小结</h3><p>（1）汇编指令是机器指令的助记符，同机器指令一一对应<br>（2）存储器中指令和数据没有区别，都是二进制信息<br>（3）存储单元从零开始顺序编号<br>（4）一个存储单元可以存储8个bit，即8位二进制数<br>（5）1Byte = 8bit  1KB = 1024Byte  1MB = 1024 KB  1GB = 1024MB<br>（6）地址总线的宽度决定了CPU的寻址能力；数据总线的宽度决定了CPU与其他器件进行数据传送时的一次数据传送量；控制总线的宽度决定了CPU对系统中其他器件的控制能力。</p>
+<h3 id="基础知识小结"><a href="#基础知识小结" class="headerlink" title="基础知识小结"></a>基础知识小结</h3><p>（1）汇编指令是机器指令的助记符，同机器指令一一对应<br>（2）存储器中指令和数据没有区别，都是二进制信息<br>（3）存储单元从零开始顺序编号<br>（4）一个存储单元可以存储8个bit，即8位二进制数<br>（5）1Byte = 8bit  1KB = 1024Byte  1MB = 1024 KB  1GB = 1024MB<br>（6）地址总线的宽度决定了CPU的寻址能力；数据总线的宽度决定了CPU与其他器件进行数据传送时的一次数据传送量；控制总线的宽度决定了CPU对系统中其他器件的控制能力。</p>
 <a id="more"></a>
 <p>（7）8086PC的内存地址空间分配的基本情况<br><img src="/2020/08/07/8086%E6%B1%87%E7%BC%96%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/内存地址空间分配.png" width="200"><br>（8）dword:双字型 32位 ffff ffff<br>&emsp;&emsp;&emsp;word：字型 16位  ffff<br>&emsp;&emsp;&emsp;字节型     8 位ff<br>&emsp;&emsp;&emsp;ax  字型 16位 ffff<br>&emsp;&emsp;&emsp;ah 字节型 8位ff<br>&emsp;&emsp;&emsp;db 字节型数据 ff<br>&emsp;&emsp;&emsp;dw 字形数据 ffff<br>&emsp;&emsp;&emsp;dd 双字型数据 ffff ffff</p>
-<h3 id="2-寄存器"><a href="#2-寄存器" class="headerlink" title="2. 寄存器"></a>2. 寄存器</h3><h4 id="2-1-寄存器知识小结"><a href="#2-1-寄存器知识小结" class="headerlink" title="2.1 寄存器知识小结"></a>2.1 寄存器知识小结</h4><ol>
+<h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><h4 id="寄存器知识小结"><a href="#寄存器知识小结" class="headerlink" title="寄存器知识小结"></a>寄存器知识小结</h4><ol>
 <li><p>在进行数据传送或运算是，要注意指令的两个操作对象的位数应当是一致的。</p>
 </li>
 <li><p>CPU通过地址总线访问存储器，8086CPU有20位地址总线，因此需要两个16位地址来形成20位的物理地址。</p>
@@ -243,7 +243,7 @@
 <li><p>在没有寄存器名存在的情况下，用操作符X ptr 指明内存单元的长度，X在汇编指令中可以为word或byte</p>
 </li>
 </ol>
-<h5 id="2-1-1-标志寄存器"><a href="#2-1-1-标志寄存器" class="headerlink" title="2.1.1 标志寄存器"></a>2.1.1 标志寄存器</h5><table>
+<h5 id="标志寄存器"><a href="#标志寄存器" class="headerlink" title="标志寄存器"></a>标志寄存器</h5><table>
 <thead>
 <tr>
 <th>标志位</th>
@@ -307,7 +307,7 @@
 <td>NV/Not Overflow/未溢出</td>
 </tr>
 </tbody></table>
-<h4 id="2-2-DEBUG命令"><a href="#2-2-DEBUG命令" class="headerlink" title="2.2 DEBUG命令"></a>2.2 DEBUG命令</h4><p>用DEBUG program.exe来用汇编调试一个程序<br>DEBUG默认所有的数据都用十六进制表示。</p>
+<h4 id="DEBUG命令"><a href="#DEBUG命令" class="headerlink" title="DEBUG命令"></a>DEBUG命令</h4><p>用DEBUG program.exe来用汇编调试一个程序<br>DEBUG默认所有的数据都用十六进制表示。</p>
 <ol>
 <li>r 查看CPU寄存器中的内容<br>r ax 修改寄存器ax中的值</li>
 <li>d 段地址:偏移地址 查看该内存处的内容<br>d 段地址:偏移地址 结尾偏移地址 查看该内存范围的内容<br>使用d 段地址:偏移地址之后，接着使用d命令，可列出后续的内容</li>
@@ -317,8 +317,8 @@
 <li>注意：Debug的T命令在执行修改寄存器SS的指令时，下一条指令也紧接着被执行。</li>
 <li>g 命令 “g 0012”将使Debug从当前CS:IP指向的指令执行，一直到(IP)=0012h位置。</li>
 </ol>
-<h5 id="2-2-1-DEBUG常用命令"><a href="#2-2-1-DEBUG常用命令" class="headerlink" title="2.2.1 DEBUG常用命令"></a>2.2.1 DEBUG常用命令</h5><p>-r ds<br> :1000<br>-d ds:10 18             ;查看1000:10~1000:18中的内容<br>-d cs:0                 ;查看当前代码段中的指令代码<br>-d ss:0                ;查看当前栈段中的内容<br>-u cs:0                ; 以汇编指令的形式，显示当前代码段中的代码，0代码的<br>     偏移地址<br>-r ds<br>:1000<br>-a ds:0                 ;以汇编指令的形式，向从1000:0开始的内存单元中写入指<br>     令</p>
-<h3 id="3-指令和操作符"><a href="#3-指令和操作符" class="headerlink" title="3. 指令和操作符"></a>3. 指令和操作符</h3><h4 id="3-1-指令"><a href="#3-1-指令" class="headerlink" title="3.1 指令"></a>3.1 指令</h4><ul>
+<h5 id="DEBUG常用命令"><a href="#DEBUG常用命令" class="headerlink" title="DEBUG常用命令"></a>DEBUG常用命令</h5><p>-r ds<br> :1000<br>-d ds:10 18             ;查看1000:10~1000:18中的内容<br>-d cs:0                 ;查看当前代码段中的指令代码<br>-d ss:0                ;查看当前栈段中的内容<br>-u cs:0                ; 以汇编指令的形式，显示当前代码段中的代码，0代码的<br>     偏移地址<br>-r ds<br>:1000<br>-a ds:0                 ;以汇编指令的形式，向从1000:0开始的内存单元中写入指<br>     令</p>
+<h3 id="指令和操作符"><a href="#指令和操作符" class="headerlink" title="指令和操作符"></a>指令和操作符</h3><h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><ul>
 <li><p><strong>mov</strong>：传送指令</p>
 </li>
 <li><p><strong>add</strong>：加法指令</p>
@@ -416,7 +416,7 @@
 <li><strong>shl</strong>命令：逻辑左移指令， 它的功能为：<br>&emsp;&emsp;将一个寄存器或内存单元中的数据向左移位；<br>&emsp;&emsp;将最后移出的一位写入CF 中；<br>&emsp;&emsp;最低位用0补充。<br>&emsp;&emsp;如果移动位数大千1 时， 必须将移动位数放在cl中。<br>&emsp;&emsp;将X 逻辑左移一位， 相当于执行X=X*2。<br>指令:<br>&emsp;&emsp;mov al , 01001000b<br>&emsp;&emsp;shl al, 1&emsp;&emsp;;将al 中的数据左移一位<br>执行后(al)= I00I0000b, CF=0。</li>
 <li><strong>shr</strong>指令：逻辑右移指令， 它和shl所进行的操作刚好相反。</li>
 </ul>
-<p>####3.2 操作符<br><strong>idata</strong> 表示常量<br><strong>dup</strong> 用来进行数据重复的操作符<br><strong>db</strong> 3 dup (0)     ;定义3个字节，他们的都是0，相当于db 0,0,0<br><strong>db</strong> 字节型数据<br><strong>dw</strong> 字形数据<br><strong>dd</strong> 双字型数据<br><strong>offset</strong> 取得标号的偏移地址；offset start表示取得start的偏移地址<br><strong>nop</strong> 空指令，不执行操作，但占一个程序步骤。占一个byte，8位即ff。</p>
+<h4 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h4><p><strong>idata</strong> 表示常量<br><strong>dup</strong> 用来进行数据重复的操作符<br><strong>db</strong> 3 dup (0)     ;定义3个字节，他们的都是0，相当于db 0,0,0<br><strong>db</strong> 字节型数据<br><strong>dw</strong> 字形数据<br><strong>dd</strong> 双字型数据<br><strong>offset</strong> 取得标号的偏移地址；offset start表示取得start的偏移地址<br><strong>nop</strong> 空指令，不执行操作，但占一个程序步骤。占一个byte，8位即ff。</p>
 
     </div>
 
@@ -497,7 +497,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基础知识小结"><span class="nav-number">1.</span> <span class="nav-text">1.基础知识小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-寄存器"><span class="nav-number">2.</span> <span class="nav-text">2. 寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-寄存器知识小结"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 寄存器知识小结</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-标志寄存器"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1 标志寄存器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-DEBUG命令"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 DEBUG命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-DEBUG常用命令"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.1 DEBUG常用命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-指令和操作符"><span class="nav-number">3.</span> <span class="nav-text">3. 指令和操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-指令"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 指令</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识小结"><span class="nav-number">1.</span> <span class="nav-text">基础知识小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寄存器"><span class="nav-number">2.</span> <span class="nav-text">寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#寄存器知识小结"><span class="nav-number">2.1.</span> <span class="nav-text">寄存器知识小结</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#标志寄存器"><span class="nav-number">2.1.1.</span> <span class="nav-text">标志寄存器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DEBUG命令"><span class="nav-number">2.2.</span> <span class="nav-text">DEBUG命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DEBUG常用命令"><span class="nav-number">2.2.1.</span> <span class="nav-text">DEBUG常用命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指令和操作符"><span class="nav-number">3.</span> <span class="nav-text">指令和操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">3.1.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作符"><span class="nav-number">3.2.</span> <span class="nav-text">操作符</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
