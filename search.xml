@@ -950,97 +950,17 @@
 <td>OV/Overflow/溢出</td>
 <td>NV/Not Overflow/未溢出</td>
 </tr>
-<tr>
-<td>#### 2.2 DEBUG命令</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>用DEBUG program.exe来用汇编调试一个程序</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>DEBUG默认所有的数据都用十六进制表示。</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>1. r 查看CPU寄存器中的内容</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>r ax 修改寄存器ax中的值</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2. d 段地址:偏移地址 查看该内存处的内容</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>d 段地址:偏移地址 结尾偏移地址 查看该内存范围的内容</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>使用d 段地址:偏移地址之后，接着使用d命令，可列出后续的内容</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>3. e 改写内存中的内容</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>“e 起始地址 数据 数据 数据 …”的格式</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>4. t 命令，让CPU执行当前CS:IP指向的汇编命令</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>用U命令查看内存中机器码的含义，用T命令执行内存中的机器码</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>1. a 段地址:偏移地址 以汇编指令的形式在内存中写入机器指令的</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2. 注意：Debug的T命令在执行修改寄存器SS的指令时，下一条指令也紧接着被执行。</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>3. g 命令 “g 0012”将使Debug从当前CS:IP指向的指令执行，一直到(IP)=0012h位置。</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
+<h4 id="2-2-DEBUG命令"><a href="#2-2-DEBUG命令" class="headerlink" title="2.2 DEBUG命令"></a>2.2 DEBUG命令</h4><p>用DEBUG program.exe来用汇编调试一个程序<br>DEBUG默认所有的数据都用十六进制表示。</p>
+<ol>
+<li>r 查看CPU寄存器中的内容<br>r ax 修改寄存器ax中的值</li>
+<li>d 段地址:偏移地址 查看该内存处的内容<br>d 段地址:偏移地址 结尾偏移地址 查看该内存范围的内容<br>使用d 段地址:偏移地址之后，接着使用d命令，可列出后续的内容</li>
+<li>e 改写内存中的内容<br>“e 起始地址 数据 数据 数据 …”的格式</li>
+<li>t 命令，让CPU执行当前CS:IP指向的汇编命令<br>用U命令查看内存中机器码的含义，用T命令执行内存中的机器码</li>
+<li>a 段地址:偏移地址 以汇编指令的形式在内存中写入机器指令的</li>
+<li>注意：Debug的T命令在执行修改寄存器SS的指令时，下一条指令也紧接着被执行。</li>
+<li>g 命令 “g 0012”将使Debug从当前CS:IP指向的指令执行，一直到(IP)=0012h位置。</li>
+</ol>
 <h5 id="2-2-1-DEBUG常用命令"><a href="#2-2-1-DEBUG常用命令" class="headerlink" title="2.2.1 DEBUG常用命令"></a>2.2.1 DEBUG常用命令</h5><p>-r ds<br> :1000<br>-d ds:10 18             ;查看1000:10~1000:18中的内容<br>-d cs:0                 ;查看当前代码段中的指令代码<br>-d ss:0                ;查看当前栈段中的内容<br>-u cs:0                ; 以汇编指令的形式，显示当前代码段中的代码，0代码的<br>     偏移地址<br>-r ds<br>:1000<br>-a ds:0                 ;以汇编指令的形式，向从1000:0开始的内存单元中写入指<br>     令</p>
 <h3 id="3-指令和操作符"><a href="#3-指令和操作符" class="headerlink" title="3. 指令和操作符"></a>3. 指令和操作符</h3><h4 id="3-1-指令"><a href="#3-1-指令" class="headerlink" title="3.1 指令"></a>3.1 指令</h4><ul>
 <li><p><strong>mov</strong>：传送指令</p>
