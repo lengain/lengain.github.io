@@ -999,7 +999,7 @@
 <li><p><strong>cmp</strong>指令：比较指令<br>cmp 指令格式： cmp 操作对象1， 操作对象2<br>功能： 计算操作对象1 － 操作对象2 但并不保存结果， 仅仅根据计算结果对标志寄存器进行设置。<br>比如， 指令cmp ax ,ax, 做（ax )一(ax )的运算， 结果为0, 但并不在ax 中保存， 仅影响flag 的相关各位。指令执行后： zf=l, pf=l, sf= 0, cf= 0, of= 0。</p>
 </li>
 <li><p>常用的根据无符号数的比较结果进行转移的条件转移指令。<br>字母表示意义如下。e: 表示equal； ne: 表示not equal； b: 表示below； nb: 表示not below； a: 表示above； na: 表示not above</p>
-<p>| 指令 |含义 | 检测的相关标志位|<br>| — | — | — | — |<br>| je| 等于则转移 |zf=1|<br>| jne| 不等于则转移| zf=0|* jb 低于则转移 cf=1<br>| jnb |不低于则转移 |cf=0|<br>|ja |高于则转移 |cf=0且zf=0|<br>|na |不高于则转移 |cf=1或zf=1</p>
+<p>| 指令 | 含义 | 检测的相关标志位|<br>| — | — | — | — |<br>| je| 等于则转移 |zf=1|<br>| jne| 不等于则转移| zf=0|<br>| jb| 低于则转移 |cf=1|<br>| jnb |不低于则转移 |cf=0|<br>|ja |高于则转移 |cf=0且zf=0|<br>|na |不高于则转移 |cf=1或zf=1|</p>
 </li>
 <li><p><strong>movesb</strong>指令：串传送指令，功能是将ds: si 指向的内存单元中的字节送入es:di 中， 然后根据标志寄存器df 位的值， 将si 和di 递增或递减。</p>
 </li>
