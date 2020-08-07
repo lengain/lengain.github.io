@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://lengain.github.io/2020/08/07/8086%E6%B1%87%E7%BC%96%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D.png">
 <meta property="article:published_time" content="2020-08-07T08:09:03.000Z">
-<meta property="article:modified_time" content="2020-08-07T09:45:20.453Z">
+<meta property="article:modified_time" content="2020-08-07T09:48:21.247Z">
 <meta property="article:author" content="Lengain">
 <meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
@@ -352,39 +352,41 @@
 </li>
 <li><p><strong>retf</strong>指令：远转移指令，进行下面4部操作<br>&emsp;&emsp;(1) (IP)=((ss)* 16+(sp))<br>&emsp;&emsp;(2) (sp)=(sp)+2<br>&emsp;&emsp;(3) (CS)=((ss)* 16+(sp))<br>&emsp;&emsp;(4) (sp)=(sp)+2<br>&emsp;&emsp;相当于：<br>&emsp;&emsp;pop IP<br>&emsp;&emsp;pop CS</p>
 </li>
-<li><p><strong>call</strong>指令：</p>
+<li><p><strong>call</strong>指令：<br><strong>当前IP的转移位移</strong><br>call 标号 ;将当前的IP压栈后，转到标号处执行指令。进行如下操作<br>(1)   (sp)=(sp)-2<br>&emsp;&emsp;((ss)* 16+(sp))=(IP)<br>(2)   (IP)=(IP)+ 16 位位移。<br>相当于<br>&emsp;&emsp;push IP<br>&emsp;&emsp;jmp near ptr 标号<br><strong>段间转移</strong><br>&emsp;&emsp;call far ptr 标号 ;进行如下操作<br>(1)<br>&emsp;&emsp;(sp)=(sp)-2<br>&emsp;&emsp;((ss)* 16+(sp))=(CS)<br>&emsp;&emsp;(sp)=(sp)-2<br>&emsp;&emsp;((ss)* 16+(sp))=(IP)<br>(2)<br>&emsp;&emsp;(CS)＝ 标号所在段的段地址<br>&emsp;&emsp;(IP)＝ 标号在段中的偏移地址<br>相当于<br>&emsp;&emsp;push CS<br>&emsp;&emsp;push IP<br>&emsp;&emsp;jmp far ptr 标号<br><strong>转移地址在寄存器中的call指令</strong><br>call 16位reg ;进行以下操作<br>&emsp;&emsp;(sp)=(sp)-2<br>&emsp;&emsp;((ss)* 16+(sp))=(IP)<br>&emsp;&emsp;(IP)=( 16 位reg)<br>相当于<br>&emsp;&emsp;push IP<br>&emsp;&emsp;jmp 16 位reg<br><strong>转移地址在内存中的call指令</strong><br>call word ptr 内存单元地址<br>相当于<br>&emsp;&emsp;push IP<br>&emsp;&emsp;jmp word ptr 内存单元地址<br>call dword ptr 内存单元地址<br>相当于<br>&emsp;&emsp;push CS<br>&emsp;&emsp;push IP<br>&emsp;&emsp;jmp dword ptr 内存单元地址</p>
 </li>
-<li><p><em>当前IP的转移位移**<br>call 标号 ;将当前的IP压栈后，转到标号处执行指令。进行如下操作<br>(1)   (sp)=(sp)-2<br>&emsp;&emsp;((ss)</em> 16+(sp))=(IP)<br>(2)   (IP)=(IP)+ 16 位位移。<br>相当于<br>&emsp;&emsp;push IP<br>&emsp;&emsp;jmp near ptr 标号</p>
+<li><p><strong>adc</strong>指令：带进位加法指令，利用CF标志位上记录进位值<br>&emsp;&emsp;指令格式：add 操作对象1，操作对象2<br>&emsp;&emsp;功能：操作对象1 = 操作对象1 + 操作对象2 + CF<br>&emsp;&emsp;比如指令adc ax,bx 实现的功能是：(ax)=(ax)+(bx) + CF</p>
 </li>
-<li><p><em>段间转移**<br>&emsp;&emsp;call far ptr 标号 ;进行如下操作<br>(1)<br>&emsp;&emsp;(sp)=(sp)-2<br>&emsp;&emsp;((ss)</em> 16+(sp))=(CS)<br>&emsp;&emsp;(sp)=(sp)-2<br>&emsp;&emsp;((ss)* 16+(sp))=(IP)<br>(2)<br>&emsp;&emsp;(CS)＝ 标号所在段的段地址<br>&emsp;&emsp;(IP)＝ 标号在段中的偏移地址<br>相当于<br>&emsp;&emsp;push CS<br>&emsp;&emsp;push IP<br>&emsp;&emsp;jmp far ptr 标号</p>
-</li>
-<li><p><em>转移地址在寄存器中的call指令**<br>call 16位reg ;进行以下操作<br>&emsp;&emsp;(sp)=(sp)-2<br>&emsp;&emsp;((ss)</em> 16+(sp))=(IP)<br>&emsp;&emsp;(IP)=( 16 位reg)<br>相当于<br>&emsp;&emsp;push IP<br>&emsp;&emsp;jmp 16 位reg</p>
-</li>
-<li><p><em>转移地址在内存中的call指令*</em><br>call word ptr 内存单元地址<br>相当于<br>&emsp;&emsp;push IP<br>&emsp;&emsp;jmp word ptr 内存单元地址<br>call dword ptr 内存单元地址<br>相当于<br>&emsp;&emsp;push CS<br>&emsp;&emsp;push IP<br>&emsp;&emsp;jmp dword ptr 内存单元地址</p>
-</li>
-<li><p><strong>ptr</strong>指令：带进位加法指令，利用CF标志位上记录进位值<br>&emsp;&emsp;指令格式：add 操作对象1，操作对象2<br>&emsp;&emsp;功能：操作对象1 = 操作对象1 + 操作对象2 + CF<br>&emsp;&emsp;比如指令adc ax,bx 实现的功能是：(ax)=(ax)+(bx) + CF</p>
-</li>
-<li><p><strong>+(b</strong>指令：带借位减法指令，利用CF标志位记录借位值<br>指令格式： sb b 操作对象1 ，操作对象2<br>功能： 操作对象1 ＝操作对象1 - 操作对象2 - CF<br>比如指令sbb ax ,bx 实现的功能是： (ax)=(ax)-(bx) - CF</p>
+<li><p><strong>sbb</strong>指令：带借位减法指令，利用CF标志位记录借位值<br>指令格式： sb b 操作对象1 ，操作对象2<br>功能： 操作对象1 ＝操作对象1 - 操作对象2 - CF<br>比如指令sbb ax ,bx 实现的功能是： (ax)=(ax)-(bx) - CF</p>
 </li>
 <li><p><strong>cmp</strong>指令：比较指令<br>cmp 指令格式： cmp 操作对象1， 操作对象2<br>功能： 计算操作对象1 － 操作对象2 但并不保存结果， 仅仅根据计算结果对标志寄存器进行设置。<br>比如， 指令cmp ax ,ax, 做（ax )一(ax )的运算， 结果为0, 但并不在ax 中保存， 仅影响flag 的相关各位。指令执行后： zf=l, pf=l, sf= 0, cf= 0, of= 0。</p>
 </li>
 <li><p>常用的根据无符号数的比较结果进行转移的条件转移指令。<br>字母表示意义如下。e: 表示equal； ne: 表示not equal； b: 表示below； nb: 表示not below； a: 表示above； na: 表示not above</p>
-</li>
-</ul>
 <p>| 指令 |含义 | 检测的相关标志位|<br>| — | — | — | — |<br>| je| 等于则转移 |zf=1|<br>| jne| 不等于则转移| zf=0|* jb 低于则转移 cf=1<br>| jnb |不低于则转移 |cf=0|<br>|ja |高于则转移 |cf=0且zf=0|<br>|na |不高于则转移 |cf=1或zf=1</p>
-<ul>
-<li><strong>|cf=1</strong>指令：串传送指令，功能是将ds: si 指向的内存单元中的字节送入es:di 中， 然后根据标志寄存器df 位的值， 将si 和di 递增或递减。</li>
-<li><strong>和di 递</strong>指令：串传送指令，功能是将ds: si 指向的内存字单元中的字送入es:di 中， 然后根据标志寄存器df 位的值， 将si 和di 递增2 或递减2。</li>
-<li><strong>rep</strong>指令：一般来说， movsb 和movsw 都和rep 配合使用， 格式如下：<br>rep movsb<br>作用是根据cx的值， 重复执行后面的串传送指令。</li>
-<li><strong>cld</strong>指令： 将标志寄存器的df位置0，正向</li>
-<li><strong>std</strong>指令： 将标志寄存器的df位置1，反向</li>
-<li><strong>sti</strong>指令：设置1F= l </li>
-<li><strong>cli</strong>指令：设置IF=O </li>
-<li><strong>pushf</strong>和<strong>popf</strong>指令：将标志寄存器的值压栈和出栈。</li>
-<li><strong>iret</strong>指令：通常和硬件自动完成的中断过程配合使用，它的功能用汇编语法描述为：<br>pop IP<br>pop CS<br>popf</li>
-<li><strong>in</strong>和<strong>out</strong>指令：分别用千从端口读取数据和往端口写入数据</li>
-<li><strong>shl</strong>命令：逻辑左移指令， 它的功能为：<br>&emsp;&emsp;将一个寄存器或内存单元中的数据向左移位；<br>&emsp;&emsp;将最后移出的一位写入CF 中；<br>&emsp;&emsp;最低位用0补充。<br>&emsp;&emsp;如果移动位数大千1 时， 必须将移动位数放在cl中。<br>&emsp;&emsp;将X 逻辑左移一位， 相当于执行X=X*2。<br>指令:<br>&emsp;&emsp;mov al , 01001000b<br>&emsp;&emsp;shl al, 1&emsp;&emsp;;将al 中的数据左移一位<br>执行后(al)= I00I0000b, CF=0。</li>
-<li><strong>shr</strong>指令：逻辑右移指令， 它和shl所进行的操作刚好相反。</li>
+</li>
+<li><p><strong>movesb</strong>指令：串传送指令，功能是将ds: si 指向的内存单元中的字节送入es:di 中， 然后根据标志寄存器df 位的值， 将si 和di 递增或递减。</p>
+</li>
+<li><p><strong>movesw</strong>指令：串传送指令，功能是将ds: si 指向的内存字单元中的字送入es:di 中， 然后根据标志寄存器df 位的值， 将si 和di 递增2 或递减2。</p>
+</li>
+<li><p><strong>rep</strong>指令：一般来说， movsb 和movsw 都和rep 配合使用， 格式如下：<br>rep movsb<br>作用是根据cx的值， 重复执行后面的串传送指令。</p>
+</li>
+<li><p><strong>cld</strong>指令： 将标志寄存器的df位置0，正向</p>
+</li>
+<li><p><strong>std</strong>指令： 将标志寄存器的df位置1，反向</p>
+</li>
+<li><p><strong>sti</strong>指令：设置1F= l </p>
+</li>
+<li><p><strong>cli</strong>指令：设置IF=O </p>
+</li>
+<li><p><strong>pushf</strong>和<strong>popf</strong>指令：将标志寄存器的值压栈和出栈。</p>
+</li>
+<li><p><strong>iret</strong>指令：通常和硬件自动完成的中断过程配合使用，它的功能用汇编语法描述为：<br>pop IP<br>pop CS<br>popf</p>
+</li>
+<li><p><strong>in</strong>和<strong>out</strong>指令：分别用千从端口读取数据和往端口写入数据</p>
+</li>
+<li><p><strong>shl</strong>命令：逻辑左移指令， 它的功能为：<br>&emsp;&emsp;将一个寄存器或内存单元中的数据向左移位；<br>&emsp;&emsp;将最后移出的一位写入CF 中；<br>&emsp;&emsp;最低位用0补充。<br>&emsp;&emsp;如果移动位数大千1 时， 必须将移动位数放在cl中。<br>&emsp;&emsp;将X 逻辑左移一位， 相当于执行X=X*2。<br>指令:<br>&emsp;&emsp;mov al , 01001000b<br>&emsp;&emsp;shl al, 1&emsp;&emsp;;将al 中的数据左移一位<br>执行后(al)= I00I0000b, CF=0。</p>
+</li>
+<li><p><strong>shr</strong>指令：逻辑右移指令， 它和shl所进行的操作刚好相反。</p>
+</li>
 </ul>
 <p>####3.2 操作符<br><strong>idata</strong> 表示常量<br><strong>dup</strong> 用来进行数据重复的操作符<br><strong>db</strong> 3 dup (0)     ;定义3个字节，他们的都是0，相当于db 0,0,0<br><strong>db</strong> 字节型数据<br><strong>dw</strong> 字形数据<br><strong>dd</strong> 双字型数据<br><strong>offset</strong> 取得标号的偏移地址；offset start表示取得start的偏移地址<br><strong>nop</strong> 空指令，不执行操作，但占一个程序步骤。占一个byte，8位即ff。</p>
 
