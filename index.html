@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -28,17 +28,7 @@
 <meta property="og:description" content="所谓成功只有一个—按照自己的方式，去度过人生">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Lengain">
-<meta property="article:tag" content="iOS">
-<meta property="article:tag" content="开发者">
-<meta property="article:tag" content="程序员">
-<meta property="article:tag" content="编程">
-<meta property="article:tag" content="代码">
-<meta property="article:tag" content="开源">
-<meta property="article:tag" content="cocoaChina">
-<meta property="article:tag" content="Developer">
-<meta property="article:tag" content="Programmer">
-<meta property="article:tag" content="Coder">
-<meta property="article:tag" content="Geek">
+<meta property="article:tag" content="iOS,开发者,程序员,编程,代码,开源,cocoaChina,Developer,Programmer,Coder,Geek">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://lengain.github.io/">
@@ -169,7 +159,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/08/29/%E6%97%B6%E9%97%B4%E6%8A%95%E5%BD%B1/">
+    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -183,7 +173,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/08/29/%E6%97%B6%E9%97%B4%E6%8A%95%E5%BD%B1/" class="post-title-link" itemprop="url">时间投影</a>
+            <a href="/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/" class="post-title-link" itemprop="url">iOS Category源码探究</a>
         </h2>
 
         <div class="post-meta">
@@ -193,7 +183,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-08-29 09:14:55" itemprop="dateCreated datePublished" datetime="2020-08-29T09:14:55+08:00">2020-08-29</time>
+              <time title="创建时间：2020-11-19 10:08:21" itemprop="dateCreated datePublished" datetime="2020-11-19T10:08:21+08:00">2020-11-19</time>
             </span>
 
           
@@ -207,11 +197,154 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="楔子"><a href="#楔子" class="headerlink" title="楔子"></a>楔子</h4><p>时间投影，是我以天为单位用来记录日常的帖子。自说自话。</p>
-<h4 id="2020年08月29日"><a href="#2020年08月29日" class="headerlink" title="2020年08月29日"></a>2020年08月29日</h4><p>想来明天就要去牙医那看牙齿正畸了。</p>
+          <p>Objective-C的Category特性，使的开发者在处理某些问题时，简单而又方便。理解Category的源码，对OC编程的理解会有很大的帮助。</p>
+<p>Category的处理源码在libobjc.A.dylib中，苹果已经<a target="_blank" rel="noopener" href="https://opensource.apple.com/tarballs/objc4/">开源</a>，但是下载后直接使用Xcode编译，会报很多错误。网上有很多帖子，介绍如何解决libobjc编译错误，这里就不介绍了。在github上有个开源项目<a target="_blank" rel="noopener" href="https://github.com/xdxu1126/objc4">objc4</a>，提供了可编译版本的objc工程，可按需索取。目前苹果刚发布macOS Big Sur 11.0.1，适配该系统的Objc还没有开源，<code>objc4</code>在这个系统上会有一点错误，不过不影响阅读，各个函数，变量定义之间的跳转也没有问题。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/08/29/%E6%97%B6%E9%97%B4%E6%8A%95%E5%BD%B1/#more" rel="contents">
+              <a class="btn" href="/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/10/05/%E6%94%92%E4%B8%AA%E6%9C%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+      <meta itemprop="description" content="所谓成功只有一个—按照自己的方式，去度过人生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/05/%E6%94%92%E4%B8%AA%E6%9C%BA/" class="post-title-link" itemprop="url">攒个机</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-05 23:27:20" itemprop="dateCreated datePublished" datetime="2020-10-05T23:27:20+08:00">2020-10-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>2020-10-05</strong></p>
+<p>双十一准备攒一台主机。</p>
+<p>CPU准备选十代i7k。以下配置都是按照该CPU来配置的。选配的理念是高性能，静音，无灯光。这个配置未来5年够躁的了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/05/%E6%94%92%E4%B8%AA%E6%9C%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+      <meta itemprop="description" content="所谓成功只有一个—按照自己的方式，去度过人生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">给设计师，产品经理的iOS UI介绍</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-23 17:24:47" itemprop="dateCreated datePublished" datetime="2020-09-23T17:24:47+08:00">2020-09-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>iOS为一名iOS开发者，在日常工作中常常会遇到设计师，产品经理犯一些常识性的错误，令人啼笑皆非。有些扯皮，因为没有共识，浪费了很多时间。部分设计师和产品经理对iOS系统的理解停留在表面。我这篇分享，将从程序员的角度带你去认识一下iOS系统的UI。</p>
+<p>读完之后的目标：</p>
+<ul>
+<li><p>认识iOS操作系统中大部分系统控件的UI</p>
+</li>
+<li><p>理解iOS开发中视图组织的内部逻辑</p>
+</li>
+<li><p>一些常识</p>
+</li>
+<li><p>一些设计资源的分享</p>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -684,141 +817,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/07/22/%E6%B1%87%E7%BC%96%EF%BC%9A%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Lengain">
-      <meta itemprop="description" content="所谓成功只有一个—按照自己的方式，去度过人生">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时光地下铁">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/22/%E6%B1%87%E7%BC%96%EF%BC%9A%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">汇编：显示字符串</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-22 10:05:31" itemprop="dateCreated datePublished" datetime="2020-07-22T10:05:31+08:00">2020-07-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>8086汇编中，有一道在屏幕上显示字符串的子程序。因为好久没做汇编题了，花了两个多小时，这里记录一下做的过程。<br>题目是这样的：</p>
-<blockquote>
-<p>显示字符串是现实工作中经常要用到的功能， 应该编写一个通用的子程序来实现这个功能。我们应该提供灵活的调用接口，使调用者可以决定显示的位置（行、列）、内容和颜色。<br>子程序描述<br>名称： show_str<br>功能： 在指定的位置，用指定的颜色，显示一个用0结束的字符串。<br>参数： （dh)＝ 行号（取值范围0<del>24), (di)＝ 列号（取值范围0</del>79)<br>(cl)＝颜色， ds:si指向字符串的首地址<br>返回： 无</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/22/%E6%B1%87%E7%BC%96%EF%BC%9A%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/06/26/%E5%85%B3%E4%BA%8E%E5%BA%94%E7%94%A8%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D%E7%9A%84UI%E5%92%8C%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Lengain">
-      <meta itemprop="description" content="所谓成功只有一个—按照自己的方式，去度过人生">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时光地下铁">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/26/%E5%85%B3%E4%BA%8E%E5%BA%94%E7%94%A8%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D%E7%9A%84UI%E5%92%8C%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">关于应用“简图”的UI和交互设计</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-26 12:10:14" itemprop="dateCreated datePublished" datetime="2020-06-26T12:10:14+08:00">2020-06-26</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="2020年6月19日"><a href="#2020年6月19日" class="headerlink" title="2020年6月19日"></a>2020年6月19日</h3><p>上段时间在考虑应用的名字，确定好叫<code>简图</code>之后我就开始了开发的工作。</p>
-<p>现在卡在第三方账号设置页面的UI设计和交互设计了。我想了很久，但是还没想到好的方案。</p>
-<p>先说说主页的设计吧。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/26/%E5%85%B3%E4%BA%8E%E5%BA%94%E7%94%A8%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D%E7%9A%84UI%E5%92%8C%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -890,14 +888,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
