@@ -1155,7 +1155,9 @@
   <entry>
     <title>封装一个超级易用的Swift网络请求库</title>
     <url>/2024/03/11/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AA%E8%B6%85%E7%BA%A7%E6%98%93%E7%94%A8%E7%9A%84Swift%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%BA%93/</url>
-    <content><![CDATA[<p>Swift网络库最著名的就是<code>Alamofire</code>,但是在实际项目中，想要尽可能简单的发起网络请求，必须对<code>Alamofire</code>进行一层封装。依赖<code>Alamofire</code>的封装库也有很多优秀的，比如<code>Moya</code>。但是经过项目的使用，我发现<code>Moya</code>用起来并不简单，它有以下问题：</p>
+    <content><![CDATA[<p>Swift网络库最著名的就是<code>Alamofire</code>,但是在实际项目中，想要尽可能简单的发起网络请求，必须对<code>Alamofire</code>进行一层封装。依赖<code>Alamofire</code>的封装库也有很多优秀的，比如<code>Moya</code>。但是经过项目的使用，我发现<code>Moya</code>用起来并不简单。</p>
+<a id="more"></a>
+<p>它有以下问题：</p>
 <ul>
 <li>硬编码较多<br>Moya使用时要在指定的方法中添加请求方法，请求参数，路径。</li>
 <li>封装复杂<br><code>Alamofire</code>已经是一个功能繁多的网络库了，<code>Moya</code>的二次封装，既要保证功能完整，又要使用面向协议，导致了过多的抽象，用户在使用时，大都需要三次业务的封装，虽然也面向协议了，但却复杂了。</li>
@@ -1191,9 +1193,6 @@
 
 <p>以上~</p>
 ]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
       <tags>
         <tag>iOS</tag>
       </tags>
