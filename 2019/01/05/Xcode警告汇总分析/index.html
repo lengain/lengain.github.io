@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lengain.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Xcode工程警告在我们工作中经常遇到，却又常常忽略的。正确的处理Xcode警告可以使得我们开发出优秀的程序。而在实际开发过程中，我们有可能因为项目紧，开发周期短而忽视掉一些警告。本文旨在分析Xcode工程中的各种警告，并根据警告部分的程序对工程影响程度的大小，进行排序，然后提醒开发者，及时处理对工程影响较大的警告。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode警告汇总分析">
+<meta property="og:url" content="http://lengain.github.io/2019/01/05/Xcode%E8%AD%A6%E5%91%8A%E6%B1%87%E6%80%BB%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="时光地下铁">
+<meta property="og:description" content="Xcode工程警告在我们工作中经常遇到，却又常常忽略的。正确的处理Xcode警告可以使得我们开发出优秀的程序。而在实际开发过程中，我们有可能因为项目紧，开发周期短而忽视掉一些警告。本文旨在分析Xcode工程中的各种警告，并根据警告部分的程序对工程影响程度的大小，进行排序，然后提醒开发者，及时处理对工程影响较大的警告。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-01-05T12:10:47.000Z">
+<meta property="article:modified_time" content="2024-03-11T03:13:42.476Z">
+<meta property="article:author" content="Lengain">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://lengain.github.io/2019/01/05/Xcode%E8%AD%A6%E5%91%8A%E6%B1%87%E6%80%BB%E5%88%86%E6%9E%90/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Xcode警告汇总分析 | 时光地下铁</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">时光地下铁</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">走走停停，看看风景</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2019/01/05/Xcode%E8%AD%A6%E5%91%8A%E6%B1%87%E6%80%BB%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+      <meta itemprop="description" content="所谓成功只有一个—按照自己的方式，去度过人生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Xcode警告汇总分析
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-05 20:10:47" itemprop="dateCreated datePublished" datetime="2019-01-05T20:10:47+08:00">2019-01-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Xcode工程警告在我们工作中经常遇到，却又常常忽略的。正确的处理Xcode警告可以使得我们开发出优秀的程序。而在实际开发过程中，我们有可能因为项目紧，开发周期短而忽视掉一些警告。本文旨在分析Xcode工程中的各种警告，并根据警告部分的程序对工程影响程度的大小，进行排序，然后提醒开发者，及时处理对工程影响较大的警告。</p>
+<a id="more"></a>
+
+<p>我会按照10分（严重）到1分（可忽略）的顺序，对各种警告进行打分。分数说明：严重（10）、较严重（8）、建议处理（5）、一般（3）、可忽略（1）。其中&gt;=5分的，建议立即处理，其他可稍后处理，但是一定要去处理，除非该处警告经观察后，无需处理。</p>
+<p>我的Xcode版本：<code>Version 10.1 (10B61)</code></p>
+<p>这里从<code>Run/Build</code>时和 <code>Analyze</code>时两种情况来分析。</p>
+<h4 id="Xcode-Run-Build警告"><a href="#Xcode-Run-Build警告" class="headerlink" title="Xcode Run/Build警告"></a>Xcode Run/Build警告</h4><h5 id="Dependency-Analysis-Warning（依赖分析警告）"><a href="#Dependency-Analysis-Warning（依赖分析警告）" class="headerlink" title="Dependency Analysis Warning（依赖分析警告）"></a>Dependency Analysis Warning（依赖分析警告）</h5><p>通常是工程配置不正确引起。</p>
+<p>例如：Mutiple build commands for output file xxx。解决方法：通常是由于重复引用文件导致。在<code>Build Phases</code> <code>Copy Bundle Resources</code>中删除重复文件就可以了。</p>
+<p>分析：本警告在Xcode10之前，无需处理，但是，Xcode10之后，会报错，导致无法运行程序，虽然可以切换Xcode 的Build System为<code>Legncy Build System</code>，但这其实是避开问题不去解决的鸵鸟心态。因此这里定此警告为6分，建议碰到即处理。</p>
+<h5 id="Documentation-Issue（文档问题）"><a href="#Documentation-Issue（文档问题）" class="headerlink" title="Documentation Issue（文档问题）"></a>Documentation Issue（文档问题）</h5><p>通常是方法的文档里，方法的参数未写文档或文档的参数与方法的参数不匹配引起的问题。</p>
+<p>分析：文档警告对要求比较高的程序员，可能不能忍受。看见的话还是会改一下，但是有些参数真的是没什么好写的。这里定为2分。</p>
+<p>扩展：工程里可以禁用Documentation Issue，参照这里<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/24453188/disable-documentation-comments-warning-for-selected-files">Disable “Documentation Comments” warning for selected files</a></p>
+<h5 id="Lexical-or-Preprocessor-Issue（词汇或预处理程序问题）"><a href="#Lexical-or-Preprocessor-Issue（词汇或预处理程序问题）" class="headerlink" title="Lexical or Preprocessor Issue（词汇或预处理程序问题）"></a>Lexical or Preprocessor Issue（词汇或预处理程序问题）</h5><p>通常是宏重复定义，引用文件名大小写不匹配等警告。</p>
+<p>例如：</p>
+<p>non-portable path to file .h,specified path differs in case from file name on disk 解决方法：检查文件名，修改正确</p>
+<p>‘xxx’ macro redefined 解决方法：重新定义新的宏或删除宏</p>
+<p>分析：当宏重复定义，但是值不一样时，有可能会造成错误。因此词汇或预处理程序问题建议碰到后，立即修改。这里定为5分。</p>
+<h5 id="Semantic-Issue（语义问题）"><a href="#Semantic-Issue（语义问题）" class="headerlink" title="Semantic Issue（语义问题）"></a>Semantic Issue（语义问题）</h5><p>这种问题在工程中经常见到，通常情况并不会影响程序的运行，通常是由于程序员的编码习惯所致，程序员在注意到这个问题后，应尽量避免这种问题。而且代码里一堆警告，也不美观。</p>
+<p>例如：</p>
+<p>Block implicitly retains ‘self’; explicitly mention ‘self’ to indicate this is intended behavior 解决方法：指定全局变量为<code>self.iVar</code>或<code>self-&gt;_iVar</code>，同时，也可以禁掉这个提示，参照<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/21577711/block-implicitly-retains-self-explicitly-mention-self-to-indicate-this-is-i">这里</a>。</p>
+<p>Method definition for ‘custom method’ not found 解决方法：删除或定义方法</p>
+<p>Incompatible pointer types initializing ‘xxx’ with an expression of type ‘yyy’ Format String Issue 解决方法：类型强转</p>
+<p>Class ‘xxx’ does not conform to protocol ‘yyy’ 解决方法：实现协议中的方法或声明协议中的方法为<code>@optional</code>。</p>
+<p>等。</p>
+<p>分析：语义问题很常见，通常不会引起什么错误。这里定为4分。在了解是那种警告并且确认不改不会造成问题之后可以放任不管。</p>
+<h5 id="User-Defined-Issue（用户自定义问题）"><a href="#User-Defined-Issue（用户自定义问题）" class="headerlink" title="User-Defined Issue（用户自定义问题）"></a>User-Defined Issue（用户自定义问题）</h5><p>分析：使用<code>#warning</code>之后引发的warning，为User-Defined Issue。这中警告一般是用户自定义或是系统预先定义的，警告级别，可高可低，因此这里不打分。</p>
+<h5 id="Format-String-Issue（格式化字符串问题）"><a href="#Format-String-Issue（格式化字符串问题）" class="headerlink" title="Format String Issue（格式化字符串问题）"></a>Format String Issue（格式化字符串问题）</h5><p>分析：该问题通常是基本数据类型转<code>NSString</code>时，出现这样的问题。点击问题后，再次点击问题框上的<code>fix</code>按钮，就可以修复。这里打2分。</p>
+<h5 id="Unused-Entity-Issue（未使用的实体）"><a href="#Unused-Entity-Issue（未使用的实体）" class="headerlink" title="Unused Entity Issue（未使用的实体）"></a>Unused Entity Issue（未使用的实体）</h5><p>分析：项目中有声明后未使用的实体（变量，常量）会报这个警告。有用的话可以注释掉，没用删除掉就可以了。这里打1分。</p>
+<h5 id="Value-Conversion-Issue（值转换问题）"><a href="#Value-Conversion-Issue（值转换问题）" class="headerlink" title="Value Conversion Issue（值转换问题）"></a>Value Conversion Issue（值转换问题）</h5><p>当函数中传的参数和定义的参数类型不一致时，会报值转换错误，例如：</p>
+<p>Implicit conversion loses integer precision</p>
+<p>implicit conversion from enumeration type等，解决方法：传入正确的类型</p>
+<p>分析：当传入函数的参数为类型不正确的参数时，容易引发未知问题。这里打7分。</p>
+<h5 id="ARC-Retain-Cycle（自动内存管理循环引用）"><a href="#ARC-Retain-Cycle（自动内存管理循环引用）" class="headerlink" title="ARC Retain Cycle（自动内存管理循环引用）"></a>ARC Retain Cycle（自动内存管理循环引用）</h5><p>分析：循环引用时OC开发中经常遇到的问题。当Xcode提示循环引用时，一般是比较明显的循环引用。循环引用导致内存泄漏，严重的情况，会导致内存暴增，App Crash。因此，遇到循环引用，应及时解决。这里打10分。</p>
+<h5 id="Deprecations（过期不推荐使用）"><a href="#Deprecations（过期不推荐使用）" class="headerlink" title="Deprecations（过期不推荐使用）"></a>Deprecations（过期不推荐使用）</h5><p>分析：使用过期的方法会报<code>Deprecations</code>问题。过期方法都不推荐使用，一本情况，过期的方法又能正常运行。这里打6分，推荐遇到<code>Deprecations</code>问题改为合适的方法。</p>
+<h5 id="Asset-Catalog-Compiler-Warning（资源文件编译警告）"><a href="#Asset-Catalog-Compiler-Warning（资源文件编译警告）" class="headerlink" title="Asset Catalog Compiler Warning（资源文件编译警告）"></a>Asset Catalog Compiler Warning（资源文件编译警告）</h5><p>当<code>Assets.xcassets</code>中的文件，编译时出现异常，会报这个警告。例如：</p>
+<p>The image set name “xxx” is used by multiple image sets.</p>
+<p>app icon is required for iPad/iPhone apps targeting IOS 7.0 and later</p>
+<p>解决方法：正确的使用放入图片，包括尺寸，名字不能重复。</p>
+<p>分析：当图片使用不当时，会直观的显示在UI上，这对App的美观时致命的。这里打8分。</p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>经过排序结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ARC Retain Cycle（自动内存管理循环引用）</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Asset Catalog Compiler Warning（资源文件编译警告）</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Value Conversion Issue（值转换问题）</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Dependency Analysis Warning（依赖分析警告）</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Deprecations（过期不推荐使用）</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Lexical or Preprocessor Issue（词汇或预处理程序问题）</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Semantic Issue（语义问题）</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Documentation Issue（文档问题）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Format String Issue（格式化字符串问题）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Unused Entity Issue（未使用的实体）</td>
+<td>1</td>
+</tr>
+<tr>
+<td>User-Defined Issue（用户自定义问题）</td>
+<td>根据情况而定</td>
+</tr>
+</tbody></table>
+<p>建议遇到五分及以上的警告，及时处理，以免造成无法预料的错误。</p>
+<p>希望开发者（包括我）在编码时，就顺手解决警告，尽量做到零警告。</p>
+<h4 id="Xcode-Analyze警告"><a href="#Xcode-Analyze警告" class="headerlink" title="Xcode Analyze警告"></a>Xcode Analyze警告</h4><p>当使用Xcode <code>Analyze</code>进行分析工程时，也会分析出一些警告。而且分析的警告，大都是必须修复的，这里不在分级，遇到应及时解决。大概有这几中类型：</p>
+<ul>
+<li><p>API Misuse（API滥用）</p>
+</li>
+<li><p>Logic error（逻辑错误）</p>
+</li>
+<li><p>Dead Store（无作用存储体）</p>
+</li>
+<li><p>Leak（内存泄漏）</p>
+</li>
+<li><p>Memory error（内存错误）</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/it_liuchengli/article/details/52948031">这里</a>有更详细的解释，有兴趣可以再看看。</p>
+<p>谢谢观看！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/12/27/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AACALayer-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7CAAnimation%E5%8A%A8%E7%94%BB/" rel="prev" title="如何做一个CALayer 自定义属性CAAnimation动画">
+      <i class="fa fa-chevron-left"></i> 如何做一个CALayer 自定义属性CAAnimation动画
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/" rel="next" title="云南省7天旅游攻略">
+      云南省7天旅游攻略 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Xcode-Run-Build%E8%AD%A6%E5%91%8A"><span class="nav-number">1.</span> <span class="nav-text">Xcode Run&#x2F;Build警告</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dependency-Analysis-Warning%EF%BC%88%E4%BE%9D%E8%B5%96%E5%88%86%E6%9E%90%E8%AD%A6%E5%91%8A%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">Dependency Analysis Warning（依赖分析警告）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Documentation-Issue%EF%BC%88%E6%96%87%E6%A1%A3%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">Documentation Issue（文档问题）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Lexical-or-Preprocessor-Issue%EF%BC%88%E8%AF%8D%E6%B1%87%E6%88%96%E9%A2%84%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">Lexical or Preprocessor Issue（词汇或预处理程序问题）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Semantic-Issue%EF%BC%88%E8%AF%AD%E4%B9%89%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">Semantic Issue（语义问题）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#User-Defined-Issue%EF%BC%88%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">User-Defined Issue（用户自定义问题）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Format-String-Issue%EF%BC%88%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">Format String Issue（格式化字符串问题）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Unused-Entity-Issue%EF%BC%88%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AE%9E%E4%BD%93%EF%BC%89"><span class="nav-number">1.7.</span> <span class="nav-text">Unused Entity Issue（未使用的实体）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Value-Conversion-Issue%EF%BC%88%E5%80%BC%E8%BD%AC%E6%8D%A2%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">1.8.</span> <span class="nav-text">Value Conversion Issue（值转换问题）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ARC-Retain-Cycle%EF%BC%88%E8%87%AA%E5%8A%A8%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%EF%BC%89"><span class="nav-number">1.9.</span> <span class="nav-text">ARC Retain Cycle（自动内存管理循环引用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Deprecations%EF%BC%88%E8%BF%87%E6%9C%9F%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%EF%BC%89"><span class="nav-number">1.10.</span> <span class="nav-text">Deprecations（过期不推荐使用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Asset-Catalog-Compiler-Warning%EF%BC%88%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91%E8%AD%A6%E5%91%8A%EF%BC%89"><span class="nav-number">1.11.</span> <span class="nav-text">Asset Catalog Compiler Warning（资源文件编译警告）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.12.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Xcode-Analyze%E8%AD%A6%E5%91%8A"><span class="nav-number">2.</span> <span class="nav-text">Xcode Analyze警告</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lengain"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Lengain</p>
+  <div class="site-description" itemprop="description">所谓成功只有一个—按照自己的方式，去度过人生</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lengain" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lengain" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lengain@yeah.net" title="E-Mail → mailto:lengain@yeah.net" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-book fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://casatwy.com/" title="https:&#x2F;&#x2F;casatwy.com&#x2F;" rel="noopener" target="_blank">casatwy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jianshu.com/u/96a14318a4de" title="https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;96a14318a4de" rel="noopener" target="_blank">iOS程序猿</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.cnbang.net/" title="http:&#x2F;&#x2F;blog.cnbang.net&#x2F;" rel="noopener" target="_blank">Bang's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://qidiandasheng.com/" title="http:&#x2F;&#x2F;qidiandasheng.com&#x2F;" rel="noopener" target="_blank">qidiandasheng的博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://gc1234.top/" title="http:&#x2F;&#x2F;gc1234.top&#x2F;" rel="noopener" target="_blank">疯狂的兔子</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lengain.github.io</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

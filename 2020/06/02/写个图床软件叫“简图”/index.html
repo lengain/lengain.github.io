@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lengain.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="引子我使用MarkDown+Github+PicGo三件套写博客，使用PicGo的时候发现自己有上传手机图片的场景，但是PicGo并没有iOS版本的客户端。我在AppStore经过搜索，发现并没有合适的支持Github图床的App，因此便想着写一个。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写个图床软件叫“简图”">
+<meta property="og:url" content="http://lengain.github.io/2020/06/02/%E5%86%99%E4%B8%AA%E5%9B%BE%E5%BA%8A%E8%BD%AF%E4%BB%B6%E5%8F%AB%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D/index.html">
+<meta property="og:site_name" content="时光地下铁">
+<meta property="og:description" content="引子我使用MarkDown+Github+PicGo三件套写博客，使用PicGo的时候发现自己有上传手机图片的场景，但是PicGo并没有iOS版本的客户端。我在AppStore经过搜索，发现并没有合适的支持Github图床的App，因此便想着写一个。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-02T08:32:24.000Z">
+<meta property="article:modified_time" content="2024-03-11T03:13:42.482Z">
+<meta property="article:author" content="Lengain">
+<meta property="article:tag" content="软件">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://lengain.github.io/2020/06/02/%E5%86%99%E4%B8%AA%E5%9B%BE%E5%BA%8A%E8%BD%AF%E4%BB%B6%E5%8F%AB%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>写个图床软件叫“简图” | 时光地下铁</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">时光地下铁</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">走走停停，看看风景</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/06/02/%E5%86%99%E4%B8%AA%E5%9B%BE%E5%BA%8A%E8%BD%AF%E4%BB%B6%E5%8F%AB%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+      <meta itemprop="description" content="所谓成功只有一个—按照自己的方式，去度过人生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          写个图床软件叫“简图”
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-02 16:32:24" itemprop="dateCreated datePublished" datetime="2020-06-02T16:32:24+08:00">2020-06-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>我使用<code>MarkDown+Github+PicGo</code>三件套写博客，使用<code>PicGo</code>的时候发现自己有上传手机图片的场景，但是<code>PicGo</code>并没有iOS版本的客户端。我在AppStore经过搜索，发现并没有合适的支持Github图床的App，因此便想着写一个。</p>
+<a id="more"></a>
+<h2 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h2><p>今天写这个主要是先把我的想法给记录一下，以防忘了这个事儿了。也简单写一下我期望的这个App的功能：</p>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ol>
+<li>支持各种图床。首先适配Github图床，再慢慢添加其他图床。</li>
+<li>支持历史记录，历史记录本地保存或者保存到iCloud。</li>
+<li>纯工具应用，无账号系统。</li>
+<li>尽量对标PicGo，该有的功能都要有。</li>
+</ol>
+<h4 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h4><p>关于这个App的名字，我想了很久一直没有想好。今天突然想到一个不错的名字：<strong>简图</strong>，是<code>简单图床</code>的缩写，英文就叫<code>Easy Picture Bed</code>或者使用缩写<code>EPB</code>。<br>之所以这么命名，是因为我做这个App的目的就是为了图片上传图床变成一个简单的事。</p>
+<h4 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h4><p>最近比较上班比较忙，晚上还要做一些技术学习，因此开发这个App可能比较慢。具体的规划目前还没有，等空下来开始做了就快了。</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a>是一个快速上传图片并获取图片URL链接的工具。支持Mac，Windows电脑。</p>
+<blockquote>
+<p>支持：<br>七牛图床<br>腾讯云<br>又拍云<br>Github<br>阿里云<br>Imgur</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag"># 软件</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/29/Mac%E7%94%B5%E8%84%91Safari%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%A6%81%E6%AD%A2%E7%99%BE%E5%BA%A6%E5%B9%BF%E5%91%8A/" rel="prev" title="Mac电脑Safari浏览器上禁止百度广告">
+      <i class="fa fa-chevron-left"></i> Mac电脑Safari浏览器上禁止百度广告
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/10/%E4%B8%A4%E5%A4%A9/" rel="next" title="两天">
+      两天 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%AD%90"><span class="nav-number">1.</span> <span class="nav-text">引子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E5%BE%85"><span class="nav-number">2.</span> <span class="nav-text">期待</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-number">2.0.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E5%90%8D"><span class="nav-number">2.0.2.</span> <span class="nav-text">命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91"><span class="nav-number">2.0.3.</span> <span class="nav-text">开发</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">3.</span> <span class="nav-text">扩展</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lengain"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Lengain</p>
+  <div class="site-description" itemprop="description">所谓成功只有一个—按照自己的方式，去度过人生</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lengain" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lengain" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lengain@yeah.net" title="E-Mail → mailto:lengain@yeah.net" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-book fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://casatwy.com/" title="https:&#x2F;&#x2F;casatwy.com&#x2F;" rel="noopener" target="_blank">casatwy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jianshu.com/u/96a14318a4de" title="https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;96a14318a4de" rel="noopener" target="_blank">iOS程序猿</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.cnbang.net/" title="http:&#x2F;&#x2F;blog.cnbang.net&#x2F;" rel="noopener" target="_blank">Bang's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://qidiandasheng.com/" title="http:&#x2F;&#x2F;qidiandasheng.com&#x2F;" rel="noopener" target="_blank">qidiandasheng的博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://gc1234.top/" title="http:&#x2F;&#x2F;gc1234.top&#x2F;" rel="noopener" target="_blank">疯狂的兔子</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lengain.github.io</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lengain.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="最近在做CALayer自定义属性(@property修饰)动画。之前没有深究过，现在有很多有意思的发现，写出来分享给大家。 首先把Demo LNLoadingLayer分享给大家，这是一个loading动画。 在做CALayer自定义属性动画之前，要先了解一个概念，即CALayer是一个符合键值编码的容器类（Key-Value Coding Compliant Container Classes）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何做一个CALayer 自定义属性CAAnimation动画">
+<meta property="og:url" content="http://lengain.github.io/2018/12/27/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AACALayer-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7CAAnimation%E5%8A%A8%E7%94%BB/index.html">
+<meta property="og:site_name" content="时光地下铁">
+<meta property="og:description" content="最近在做CALayer自定义属性(@property修饰)动画。之前没有深究过，现在有很多有意思的发现，写出来分享给大家。 首先把Demo LNLoadingLayer分享给大家，这是一个loading动画。 在做CALayer自定义属性动画之前，要先了解一个概念，即CALayer是一个符合键值编码的容器类（Key-Value Coding Compliant Container Classes）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-12-27T09:38:37.000Z">
+<meta property="article:modified_time" content="2024-03-11T03:13:42.482Z">
+<meta property="article:author" content="Lengain">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://lengain.github.io/2018/12/27/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AACALayer-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7CAAnimation%E5%8A%A8%E7%94%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>如何做一个CALayer 自定义属性CAAnimation动画 | 时光地下铁</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">时光地下铁</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">走走停停，看看风景</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2018/12/27/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AACALayer-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7CAAnimation%E5%8A%A8%E7%94%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+      <meta itemprop="description" content="所谓成功只有一个—按照自己的方式，去度过人生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何做一个CALayer 自定义属性CAAnimation动画
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-27 17:38:37" itemprop="dateCreated datePublished" datetime="2018-12-27T17:38:37+08:00">2018-12-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近在做CALayer自定义属性(<code>@property</code>修饰)动画。之前没有深究过，现在有很多有意思的发现，写出来分享给大家。</p>
+<p>首先把<a target="_blank" rel="noopener" href="https://github.com/lengain/LNLoadingLayer">Demo LNLoadingLayer</a>分享给大家，这是一个loading动画。</p>
+<p>在做CALayer自定义属性动画之前，要先了解一个概念，即CALayer是一个<code>符合键值编码的容器类（Key-Value Coding Compliant Container Classes）</code>。</p>
+<h4 id="符合键值编码的容器类"><a href="#符合键值编码的容器类" class="headerlink" title="符合键值编码的容器类"></a>符合键值编码的容器类</h4><p>CALayer和CAAnimation都是符合键值编码的容器类（Key-Value Coding Compliant Container Classes），</p>
+<p>这意味着你可以用任意<code>key</code>来设置值，即使这个<code>key</code>没有声明为CALayer的property。</p>
+<a id="more"></a>
+
+<p>以下是苹果<a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Key-ValueCodingExtensions/Key-ValueCodingExtensions.html#//apple_ref/doc/uid/TP40004514-CH12-SW2">Core Animation 编程指南</a>的介绍：</p>
+<blockquote>
+<p>The<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/quartzcore/caanimation">CAAnimation</a>and<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/quartzcore/calayer">CALayer</a> classes are key-value coding compliant container classes, which means that you can set values for arbitrary keys. Even if the key<code>someKey</code>is not a declared property of the<code>CALayer</code>class, you can still set a value for it as follows:</p>
+<p>[ theLayer setValue:[NSNumber numberWithInteger:50] forKey:@”someKey”];</p>
+<p>You can also retrieve the value for arbitrary keys like you would retrieve the value for other key paths. For example, to retrieve the value of the<code>someKey</code>path set previously, you would use the following code:</p>
+<p>someKeyValue = [theLayer valueForKey:@”someKey”];</p>
+</blockquote>
+<p>因此，在CALayer中，用@dynamic修饰的属性，即使没有实现setter getter也不会崩溃。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DynamicTest</span> : <span class="title">CALayer</span></span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSString</span> *title;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">DynamicTest</span></span></span><br><span class="line"><span class="keyword">@dynamic</span> title;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">DynamicTest *test = [[DynamicTest alloc] init];</span><br><span class="line">test.title = <span class="string">@&quot;title&quot;</span>;<span class="comment">//正常工作，不会崩溃。</span></span><br><span class="line"><span class="comment">//另外，CALayer和CAAnimation，会自动为@dynamic修饰的属性添加NSCoding协议的支持。不用@dynamic修饰，则不支持。</span></span><br><span class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSKeyedArchiver</span> archivedDataWithRootObject:test];</span><br><span class="line">DynamicTest *unarchiveTest = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithData:data];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;unarchiveTest.title=%@&quot;</span>,unarchiveTest.title);</span><br><span class="line"><span class="comment">//输出 unarchiveTest.title=title</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="dynamic在CALayer中的特殊表现"><a href="#dynamic在CALayer中的特殊表现" class="headerlink" title="@dynamic在CALayer中的特殊表现"></a>@dynamic在CALayer中的特殊表现</h4><p>CALayer中，用@synthesize修饰的属性，可以正常使用getter/setter，而@dynamic修饰的属性，也可以实现getter/setter。但是<strong>在自定义属性动画时，就必须使用@dynamic修饰</strong>，因为<code>Core Animation</code>框架对@dynamic修饰的的属性做了一些特殊操作，使得CALayer能够在监控到属性变化时，调用相应的方法，实现动画。</p>
+<p>这个特殊操作，我目前没有查到，如果谁知道，可以联系我告知一下，我给补上。多谢。</p>
+<h4 id="id-initWithLayer-id-layer方法"><a href="#id-initWithLayer-id-layer方法" class="headerlink" title="-(id)initWithLayer:(id)layer方法"></a>-(id)initWithLayer:(id)layer方法</h4><p>我们知道，所谓动画，只不过是一帧帧静止的图片，以一定的速度（比如每秒60张）连续播放，肉眼因为视觉残象产生错觉，便以为画面是活动的。</p>
+<p>Core Animation动画也是这个原理，在Core Animation动画过程中，不断的有副本图层（或表示图层<code>copied-layer</code> or <code>presentation layer</code>）被初始化，连续播放，形成动画。<code>-initWithLayer:</code>就是Core Animation为CALayer创建副本对象的初始化方法。</p>
+<p><strong>注意：</strong></p>
+<p>1.此方法会被自动调用。</p>
+<p>2.@dynamic修饰的属性，<code>-initWithLayer:</code>后会被自动复制给副本Layer。方法中必须调用<code>[super initWithLayer:layer]</code></p>
+<p>3.@synthesize修饰或不加修饰词的@property属性，需要重写<code>-initWithLayer:</code>方法，手动将属性赋值给副本对象。如果没有这样的属性，或属性不影响显示，此方法不重写也可以。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This initializer is used by CoreAnimation to create shadow copies of</span></span><br><span class="line"><span class="comment"> * layers, e.g. for use as presentation layers. Subclasses can override</span></span><br><span class="line"><span class="comment"> * this method to copy their instance variables into the presentation</span></span><br><span class="line"><span class="comment"> * layer (subclasses should call the superclass afterwards). Calling this</span></span><br><span class="line"><span class="comment"> * method in any other situation will result in undefined behavior. */</span></span><br><span class="line">-(<span class="keyword">id</span>)initWithLayer:(<span class="keyword">id</span>)layer &#123;    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithLayer:layer]) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([layer isKindOfClass:[<span class="built_in">CGCustomPropertyLayer</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">            <span class="built_in">CGCustomPropertyLayer</span> *cpLayer = layer;</span><br><span class="line">            <span class="comment">// Copy across ...</span></span><br><span class="line">            <span class="keyword">self</span>.nonDynamicProperty = cpLayer.nonDynamicProperty;    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="现在开始自定义属性动画"><a href="#现在开始自定义属性动画" class="headerlink" title="现在开始自定义属性动画"></a>现在开始自定义属性动画</h4><p>在添加过自定义属性后，设置一下@dynamic，如果还有额外的属性，记得重写<code>-initWithLayer:</code>。</p>
+<p>接下来要添加一个很重要的类方法<code>+needsDisplayForKey:</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Layer初次加载时，会调用此方法，用来判断属性的值改变时，是否需要重新绘制。因此自定义属性动画必须实现此方法且返回YES</span></span><br><span class="line"><span class="comment">//实现此方法后，自定义属性的值一旦改变,便会自动调用setNeedsDisplay，触发重绘。</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)needsDisplayForKey:(<span class="built_in">NSString</span> *)key &#123;</span><br><span class="line">    <span class="keyword">return</span> [key isEqualToString:CustomPropertyName] ? <span class="literal">YES</span> : [<span class="keyword">super</span> needsDisplayForKey:key];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，就可以写绘制的代码了，绘制时，一般写在<code>drawInContext:</code>或<code>drawLayer: inContext:</code>方法之中，当然，也可以写在<code>display</code>方法之中，但是应注意和CALayer的delegate是否会冲突。</p>
+<blockquote>
+<p>layer方法响应链有两种:</p>
+<ol>
+<li><p>[layer setNeedDisplay] -&gt; [layer displayIfNeed] -&gt; [layer display] -&gt; [layerDelegate displayLayer:]</p>
+</li>
+<li><p>[layer setNeedDisplay] -&gt; [layer displayIfNeed] -&gt; [layer display] -&gt; [layer drawInContext:] -&gt; [layerDelegate drawLayer: inContext:]</p>
+<p>如果layerDelegate实现了displayLayer:协议，之后layer就不会再调用自身的重绘代码</p>
+</li>
+</ol>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/lengain/LNLoadingLayer/blob/master/LNLoadingLayer/LNLoadingExplicitLayer.m">示例代码</a>写在<code>drawInContext:</code>中。</p>
+<p><strong>注意</strong>：绘制的CALayer图形，在默认情况下，会很糊，因此使用时要设置<code>layer.contentsScale = [UIScreen mainScreen].scale;</code>contentsScale属性，默认为1.</p>
+<p>绘制代码完成后，就可以使用动画了，添加<a target="_blank" rel="noopener" href="https://github.com/lengain/LNLoadingLayer/blob/master/LNLoadingLayer/ViewController.m">动画代码</a></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">LNLoadingExplicitLayer *loadingLayer = [[LNLoadingExplicitLayer alloc] init];</span><br><span class="line">loadingLayer.frame = frame;</span><br><span class="line">loadingLayer.progressLineWidth = <span class="number">6.</span>f/[<span class="built_in">UIScreen</span> mainScreen].scale;</span><br><span class="line">loadingLayer.contentsScale = [<span class="built_in">UIScreen</span> mainScreen].scale;</span><br><span class="line">[<span class="keyword">self</span>.view.layer addSublayer:loadingLayer];</span><br><span class="line"></span><br><span class="line"><span class="built_in">CABasicAnimation</span> *animation = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:<span class="string">@&quot;progress&quot;</span>];</span><br><span class="line">animation.fromValue = @(<span class="number">0</span>);</span><br><span class="line">animation.toValue = @(<span class="number">200</span>);</span><br><span class="line">animation.duration = <span class="number">2.0</span>;</span><br><span class="line">animation.repeatCount = MAXFLOAT;</span><br><span class="line">animation.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionLinear];</span><br><span class="line">[loadingLayer addAnimation:animation forKey:<span class="string">@&quot;progressKey&quot;</span>];;</span><br></pre></td></tr></table></figure>
+
+<p>此时，自定义属性动画已经可以动起来了。</p>
+<p>下面来介绍隐式动画。</p>
+<h4 id="隐式动画（implicit-animation）"><a href="#隐式动画（implicit-animation）" class="headerlink" title="隐式动画（implicit animation）"></a>隐式动画（implicit animation）</h4><p>没有指定任何动画类型的动画叫隐式动画。即属性平滑过渡到新的值的默认行为。</p>
+<p>在demo的<code>LNLoadingExplicitLayer</code>类中，只实现了基本的显式动画。当我们想要在改变属性值自动有个过渡动画时，便要再添加一个方法<code>actionForKey:</code> ,这里是<a target="_blank" rel="noopener" href="https://github.com/lengain/LNLoadingLayer/blob/master/LNLoadingLayer/LNLoadingLayer.m">示例代码</a>，当layer属性改变时，layer都会寻找合适的action来实行这个改变，<code>actionForKey:</code>便是指定属性默认隐式动画的方法。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)actionForKey:(<span class="built_in">NSString</span> *)event &#123;</span><br><span class="line">    <span class="keyword">if</span> ([event isEqualToString:LNProgressKey]) &#123;</span><br><span class="line">        <span class="built_in">CABasicAnimation</span> *actionAnimation = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:CustomPropertyName];</span><br><span class="line">        actionAnimation.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionLinear];</span><br><span class="line">        actionAnimation.fromValue = @(<span class="keyword">self</span>.progress);</span><br><span class="line">        <span class="keyword">return</span> actionAnimation;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> actionForKey:event];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="http://sindrilin.com/2017/12/14/bottleeneck_of_transacation.html">这里</a>有一个介绍隐式动画很好的博文，感兴趣可以看看。更多内容可以搜索iOS隐式动画。</p>
+<p>谢谢观看！</p>
+<p>参考：</p>
+<p>1.<a target="_blank" rel="noopener" href="https://gist.github.com/toriaezunama/9174945#file-core-animation-of-custom-properties">Core animation of custom properties</a><br>2.<a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Key-ValueCodingExtensions/Key-ValueCodingExtensions.html#//apple_ref/doc/uid/TP40004514-CH12-SW2">Core Animation 编程指南</a></p>
+<p>3.<a target="_blank" rel="noopener" href="https://www.objc.io/issues/12-animations/animating-custom-layer-properties/">Animating Custom Layer Properties</a></p>
+<p>4.<a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_27706697/article/details/49738957">https://blog.csdn.net/sinat_27706697/article/details/49738957</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/12/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/" rel="prev" title="我的博客">
+      <i class="fa fa-chevron-left"></i> 我的博客
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/01/05/Xcode%E8%AD%A6%E5%91%8A%E6%B1%87%E6%80%BB%E5%88%86%E6%9E%90/" rel="next" title="Xcode警告汇总分析">
+      Xcode警告汇总分析 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%A6%E5%90%88%E9%94%AE%E5%80%BC%E7%BC%96%E7%A0%81%E7%9A%84%E5%AE%B9%E5%99%A8%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">符合键值编码的容器类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dynamic%E5%9C%A8CALayer%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E8%A1%A8%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">@dynamic在CALayer中的特殊表现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#id-initWithLayer-id-layer%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">-(id)initWithLayer:(id)layer方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8E%B0%E5%9C%A8%E5%BC%80%E5%A7%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB"><span class="nav-number">4.</span> <span class="nav-text">现在开始自定义属性动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E5%8A%A8%E7%94%BB%EF%BC%88implicit-animation%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">隐式动画（implicit animation）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lengain"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Lengain</p>
+  <div class="site-description" itemprop="description">所谓成功只有一个—按照自己的方式，去度过人生</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lengain" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lengain" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lengain@yeah.net" title="E-Mail → mailto:lengain@yeah.net" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-book fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://casatwy.com/" title="https:&#x2F;&#x2F;casatwy.com&#x2F;" rel="noopener" target="_blank">casatwy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jianshu.com/u/96a14318a4de" title="https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;96a14318a4de" rel="noopener" target="_blank">iOS程序猿</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.cnbang.net/" title="http:&#x2F;&#x2F;blog.cnbang.net&#x2F;" rel="noopener" target="_blank">Bang's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://qidiandasheng.com/" title="http:&#x2F;&#x2F;qidiandasheng.com&#x2F;" rel="noopener" target="_blank">qidiandasheng的博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://gc1234.top/" title="http:&#x2F;&#x2F;gc1234.top&#x2F;" rel="noopener" target="_blank">疯狂的兔子</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lengain.github.io</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

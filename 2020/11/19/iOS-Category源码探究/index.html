@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lengain.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Objective-C的Category特性，使的开发者在处理某些问题时，简单而又方便。理解Category的源码，对OC编程的理解会有很大的帮助。 Category的处理源码在libobjc.A.dylib中，苹果已经开源，但是下载后直接使用Xcode编译，会报很多错误。网上有很多帖子，介绍如何解决libobjc编译错误，这里就不介绍了。在github上有个开源项目objc4，提供了可编译版本的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS Category源码探究">
+<meta property="og:url" content="http://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/index.html">
+<meta property="og:site_name" content="时光地下铁">
+<meta property="og:description" content="Objective-C的Category特性，使的开发者在处理某些问题时，简单而又方便。理解Category的源码，对OC编程的理解会有很大的帮助。 Category的处理源码在libobjc.A.dylib中，苹果已经开源，但是下载后直接使用Xcode编译，会报很多错误。网上有很多帖子，介绍如何解决libobjc编译错误，这里就不介绍了。在github上有个开源项目objc4，提供了可编译版本的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-19T02:08:21.000Z">
+<meta property="article:modified_time" content="2024-03-11T03:13:42.476Z">
+<meta property="article:author" content="Lengain">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>iOS Category源码探究 | 时光地下铁</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">时光地下铁</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">走走停停，看看风景</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+      <meta itemprop="description" content="所谓成功只有一个—按照自己的方式，去度过人生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          iOS Category源码探究
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-19 10:08:21" itemprop="dateCreated datePublished" datetime="2020-11-19T10:08:21+08:00">2020-11-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Objective-C的Category特性，使的开发者在处理某些问题时，简单而又方便。理解Category的源码，对OC编程的理解会有很大的帮助。</p>
+<p>Category的处理源码在libobjc.A.dylib中，苹果已经<a target="_blank" rel="noopener" href="https://opensource.apple.com/tarballs/objc4/">开源</a>，但是下载后直接使用Xcode编译，会报很多错误。网上有很多帖子，介绍如何解决libobjc编译错误，这里就不介绍了。在github上有个开源项目<a target="_blank" rel="noopener" href="https://github.com/xdxu1126/objc4">objc4</a>，提供了可编译版本的objc工程，可按需索取。目前苹果刚发布macOS Big Sur 11.0.1，适配该系统的Objc还没有开源，<code>objc4</code>在这个系统上会有一点错误，不过不影响阅读，各个函数，变量定义之间的跳转也没有问题。</p>
+<a id="more"></a>
+
+<h3 id="category-t"><a href="#category-t" class="headerlink" title="category_t"></a>category_t</h3><p> 首先从源码层面来看一下Category有什么样的结构。</p>
+<p>使用clang可以将Category的.m文件编译为.cpp文件，文件中有OC对Category的处理。</p>
+<p>Category在objc中的结构体为<code>category_t</code>，该结构体中有实例方法，类方法，协议，属性，类属性等成员。Category的结构体决定了我们在使用Category时，可以为Category添加哪些代码。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">category_t</span> &#123;</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name;<span class="comment">//类名</span></span><br><span class="line">    <span class="keyword">classref_t</span> cls;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">method_list_t</span> *<span class="title">instanceMethods</span>;</span><span class="comment">//实例方法</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">method_list_t</span> *<span class="title">classMethods</span>;</span><span class="comment">//类方法</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">protocol_list_t</span> *<span class="title">protocols</span>;</span><span class="comment">//协议</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">property_list_t</span> *<span class="title">instanceProperties</span>;</span><span class="comment">//属性</span></span><br><span class="line">    <span class="comment">// Fields below this point are not always present on disk.</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">property_list_t</span> *_<span class="title">classProperties</span>;</span><span class="comment">//类属性</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">method_list_t</span> *<span class="title">methodsForMeta</span><span class="params">(<span class="keyword">bool</span> isMeta)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isMeta) <span class="keyword">return</span> classMethods;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> instanceMethods;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">property_list_t</span> *<span class="title">propertiesForMeta</span><span class="params">(<span class="keyword">bool</span> isMeta, struct header_info *hi)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protocol_list_t</span> *<span class="title">protocolsForMeta</span><span class="params">(<span class="keyword">bool</span> isMeta)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isMeta) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> protocols;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>程序初始化时，libobjc会将每个Category中的添加的属性，方法等合并到当前类的属性列表方法列表中。</p>
+<h3 id="从入口到详情"><a href="#从入口到详情" class="headerlink" title="从入口到详情"></a>从入口到详情</h3><p>以下的代码，会从一个个函数调用帮助我们认识Objc对Category的处理。</p>
+<p>objc-os.mm中的_objc_init函数是objc初始化的方法。从_objc_init出发，可以找到加载Category的方法。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// _objc_init objc-os.mm</span></span><br><span class="line"><span class="comment">// Bootstrap initialization. Registers our image notifier with dyld.</span></span><br><span class="line"><span class="comment">// Called by libSystem BEFORE library initialization tim</span></span><br><span class="line"><span class="keyword">void</span> _objc_init(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">bool</span> initialized = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (initialized) <span class="keyword">return</span>;</span><br><span class="line">    initialized = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// fixme defer initialization until an objc-using image is found?</span></span><br><span class="line">    environ_init();</span><br><span class="line">    tls_init();</span><br><span class="line">    static_init();</span><br><span class="line">    runtime_init();</span><br><span class="line">    exception_init();</span><br><span class="line">    cache_init();</span><br><span class="line">    _imp_implementationWithBlock_init();</span><br><span class="line">    <span class="comment">//_dyld_objc_notify_register注册三个回调函数，</span></span><br><span class="line">    <span class="comment">// map_images：dyld将image加载到内存时调用 </span></span><br><span class="line">    <span class="comment">// load_images：dyld初始化image，load方法都在此时调用</span></span><br><span class="line">    <span class="comment">// unmap_image：将image移除内存时调用</span></span><br><span class="line">    <span class="comment">// map_images这个方法，用来处理被dyld映射过来的镜像，注册后就会被调用</span></span><br><span class="line">    _dyld_objc_notify_register(&amp;map_images, load_images, unmap_image);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __OBJC2__</span></span><br><span class="line">    didCallDyldNotifyRegister = <span class="literal">true</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// map_images objc-runtime-new.mm</span></span><br><span class="line"><span class="comment">// Process the given images which are being mapped in by dyld.</span></span><br><span class="line"><span class="comment">// Calls ABI-agnostic code after taking ABI-specific locks.</span></span><br><span class="line"><span class="comment">// Locking: write-locks runtimeLock</span></span><br><span class="line"><span class="keyword">void</span></span><br><span class="line">map_images(<span class="keyword">unsigned</span> count, <span class="keyword">const</span> <span class="keyword">char</span> * <span class="keyword">const</span> paths[],</span><br><span class="line">           <span class="keyword">const</span> struct mach_header * <span class="keyword">const</span> mhdrs[])</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">mutex_locker_t</span> <span class="title">lock</span><span class="params">(runtimeLock)</span></span>;</span><br><span class="line">    <span class="comment">//map_images_nolock方法就是map_images的内部实现</span></span><br><span class="line">    <span class="keyword">return</span> map_images_nolock(count, paths, mhdrs);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//map_images_nolock objc-os.mm</span></span><br><span class="line"><span class="keyword">void</span> </span><br><span class="line">map_images_nolock(<span class="keyword">unsigned</span> mhCount, <span class="keyword">const</span> <span class="keyword">char</span> * <span class="keyword">const</span> mhPaths[],</span><br><span class="line">                  <span class="keyword">const</span> struct mach_header * <span class="keyword">const</span> mhdrs[])</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// Find all images with Objective-C metadata.</span></span><br><span class="line">    <span class="comment">//找到元数据中所有的镜像数量</span></span><br><span class="line">    hCount = <span class="number">0</span>;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> (hCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//读取镜像</span></span><br><span class="line">        _read_images(hList, hCount, totalClasses, unoptimizedTotalClasses);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// _read_images objc-runtime-new.mm</span></span><br><span class="line"><span class="comment">// Perform initial processing of the headers in the linked </span></span><br><span class="line"><span class="comment">// list beginning with headerList. </span></span><br><span class="line"><span class="comment">// Called by: map_images_nolock</span></span><br><span class="line"><span class="comment">// Locking: runtimeLock acquired by map_images</span></span><br><span class="line"><span class="comment">// _read_images中执行了大量的操作，比如加载类，cagetory，协议等信息到内存中</span></span><br><span class="line"><span class="keyword">void</span> _read_images(header_info **hList, <span class="keyword">uint32_t</span> hCount, <span class="keyword">int</span> totalClasses, <span class="keyword">int</span> unoptimizedTotalClasses) &#123;</span><br><span class="line">    <span class="comment">//定义header_info，读取hList中的镜像头信息</span></span><br><span class="line">    <span class="comment">//header_info中存着镜像的信息</span></span><br><span class="line">    <span class="keyword">uint32_t</span> hIndex;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// Discover categories. Only do this after the initial category</span></span><br><span class="line">    <span class="comment">// attachment has been done. For categories present at startup,</span></span><br><span class="line">    <span class="comment">// discovery is deferred until the first load_images call after</span></span><br><span class="line">    <span class="comment">// the call to _dyld_objc_notify_register completes. rdar://problem/53119145</span></span><br><span class="line">    <span class="keyword">if</span> (didInitialAttachCategories) &#123;</span><br><span class="line">        <span class="keyword">for</span> (hIndex = <span class="number">0</span>;hIndex &lt; hCount &amp;&amp; (hi = hList[hIndex]); hIndex++) &#123;</span><br><span class="line">            <span class="comment">//加载分类信息</span></span><br><span class="line">            load_categories_nolock(hi);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">load_categories_nolock</span><span class="params">(header_info *hi)</span> </span>&#123;</span><br><span class="line">     ....</span><br><span class="line">                <span class="comment">// First, register the category with its target class.</span></span><br><span class="line">                <span class="comment">// Then, rebuild the class&#x27;s method lists (etc) if</span></span><br><span class="line">                <span class="comment">// the class is realized.</span></span><br><span class="line">                <span class="keyword">if</span> (cat-&gt;instanceMethods ||  cat-&gt;protocols</span><br><span class="line">                    ||  cat-&gt;instanceProperties)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (cls-&gt;isRealized()) &#123;</span><br><span class="line">                        <span class="comment">//添加Categories</span></span><br><span class="line">                        attachCategories(cls, &amp;lc, <span class="number">1</span>, ATTACH_EXISTING);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        objc::unattachedCategories.addForClass(lc, cls);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (cat-&gt;classMethods  ||  cat-&gt;protocols</span><br><span class="line">                    ||  (hasClassProperties &amp;&amp; cat-&gt;_classProperties))</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (cls-&gt;ISA()-&gt;isRealized()) &#123;</span><br><span class="line">                        attachCategories(cls-&gt;ISA(), &amp;lc, <span class="number">1</span>, ATTACH_EXISTING | ATTACH_METACLASS);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        objc::unattachedCategories.addForClass(lc, cls-&gt;ISA());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Attach method lists and properties and protocols from categories to a class.</span></span><br><span class="line"><span class="comment">// Assumes the categories in cats are all loaded and sorted by load order, </span></span><br><span class="line"><span class="comment">// oldest categories first.</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span></span><br><span class="line">attachCategories(Class cls, <span class="keyword">const</span> <span class="keyword">locstamped_category_t</span> *cats_list, <span class="keyword">uint32_t</span> cats_count,</span><br><span class="line">                 <span class="keyword">int</span> flags)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (slowpath(PrintReplacedMethods)) &#123;</span><br><span class="line">        printReplacements(cls, cats_list, cats_count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (slowpath(PrintConnecting)) &#123;</span><br><span class="line">        _objc_inform(<span class="string">&quot;CLASS: attaching %d categories to%s class &#x27;%s&#x27;%s&quot;</span>,</span><br><span class="line">                     cats_count, (flags &amp; ATTACH_EXISTING) ? <span class="string">&quot; existing&quot;</span> : <span class="string">&quot;&quot;</span>,</span><br><span class="line">                     cls-&gt;nameForLogging(), (flags &amp; ATTACH_METACLASS) ? <span class="string">&quot; (meta)&quot;</span> : <span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * Only a few classes have more than 64 categories during launch.</span></span><br><span class="line"><span class="comment">     * This uses a little stack, and avoids malloc.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * Categories must be added in the proper order, which is back</span></span><br><span class="line"><span class="comment">     * to front. To do that with the chunking, we iterate cats_list</span></span><br><span class="line"><span class="comment">     * from front to back, build up the local buffers backwards,</span></span><br><span class="line"><span class="comment">     * and call attachLists on the chunks. attachLists prepends the</span></span><br><span class="line"><span class="comment">     * lists, so the final result is in the expected order.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">constexpr</span> <span class="keyword">uint32_t</span> ATTACH_BUFSIZ = <span class="number">64</span>;</span><br><span class="line">    <span class="keyword">method_list_t</span>   *mlists[ATTACH_BUFSIZ];</span><br><span class="line">    <span class="keyword">property_list_t</span> *proplists[ATTACH_BUFSIZ];</span><br><span class="line">    <span class="keyword">protocol_list_t</span> *protolists[ATTACH_BUFSIZ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">uint32_t</span> mcount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">uint32_t</span> propcount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">uint32_t</span> protocount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> fromBundle = NO;</span><br><span class="line">    <span class="keyword">bool</span> isMeta = (flags &amp; ATTACH_METACLASS);</span><br><span class="line">    <span class="comment">//auto是C++的语法，表示类型根据自动代码自动推断。</span></span><br><span class="line">    <span class="comment">//cls-&gt;data()-&gt;extAllocIfNeeded()返回的就是class_rw_ext_t *类型</span></span><br><span class="line">    <span class="comment">//class_rw_ext_t中存有方法，属性，协议等信息。</span></span><br><span class="line">    <span class="keyword">auto</span> rwe = cls-&gt;data()-&gt;extAllocIfNeeded();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">uint32_t</span> i = <span class="number">0</span>; i &lt; cats_count; i++) &#123;</span><br><span class="line">        <span class="comment">//entry:locstamped_category_t</span></span><br><span class="line">        <span class="keyword">auto</span>&amp; entry = cats_list[i];</span><br><span class="line">        <span class="comment">//取出分类中的方法</span></span><br><span class="line">        <span class="keyword">method_list_t</span> *mlist = entry.cat-&gt;methodsForMeta(isMeta);</span><br><span class="line">        <span class="keyword">if</span> (mlist) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mcount == ATTACH_BUFSIZ) &#123;</span><br><span class="line">                prepareMethodLists(cls, mlists, mcount, NO, fromBundle);</span><br><span class="line">                rwe-&gt;methods.attachLists(mlists, mcount);</span><br><span class="line">                mcount = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//ATTACH_BUFSIZ=64</span></span><br><span class="line">            <span class="comment">//这句话等于mlists[64- ++mcount] = mlist;</span></span><br><span class="line">            <span class="comment">//倒序合并分类到mlists，后面会将mlists再合并到类的方法列表中</span></span><br><span class="line">            mlists[ATTACH_BUFSIZ - ++mcount] = mlist;</span><br><span class="line">            fromBundle |= entry.hi-&gt;isBundle();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">property_list_t</span> *proplist =</span><br><span class="line">            entry.cat-&gt;propertiesForMeta(isMeta, entry.hi);</span><br><span class="line">        <span class="keyword">if</span> (proplist) &#123;</span><br><span class="line">            <span class="keyword">if</span> (propcount == ATTACH_BUFSIZ) &#123;</span><br><span class="line">                rwe-&gt;properties.attachLists(proplists, propcount);</span><br><span class="line">                propcount = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            proplists[ATTACH_BUFSIZ - ++propcount] = proplist;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">protocol_list_t</span> *protolist = entry.cat-&gt;protocolsForMeta(isMeta);</span><br><span class="line">        <span class="keyword">if</span> (protolist) &#123;</span><br><span class="line">            <span class="keyword">if</span> (protocount == ATTACH_BUFSIZ) &#123;</span><br><span class="line">                rwe-&gt;protocols.attachLists(protolists, protocount);</span><br><span class="line">                protocount = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            protolists[ATTACH_BUFSIZ - ++protocount] = protolist;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mcount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        prepareMethodLists(cls, mlists + ATTACH_BUFSIZ - mcount, mcount, NO, fromBundle);</span><br><span class="line">        <span class="comment">//将mlists合并到rwe-&gt;methods</span></span><br><span class="line">        rwe-&gt;methods.attachLists(mlists + ATTACH_BUFSIZ - mcount, mcount);</span><br><span class="line">        <span class="keyword">if</span> (flags &amp; ATTACH_EXISTING) flushCaches(cls);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    rwe-&gt;properties.attachLists(proplists + ATTACH_BUFSIZ - propcount, propcount);</span><br><span class="line"></span><br><span class="line">    rwe-&gt;protocols.attachLists(protolists + ATTACH_BUFSIZ - protocount, protocount);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//attachLists objc-runtime-new.mm</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">attachLists</span><span class="params">(List* <span class="keyword">const</span> * addedLists, <span class="keyword">uint32_t</span> addedCount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (addedCount == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (hasArray()) &#123;</span><br><span class="line">            <span class="comment">// many lists -&gt; many lists</span></span><br><span class="line">            <span class="keyword">uint32_t</span> oldCount = <span class="built_in">array</span>()-&gt;count;</span><br><span class="line">            <span class="keyword">uint32_t</span> newCount = oldCount + addedCount;</span><br><span class="line">            <span class="comment">//realloc memmove memcpy三个是C语言方法。</span></span><br><span class="line">            <span class="comment">//realloc 先判断当前的指针是否有足够的连续空间，如果有，</span></span><br><span class="line">            <span class="comment">//扩大mem_address指向的地址，并且将mem_address返回，</span></span><br><span class="line">            <span class="comment">//如果空间不够，先按照newsize指定的大小分配空间，将原有</span></span><br><span class="line">            <span class="comment">//数据从头到尾拷贝到新分配的内存区域，而后释放原来mem_address</span></span><br><span class="line">            <span class="comment">//所指内存区域（注意：原来指针是自动释放，不需要使用free），</span></span><br><span class="line">            <span class="comment">//同时返回新分配的内存区域的首地址。即重新分配存储器块的地址。</span></span><br><span class="line">            <span class="comment">//memmove 用于拷贝字节，如果目标区域和源区域有重叠的话，</span></span><br><span class="line">            <span class="comment">//memmove能够保证源串在被覆盖之前将重叠区域的字节拷贝到</span></span><br><span class="line">            <span class="comment">//目标区域中，但复制后源内容会被更改。但是当目标区域与源区域</span></span><br><span class="line">            <span class="comment">//没有重叠则和memcpy函数功能相同。</span></span><br><span class="line">            <span class="comment">//memcpy 指的是C和C++使用的内存拷贝函数，函数原型为</span></span><br><span class="line">            <span class="comment">//void *memcpy(void *destin, void *source, unsigned n)；</span></span><br><span class="line">            <span class="comment">//函数的功能是从源内存地址的起始位置开始拷贝若干个字节到目标内存</span></span><br><span class="line">            <span class="comment">//地址中，即从源source中拷贝n个字节到目标destin中。</span></span><br><span class="line">            <span class="comment">//增加数组的长度</span></span><br><span class="line">            setArray((<span class="keyword">array_t</span> *)<span class="built_in">realloc</span>(<span class="built_in">array</span>(), <span class="keyword">array_t</span>::byteSize(newCount)));</span><br><span class="line">            <span class="comment">//重设新数组的长度</span></span><br><span class="line">            <span class="built_in">array</span>()-&gt;count = newCount;</span><br><span class="line">            <span class="comment">//将array()-&gt;lists 复制到 array()-&gt;lists + addedCount，即先将 array()-&gt;lists 后移，空出位置来存放addedLists</span></span><br><span class="line">            memmove(<span class="built_in">array</span>()-&gt;lists + addedCount, <span class="built_in">array</span>()-&gt;lists, </span><br><span class="line">                    oldCount * <span class="keyword">sizeof</span>(<span class="built_in">array</span>()-&gt;lists[<span class="number">0</span>]));</span><br><span class="line">            <span class="comment">//将 addedLists 复制到 array()-&gt;lists</span></span><br><span class="line">            <span class="comment">//由此可见分类中的方法会被添加到原有方法的前面。在方法查询时，分类中的方法会先被查到并返回。如果分类中定义了和原类中一样的方法，就会只执行分类中的方法。</span></span><br><span class="line">            <span class="built_in">memcpy</span>(<span class="built_in">array</span>()-&gt;lists, addedLists, </span><br><span class="line">                   addedCount * <span class="keyword">sizeof</span>(<span class="built_in">array</span>()-&gt;lists[<span class="number">0</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">list</span>  &amp;&amp;  addedCount == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// 0 lists -&gt; 1 list</span></span><br><span class="line">            <span class="built_in">list</span> = addedLists[<span class="number">0</span>];</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 1 list -&gt; many lists</span></span><br><span class="line">            List* oldList = <span class="built_in">list</span>;</span><br><span class="line">            <span class="keyword">uint32_t</span> oldCount = oldList ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">uint32_t</span> newCount = oldCount + addedCount;</span><br><span class="line">            setArray((<span class="keyword">array_t</span> *)<span class="built_in">malloc</span>(<span class="keyword">array_t</span>::byteSize(newCount)));</span><br><span class="line">            <span class="built_in">array</span>()-&gt;count = newCount;</span><br><span class="line">            <span class="keyword">if</span> (oldList) <span class="built_in">array</span>()-&gt;lists[addedCount] = oldList;</span><br><span class="line">            <span class="built_in">memcpy</span>(<span class="built_in">array</span>()-&gt;lists, addedLists, </span><br><span class="line">                   addedCount * <span class="keyword">sizeof</span>(<span class="built_in">array</span>()-&gt;lists[<span class="number">0</span>]));</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上就是Category在运行时被加载的过程。整理一下流程：</p>
+<ol>
+<li><p><code>_objc_init()</code></p>
+</li>
+<li><p><code>map_images(...)</code></p>
+</li>
+<li><p><code>map_images_nolock(...)</code></p>
+</li>
+<li><p><code>_read_images(...)</code></p>
+</li>
+<li><p><code>load_categories_nolock()</code></p>
+</li>
+<li><p><code>attachCategories(...)</code></p>
+</li>
+</ol>
+<p>以上。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/05/%E6%94%92%E4%B8%AA%E6%9C%BA/" rel="prev" title="攒个机">
+      <i class="fa fa-chevron-left"></i> 攒个机
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/08/08/Dart-%E5%B1%95%E5%BC%80%E6%93%8D%E4%BD%9C%E7%AC%A6/" rel="next" title="Dart ...展开操作符">
+      Dart ...展开操作符 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#category-t"><span class="nav-number">1.</span> <span class="nav-text">category_t</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%85%A5%E5%8F%A3%E5%88%B0%E8%AF%A6%E6%83%85"><span class="nav-number">2.</span> <span class="nav-text">从入口到详情</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lengain"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Lengain</p>
+  <div class="site-description" itemprop="description">所谓成功只有一个—按照自己的方式，去度过人生</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lengain" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lengain" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lengain@yeah.net" title="E-Mail → mailto:lengain@yeah.net" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-book fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://casatwy.com/" title="https:&#x2F;&#x2F;casatwy.com&#x2F;" rel="noopener" target="_blank">casatwy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jianshu.com/u/96a14318a4de" title="https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;96a14318a4de" rel="noopener" target="_blank">iOS程序猿</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.cnbang.net/" title="http:&#x2F;&#x2F;blog.cnbang.net&#x2F;" rel="noopener" target="_blank">Bang's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://qidiandasheng.com/" title="http:&#x2F;&#x2F;qidiandasheng.com&#x2F;" rel="noopener" target="_blank">qidiandasheng的博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://gc1234.top/" title="http:&#x2F;&#x2F;gc1234.top&#x2F;" rel="noopener" target="_blank">疯狂的兔子</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lengain.github.io</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
