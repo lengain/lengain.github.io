@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lengain.github.io/"/>
-  <updated>2025-01-16T12:16:07.630Z</updated>
+  <updated>2025-10-10T08:39:30.069Z</updated>
   <id>http://lengain.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>项目管理平台搭建：以iOS开发为例</title>
+    <link href="http://lengain.github.io/2025/10/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%EF%BC%9A%E4%BB%A5iOS%E5%BC%80%E5%8F%91%E4%B8%BA%E4%BE%8B/"/>
+    <id>http://lengain.github.io/2025/10/09/项目管理平台搭建：以iOS开发为例/</id>
+    <published>2025-10-09T14:57:58.000Z</published>
+    <updated>2025-10-10T08:39:30.069Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="项目管理平台搭建：以iOS开发为例"><a href="#项目管理平台搭建：以iOS开发为例" class="headerlink" title="项目管理平台搭建：以iOS开发为例"></a>项目管理平台搭建：以iOS开发为例</h1><p>在中大型项目中，目前主流的开发方式都是组件化开发，根据项目业务的大小，工程中组件一般会有几十，上百，甚至上千组件，如何在项目开发中合理的管理组件，管理项目版本，进行项目开发是个棘手的问题。</p><h2 id="解决方案概览"><a href="#解决方案概览" class="headerlink" title="解决方案概览"></a>解决方案概览</h2><ul><li><strong>目标</strong>：以标准化的组件模型、清晰的版本策略、可持续的交付流程，降低多组件协作成本，提升发布稳定性与可预测性。</li><li><strong>关键做法</strong>：<ul><li><strong>组件管理</strong>：统一命名规范、目录结构、依赖图与可见性边界，使用注册中心进行组件发现与治理。</li><li><strong>版本管理</strong>：采用语义化版本（SemVer），配合发布列车（Release Train）与自动化变更日志。</li><li><strong>项目开发流程</strong>：以持续集成为核心，建立变更评审、质量门禁、二进制产物缓存与可回滚发布机制。</li></ul></li></ul><p>根据该方案，建设项目后台进行统一管理，可快速进行项目开发，组件维护，推进发布列车（Release Train）。</p><hr><a id="more"></a><h2 id="组件管理"><a href="#组件管理" class="headerlink" title="组件管理"></a>组件管理</h2><h3 id="1-组件边界与命名规范"><a href="#1-组件边界与命名规范" class="headerlink" title="1. 组件边界与命名规范"></a>1. 组件边界与命名规范</h3><ul><li><strong>命名</strong>：<code>Company.Feature.[Subfeature].Kit</code>（对外 API）；<code>Company.Feature.[Subfeature].Internal</code>（内部实现）</li><li><strong>分层</strong>：<ul><li>基础层（Foundation/Utility）：无业务依赖，只提供通用能力</li><li>业务域层（Domain）：封装核心业务域模型与用例</li><li>UI 组合层（UI/FeatureKit）：面向场景的 UI 与交互</li></ul></li><li><strong>可见性</strong>：默认最小可见性，面向接口编程；公共 API 经评审后暴露。</li></ul><h3 id="2-组件目录结构（iOS-建议）"><a href="#2-组件目录结构（iOS-建议）" class="headerlink" title="2. 组件目录结构（iOS 建议）"></a>2. 组件目录结构（iOS 建议）</h3><ul><li><code>Sources/</code> 源码（Swift/Objective-C）</li><li><code>Resources/</code> 资源（Assets、xib、lottie、strings）</li><li><code>Tests/</code> 单元与快照测试</li><li><code>DemoApp/</code> 独立示例（便于本地快速验证）</li><li><code>Docs/</code> 使用说明与 API 文档</li></ul><h3 id="3-依赖与注册中心"><a href="#3-依赖与注册中心" class="headerlink" title="3. 依赖与注册中心"></a>3. 依赖与注册中心</h3><ul><li><strong>依赖管理</strong>：优先使用 SPM（Swift Package Manager），历史项目可逐步从 CocoaPods/Carthage 迁移。</li><li><strong>注册中心</strong>：<ul><li>SPM：集中式 <code>Package Collections</code> 或公司内源 Git 仓库作为源</li><li>Pods：私有 Specs 仓库（如 <code>git@company/podspecs.git</code>）</li></ul></li><li><strong>依赖约束</strong>：<ul><li>严禁环依赖；限制跨层依赖（仅向下依赖）。</li><li>核心组件对外以协议 + 适配器形式暴露，避免实现泄漏。</li></ul></li></ul><h3 id="4-组件质量门禁"><a href="#4-组件质量门禁" class="headerlink" title="4. 组件质量门禁"></a>4. 组件质量门禁</h3><ul><li>静态检查：SwiftLint/Clang-Tidy 必过</li><li>单元测试覆盖率阈值：核心组件 ≥ 70%，业务组件 ≥ 50%</li><li>快照/UI 测试：关键 UI 组件建立基线图</li><li>API 变更审查：公共 API 的破坏性变更必须标注 <code>@available(*, deprecated, message:)</code> 并提供迁移指南</li></ul><hr><h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><h3 id="1-语义化版本（SemVer）"><a href="#1-语义化版本（SemVer）" class="headerlink" title="1. 语义化版本（SemVer）"></a>1. 语义化版本（SemVer）</h3><ul><li><code>MAJOR.MINOR.PATCH</code><ul><li><strong>MAJOR</strong>：破坏性变更（breaking changes）</li><li><strong>MINOR</strong>：向后兼容的新功能</li><li><strong>PATCH</strong>：向后兼容的修复</li></ul></li></ul><h3 id="2-分支管理与发布策略（大型项目实践详解）"><a href="#2-分支管理与发布策略（大型项目实践详解）" class="headerlink" title="2. 分支管理与发布策略（大型项目实践详解）"></a>2. 分支管理与发布策略（大型项目实践详解）</h3><h4 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h4><p>以主干分支（如 <code>main</code> 或 <code>master</code>）为基础，进行多分支开发时，推荐如下操作步骤：</p><ol><li><p><strong>主干分支（Trunk/Main）</strong></p><ul><li>主干分支始终保持可构建、可发布状态，代表当前最新的稳定开发基线。</li><li>例如，主干当前版本为 <code>1.1.0</code>。</li></ul></li><li><p><strong>开发分支的创建与命名</strong></p><ul><li>针对不同的需求或任务，从主干分支拉取独立的开发分支，分支命名可采用版本号递增方式，如 <code>1.1.1</code>、<code>1.1.2</code>，也可结合具体功能（如 <code>feature/xxx</code>）。</li><li>示例流程：<ul><li>从 <code>main</code>（当前为 <code>1.1.0</code>）拉取 <code>1.1.1</code> 分支，开发 A 需求。</li><li>从 <code>main</code> 拉取 <code>1.1.2</code> 分支，开发 B 需求。</li></ul></li><li>每个开发分支只聚焦于单一需求或缺陷，便于后续管理和回溯。</li></ul></li><li><p><strong>开发与合并流程</strong></p><ul><li>在各自的开发分支（如 <code>1.1.1</code>、<code>1.1.2</code>）上完成开发与自测。</li><li>开发完成后，通过 Pull Request（PR）方式将变更合并回主干分支（<code>main</code>）。</li><li>合并前需通过代码评审、自动化测试和质量门禁，确保主干稳定。</li></ul></li><li><p><strong>发版与分支管理</strong></p><ul><li>当主干达到可发布状态（如合并了 <code>1.1.1</code>、<code>1.1.2</code> 的变更），可从主干切出预发布分支（如 <code>release/1.2.0</code>），用于回归测试和最终修复。</li><li>预发布分支只接受 bugfix、文档和发布相关变更，禁止新特性合入。</li><li>发布完成后，将 <code>release/1.2.0</code> 分支的修复合并回主干，并打上对应的 tag（如 <code>v1.2.0</code>）。</li></ul></li><li><p><strong>发版后的操作</strong></p><ul><li>若后续有新需求或修复，继续从主干拉取新的开发分支（如 <code>1.2.1</code>、<code>1.2.2</code>），重复上述流程。</li><li>若线上已发布版本出现紧急问题，可直接从对应 tag 或主干切出 <code>hotfix/1.2.0</code> 分支，修复后合并回主干和相关 release 分支，并发布补丁版本。</li></ul></li><li><p><strong>分支合并与同步</strong></p><ul><li>所有 bugfix 或 hotfix 修复，需确保合并回主干，并根据需要同步到其他活跃分支，避免遗漏。</li></ul></li></ol><h4 id="发布策略"><a href="#发布策略" class="headerlink" title="发布策略"></a>发布策略</h4><ul><li><strong>发布列车（Release Train）机制</strong><br>采用固定节奏的发布列车（如每两周或每月一班），所有已合并到主干且通过质量门禁的变更，统一纳入下一个发布周期。未能按期合入的变更自动顺延至下班列车，确保发布节奏可预测、风险可控。</li><li><strong>版本冻结与回归测试</strong><br>在发布列车发车前，release 分支进入“冻结”状态，仅允许修复阻断性缺陷。此阶段需进行全面回归测试，确保版本稳定性。</li><li><strong>自动化与可追溯性</strong><br>发布流程应高度自动化，包括构建、测试、打包、生成变更日志、打 tag、推送产物到注册中心等。每次发布均需记录版本号、发布时间、变更内容及责任人，便于后续追溯与回滚。</li><li><strong>灰度与回滚机制</strong><br>支持灰度发布（如先在部分环境/用户中上线），并提供一键回滚方案，降低发布风险。</li></ul><h3 id="3-变更日志与标签"><a href="#3-变更日志与标签" class="headerlink" title="3. 变更日志与标签"></a>3. 变更日志与标签</h3><ul><li>自动生成 <code>CHANGELOG.md</code>（根据 Conventional Commits 或 PR 标签）</li><li>Git Tag：<code>component-name@x.y.z</code>，并在注册中心同步版本元数据（作者、变更类型、依赖变更）</li></ul><h3 id="4-依赖版本约束策略"><a href="#4-依赖版本约束策略" class="headerlink" title="4. 依赖版本约束策略"></a>4. 依赖版本约束策略</h3><ul><li>应用侧依赖：<code>~&gt; x.y</code>（允许补丁更新，控制小版本）</li><li>组件间依赖：对上游保持更严格范围，避免雪崩式升级</li><li>引入新主版本时先在灰度分支验证，再推广到 <code>main</code></li></ul><hr><h2 id="项目开发流程（端到端）"><a href="#项目开发流程（端到端）" class="headerlink" title="项目开发流程（端到端）"></a>项目开发流程（端到端）</h2><p>1) 设计与评审</p><ul><li>ADR（架构决策记录）描述边界/依赖/API</li><li>评审通过后生成任务并绑定里程碑/列车班次<br>2) 开发与自测</li><li>本地通过 DemoApp 验证</li><li>新增/变更公共 API 必须附带使用示例与文档<br>3) 持续集成（CI）</li><li>步骤：拉取 → 构建 → Lint → 测试 → 产物签名 → 发布到内源仓/注册中心</li><li>质量阈值未达标则阻断合并<br>4) 产物与缓存</li><li>产物仓库：二进制 Framework/<code>xcframework</code>（提升集成速度）</li><li>缓存策略：按 <code>commit sha + target + config</code> 生成缓存 key<br>5) 集成与回归</li><li>应用工程对目标版本进行集成回归（冒烟 + 关键路径）</li><li>若失败：回滚到上一稳定版本或热修分支修复<br>6) 发布与回滚</li><li>标记发布版本与变更范围</li><li>提供一键回滚脚本/流程说明</li></ul><hr><h2 id="iOS-落地示例"><a href="#iOS-落地示例" class="headerlink" title="iOS 落地示例"></a>iOS 落地示例</h2><h3 id="1-使用-SPM-定义组件"><a href="#1-使用-SPM-定义组件" class="headerlink" title="1) 使用 SPM 定义组件"></a>1) 使用 SPM 定义组件</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Package.swift（示例）</span></span><br><span class="line"><span class="comment">// swift-tools-version:5.9</span></span><br><span class="line"><span class="keyword">import</span> PackageDescription</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> package = <span class="type">Package</span>(</span><br><span class="line">    name: <span class="string">&quot;CompanyFeatureKit&quot;</span>,</span><br><span class="line">    platforms: [ .iOS(.v14) ],</span><br><span class="line">    products: [</span><br><span class="line">        .library(name: <span class="string">&quot;CompanyFeatureKit&quot;</span>, targets: [<span class="string">&quot;CompanyFeatureKit&quot;</span>]) </span><br><span class="line">    ],</span><br><span class="line">    dependencies: [</span><br><span class="line">        <span class="comment">// .package(url: &quot;https://github.com/company/CompanyNetworking&quot;, from: &quot;2.3.0&quot;)</span></span><br><span class="line">    ],</span><br><span class="line">    targets: [</span><br><span class="line">        .target(</span><br><span class="line">            name: <span class="string">&quot;CompanyFeatureKit&quot;</span>,</span><br><span class="line">            path: <span class="string">&quot;Sources&quot;</span>,</span><br><span class="line">            resources: [ .process(<span class="string">&quot;Resources&quot;</span>) ]</span><br><span class="line">        ),</span><br><span class="line">        .testTarget(</span><br><span class="line">            name: <span class="string">&quot;CompanyFeatureKitTests&quot;</span>,</span><br><span class="line">            dependencies: [<span class="string">&quot;CompanyFeatureKit&quot;</span>],</span><br><span class="line">            path: <span class="string">&quot;Tests&quot;</span></span><br><span class="line">        )</span><br><span class="line">    ]</span><br><span class="line">)</span><br></pre></td></tr></table></figure><h3 id="2-使用-CocoaPods（私有仓）"><a href="#2-使用-CocoaPods（私有仓）" class="headerlink" title="2) 使用 CocoaPods（私有仓）"></a>2) 使用 CocoaPods（私有仓）</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CompanyFeatureKit.podspec（示例）</span></span><br><span class="line">Pod::Spec.new <span class="keyword">do</span> <span class="params">|s|</span></span><br><span class="line">  s.name         = <span class="string">&#x27;CompanyFeatureKit&#x27;</span></span><br><span class="line">  s.version      = <span class="string">&#x27;1.2.0&#x27;</span></span><br><span class="line">  s.summary      = <span class="string">&#x27;Feature UI &amp; domain implementation.&#x27;</span></span><br><span class="line">  s.homepage     = <span class="string">&#x27;https://git.company.com/ios/CompanyFeatureKit&#x27;</span></span><br><span class="line">  s.license      = &#123; <span class="symbol">:type</span> =&gt; <span class="string">&#x27;MIT&#x27;</span> &#125;</span><br><span class="line">  s.author       = &#123; <span class="string">&#x27;iOSTeam&#x27;</span> =&gt; <span class="string">&#x27;ios@company.com&#x27;</span> &#125;</span><br><span class="line">  s.source       = &#123; <span class="symbol">:git</span> =&gt; <span class="string">&#x27;git@git.company.com:ios/CompanyFeatureKit.git&#x27;</span>, <span class="symbol">:tag</span> =&gt; s.version.to_s &#125;</span><br><span class="line">  s.ios.deployment_target = <span class="string">&#x27;14.0&#x27;</span></span><br><span class="line">  s.source_files = <span class="string">&#x27;Sources/**/*.&#123;h,m,mm,swift&#125;&#x27;</span></span><br><span class="line">  s.resources    = <span class="string">&#x27;Resources/**/*&#x27;</span></span><br><span class="line">  s.dependency <span class="string">&#x27;CompanyNetworking&#x27;</span>, <span class="string">&#x27;~&gt; 2.3&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><h3 id="3-CI-关键步骤（示例）"><a href="#3-CI-关键步骤（示例）" class="headerlink" title="3) CI 关键步骤（示例）"></a>3) CI 关键步骤（示例）</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .github/workflows/ci.yml（片段）</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">iOS</span> <span class="string">Component</span> <span class="string">CI</span></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>, <span class="string">pull_request</span>]</span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build_test:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">macos-14</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v4</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">maxim-lobanov/setup-xcode@v1</span></span><br><span class="line">        <span class="attr">with:</span> &#123; <span class="attr">xcode-version:</span> <span class="string">&#x27;16.0&#x27;</span> &#125;</span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span> <span class="string">(SPM)</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">xcodebuild</span> <span class="string">-scheme</span> <span class="string">CompanyFeatureKit</span> <span class="string">-destination</span> <span class="string">&#x27;platform=iOS Simulator,name=iPhone 15&#x27;</span> <span class="string">build</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Test</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">xcodebuild</span> <span class="string">-scheme</span> <span class="string">CompanyFeatureKit</span> <span class="string">-destination</span> <span class="string">&#x27;platform=iOS Simulator,name=iPhone 15&#x27;</span> <span class="string">test</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Lint</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">swiftlint</span> <span class="string">--strict</span></span><br></pre></td></tr></table></figure><hr><h2 id="度量与治理看板"><a href="#度量与治理看板" class="headerlink" title="度量与治理看板"></a>度量与治理看板</h2><ul><li>组件健康度：构建成功率、测试覆盖率、Lint 问题趋势</li><li>依赖风险：主版本差异、环依赖检测、停更组件预警</li><li>交付效率：平均合入时间、回滚次数、列车准点率</li><li>质量追踪：崩溃率、线上回归缺陷数、热修次数</li></ul><hr><h2 id="常见问题与对策"><a href="#常见问题与对策" class="headerlink" title="常见问题与对策"></a>常见问题与对策</h2><ul><li><strong>跨组件耦合严重</strong>：建立逆向依赖监控与架构守门人评审，采用协议与事件总线解耦。</li><li><strong>版本地狱</strong>：统一 SemVer 策略与依赖上限，发布列车固定节奏，强制 Changelog。</li><li><strong>构建缓慢</strong>：二进制化关键组件，启用远端缓存（XCRemoteCache/Bazel Remote Cache）。</li><li><strong>API 频繁破坏性变更</strong>：引入稳定期与废弃期（Deprecation Window），提供迁移助手脚本。</li><li><strong>多人协作冲突</strong>：Trunk-based + 小步提交 + 特性开关，降低合并风险。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;项目管理平台搭建：以iOS开发为例&quot;&gt;&lt;a href=&quot;#项目管理平台搭建：以iOS开发为例&quot; class=&quot;headerlink&quot; title=&quot;项目管理平台搭建：以iOS开发为例&quot;&gt;&lt;/a&gt;项目管理平台搭建：以iOS开发为例&lt;/h1&gt;&lt;p&gt;在中大型项目中，目前主流的开发方式都是组件化开发，根据项目业务的大小，工程中组件一般会有几十，上百，甚至上千组件，如何在项目开发中合理的管理组件，管理项目版本，进行项目开发是个棘手的问题。&lt;/p&gt;
+&lt;h2 id=&quot;解决方案概览&quot;&gt;&lt;a href=&quot;#解决方案概览&quot; class=&quot;headerlink&quot; title=&quot;解决方案概览&quot;&gt;&lt;/a&gt;解决方案概览&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;目标&lt;/strong&gt;：以标准化的组件模型、清晰的版本策略、可持续的交付流程，降低多组件协作成本，提升发布稳定性与可预测性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键做法&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;组件管理&lt;/strong&gt;：统一命名规范、目录结构、依赖图与可见性边界，使用注册中心进行组件发现与治理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;版本管理&lt;/strong&gt;：采用语义化版本（SemVer），配合发布列车（Release Train）与自动化变更日志。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;项目开发流程&lt;/strong&gt;：以持续集成为核心，建立变更评审、质量门禁、二进制产物缓存与可回滚发布机制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;根据该方案，建设项目后台进行统一管理，可快速进行项目开发，组件维护，推进发布列车（Release Train）。&lt;/p&gt;
+&lt;hr&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>魔数鸿蒙扫描</title>
@@ -239,30 +268,6 @@
   </entry>
   
   <entry>
-    <title>去海边跳来跳去</title>
-    <link href="http://lengain.github.io/2020/08/26/%E5%8E%BB%E6%B5%B7%E8%BE%B9%E8%B7%B3%E6%9D%A5%E8%B7%B3%E5%8E%BB/"/>
-    <id>http://lengain.github.io/2020/08/26/去海边跳来跳去/</id>
-    <published>2020-08-26T12:09:36.000Z</published>
-    <updated>2024-03-11T03:13:42.482Z</updated>
-    
-    <content type="html"><![CDATA[<p>用了两天的空闲时间，看了是枝裕和导演的《小偷家族》。</p><p>剧中讲述的是一个生活在底层的一个“小偷家庭”的故事。家庭之中有弟弟祥太，妹妹百合，姐姐亚纪，父亲母亲，还有奶奶组成。家庭的生活的开支靠打零工和偷东西维持。这个看似完整的家庭，各个成员之间却没有什么血缘关系。</p><p>妹妹百合饱受原生家庭的虐待，在一个冬夜被“父亲”柴田治发现后，带到家中。百合在这个家庭中，慢慢的找回幸福，慢慢的感受到爱，然后融入到这个充满快乐的家庭。</p><p>刚才不小心看到一个影评，和我想写的一样。嗯，就写到这吧。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;用了两天的空闲时间，看了是枝裕和导演的《小偷家族》。&lt;/p&gt;
-&lt;p&gt;剧中讲述的是一个生活在底层的一个“小偷家庭”的故事。家庭之中有弟弟祥太，妹妹百合，姐姐亚纪，父亲母亲，还有奶奶组成。家庭的生活的开支靠打零工和偷东西维持。这个看似完整的家庭，各个成员之间却没有什么血缘关系。
-      
-    
-    </summary>
-    
-    
-      <category term="电影" scheme="http://lengain.github.io/tags/%E7%94%B5%E5%BD%B1/"/>
-    
-  </entry>
-  
-  <entry>
     <title>关于网上教育的一点思考</title>
     <link href="http://lengain.github.io/2020/08/19/%E5%85%B3%E4%BA%8E%E7%BD%91%E4%B8%8A%E6%95%99%E8%82%B2%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/"/>
     <id>http://lengain.github.io/2020/08/19/关于网上教育的一点思考/</id>
@@ -322,26 +327,6 @@
       
         &lt;p&gt;前几天刚阅读完王爽老师的《汇编语言》，在书的末尾看到&lt;code&gt;知识屏蔽&lt;/code&gt;这个词，回想良多，让我觉得很有趣。知识屏蔽是一个教学相关的概念，指的是在教学过程中，对知识的传授，循序渐进，有的放矢，对教学无关的内容进行屏蔽，，等到受教育者有一定的知识储备后，再放出之前
       
-    
-    </summary>
-    
-    
-      <category term="随笔" scheme="http://lengain.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>离花别苑</title>
-    <link href="http://lengain.github.io/2020/07/29/%E7%A6%BB%E8%8A%B1%E5%88%AB%E8%8B%91/"/>
-    <id>http://lengain.github.io/2020/07/29/离花别苑/</id>
-    <published>2020-07-29T05:06:45.000Z</published>
-    <updated>2024-03-11T03:13:42.484Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;今天趴在桌子上午休，压得胳膊酸痛，索性不睡了。我未来想建个院子或是小花园，记录一下这个想法。<br>&emsp;&emsp;院子的名字叫<code>离花别苑</code>。有离别花院的意思。称它为别院，是因为我可能不会一直生活在这里，可能周末，或者假期小住。为什么起<code>离</code>这个字呢，可以理解的简单一点，也是因为我不会常住，会经常离开。如果以后想到好的名字，再改也不迟。</p><a id="more"></a><p>&emsp;&emsp;院子的名字必须刻在木板上，做成木牌挂在门上，或者做成木匾，挂在门头上。有的闲的话，我可能会学一些点木刻的技艺，自己刻。<br>&emsp;&emsp;院子里会安装一个葡萄架，葡萄架要选高一点的，等葡萄爬满架子的时候，离地远，我长得高，以防碰头，架子下可纳凉，有藤椅桌子，可看书午睡，也可弹琴高歌，也可三四人聚会。葡萄架下面会种两棵葡萄树，一棵紫葡萄，一棵绿葡萄。我估计葡萄树要爬满整个架子，估计要个二三年。<br>&emsp;&emsp;院子里面会安装一个小型水池，水池中有小型的假山，水池里面会养一些鱼，荷花以及其他合适的水生植物，把它们做一个微型的循环系统，能够保证水是流动的，活的，能够多少天不搭理也能安然无恙。<br>&emsp;&emsp;学习养花的知识是必要的，不光要学，还要学的好。要了解种植的花草的习性，是喜阴喜阳，还是喜湿喜干等，然后合理的安排植物的种植环境。等我有了足够的知识储备，可能在院子的一个角，做个玻璃房。种植一些环境要求放在玻璃房的植物。<br>&emsp;&emsp;整个院子的其他的地方会种满花草，花草之中会摆一些石头，只留铺着石板或者鹅卵石的小路，小路不要太宽，也不要太窄，够两个人并排走刚好。院子里的植物不会种植多少长得高大的树，更多的是低矮的花草，保证视野的开阔。<br>&emsp;&emsp;院子的围墙可能会传统一点，做成白墙青瓦的风格，墙上会做一些镂空的窗花砖雕，给人一种中式庭院的感觉。<br>&emsp;&emsp;美哉！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;今天趴在桌子上午休，压得胳膊酸痛，索性不睡了。我未来想建个院子或是小花园，记录一下这个想法。&lt;br&gt;&amp;emsp;&amp;emsp;院子的名字叫&lt;code&gt;离花别苑&lt;/code&gt;。有离别花院的意思。称它为别院，是因为我可能不会一直生活在这里，可能周末，或者假期小住。为什么起&lt;code&gt;离&lt;/code&gt;这个字呢，可以理解的简单一点，也是因为我不会常住，会经常离开。如果以后想到好的名字，再改也不迟。&lt;/p&gt;
     
     </summary>
     
@@ -461,35 +446,6 @@
     
     
       <category term="汇编" scheme="http://lengain.github.io/tags/%E6%B1%87%E7%BC%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>两天</title>
-    <link href="http://lengain.github.io/2020/06/10/%E4%B8%A4%E5%A4%A9/"/>
-    <id>http://lengain.github.io/2020/06/10/两天/</id>
-    <published>2020-06-10T05:40:58.000Z</published>
-    <updated>2024-03-11T03:13:42.477Z</updated>
-    
-    <content type="html"><![CDATA[<center>今年只有两天<p>一天开心<br>一天悲伤</p><p>一天清爽<br>一天油腻</p></center>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;center&gt;
-今年只有两天
-
-&lt;p&gt;一天开心&lt;br&gt;一天悲伤&lt;/p&gt;
-&lt;p&gt;一天清爽&lt;br&gt;一天油腻&lt;/p&gt;
-&lt;/center&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="有件小事" scheme="http://lengain.github.io/tags/%E6%9C%89%E4%BB%B6%E5%B0%8F%E4%BA%8B/"/>
     
   </entry>
   
