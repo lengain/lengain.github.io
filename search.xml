@@ -1641,4 +1641,230 @@
 </ul>
 ]]></content>
   </entry>
+  <entry>
+    <title>大模型基础概念</title>
+    <url>/2025/11/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h1 id="大模型基础概念（适合客户端工程师的轻量入门）"><a href="#大模型基础概念（适合客户端工程师的轻量入门）" class="headerlink" title="大模型基础概念（适合客户端工程师的轻量入门）"></a>大模型基础概念（适合客户端工程师的轻量入门）</h1><p>下面内容专为客户端工程师写，不讲晦涩的数学，而是告诉你：</p>
+<p>👉 <strong>它是什么</strong><br>👉 <strong>为什么重要</strong><br>👉 <strong>你在实际 AI 应用中怎么用</strong></p>
+<hr>
+<h1 id="Token-Context-Prompt-System-Prompt"><a href="#Token-Context-Prompt-System-Prompt" class="headerlink" title="Token / Context / Prompt / System Prompt"></a>Token / Context / Prompt / System Prompt</h1><hr>
+<h2 id="1-Token-是什么？"><a href="#1-Token-是什么？" class="headerlink" title="1. Token 是什么？"></a>1. Token 是什么？</h2><p><strong>Token 是模型处理文本的最小单位，可以是字、词或词片段。</strong></p>
+<ul>
+<li><p>GPT 类模型：英文按词片段、中文按字切分</p>
+</li>
+<li><p>Token ≠ 字符</p>
+</li>
+<li><p>模型所有计算都按 token 进行</p>
+</li>
+</ul>
+<p>📌 <strong>为什么 iOS 工程师必须懂 Token？</strong></p>
+<ul>
+<li><p>调用 API 时会计费（按 token）</p>
+</li>
+<li><p>上下文长度（context window）限制以 token 计</p>
+</li>
+<li><p>多轮对话需要控制 token 数量，否则会 “爆 context”</p>
+</li>
+</ul>
+<p>例子：<br>“我喜欢 iOS 开发”<br>→ Token 可能被切成：<br>[“我”, “喜欢”, “i”, “OS”, “开发”]</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="2-Context（上下文）"><a href="#2-Context（上下文）" class="headerlink" title="2. Context（上下文）"></a>2. Context（上下文）</h2><p><strong>Context 是模型在本次推理中可记住的最大 token 数。</strong></p>
+<p>例如：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>最大 Context</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Qwen2</td>
+<td>128k</td>
+</tr>
+<tr>
+<td>DeepSeek V3</td>
+<td>128k</td>
+</tr>
+<tr>
+<td>GPT-4 Turbo</td>
+<td>128k</td>
+</tr>
+</tbody></table>
+<p>📌 为什么要在工程侧特别关注？</p>
+<ul>
+<li><p>多轮对话越长，越容易“爆 context”</p>
+</li>
+<li><p>“爆 context”模型会忘记前面内容</p>
+</li>
+<li><p>所以你需要 <strong>对历史对话做裁剪 / 精简 / 只保留重要内容</strong></p>
+</li>
+</ul>
+<p>你的 iOS Demo 里需要实现：</p>
+<h3 id="👉-对话上下文管理模块"><a href="#👉-对话上下文管理模块" class="headerlink" title="👉 对话上下文管理模块"></a>👉 <strong>对话上下文管理模块</strong></h3><ul>
+<li><p>限制最大 token</p>
+</li>
+<li><p>自动删除最早的对话</p>
+</li>
+<li><p>或做摘要（summary）</p>
+</li>
+</ul>
+<hr>
+<h2 id="3-Prompt-System-Prompt"><a href="#3-Prompt-System-Prompt" class="headerlink" title="3. Prompt / System Prompt"></a>3. Prompt / System Prompt</h2><p><strong>Prompt = 让模型做事的指令文本。</strong></p>
+<h3 id="Prompt-三种角色"><a href="#Prompt-三种角色" class="headerlink" title="Prompt 三种角色"></a>Prompt 三种角色</h3><ol>
+<li><p><strong>System prompt</strong></p>
+<ul>
+<li><p>定义模型角色</p>
+</li>
+<li><p>决定模型长期行为</p>
+</li>
+<li><p>整个对话只需要设一次<br>例如：<br>“你是一名 iOS 工程师助手，回答尽量简洁。”</p>
+</li>
+</ul>
+</li>
+<li><p><strong>User prompt</strong><br>用户输入内容</p>
+</li>
+<li><p><strong>Assistant prompt</strong><br>模型回复内容</p>
+</li>
+</ol>
+<hr>
+<h3 id="System-Prompt-的作用（非常重要）"><a href="#System-Prompt-的作用（非常重要）" class="headerlink" title="System Prompt 的作用（非常重要）"></a>System Prompt 的作用（非常重要）</h3><p>它相当于 <strong>系统级配置</strong>，影响整个对话：</p>
+<ul>
+<li><p>输出格式（JSON、Markdown）</p>
+</li>
+<li><p>模型人格（严谨、简短、幽默）</p>
+</li>
+<li><p>禁止幻觉（必须引用事实）</p>
+</li>
+<li><p>绑定工具（function calling）</p>
+</li>
+</ul>
+<h3 id="📌-在-iOS-中用法"><a href="#📌-在-iOS-中用法" class="headerlink" title="📌 在 iOS 中用法"></a>📌 在 iOS 中用法</h3><p>通常会是这样：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> systemPrompt = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">你是一名专业的 iOS AI 助手。</span></span><br><span class="line"><span class="string">所有回答必须使用简洁语言，如果用户要求代码，请使用 Swift。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在请求 body 中设置：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;messages&quot;: [</span><br><span class="line">    &#123; &quot;role&quot;: &quot;system&quot;, &quot;content&quot;: systemPrompt &#125;,</span><br><span class="line">    &#123; <span class="attr">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="attr">&quot;content&quot;</span>: userInput &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Function-Calling（工具调用）"><a href="#Function-Calling（工具调用）" class="headerlink" title="Function Calling（工具调用）"></a>Function Calling（工具调用）</h1><p>这是做AI应用的核心能力。</p>
+<hr>
+<h2 id="Function-Calling-是什么？"><a href="#Function-Calling-是什么？" class="headerlink" title="Function Calling 是什么？"></a>Function Calling 是什么？</h2><p><strong>Function Calling = 让 LLM 选择并调用某个你提供的函数。</strong></p>
+<p>举例：</p>
+<p>你告诉模型：</p>
+<blockquote>
+<p>“如果用户说 ‘查天气’，请调用我提供的 <code>getWeather(city: String)</code> 函数。”</p>
+</blockquote>
+<p>模型不会真的执行代码，它会返回 JSON：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;getWeather&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;arguments&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;city&quot;</span>: <span class="string">&quot;上海&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>iOS 侧解析 JSON → 调用真实 Swift 函数 → 把结果再传回模型。</p>
+<hr>
+<h2 id="⭐-为什么这是-AI-应用工程师的核心能力？"><a href="#⭐-为什么这是-AI-应用工程师的核心能力？" class="headerlink" title="⭐ 为什么这是 AI 应用工程师的核心能力？"></a>⭐ 为什么这是 AI 应用工程师的核心能力？</h2><ul>
+<li><p>让模型控制你的 App（提醒、查快递、查天气…）</p>
+</li>
+<li><p>让模型具备“能力”，而不是只能聊天</p>
+</li>
+<li><p>让你的 App 有“可组合 AI 行为”</p>
+</li>
+</ul>
+<p>这是支付宝、微信 AI 团队面试最喜欢问的部分。</p>
+<hr>
+<h2 id="Function-Calling-的使用流程（工程侧）"><a href="#Function-Calling-的使用流程（工程侧）" class="headerlink" title="Function Calling 的使用流程（工程侧）"></a>Function Calling 的使用流程（工程侧）</h2><h3 id="①-定义-functions-数组（描述可调用的工具）"><a href="#①-定义-functions-数组（描述可调用的工具）" class="headerlink" title="① 定义 functions 数组（描述可调用的工具）"></a>① 定义 functions 数组（描述可调用的工具）</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;functions&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;getWeather&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;获取城市天气&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;parameters&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;object&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;properties&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;city&quot;</span>: &#123; <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;string&quot;</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;required&quot;</span>: [<span class="string">&quot;city&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="②-模型返回对应-JSON（告诉我们要调哪一个函数）"><a href="#②-模型返回对应-JSON（告诉我们要调哪一个函数）" class="headerlink" title="② 模型返回对应 JSON（告诉我们要调哪一个函数）"></a>② 模型返回对应 JSON（告诉我们要调哪一个函数）</h3><h3 id="③-iOS-侧解析-JSON-→-调用-Swift-函数"><a href="#③-iOS-侧解析-JSON-→-调用-Swift-函数" class="headerlink" title="③ iOS 侧解析 JSON → 调用 Swift 函数"></a>③ iOS 侧解析 JSON → 调用 Swift 函数</h3><h3 id="④-把结果再发给模型，让模型生成自然语言"><a href="#④-把结果再发给模型，让模型生成自然语言" class="headerlink" title="④ 把结果再发给模型，让模型生成自然语言"></a>④ 把结果再发给模型，让模型生成自然语言</h3><p>例如智能卡片、智能助手完全基于此能力实现。</p>
+<hr>
+<h1 id="Embedding（向量化）及其用法"><a href="#Embedding（向量化）及其用法" class="headerlink" title="Embedding（向量化）及其用法"></a>Embedding（向量化）及其用法</h1><p>这是后续 RAG、意图识别、分类、召回 的核心。</p>
+<hr>
+<h2 id="Embedding-是什么？"><a href="#Embedding-是什么？" class="headerlink" title="Embedding 是什么？"></a>Embedding 是什么？</h2><p><strong>Embedding = 把一句话转成一串数字向量（如 768 维）。</strong></p>
+<p>例：</p>
+<p>“查快递”<br>→ [0.11, -0.23, 0.08, …]（768 个数）</p>
+<p>模型把语义含义编码到这些数字里。</p>
+<hr>
+<h2 id="为什么-Embedding-如此重要？"><a href="#为什么-Embedding-如此重要？" class="headerlink" title="为什么 Embedding 如此重要？"></a>为什么 Embedding 如此重要？</h2><p>因为 <strong>LLM 只能做“生成”，不能做“检索”。</strong><br>真正的工程应用想要：</p>
+<ul>
+<li><p>意图识别</p>
+</li>
+<li><p>文档搜索</p>
+</li>
+<li><p>相似度匹配</p>
+</li>
+<li><p>知识库查询</p>
+</li>
+<li><p>工具选择</p>
+</li>
+</ul>
+<p>→ <strong>全部要用 embedding。</strong></p>
+<hr>
+<h1 id="Embedding-的三个核心用途"><a href="#Embedding-的三个核心用途" class="headerlink" title="Embedding 的三个核心用途"></a>Embedding 的三个核心用途</h1><hr>
+<h2 id="①-文档搜索（RAG-核心）"><a href="#①-文档搜索（RAG-核心）" class="headerlink" title="① 文档搜索（RAG 核心）"></a>① 文档搜索（RAG 核心）</h2><p>流程：</p>
+<ol>
+<li><p>把 PDF 切成小段</p>
+</li>
+<li><p>每段转成 embedding</p>
+</li>
+<li><p>用户问题 → embedding</p>
+</li>
+<li><p>计算相似度</p>
+</li>
+<li><p>找到最接近的 3–5 段</p>
+</li>
+<li><p>和用户问题一起喂给 LLM → 回答</p>
+</li>
+</ol>
+<p>你的“iOS-RAG-Demo”就是这样。</p>
+<hr>
+<h2 id="②-意图识别（智能卡片核心）"><a href="#②-意图识别（智能卡片核心）" class="headerlink" title="② 意图识别（智能卡片核心）"></a>② 意图识别（智能卡片核心）</h2><p>把常见意图 embedding 成向量：</p>
+<table>
+<thead>
+<tr>
+<th>意图类别</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查快递</td>
+<td>查一下快递…</td>
+</tr>
+<tr>
+<td>查天气</td>
+<td>今天上海天气</td>
+</tr>
+<tr>
+<td>设置提醒</td>
+<td>明天 8 点叫我起床</td>
+</tr>
+</tbody></table>
+<p>用户输入 → embedding<br>与各意图比相似度 → 找到最接近的 → 触发卡片</p>
+<p>这是“iOS-AI-Card-Assistant”的关键技术。</p>
+<hr>
+<h2 id="③-工具选择（function-calling-自动化）"><a href="#③-工具选择（function-calling-自动化）" class="headerlink" title="③ 工具选择（function calling 自动化）"></a>③ 工具选择（function calling 自动化）</h2><p>通过 embedding 判断用户是在提问还是要调用工具。</p>
+<p>避免“你可能想…”这种幻觉。</p>
+<hr>
+<h2 id="📌-在-iOS-中调用-Embedding-API"><a href="#📌-在-iOS-中调用-Embedding-API" class="headerlink" title="📌 在 iOS 中调用 Embedding API"></a>📌 在 iOS 中调用 Embedding API</h2><p>通常是调用：</p>
+<ul>
+<li><p>Qwen Embedding API（推荐）</p>
+</li>
+<li><p>GLM Embedding</p>
+</li>
+<li><p>OpenAI Embedding</p>
+</li>
+</ul>
+<p>请求 body 示意：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;model&quot;</span>: <span class="string">&quot;text-embedding&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;input&quot;</span>: <span class="string">&quot;帮我查一下快递&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>返回：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;embedding&quot;</span>: [<span class="number">0.12</span>, <span class="number">-0.03</span>, ...]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后存入 SQLite、CoreData，或者本地文件。</p>
+<hr>
+<h1 id="最后：三者之间的关系"><a href="#最后：三者之间的关系" class="headerlink" title="最后：三者之间的关系"></a>最后：三者之间的关系</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Prompt —— 让模型“理解你”</span><br><span class="line">Token —— 决定上下文大小与消耗</span><br><span class="line">Context —— 模型能记住多少</span><br><span class="line">Function Calling —— 让模型“操作你的 App”</span><br><span class="line">Embedding —— 让应用“理解语义”并构建智能功能</span><br></pre></td></tr></table></figure>
+
+<p><strong>Prompt = 生成侧</strong><br><strong>Embedding = 检索侧</strong><br><strong>Function Calling = 执行侧</strong></p>
+<p>三者结合 → 能做出真正高级的智能助手。</p>
+]]></content>
+      <tags>
+        <tag>AI大模型</tag>
+      </tags>
+  </entry>
 </search>
