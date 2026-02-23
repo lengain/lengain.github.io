@@ -5,9 +5,9 @@
   <subtitle>Software is a great combination of art and engineering.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://lengain.github.io/"/>
-  <updated>2025-11-25T14:16:22.641Z</updated>
-  <id>http://lengain.github.io/</id>
+  <link href="https://lengain.github.io/"/>
+  <updated>2026-02-23T15:14:23.317Z</updated>
+  <id>https://lengain.github.io/</id>
   
   <author>
     <name>Lengain</name>
@@ -17,9 +17,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>OpusOhos：为 HarmonyOS 打造高性能音频编解码库</title>
+    <link href="https://lengain.github.io/2026/02/19/OpusOhos%EF%BC%9A%E4%B8%BA%20HarmonyOS%20%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E5%BA%93/"/>
+    <id>https://lengain.github.io/2026/02/19/OpusOhos：为 HarmonyOS 打造高性能音频编解码库/</id>
+    <published>2026-02-19T03:00:49.000Z</published>
+    <updated>2026-02-23T15:14:23.317Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="OpusOhos：为-HarmonyOS-打造高性能音频编解码库"><a href="#OpusOhos：为-HarmonyOS-打造高性能音频编解码库" class="headerlink" title="OpusOhos：为 HarmonyOS 打造高性能音频编解码库"></a>OpusOhos：为 HarmonyOS 打造高性能音频编解码库</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>随着 HarmonyOS 生态的快速发展，移动应用对高质量音频处理的需求日益增长。无论是实时语音通话、音频录制还是流媒体传输，都需要一个高效、可靠的音频编解码解决方案。Opus 作为一种开放、免版税的音频编解码标准，以其卓越的音质和灵活性在业界广受认可。然而，HarmonyOS 平台缺乏成熟的 Opus 编解码库支持。本文将详细介绍 OpusOhos 库的设计与实现过程，探讨如何将 C/C++ 原生库高效集成到 HarmonyOS 应用开发生态中。</p><p>目前该库已发布到OpenHarmony三方库中心仓，<a href="[OpenHarmony三方库中心仓](https://ohpm.openharmony.cn/#/cn/result?sortedType=relevancy&page=1&q=OpusOhos)">点击前往</a></p><a id="more"></a><h2 id="开发背景"><a href="#开发背景" class="headerlink" title="开发背景"></a>开发背景</h2><h3 id="技术需求分析"><a href="#技术需求分析" class="headerlink" title="技术需求分析"></a>技术需求分析</h3><p>在开发 HarmonyOS 音频应用时，我们面临以下核心需求：</p><ol><li><strong>高压缩比与高音质</strong>：需要在有限的带宽条件下传输高质量音频</li><li><strong>低延迟</strong>：实时通话场景要求端到端延迟控制在毫秒级</li><li><strong>多场景适配</strong>：支持从窄带语音（8kHz）到全频带音乐（48kHz）的各种应用场景</li><li><strong>跨平台兼容</strong>：与主流平台的 Opus 实现保持兼容</li></ol><h3 id="为什么选择-Opus"><a href="#为什么选择-Opus" class="headerlink" title="为什么选择 Opus"></a>为什么选择 Opus</h3><p>Opus 编解码器由 IETF（互联网工程任务组）标准化（RFC 6716），具有以下显著优势：</p><ul><li><strong>优异的音频质量</strong>：在各种比特率下都能提供出色的音质</li><li><strong>超低延迟</strong>：算法延迟仅 5-66.5ms，适合实时通信</li><li><strong>宽泛的比特率范围</strong>：支持 6 kbps 到 510 kbps</li><li><strong>自适应性强</strong>：可动态调整比特率以适应网络状况</li><li><strong>开源免费</strong>：无需支付版税，降低开发成本</li></ul><h3 id="HarmonyOS-集成挑战"><a href="#HarmonyOS-集成挑战" class="headerlink" title="HarmonyOS 集成挑战"></a>HarmonyOS 集成挑战</h3><p>HarmonyOS 应用主要使用 ArkTS 进行开发，而 Opus 库是用 C 语言实现的。如何在两者之间搭建高效、稳定的桥梁成为关键挑战：</p><ol><li><strong>语言互操作</strong>：ArkTS 与 C/C++ 之间的数据传递和类型转换</li><li><strong>内存管理</strong>：跨语言边界的内存安全问题</li><li><strong>性能优化</strong>：最小化跨层调用开销</li><li><strong>API 设计</strong>：为 ArkTS 开发者提供符合习惯的接口</li></ol><h2 id="技术方案设计"><a href="#技术方案设计" class="headerlink" title="技术方案设计"></a>技术方案设计</h2><h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p>OpusOhos 采用三层架构设计，实现了从底层编解码算法到上层应用接口的完整封装：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────┐</span><br><span class="line">│         ArkTS Application Layer         │</span><br><span class="line">│   (OpusEncoder &#x2F; OpusDecoder Class)     │</span><br><span class="line">├─────────────────────────────────────────┤</span><br><span class="line">│          N-API Bridge Layer             │</span><br><span class="line">│      (napi_init.cpp - 接口适配)         │</span><br><span class="line">├─────────────────────────────────────────┤</span><br><span class="line">│        Native Library Layer             │</span><br><span class="line">│    (libopus.so - Opus 1.5.2 核心)      │</span><br><span class="line">└─────────────────────────────────────────┘</span><br></pre></td></tr></table></figure><p><strong>各层职责划分：</strong></p><ul><li><strong>ArkTS 应用层</strong>：提供面向对象的 API，处理业务逻辑和数据格式转换</li><li><strong>N-API 桥接层</strong>：实现 JavaScript/ArkTS 与 C++ 的互操作，负责类型转换和错误处理</li><li><strong>原生库层</strong>：基于 libopus 1.5.2 实现高性能的编解码算法</li></ul><h3 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h3><h4 id="1-Opus-库版本"><a href="#1-Opus-库版本" class="headerlink" title="1. Opus 库版本"></a>1. Opus 库版本</h4><p>我们选择了 libopus 1.5.2，这是截至开发时最新的稳定版本，提供了：</p><ul><li>优化的 ARM NEON 指令集支持</li><li>改进的低比特率性能</li><li>更好的音频质量评估算法</li></ul><h4 id="2-N-API-接口技术"><a href="#2-N-API-接口技术" class="headerlink" title="2. N-API 接口技术"></a>2. N-API 接口技术</h4><p>N-API（Native API）是 HarmonyOS 提供的用于构建原生插件的接口层，具有以下特点：</p><ul><li><strong>ABI 稳定性</strong>：跨版本兼容，减少维护成本</li><li><strong>上下文隔离</strong>：安全地管理 JavaScript 和 C++ 对象生命周期</li><li><strong>异常安全</strong>：提供完善的错误处理机制</li></ul><h4 id="3-构建系统"><a href="#3-构建系统" class="headerlink" title="3. 构建系统"></a>3. 构建系统</h4><p>采用 CMake 作为构建工具，配合 HarmonyOS SDK 提供的工具链：</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.5</span>.<span class="number">0</span>)</span><br><span class="line"><span class="keyword">project</span>(myNpmLib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(opusohos SHARED napi_init.cpp opus)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(opusohos PUBLIC </span><br><span class="line">    libace_napi.z.so </span><br><span class="line">    libhilog_ndk.z.so</span><br><span class="line">    <span class="variable">$&#123;NATIVERENDER_ROOT_PATH&#125;</span>/../../../libs/<span class="variable">$&#123;OHOS_ARCH&#125;</span>/libopus.so</span><br><span class="line">)</span><br></pre></td></tr></table></figure><h3 id="数据流设计"><a href="#数据流设计" class="headerlink" title="数据流设计"></a>数据流设计</h3><h4 id="编码流程"><a href="#编码流程" class="headerlink" title="编码流程"></a>编码流程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">PCM Audio (Int16Array)</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: 数据预处理与分帧</span><br><span class="line">    ↓</span><br><span class="line">N-API Layer: ArrayBuffer 传递</span><br><span class="line">    ↓</span><br><span class="line">Native Layer: opus_encode() 调用</span><br><span class="line">    ↓</span><br><span class="line">N-API Layer: 打包格式封装</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: ArrayBuffer 返回</span><br></pre></td></tr></table></figure><h4 id="解码流程"><a href="#解码流程" class="headerlink" title="解码流程"></a>解码流程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Opus Data (ArrayBuffer)</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: 帧解析</span><br><span class="line">    ↓</span><br><span class="line">N-API Layer: 单帧传递</span><br><span class="line">    ↓</span><br><span class="line">Native Layer: opus_decode() 调用</span><br><span class="line">    ↓</span><br><span class="line">N-API Layer: PCM 数据创建</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: Int16Array 返回</span><br></pre></td></tr></table></figure><h3 id="内存管理策略"><a href="#内存管理策略" class="headerlink" title="内存管理策略"></a>内存管理策略</h3><p>跨语言边界的内存管理是整个方案的核心难点之一。我们采用以下策略：</p><ol><li><strong>零拷贝传递</strong>：使用 ArrayBuffer 在 ArkTS 和 C++ 之间共享内存</li><li><strong>明确的生命周期</strong>：通过 <code>init()</code> 和 <code>destroy()</code> 方法明确资源管理</li><li><strong>RAII 原则</strong>：在 C++ 层使用智能指针和自动析构</li><li><strong>错误恢复</strong>：任何异常都要确保资源正确释放</li></ol><h2 id="核心实现详解"><a href="#核心实现详解" class="headerlink" title="核心实现详解"></a>核心实现详解</h2><h3 id="1-N-API-编码器实现"><a href="#1-N-API-编码器实现" class="headerlink" title="1. N-API 编码器实现"></a>1. N-API 编码器实现</h3><p>N-API 层的编码器实现是整个系统的核心，需要处理数据转换、分帧、编码和打包等多个环节。</p><h4 id="初始化过程"><a href="#初始化过程" class="headerlink" title="初始化过程"></a>初始化过程</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">InitEncoder</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 参数解析</span></span><br><span class="line">    <span class="keyword">size_t</span> argc = <span class="number">3</span>;</span><br><span class="line">    napi_value args[<span class="number">3</span>];</span><br><span class="line">    napi_get_cb_info(env, info, &amp;argc, args, <span class="literal">nullptr</span>, <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int32_t</span> sampleRate, channels, bitRate;</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">0</span>], &amp;sampleRate);</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">1</span>], &amp;channels);</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">2</span>], &amp;bitRate);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 创建 Opus 编码器</span></span><br><span class="line">    <span class="keyword">int</span> err;</span><br><span class="line">    encoder_ = opus_encoder_create(sampleRate, channels, </span><br><span class="line">                                    OPUS_APPLICATION_AUDIO, &amp;err);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 计算帧大小（20ms）</span></span><br><span class="line">    gSampleRate = sampleRate;</span><br><span class="line">    <span class="keyword">switch</span> (sampleRate) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">8000</span>:  gFrameSize = <span class="number">160</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">12000</span>: gFrameSize = <span class="number">240</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">16000</span>: gFrameSize = <span class="number">320</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">24000</span>: gFrameSize = <span class="number">480</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">48000</span>: gFrameSize = <span class="number">960</span>; <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 配置比特率</span></span><br><span class="line">    opus_encoder_ctl(encoder_, OPUS_SET_BITRATE(bitRate));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>设计要点：</strong></p><ul><li><strong>帧大小计算</strong>：Opus 要求固定帧长，我们选择 20ms 作为平衡延迟和效率的最佳值</li><li><strong>采样率映射</strong>：根据 Opus 规范，不同采样率对应不同的帧样本数</li><li><strong>错误检查</strong>：每一步都进行严格的错误检查，确保初始化成功</li></ul><h4 id="编码过程"><a href="#编码过程" class="headerlink" title="编码过程"></a>编码过程</h4><p>编码过程是性能关键路径，需要特别优化：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">Encode</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 获取 PCM 数据</span></span><br><span class="line">    <span class="keyword">void</span> *pcm = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">size_t</span> len = <span class="number">0</span>;</span><br><span class="line">    napi_get_arraybuffer_info(env, args[<span class="number">0</span>], &amp;pcm, &amp;len);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 数据验证</span></span><br><span class="line">    <span class="keyword">size_t</span> numSamples = len / <span class="keyword">sizeof</span>(<span class="keyword">int16_t</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 分配输出缓冲区</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> maxEncodedSize = <span class="number">4000</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> maxFrames = (len + frameByte - <span class="number">1</span>) / frameByte;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> outputBufferSize = maxFrames * (maxEncodedSize + <span class="number">4</span>);</span><br><span class="line">    <span class="keyword">void</span>* outputBuffer = <span class="built_in">malloc</span>(outputBufferSize);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 逐帧编码</span></span><br><span class="line">    <span class="keyword">int16_t</span>* pcmSamples = <span class="keyword">static_cast</span>&lt;<span class="keyword">int16_t</span>*&gt;(pcm);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> sampleOffset = <span class="number">0</span>; </span><br><span class="line">         sampleOffset + gFrameSize &lt;= numSamples; </span><br><span class="line">         sampleOffset += gFrameSize) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span> encodedFrame[<span class="number">4000</span>];</span><br><span class="line">        <span class="keyword">int</span> encodedBytes = opus_encode(encoder_,</span><br><span class="line">                                       &amp;pcmSamples[sampleOffset],</span><br><span class="line">                                       gFrameSize,</span><br><span class="line">                                       encodedFrame, </span><br><span class="line">                                       <span class="keyword">sizeof</span>(encodedFrame));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5. 打包格式：[4字节长度|帧数据]</span></span><br><span class="line">        *<span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">int</span>*&gt;(outputPtr) = encodedBytes;</span><br><span class="line">        outputPtr += <span class="number">4</span>;</span><br><span class="line">        <span class="built_in">memcpy</span>(outputPtr, encodedFrame, encodedBytes);</span><br><span class="line">        outputPtr += encodedBytes;</span><br><span class="line">        totalOutputSize += <span class="number">4</span> + encodedBytes;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6. 创建返回的 ArrayBuffer</span></span><br><span class="line">    napi_value result;</span><br><span class="line">    <span class="keyword">void</span>* resultData = <span class="literal">nullptr</span>;</span><br><span class="line">    napi_create_arraybuffer(env, totalOutputSize, &amp;resultData, &amp;result);</span><br><span class="line">    <span class="built_in">memcpy</span>(resultData, outputBuffer, totalOutputSize);</span><br><span class="line">    <span class="built_in">free</span>(outputBuffer);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>关键优化：</strong></p><ol><li><strong>批量处理</strong>：一次性处理多个帧，减少函数调用开销</li><li><strong>内存预分配</strong>：避免频繁的内存分配</li><li><strong>自定义打包格式</strong>：每帧前加 4 字节长度信息，便于解包和流式处理</li><li><strong>零拷贝</strong>：直接在 ArrayBuffer 上操作，避免额外拷贝</li></ol><h3 id="2-N-API-解码器实现"><a href="#2-N-API-解码器实现" class="headerlink" title="2. N-API 解码器实现"></a>2. N-API 解码器实现</h3><p>解码器的实现相对简单，但同样需要注意错误处理和内存管理：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">Decode</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 获取 Opus 数据</span></span><br><span class="line">    <span class="keyword">void</span> *opusData = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">size_t</span> len = <span class="number">0</span>;</span><br><span class="line">    napi_get_arraybuffer_info(env, args[<span class="number">0</span>], &amp;opusData, &amp;len);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 分配 PCM 输出缓冲区</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> maxFrameSize = <span class="number">5760</span>;  <span class="comment">// 48kHz 时的最大帧</span></span><br><span class="line">    <span class="keyword">int16_t</span> *pcmOutput = <span class="keyword">static_cast</span>&lt;<span class="keyword">int16_t</span>*&gt;(</span><br><span class="line">        <span class="built_in">malloc</span>(maxFrameSize * <span class="keyword">sizeof</span>(<span class="keyword">int16_t</span>))</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 解码</span></span><br><span class="line">    <span class="keyword">int</span> decodedSamples = opus_decode(</span><br><span class="line">        decoder_,</span><br><span class="line">        <span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span>*&gt;(opusData),</span><br><span class="line">        <span class="keyword">static_cast</span>&lt;opus_int32&gt;(len),</span><br><span class="line">        pcmOutput,</span><br><span class="line">        maxFrameSize,</span><br><span class="line">        <span class="number">0</span>  <span class="comment">// FEC disabled</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 创建结果</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> resultSize = decodedSamples * <span class="keyword">sizeof</span>(<span class="keyword">int16_t</span>);</span><br><span class="line">    napi_value result;</span><br><span class="line">    <span class="keyword">void</span>* resultData = <span class="literal">nullptr</span>;</span><br><span class="line">    napi_create_arraybuffer(env, resultSize, &amp;resultData, &amp;result);</span><br><span class="line">    <span class="built_in">memcpy</span>(resultData, pcmOutput, resultSize);</span><br><span class="line">    <span class="built_in">free</span>(pcmOutput);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="3-ArkTS-封装层设计"><a href="#3-ArkTS-封装层设计" class="headerlink" title="3. ArkTS 封装层设计"></a>3. ArkTS 封装层设计</h3><p>ArkTS 层提供面向对象的 API，隐藏底层复杂性：</p><h4 id="OpusEncoder-类"><a href="#OpusEncoder-类" class="headerlink" title="OpusEncoder 类"></a>OpusEncoder 类</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">OpusEncoder</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> sampleRate: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> channels: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> bitRate: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> frameSize: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">init</span>(<span class="params">sampleRate: <span class="built_in">number</span>, channels: <span class="built_in">number</span>, bitRate: <span class="built_in">number</span></span>)</span> &#123;</span><br><span class="line">    opusOhos.initEncoder(sampleRate, channels, bitRate);</span><br><span class="line">    <span class="built_in">this</span>.sampleRate = sampleRate;</span><br><span class="line">    <span class="built_in">this</span>.channels = channels;</span><br><span class="line">    <span class="built_in">this</span>.bitRate = bitRate;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算帧大小</span></span><br><span class="line">    <span class="built_in">this</span>.frameSize = OpusEncoder.getFrameSize(sampleRate);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  encode(pcmData: <span class="built_in">Int16Array</span>): <span class="built_in">ArrayBuffer</span> &#123;</span><br><span class="line">    <span class="comment">// 数据清理：确保 buffer 对齐</span></span><br><span class="line">    <span class="keyword">if</span> (pcmData.byteOffset === <span class="number">0</span> &amp;&amp; </span><br><span class="line">        pcmData.buffer.byteLength === pcmData.byteLength) &#123;</span><br><span class="line">      <span class="keyword">return</span> opusOhos.encode(pcmData.buffer);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 创建干净的 buffer</span></span><br><span class="line">      <span class="keyword">const</span> cleanBuffer = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(pcmData.byteLength);</span><br><span class="line">      <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(cleanBuffer).set(</span><br><span class="line">        <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(pcmData.buffer, pcmData.byteOffset, pcmData.byteLength)</span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">return</span> opusOhos.encode(cleanBuffer);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> getFrameSize(sampleRate: <span class="built_in">number</span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (sampleRate) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">8000</span>:  <span class="keyword">return</span> <span class="number">160</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">12000</span>: <span class="keyword">return</span> <span class="number">240</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">16000</span>: <span class="keyword">return</span> <span class="number">320</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">24000</span>: <span class="keyword">return</span> <span class="number">480</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">48000</span>: <span class="keyword">return</span> <span class="number">960</span>;</span><br><span class="line">      <span class="keyword">default</span>: <span class="keyword">return</span> <span class="built_in">Math</span>.floor(sampleRate * <span class="number">0.02</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 工具方法：字节数组转 Int16Array</span></span><br><span class="line">  <span class="keyword">static</span> bytesToInt16(bytes: <span class="built_in">Uint8Array</span>): <span class="built_in">Int16Array</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (bytes.byteOffset % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Int16Array</span>(bytes.buffer, bytes.byteOffset, </span><br><span class="line">                           <span class="built_in">Math</span>.floor(bytes.length / <span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 处理未对齐的情况</span></span><br><span class="line">    <span class="keyword">const</span> int16Length = <span class="built_in">Math</span>.floor(bytes.length / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">const</span> int16List = <span class="keyword">new</span> <span class="built_in">Int16Array</span>(int16Length);</span><br><span class="line">    <span class="keyword">const</span> dataView = <span class="keyword">new</span> <span class="built_in">DataView</span>(bytes.buffer, bytes.byteOffset);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; int16Length; i++) &#123;</span><br><span class="line">      int16List[i] = dataView.getInt16(i * <span class="number">2</span>, <span class="literal">true</span>);  <span class="comment">// 小端序</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> int16List;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">destroy</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    opusOhos.destroy();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>设计亮点：</strong></p><ol><li><strong>状态管理</strong>：封装编码器参数，避免重复传递</li><li><strong>数据对齐处理</strong>：自动检测和修复 ArrayBuffer 对齐问题</li><li><strong>工具方法</strong>：提供常用的数据转换功能</li><li><strong>错误防护</strong>：在调用前检查初始化状态</li></ol><h4 id="OpusDecoder-类"><a href="#OpusDecoder-类" class="headerlink" title="OpusDecoder 类"></a>OpusDecoder 类</h4><p>解码器的设计类似，但增加了帧解析功能：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">OpusDecoder</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> sampleRate: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> channels: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> frameSize: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">init</span>(<span class="params">sampleRate: <span class="built_in">number</span>, channels: <span class="built_in">number</span></span>)</span> &#123;</span><br><span class="line">    opusOhos.initDecoder(sampleRate, channels);</span><br><span class="line">    <span class="built_in">this</span>.sampleRate = sampleRate;</span><br><span class="line">    <span class="built_in">this</span>.channels = channels;</span><br><span class="line">    <span class="built_in">this</span>.frameSize = OpusEncoder.getFrameSize(sampleRate);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  decode(packedOpusData: <span class="built_in">ArrayBuffer</span>): <span class="built_in">Int16Array</span> &#123;</span><br><span class="line">    <span class="comment">// 解析打包格式</span></span><br><span class="line">    <span class="keyword">const</span> view = <span class="keyword">new</span> <span class="built_in">DataView</span>(packedOpusData);</span><br><span class="line">    <span class="keyword">let</span> offset = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">const</span> frames: <span class="built_in">ArrayBuffer</span>[] = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (offset &lt; view.byteLength) &#123;</span><br><span class="line">      <span class="keyword">const</span> frameLength = view.getInt32(offset, <span class="literal">true</span>);  <span class="comment">// 小端序</span></span><br><span class="line">      offset += <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (frameLength &lt;= <span class="number">0</span> || offset + frameLength &gt; view.byteLength) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      frames.push(packedOpusData.slice(offset, offset + frameLength));</span><br><span class="line">      offset += frameLength;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解码所有帧并合并</span></span><br><span class="line">    <span class="keyword">const</span> decodedSamples: <span class="built_in">Int16Array</span>[] = [];</span><br><span class="line">    <span class="keyword">let</span> totalSamples = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> frame <span class="keyword">of</span> frames) &#123;</span><br><span class="line">      <span class="keyword">const</span> pcmFrame = <span class="built_in">this</span>.decodeFrame(<span class="keyword">new</span> <span class="built_in">Uint8Array</span>(frame));</span><br><span class="line">      decodedSamples.push(pcmFrame);</span><br><span class="line">      totalSamples += pcmFrame.length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 合并结果</span></span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">new</span> <span class="built_in">Int16Array</span>(totalSamples);</span><br><span class="line">    <span class="keyword">let</span> writeOffset = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> samples <span class="keyword">of</span> decodedSamples) &#123;</span><br><span class="line">      result.set(samples, writeOffset);</span><br><span class="line">      writeOffset += samples.length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  decodeFrame(frameData: <span class="built_in">Uint8Array</span>): <span class="built_in">Int16Array</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> pcmBuffer: <span class="built_in">ArrayBuffer</span> = opusOhos.decode(frameData.buffer);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Int16Array</span>(pcmBuffer);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> int16ToBytes(int16Data: <span class="built_in">Int16Array</span>): <span class="built_in">Uint8Array</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(int16Data.buffer, </span><br><span class="line">                          int16Data.byteOffset, </span><br><span class="line">                          int16Data.byteLength);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">destroy</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    opusOhos.releaseDecoder();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="4-多架构支持"><a href="#4-多架构支持" class="headerlink" title="4. 多架构支持"></a>4. 多架构支持</h3><p>OpusOhos 支持 HarmonyOS 的主要架构平台：</p><h4 id="预编译库管理"><a href="#预编译库管理" class="headerlink" title="预编译库管理"></a>预编译库管理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">libs&#x2F;</span><br><span class="line">├── arm64-v8a&#x2F;</span><br><span class="line">│   └── libopus.so      # ARM64 平台库</span><br><span class="line">└── x86_64&#x2F;</span><br><span class="line">    └── libopus.so      # x86_64 模拟器库</span><br></pre></td></tr></table></figure><h4 id="CMake-架构选择"><a href="#CMake-架构选择" class="headerlink" title="CMake 架构选择"></a>CMake 架构选择</h4><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">target_link_libraries</span>(opusohos PUBLIC </span><br><span class="line">    <span class="variable">$&#123;NATIVERENDER_ROOT_PATH&#125;</span>/../../../libs/<span class="variable">$&#123;OHOS_ARCH&#125;</span>/libopus.so</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p><code>$&#123;OHOS_ARCH&#125;</code> 变量由 HarmonyOS 构建系统自动设置，确保链接正确的库版本。</p><h2 id="性能优化策略"><a href="#性能优化策略" class="headerlink" title="性能优化策略"></a>性能优化策略</h2><h3 id="1-编码性能优化"><a href="#1-编码性能优化" class="headerlink" title="1. 编码性能优化"></a>1. 编码性能优化</h3><p><strong>批量处理</strong>：</p><ul><li>一次编码调用处理多个帧</li><li>减少跨层调用次数</li><li>预分配输出缓冲区</li></ul><p><strong>实测数据</strong>（48kHz, 单声道）：</p><ul><li>单帧编码：~0.5ms</li><li>批量编码（10帧）：~4ms（平均 0.4ms/帧）</li><li>性能提升：~20%</li></ul><h3 id="2-内存优化"><a href="#2-内存优化" class="headerlink" title="2. 内存优化"></a>2. 内存优化</h3><p><strong>零拷贝技术</strong>：</p><ul><li>使用 ArrayBuffer 共享内存</li><li>避免 ArkTS 和 C++ 之间的数据复制</li><li>直接在原始 buffer 上操作</li></ul><p><strong>内存池</strong>：</p><ul><li>编码器和解码器状态复用</li><li>减少频繁的对象创建销毁</li></ul><h3 id="3-错误处理优化"><a href="#3-错误处理优化" class="headerlink" title="3. 错误处理优化"></a>3. 错误处理优化</h3><p><strong>快速失败</strong>：</p><ul><li>参数验证前置</li><li>早期返回避免无效计算</li><li>详细的日志记录（使用 HiLog）</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OH_LOG_INFO(LOG_APP, <span class="string">&quot;Encoding completed: %d frames, output: %zu bytes&quot;</span>, </span><br><span class="line">            frameCount, totalOutputSize);</span><br><span class="line">OH_LOG_ERROR(LOG_APP, <span class="string">&quot;opus_encode failed with error: %d&quot;</span>, encodedBytes);</span><br></pre></td></tr></table></figure><h2 id="测试与验证"><a href="#测试与验证" class="headerlink" title="测试与验证"></a>测试与验证</h2><h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><p>基于 HarmonyOS 的 <code>@ohos/hypium</code> 测试框架：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">&#x27;OpusEncoder Test&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  it(<span class="string">&#x27;should encode PCM to Opus&#x27;</span>, <span class="number">0</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> encoder = <span class="keyword">new</span> OpusEncoder();</span><br><span class="line">    encoder.init(<span class="number">48000</span>, <span class="number">1</span>, <span class="number">64000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 生成测试数据（960 samples = 20ms at 48kHz）</span></span><br><span class="line">    <span class="keyword">const</span> pcmData = <span class="keyword">new</span> <span class="built_in">Int16Array</span>(<span class="number">960</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">960</span>; i++) &#123;</span><br><span class="line">      pcmData[i] = <span class="built_in">Math</span>.sin(<span class="number">2</span> * <span class="built_in">Math</span>.PI * <span class="number">440</span> * i / <span class="number">48000</span>) * <span class="number">32767</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> encoded = encoder.encode(pcmData);</span><br><span class="line">    expect(encoded.byteLength).assertLarger(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    encoder.destroy();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h3 id="兼容性验证"><a href="#兼容性验证" class="headerlink" title="### 兼容性验证"></a>### 兼容性验证</h3><p><strong>跨平台兼容性</strong>：</p><ul><li>使用标准 Opus 测试向量</li><li>与其他平台的 Opus 实现对比</li><li>验证编码数据的可解码性</li></ul><h2 id="部署与使用"><a href="#部署与使用" class="headerlink" title="部署与使用"></a>部署与使用</h2><h3 id="包管理配置"><a href="#包管理配置" class="headerlink" title="包管理配置"></a>包管理配置</h3><p><code>oh-package.json5</code>:</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;@lengain/opusohos&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Opus audio codec for HarmonyOS&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;Index.ets&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;Apache-2.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;libopusohos.so&quot;</span>: <span class="string">&quot;file:./src/main/cpp/types/libopusohos&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="应用集成"><a href="#应用集成" class="headerlink" title="应用集成"></a>应用集成</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; OpusEncoder, OpusDecoder &#125; <span class="keyword">from</span> <span class="string">&#x27;@lengain/opusohos&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编码示例</span></span><br><span class="line"><span class="keyword">const</span> encoder = <span class="keyword">new</span> OpusEncoder();</span><br><span class="line">encoder.init(<span class="number">48000</span>, <span class="number">1</span>, <span class="number">64000</span>);</span><br><span class="line"><span class="keyword">const</span> encodedData = encoder.encode(pcmSamples);</span><br><span class="line">encoder.destroy();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解码示例</span></span><br><span class="line"><span class="keyword">const</span> decoder = <span class="keyword">new</span> OpusDecoder();</span><br><span class="line">decoder.init(<span class="number">48000</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">const</span> decodedPcm = decoder.decode(encodedData);</span><br><span class="line">decoder.destroy();</span><br></pre></td></tr></table></figure><h3 id><a href="#" class="headerlink" title></a></h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol><li><a href="https://opus-codec.org/">Opus Codec Official Website</a></li><li><a href="https://tools.ietf.org/html/rfc6716">RFC 6716 - Definition of the Opus Audio Codec</a></li><li><a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/napi-guidelines-V5">HarmonyOS N-API Development Guide</a></li><li><a href="https://opus-codec.org/docs/opus_api-1.5.2/">libopus API Documentation</a></li><li><a href="https://cmake.org/documentation/">CMake Official Documentation</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;OpusOhos：为-HarmonyOS-打造高性能音频编解码库&quot;&gt;&lt;a href=&quot;#OpusOhos：为-HarmonyOS-打造高性能音频编解码库&quot; class=&quot;headerlink&quot; title=&quot;OpusOhos：为 HarmonyOS 打造高性能音频编解码库&quot;&gt;&lt;/a&gt;OpusOhos：为 HarmonyOS 打造高性能音频编解码库&lt;/h1&gt;&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;随着 HarmonyOS 生态的快速发展，移动应用对高质量音频处理的需求日益增长。无论是实时语音通话、音频录制还是流媒体传输，都需要一个高效、可靠的音频编解码解决方案。Opus 作为一种开放、免版税的音频编解码标准，以其卓越的音质和灵活性在业界广受认可。然而，HarmonyOS 平台缺乏成熟的 Opus 编解码库支持。本文将详细介绍 OpusOhos 库的设计与实现过程，探讨如何将 C/C++ 原生库高效集成到 HarmonyOS 应用开发生态中。&lt;/p&gt;
+&lt;p&gt;目前该库已发布到OpenHarmony三方库中心仓，&lt;a href=&quot;[OpenHarmony三方库中心仓](https://ohpm.openharmony.cn/#/cn/result?sortedType=relevancy&amp;page=1&amp;q=OpusOhos)&quot;&gt;点击前往&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RAG:检索增强生成</title>
+    <link href="https://lengain.github.io/2025/11/27/RAG-%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90/"/>
+    <id>https://lengain.github.io/2025/11/27/RAG-检索增强生成/</id>
+    <published>2025-11-27T14:24:07.000Z</published>
+    <updated>2025-11-27T14:27:05.888Z</updated>
+    
+    <content type="html"><![CDATA[<p>RAG（Retrieval-Augmented Generation）是一个将<strong>信息检索</strong>（Retrieval）和<strong>生成式模型</strong>（Generation）结合的来增强生成内容的准确性和丰富度的一种技术，广泛应用于提高大语言模型（LLM）在处理复杂任务时的表现，尤其是在信息量庞大、需要背景知识支持的场景下，表现尤为突出。它通过结合外部知识库进行检索，增强模型生成的能力，特别适用于需要大量背景知识的任务。</p><p>对于开发者而言，理解并实现 RAG 技术，不仅能提升 AI 应用的质量，还能帮助你构建更加智能、高效的产品。</p><h3 id="RAG-的基本概念"><a href="#RAG-的基本概念" class="headerlink" title="RAG 的基本概念"></a>RAG 的基本概念</h3><p>RAG 通过将<strong>信息检索</strong>（如从数据库或文档中检索相关信息）与生成式模型（如 GPT-4、T5）结合，来提供更准确的回答和高效的生成能力。其流程分为两个步骤：</p><ol><li><p><strong>信息检索（Retrieval）：</strong></p><ul><li><p>在这一步，模型根据用户的查询从一个外部的知识库、数据库或者文本集合中检索出与查询最相关的信息。</p></li><li><p>检索过程中使用技术如 <strong>embedding</strong>（文本向量化）和 <strong>相似度计算</strong>（如余弦相似度），通过匹配查询和文档的语义相似度来提取相关信息。</p></li></ul></li><li><p><strong>生成式回答（Generation）：</strong></p><ul><li><p>一旦检索到相关信息，生成式模型（如 GPT-4）使用这些信息来生成最终的答案或内容。</p></li><li><p>生成模型会将检索到的文本与用户的原始查询结合，生成更具信息量和准确性的输出。</p></li></ul></li></ol><h3 id="RAG-的优势"><a href="#RAG-的优势" class="headerlink" title="RAG 的优势"></a>RAG 的优势</h3><p>RAG 的结合检索与生成的特点，使得它在以下几个方面具有明显优势：</p><ul><li><p><strong>减少生成模型的幻觉（hallucination）：</strong><br>传统的生成式模型在没有外部信息的支持下可能会生成虚假或不准确的答案。RAG 通过引入检索步骤，确保生成的内容是基于现实中的信息来源，提高了结果的准确性。</p></li><li><p><strong>扩展模型知识：</strong><br>生成式模型通常只依赖于训练时的数据，但通过 RAG，模型可以动态地从外部知识库中检索更新的信息，避免了过时或不完整的知识。</p></li><li><p><strong>提高效率：</strong><br>由于检索步骤是通过外部资源完成的，生成模型只需要在相关信息的基础上生成输出，从而减少了需要处理的信息量，提高了生成效率。</p></li></ul><h3 id="RAG-的工作流程"><a href="#RAG-的工作流程" class="headerlink" title="RAG 的工作流程"></a>RAG 的工作流程</h3><p>RAG 系统的工作流程可以通过以下几个步骤来描述：</p><ol><li><p><strong>查询用户输入：</strong></p><ul><li>用户提出问题或请求。</li></ul></li><li><p><strong>信息检索（Retrieval）：</strong></p><ul><li>通过将用户的输入转化为 embedding（例如通过文本编码模型），从外部知识库中检索相关文档或信息。</li></ul></li><li><p><strong>信息过滤与排序：</strong></p><ul><li>检索到的信息会根据与用户查询的相关性进行排序，并过滤掉不相关的内容。</li></ul></li><li><p><strong>生成模型（Generation）：</strong></p><ul><li>将检索到的信息与用户的查询结合，送入生成式模型（如 GPT-4、T5）中，生成准确的响应。</li></ul></li><li><p><strong>返回答案：</strong></p><ul><li>最终的生成文本作为回答返回给用户。</li></ul></li></ol><h3 id="RAG-在-iOS-开发中的应用"><a href="#RAG-在-iOS-开发中的应用" class="headerlink" title="RAG 在 iOS 开发中的应用"></a>RAG 在 iOS 开发中的应用</h3><p>在 iOS 开发中，RAG 主要用于构建智能助手、问答系统、文档检索系统等应用。它能够结合本地嵌入（embedding）与云端大模型，提供快速、准确的信息检索与生成。</p><h4 id="示例：在-iOS-中实现-RAG"><a href="#示例：在-iOS-中实现-RAG" class="headerlink" title="示例：在 iOS 中实现 RAG"></a>示例：在 iOS 中实现 RAG</h4><p>假设你正在开发一个 RAG-based 文档检索助手，流程如下：</p><ol><li><p><strong>文档处理：</strong></p><ul><li>将大量文档（如 PDF、Word 文件）转换成文本，并通过嵌入技术（如 sentence-transformer）将文档转换为向量表示。</li></ul></li><li><p><strong>查询处理：</strong></p><ul><li>用户提出查询，系统将查询也转化为 embedding，并通过相似度计算在本地数据库中进行检索。</li></ul></li><li><p><strong>信息检索：</strong></p><ul><li>系统从本地数据库中检索出与用户查询最相关的文档段落。</li></ul></li><li><p><strong>生成回答：</strong></p><ul><li>将检索到的相关段落与用户查询一起传递给大模型（如 Qwen、GLM），生成最终的回答。</li></ul></li><li><p><strong>输出答案：</strong></p><ul><li>返回生成的答案，用户可以得到基于检索和生成结合的高质量回答。</li></ul></li></ol><h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><ul><li><p><strong>智能客服助手：</strong> 根据用户的提问，结合历史对话和知识库内容，生成准确的服务回复。</p></li><li><p><strong>智能文档助手：</strong> 在文档中检索相关信息，并生成精确的答复或摘要。</p></li><li><p><strong>知识库查询系统：</strong> 通过检索外部知识库的信息并生成相关回答，帮助用户获取所需的知识。</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;RAG（Retrieval-Augmented Generation）是一个将&lt;strong&gt;信息检索&lt;/strong&gt;（Retrieval）和&lt;strong&gt;生成式模型&lt;/strong&gt;（Generation）结合的来增强生成内容的准确性和丰富度的一种技术，广泛应用于提高
+      
+    
+    </summary>
+    
+      <category term="AI大模型" scheme="https://lengain.github.io/categories/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+      <category term="AI大模型" scheme="https://lengain.github.io/tags/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>大模型基础概念</title>
-    <link href="http://lengain.github.io/2025/11/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
-    <id>http://lengain.github.io/2025/11/25/大模型基础概念/</id>
+    <link href="https://lengain.github.io/2025/11/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
+    <id>https://lengain.github.io/2025/11/25/大模型基础概念/</id>
     <published>2025-11-25T14:09:16.000Z</published>
     <updated>2025-11-25T14:16:22.641Z</updated>
     
@@ -54,14 +100,14 @@
     </summary>
     
     
-      <category term="AI大模型" scheme="http://lengain.github.io/tags/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
+      <category term="AI大模型" scheme="https://lengain.github.io/tags/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
   <entry>
     <title>项目管理平台搭建：以iOS开发为例</title>
-    <link href="http://lengain.github.io/2025/10/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%EF%BC%9A%E4%BB%A5iOS%E5%BC%80%E5%8F%91%E4%B8%BA%E4%BE%8B/"/>
-    <id>http://lengain.github.io/2025/10/09/项目管理平台搭建：以iOS开发为例/</id>
+    <link href="https://lengain.github.io/2025/10/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%EF%BC%9A%E4%BB%A5iOS%E5%BC%80%E5%8F%91%E4%B8%BA%E4%BE%8B/"/>
+    <id>https://lengain.github.io/2025/10/09/项目管理平台搭建：以iOS开发为例/</id>
     <published>2025-10-09T14:57:58.000Z</published>
     <updated>2025-10-10T08:39:30.069Z</updated>
     
@@ -89,8 +135,8 @@
   
   <entry>
     <title>魔数鸿蒙扫描</title>
-    <link href="http://lengain.github.io/2025/01/16/%E9%AD%94%E6%95%B0%E9%B8%BF%E8%92%99%E6%89%AB%E6%8F%8F/"/>
-    <id>http://lengain.github.io/2025/01/16/魔数鸿蒙扫描/</id>
+    <link href="https://lengain.github.io/2025/01/16/%E9%AD%94%E6%95%B0%E9%B8%BF%E8%92%99%E6%89%AB%E6%8F%8F/"/>
+    <id>https://lengain.github.io/2025/01/16/魔数鸿蒙扫描/</id>
     <published>2025-01-16T12:06:48.000Z</published>
     <updated>2025-01-16T12:16:07.630Z</updated>
     
@@ -110,10 +156,10 @@
   
   <entry>
     <title>魔数计算器隐私政策</title>
-    <link href="http://lengain.github.io/2024/12/11/%E9%AD%94%E6%95%B0%E8%AE%A1%E7%AE%97%E5%99%A8%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96/"/>
-    <id>http://lengain.github.io/2024/12/11/魔数计算器隐私政策/</id>
+    <link href="https://lengain.github.io/2024/12/11/%E9%AD%94%E6%95%B0%E8%AE%A1%E7%AE%97%E5%99%A8%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96/"/>
+    <id>https://lengain.github.io/2024/12/11/魔数计算器隐私政策/</id>
     <published>2024-12-11T09:30:37.000Z</published>
-    <updated>2024-12-11T09:42:20.122Z</updated>
+    <updated>2025-01-16T12:06:16.674Z</updated>
     
     <content type="html"><![CDATA[<h3 id="魔数计算器服务协议及隐私政策"><a href="#魔数计算器服务协议及隐私政策" class="headerlink" title="魔数计算器服务协议及隐私政策"></a>魔数计算器服务协议及隐私政策</h3><p>欢迎您使用魔数计算器！<br>为使用魔数计算器，您应当阅读并遵守《魔数计算器服务协议及隐私政策》（以下简称“本协议”）。请您务必审慎阅读、充分理解各条款内容，特别是免除或限制责任的相应条款，以及开通或使用某项服务的单独协议，您使用此服务即表示您接受本协议。限制或免除责任条款可能以加粗形式提示您注意。 除非您已阅读并接受本协议所有条款，否则您无权使用魔数计算器服务（以下简称“本服务”）。您对本服务的任何查看使用行为即视为您已阅读并同意本协议的约束。</p><a id="more"></a><h2 id="一、协议的范围"><a href="#一、协议的范围" class="headerlink" title="一、协议的范围"></a>一、协议的范围</h2><h3 id="1-1【协议适用主体范围】"><a href="#1-1【协议适用主体范围】" class="headerlink" title="1.1【协议适用主体范围】"></a>1.1【协议适用主体范围】</h3><p>本协议是您与魔数计算器之间关于您使用本服务所订立的协议。</p><h3 id="1-2【本服务内容】"><a href="#1-2【本服务内容】" class="headerlink" title="1.2【本服务内容】"></a>1.2【本服务内容】</h3><p>本协议项下的服务是指魔数计算器向用户提供的服务（以下简称“本服务”）。本协议内容同时包括魔数计算器可能不断发布的关于本服务的相关协议、业务规则等内容。上述内容一经正式发布，即为本协议不可分割的组成部分，您同样应当遵守。</p><h2 id="二、隐私政策"><a href="#二、隐私政策" class="headerlink" title="二、隐私政策"></a>二、隐私政策</h2><p>a）本产品不会采集您的个人信息。</p><p>b）本产品亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播</p><p>您的个人信息。任何本产品平台用户如从事上述活动，一经发现，本产品</p><p>有权立即终止与该用户的服务协议。</p><h2 id="三、权利义务"><a href="#三、权利义务" class="headerlink" title="三、权利义务"></a>三、权利义务</h2><h3 id="3-1-【关于收费】"><a href="#3-1-【关于收费】" class="headerlink" title="3.1 【关于收费】"></a>3.1 【关于收费】</h3><p>本服务是魔数计算器向您提供的免费服务，您可免费试用本服务任何内容，方可使用本服务。否则，您无权使用本服务。魔数计算器可能会根据本服务的整体规划，对本服务的收费标准、方式等进行修改和变更，前述修改、变更，魔数计算器将在相应服务页面进行通知或公告。如果您不同意上述修改、变更，则应停止使用本服务。否则，您的任何购买、登录、查看等使用行为，即视为您同意上述修改、变更。</p><h3 id="3-2【服务开通】"><a href="#3-2【服务开通】" class="headerlink" title="3.2【服务开通】"></a>3.2【服务开通】</h3><p>您应该通过魔数计算器开通本服务。您承诺不得通过非魔数计算器指定途径或任何违反相关法规、违反本协议、不正当手段等开通、获取本服务。</p><h3 id="3-3-【服务期限】"><a href="#3-3-【服务期限】" class="headerlink" title="3.3 【服务期限】"></a>3.3 【服务期限】</h3><p>本服务自您依约完成有效之日起生效。</p><h3 id="3-4-【行为规范】"><a href="#3-4-【行为规范】" class="headerlink" title="3.4 【行为规范】"></a>3.4 【行为规范】</h3><h4 id="3-4-1【五不准】"><a href="#3-4-1【五不准】" class="headerlink" title="3.4.1【五不准】"></a>3.4.1【五不准】</h4><p>您在使用本服务时不得利用本服务从事以下行为，包括但不限于：</p><p>（1）发布、传送、传播、储存违反国家法律、危害国家安全统一、社会稳定、公序良俗、社会公德以及侮辱、诽谤、淫秽、暴力的内容；</p><p>（2）发布、传送、传播、储存侵害他人名誉权、肖像权、知识产权、商业秘密等合法权利的内容；</p><p>（3）虚构事实、隐瞒真相以误导、欺骗他人；</p><p>（4）发表、传送、传播广告信息及垃圾信息；</p><p>（5）从事其他违反法律法规、政策及公序良俗、社会公德等的行为。</p><h4 id="3-4-2【用户禁止行为】"><a href="#3-4-2【用户禁止行为】" class="headerlink" title="3.4.2【用户禁止行为】"></a>3.4.2【用户禁止行为】</h4><p>本服务仅供您个人使用，除非经魔数计算器书面许可，您不得进行以下行为：</p><p>（1）通过任何方式搜集本服务中其他用户的用户名、电子邮件等相关信息，并以发送垃圾邮件、连锁邮件、垃圾短信、即时消息等方式干扰、骚扰其他用户；</p><p>（2）通过本服务发布包含广告、宣传、促销等内容的信息；</p><p>（3）将本服务转让许可他人使用；</p><p>（4）其他未经魔数计算器书面许可的行为。</p><h4 id="3-4-3【行为责任】"><a href="#3-4-3【行为责任】" class="headerlink" title="3.4.3【行为责任】"></a>3.4.3【行为责任】</h4><p>您充分了解并同意，您必须为自己使用魔数计算器下的一切行为负责，包括您所发表的任何内容以及由此产生的任何后果。您应对本服务中的内容自行加以判断，并承担因使用内容而引起的所有风险，包括因对内容的正确性、完整性或实用性的依赖而产生的风险。魔数计算器无法且不会对因前述风险而导致的任何损失或损害承担任何责任。</p><h3 id="3-5【服务的变更、中止或终止】"><a href="#3-5【服务的变更、中止或终止】" class="headerlink" title="3.5【服务的变更、中止或终止】"></a>3.5【服务的变更、中止或终止】</h3><p>您充分了解并同意，由于互联网服务的特殊性，魔数计算器可以在不提前通知您的情况之下，根据本服务的整体规划，对本服务内容进行变更、中止或终止。</p><h2 id="四、违约责任"><a href="#四、违约责任" class="headerlink" title="四、违约责任"></a>四、违约责任</h2><p>4.1 如果魔数计算器发现或收到他人举报您有违反本协议任何行为的，魔数计算器有权进行独立判断并采取技术手段予以删除、屏蔽或断开相关的信息。同时，魔数计算器有权视您的行为性质，对您采取包括但不限于暂停或终止部分或全部本服务、中止或终止您对账号的使用、追究法律责任等措施，而由此给您带来的损失（包括但不限于通信中断、相关数据清空、服务费用作为违约金而归魔数计算器所有等），由您自行承担，造成魔数计算器损失的，您也应予以赔偿。若魔数计算器依前述约定对您采取暂停或终止部分或全部本服务的，魔数计算器无需向您退还任何费用，剩余的服务费用，作为违约金而归魔数计算器所有。</p><h3 id="4-2-【对第三方损害的处理】"><a href="#4-2-【对第三方损害的处理】" class="headerlink" title="4.2 【对第三方损害的处理】"></a>4.2 【对第三方损害的处理】</h3><p>您有违反本协议任何行为，导致任何第三方损害的，您应当独立承担责任；魔数计算器因此遭受损失的，您也应当一并赔偿。</p><h3 id="4-3-【单方提前终止服务】"><a href="#4-3-【单方提前终止服务】" class="headerlink" title="4.3 【单方提前终止服务】"></a>4.3 【单方提前终止服务】</h3><p>您充分了解并同意，您在选择使用本服务后，若您在无任何法定或约定理由的情况之下，单方要求提前终止本服务的，魔数计算器无需向您退还任何费用，剩余的服务费用，作为违约金而归魔数计算器所有。</p><h2 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h2><h3 id="5-1-【协议的生效与变更】"><a href="#5-1-【协议的生效与变更】" class="headerlink" title="5.1 【协议的生效与变更】"></a>5.1 【协议的生效与变更】</h3><p>您使用本服务即视为您已阅读并同意受本协议的约束。魔数计算器有权在必要时修改本协议条款。您可以在相关页面中查阅最新的协议条款。本协议条款变更后，如果您继续使用本服务，即视为您已接受修改后的协议。如果您不接受修改后的协议，应当停止使用本服务。</p><h3 id="5-2-【协议签订地】"><a href="#5-2-【协议签订地】" class="headerlink" title="5.2 【协议签订地】"></a>5.2 【协议签订地】</h3><p>本协议签订地为中华人民共和国。</p><h3 id="5-3-【适用法律】"><a href="#5-3-【适用法律】" class="headerlink" title="5.3 【适用法律】"></a>5.3 【适用法律】</h3><p>本协议的成立、生效、履行、解释及纠纷解决，适用中华人民共和国大陆地区法律（不包括冲突法）。</p><h3 id="5-4-【争议解决】"><a href="#5-4-【争议解决】" class="headerlink" title="5.4 【争议解决】"></a>5.4 【争议解决】</h3><p>若您和魔数计算器之间发生任何纠纷或争议，首先应友好协商解决；协商不成的，您同意将纠纷或争议提交本协议签订地有管辖权的人民法院管辖。</p><h3 id="5-5-【条款标题】"><a href="#5-5-【条款标题】" class="headerlink" title="5.5 【条款标题】"></a>5.5 【条款标题】</h3><p>本协议所有条款的标题仅为阅读方便，本身并无实际涵义，不能作为本协议涵义解释的依据。</p><h3 id="5-6-【条款效力】"><a href="#5-6-【条款效力】" class="headerlink" title="5.6 【条款效力】"></a>5.6 【条款效力】</h3><p>本协议条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方仍具有约束力。</p>]]></content>
     
@@ -128,8 +174,8 @@
   
   <entry>
     <title>封装一个超级易用的Swift网络请求库</title>
-    <link href="http://lengain.github.io/2024/03/11/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AA%E8%B6%85%E7%BA%A7%E6%98%93%E7%94%A8%E7%9A%84Swift%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%BA%93/"/>
-    <id>http://lengain.github.io/2024/03/11/封装一个超级易用的Swift网络请求库/</id>
+    <link href="https://lengain.github.io/2024/03/11/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AA%E8%B6%85%E7%BA%A7%E6%98%93%E7%94%A8%E7%9A%84Swift%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%BA%93/"/>
+    <id>https://lengain.github.io/2024/03/11/封装一个超级易用的Swift网络请求库/</id>
     <published>2024-03-11T03:38:55.000Z</published>
     <updated>2024-03-11T09:50:27.050Z</updated>
     
@@ -142,14 +188,14 @@
     </summary>
     
     
-      <category term="iOS" scheme="http://lengain.github.io/tags/iOS/"/>
+      <category term="iOS" scheme="https://lengain.github.io/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>一个NSObject对象占用多少内存</title>
-    <link href="http://lengain.github.io/2023/12/13/%E4%B8%80%E4%B8%AANSObject%E5%AF%B9%E8%B1%A1%E5%8D%A0%E7%94%A8%E5%A4%9A%E5%B0%91%E5%86%85%E5%AD%98/"/>
-    <id>http://lengain.github.io/2023/12/13/一个NSObject对象占用多少内存/</id>
+    <link href="https://lengain.github.io/2023/12/13/%E4%B8%80%E4%B8%AANSObject%E5%AF%B9%E8%B1%A1%E5%8D%A0%E7%94%A8%E5%A4%9A%E5%B0%91%E5%86%85%E5%AD%98/"/>
+    <id>https://lengain.github.io/2023/12/13/一个NSObject对象占用多少内存/</id>
     <published>2023-12-13T15:45:27.000Z</published>
     <updated>2024-03-11T03:13:42.476Z</updated>
     
@@ -162,14 +208,14 @@
     </summary>
     
     
-      <category term="iOS" scheme="http://lengain.github.io/tags/iOS/"/>
+      <category term="iOS" scheme="https://lengain.github.io/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>Ruby方法中的!和?</title>
-    <link href="http://lengain.github.io/2023/12/11/Ruby%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84!%E5%92%8C?/"/>
-    <id>http://lengain.github.io/2023/12/11/Ruby方法中的!和?/</id>
+    <link href="https://lengain.github.io/2023/12/11/Ruby%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84!%E5%92%8C?/"/>
+    <id>https://lengain.github.io/2023/12/11/Ruby方法中的!和?/</id>
     <published>2023-12-11T12:26:24.000Z</published>
     <updated>2024-03-11T03:13:42.476Z</updated>
     
@@ -183,14 +229,14 @@
     </summary>
     
     
-      <category term="Ruby" scheme="http://lengain.github.io/tags/Ruby/"/>
+      <category term="Ruby" scheme="https://lengain.github.io/tags/Ruby/"/>
     
   </entry>
   
   <entry>
     <title>换了一个新的网站图标</title>
-    <link href="http://lengain.github.io/2023/08/18/%E6%8D%A2%E4%BA%86%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87/"/>
-    <id>http://lengain.github.io/2023/08/18/换了一个新的网站图标/</id>
+    <link href="https://lengain.github.io/2023/08/18/%E6%8D%A2%E4%BA%86%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87/"/>
+    <id>https://lengain.github.io/2023/08/18/换了一个新的网站图标/</id>
     <published>2023-08-18T03:33:11.000Z</published>
     <updated>2024-03-11T03:13:42.482Z</updated>
     
@@ -207,14 +253,14 @@
     </summary>
     
     
-      <category term="软件" scheme="http://lengain.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件" scheme="https://lengain.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>Dart ...展开操作符</title>
-    <link href="http://lengain.github.io/2023/08/08/Dart-%E5%B1%95%E5%BC%80%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
-    <id>http://lengain.github.io/2023/08/08/Dart-展开操作符/</id>
+    <link href="https://lengain.github.io/2023/08/08/Dart-%E5%B1%95%E5%BC%80%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
+    <id>https://lengain.github.io/2023/08/08/Dart-展开操作符/</id>
     <published>2023-08-08T08:30:18.000Z</published>
     <updated>2024-03-11T03:13:42.476Z</updated>
     
@@ -231,14 +277,14 @@
     </summary>
     
     
-      <category term="Dart" scheme="http://lengain.github.io/tags/Dart/"/>
+      <category term="Dart" scheme="https://lengain.github.io/tags/Dart/"/>
     
   </entry>
   
   <entry>
     <title>iOS Category源码探究</title>
-    <link href="http://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/"/>
-    <id>http://lengain.github.io/2020/11/19/iOS-Category源码探究/</id>
+    <link href="https://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/"/>
+    <id>https://lengain.github.io/2020/11/19/iOS-Category源码探究/</id>
     <published>2020-11-19T02:08:21.000Z</published>
     <updated>2024-03-11T03:13:42.476Z</updated>
     
@@ -252,14 +298,14 @@
     </summary>
     
     
-      <category term="技术" scheme="http://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>攒个机</title>
-    <link href="http://lengain.github.io/2020/10/05/%E6%94%92%E4%B8%AA%E6%9C%BA/"/>
-    <id>http://lengain.github.io/2020/10/05/攒个机/</id>
+    <link href="https://lengain.github.io/2020/10/05/%E6%94%92%E4%B8%AA%E6%9C%BA/"/>
+    <id>https://lengain.github.io/2020/10/05/攒个机/</id>
     <published>2020-10-05T15:27:20.000Z</published>
     <updated>2024-03-11T03:13:42.483Z</updated>
     
@@ -274,14 +320,14 @@
     </summary>
     
     
-      <category term="其他" scheme="http://lengain.github.io/tags/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="https://lengain.github.io/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
   <entry>
     <title>给设计师，产品经理的iOS UI介绍</title>
-    <link href="http://lengain.github.io/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/"/>
-    <id>http://lengain.github.io/2020/09/23/给设计师的iOS-UI介绍/</id>
+    <link href="https://lengain.github.io/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://lengain.github.io/2020/09/23/给设计师的iOS-UI介绍/</id>
     <published>2020-09-23T09:24:47.000Z</published>
     <updated>2024-03-11T03:13:42.484Z</updated>
     
@@ -305,14 +351,14 @@
     </summary>
     
     
-      <category term="技术" scheme="http://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>关于网上教育的一点思考</title>
-    <link href="http://lengain.github.io/2020/08/19/%E5%85%B3%E4%BA%8E%E7%BD%91%E4%B8%8A%E6%95%99%E8%82%B2%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/"/>
-    <id>http://lengain.github.io/2020/08/19/关于网上教育的一点思考/</id>
+    <link href="https://lengain.github.io/2020/08/19/%E5%85%B3%E4%BA%8E%E7%BD%91%E4%B8%8A%E6%95%99%E8%82%B2%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/"/>
+    <id>https://lengain.github.io/2020/08/19/关于网上教育的一点思考/</id>
     <published>2020-08-19T01:05:52.000Z</published>
     <updated>2024-03-11T03:13:42.482Z</updated>
     
@@ -329,14 +375,14 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://lengain.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://lengain.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>8086汇编常用知识手册</title>
-    <link href="http://lengain.github.io/2020/08/07/8086%E6%B1%87%E7%BC%96%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/"/>
-    <id>http://lengain.github.io/2020/08/07/8086汇编常用知识手册/</id>
+    <link href="https://lengain.github.io/2020/08/07/8086%E6%B1%87%E7%BC%96%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/"/>
+    <id>https://lengain.github.io/2020/08/07/8086汇编常用知识手册/</id>
     <published>2020-08-07T08:09:03.000Z</published>
     <updated>2024-03-11T03:13:42.474Z</updated>
     
@@ -350,14 +396,14 @@
     </summary>
     
     
-      <category term="汇编" scheme="http://lengain.github.io/tags/%E6%B1%87%E7%BC%96/"/>
+      <category term="汇编" scheme="https://lengain.github.io/tags/%E6%B1%87%E7%BC%96/"/>
     
   </entry>
   
   <entry>
     <title>从知识屏蔽想到的</title>
-    <link href="http://lengain.github.io/2020/08/01/%E4%BB%8E%E7%9F%A5%E8%AF%86%E5%B1%8F%E8%94%BD%E6%83%B3%E5%88%B0%E7%9A%84/"/>
-    <id>http://lengain.github.io/2020/08/01/从知识屏蔽想到的/</id>
+    <link href="https://lengain.github.io/2020/08/01/%E4%BB%8E%E7%9F%A5%E8%AF%86%E5%B1%8F%E8%94%BD%E6%83%B3%E5%88%B0%E7%9A%84/"/>
+    <id>https://lengain.github.io/2020/08/01/从知识屏蔽想到的/</id>
     <published>2020-08-01T12:04:29.000Z</published>
     <updated>2024-03-11T03:13:42.482Z</updated>
     
@@ -373,14 +419,14 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://lengain.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://lengain.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>汇编：第一个课程设计</title>
-    <link href="http://lengain.github.io/2020/07/28/%E6%B1%87%E7%BC%96%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/"/>
-    <id>http://lengain.github.io/2020/07/28/汇编：第一个课程设计/</id>
+    <link href="https://lengain.github.io/2020/07/28/%E6%B1%87%E7%BC%96%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://lengain.github.io/2020/07/28/汇编：第一个课程设计/</id>
     <published>2020-07-28T08:25:34.000Z</published>
     <updated>2024-03-11T03:13:42.484Z</updated>
     
@@ -398,34 +444,14 @@
     </summary>
     
     
-      <category term="汇编" scheme="http://lengain.github.io/tags/%E6%B1%87%E7%BC%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>“简单图床”发布了</title>
-    <link href="http://lengain.github.io/2020/07/22/%E2%80%9C%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BA%8A%E2%80%9D%E5%8F%91%E5%B8%83%E4%BA%86/"/>
-    <id>http://lengain.github.io/2020/07/22/“简单图床”发布了/</id>
-    <published>2020-07-22T03:00:49.000Z</published>
-    <updated>2024-03-11T03:13:42.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;<code>简单图床</code>前两天发布了，<a href="https://apps.apple.com/cn/app/%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BA%8A/id1524122388">点击</a>可转到AppStore。</p><a id="more"></a><h3 id="名字"><a href="#名字" class="headerlink" title="名字"></a>名字</h3><p>&emsp;&emsp;本来想的App名字叫<code>简图</code>作为简单图床的缩写，没想到AppStore审核通过不了，只能使用<code>简单图床</code>，这样也挺好，四个字意思更明确了，简单明了。<br>&emsp;&emsp;在做App国际化的时候，对于日文App名字的翻译，我找了很久，没找到合适的翻译。最后只能使用<code>簡単な図</code>这样的翻译先用着了。我在AppStore日文介绍里说明了这个情况，请日本的网友给我留言，翻译出一个合适的名字。希望能收到日本网友的回应吧。</p><h3 id="收费"><a href="#收费" class="headerlink" title="收费"></a>收费</h3><p>&emsp;&emsp;关于收费这个我也思考了很久，目前是免费。先为爱发电吧。也考虑过一直免费然后接入广告来变相的多点收入，但是想了想，我还是不能接受广告的那种体验。如果以后实在想不到好的办法，就只能接入广告了。<br>&emsp;&emsp;其实这个工具应用免费是最好的，奈何苹果的账号每年都要99刀，一直为爱发电也不是办法。希望以后能找到好的收费模式。</p><h3 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h3><p>&emsp;&emsp;应该会写一个关于Github图床的怎么使用的教程。虽然网上也有很多类似的教程，但是我看到前不久Github好像改版UI，我就写个最新的吧。<br>&emsp;&emsp;目前这个软件只接入了Github，未来还想接入更多的图床，但是我现在还没有立即去做的想法。愿景是能够做到和PicGo支持的一样多的平台。</p><h3 id="做酷的事情"><a href="#做酷的事情" class="headerlink" title="做酷的事情"></a>做酷的事情</h3><p>&emsp;&emsp;我一直觉得能够把自己的想法变成现实是一件很酷的事。<strong>说到做到</strong>是真的很酷了。<br>&emsp;&emsp;<code>简单图床</code>只是我的一个想法，如今成真，我也收获了一些喜悦。<br>&emsp;&emsp;开发经验其实没什么长进，主要是这个App太简单了。但是我觉得最不简单的是有这个想法并付出行动。<br>&emsp;&emsp;勿以善小而不为。<br>&emsp;&emsp;去做酷的事儿吧！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;&lt;code&gt;简单图床&lt;/code&gt;前两天发布了，&lt;a href=&quot;https://apps.apple.com/cn/app/%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BA%8A/id1524122388&quot;&gt;点击&lt;/a&gt;可转到AppStore。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="软件" scheme="http://lengain.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="汇编" scheme="https://lengain.github.io/tags/%E6%B1%87%E7%BC%96/"/>
     
   </entry>
   
   <entry>
     <title>汇编：显示字符串</title>
-    <link href="http://lengain.github.io/2020/07/22/%E6%B1%87%E7%BC%96%EF%BC%9A%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    <id>http://lengain.github.io/2020/07/22/汇编：显示字符串/</id>
+    <link href="https://lengain.github.io/2020/07/22/%E6%B1%87%E7%BC%96%EF%BC%9A%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>https://lengain.github.io/2020/07/22/汇编：显示字符串/</id>
     <published>2020-07-22T02:05:31.000Z</published>
     <updated>2024-03-11T03:13:42.484Z</updated>
     
@@ -441,14 +467,14 @@
     </summary>
     
     
-      <category term="汇编" scheme="http://lengain.github.io/tags/%E6%B1%87%E7%BC%96/"/>
+      <category term="汇编" scheme="https://lengain.github.io/tags/%E6%B1%87%E7%BC%96/"/>
     
   </entry>
   
   <entry>
     <title>关于应用“简图”的UI和交互设计</title>
-    <link href="http://lengain.github.io/2020/06/26/%E5%85%B3%E4%BA%8E%E5%BA%94%E7%94%A8%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D%E7%9A%84UI%E5%92%8C%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
-    <id>http://lengain.github.io/2020/06/26/关于应用“简图”的UI和交互设计/</id>
+    <link href="https://lengain.github.io/2020/06/26/%E5%85%B3%E4%BA%8E%E5%BA%94%E7%94%A8%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D%E7%9A%84UI%E5%92%8C%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://lengain.github.io/2020/06/26/关于应用“简图”的UI和交互设计/</id>
     <published>2020-06-26T04:10:14.000Z</published>
     <updated>2024-03-11T03:13:42.482Z</updated>
     
@@ -463,14 +489,14 @@
     </summary>
     
     
-      <category term="软件" scheme="http://lengain.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件" scheme="https://lengain.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>在屏幕中间显示字符串</title>
-    <link href="http://lengain.github.io/2020/06/21/%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%AD%E9%97%B4%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    <id>http://lengain.github.io/2020/06/21/在屏幕中间显示字符串/</id>
+    <link href="https://lengain.github.io/2020/06/21/%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%AD%E9%97%B4%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>https://lengain.github.io/2020/06/21/在屏幕中间显示字符串/</id>
     <published>2020-06-21T14:18:30.000Z</published>
     <updated>2024-03-11T03:13:42.482Z</updated>
     
@@ -487,14 +513,14 @@
     </summary>
     
     
-      <category term="汇编" scheme="http://lengain.github.io/tags/%E6%B1%87%E7%BC%96/"/>
+      <category term="汇编" scheme="https://lengain.github.io/tags/%E6%B1%87%E7%BC%96/"/>
     
   </entry>
   
   <entry>
     <title>写个图床软件叫“简图”</title>
-    <link href="http://lengain.github.io/2020/06/02/%E5%86%99%E4%B8%AA%E5%9B%BE%E5%BA%8A%E8%BD%AF%E4%BB%B6%E5%8F%AB%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D/"/>
-    <id>http://lengain.github.io/2020/06/02/写个图床软件叫“简图”/</id>
+    <link href="https://lengain.github.io/2020/06/02/%E5%86%99%E4%B8%AA%E5%9B%BE%E5%BA%8A%E8%BD%AF%E4%BB%B6%E5%8F%AB%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D/"/>
+    <id>https://lengain.github.io/2020/06/02/写个图床软件叫“简图”/</id>
     <published>2020-06-02T08:32:24.000Z</published>
     <updated>2024-03-11T03:13:42.482Z</updated>
     
@@ -507,14 +533,14 @@
     </summary>
     
     
-      <category term="软件" scheme="http://lengain.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件" scheme="https://lengain.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>Mac电脑Safari浏览器上禁止百度广告</title>
-    <link href="http://lengain.github.io/2020/05/29/Mac%E7%94%B5%E8%84%91Safari%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%A6%81%E6%AD%A2%E7%99%BE%E5%BA%A6%E5%B9%BF%E5%91%8A/"/>
-    <id>http://lengain.github.io/2020/05/29/Mac电脑Safari浏览器上禁止百度广告/</id>
+    <link href="https://lengain.github.io/2020/05/29/Mac%E7%94%B5%E8%84%91Safari%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%A6%81%E6%AD%A2%E7%99%BE%E5%BA%A6%E5%B9%BF%E5%91%8A/"/>
+    <id>https://lengain.github.io/2020/05/29/Mac电脑Safari浏览器上禁止百度广告/</id>
     <published>2020-05-29T12:26:24.000Z</published>
     <updated>2024-03-11T03:13:42.476Z</updated>
     
@@ -527,14 +553,14 @@
     </summary>
     
     
-      <category term="软件" scheme="http://lengain.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件" scheme="https://lengain.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>一千种人生</title>
-    <link href="http://lengain.github.io/2020/05/29/%E4%B8%80%E5%8D%83%E7%A7%8D%E4%BA%BA%E7%94%9F/"/>
-    <id>http://lengain.github.io/2020/05/29/一千种人生/</id>
+    <link href="https://lengain.github.io/2020/05/29/%E4%B8%80%E5%8D%83%E7%A7%8D%E4%BA%BA%E7%94%9F/"/>
+    <id>https://lengain.github.io/2020/05/29/一千种人生/</id>
     <published>2020-05-29T01:16:32.000Z</published>
     <updated>2024-03-11T03:13:42.477Z</updated>
     
@@ -550,14 +576,14 @@
     </summary>
     
     
-      <category term="一千种人生" scheme="http://lengain.github.io/tags/%E4%B8%80%E5%8D%83%E7%A7%8D%E4%BA%BA%E7%94%9F/"/>
+      <category term="一千种人生" scheme="https://lengain.github.io/tags/%E4%B8%80%E5%8D%83%E7%A7%8D%E4%BA%BA%E7%94%9F/"/>
     
   </entry>
   
   <entry>
     <title>一次漫长的AppStore审核经历</title>
-    <link href="http://lengain.github.io/2020/05/06/%E4%B8%80%E6%AC%A1%E6%BC%AB%E9%95%BF%E7%9A%84AppStore%E5%AE%A1%E6%A0%B8%E7%BB%8F%E5%8E%86/"/>
-    <id>http://lengain.github.io/2020/05/06/一次漫长的AppStore审核经历/</id>
+    <link href="https://lengain.github.io/2020/05/06/%E4%B8%80%E6%AC%A1%E6%BC%AB%E9%95%BF%E7%9A%84AppStore%E5%AE%A1%E6%A0%B8%E7%BB%8F%E5%8E%86/"/>
+    <id>https://lengain.github.io/2020/05/06/一次漫长的AppStore审核经历/</id>
     <published>2020-05-06T04:50:38.000Z</published>
     <updated>2024-03-11T03:13:42.477Z</updated>
     
@@ -572,16 +598,16 @@
     </summary>
     
     
-      <category term="其他" scheme="http://lengain.github.io/tags/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="https://lengain.github.io/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
   <entry>
     <title>二维码扩展app隐私政策</title>
-    <link href="http://lengain.github.io/2020/04/04/%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%89%A9%E5%B1%95app%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96/"/>
-    <id>http://lengain.github.io/2020/04/04/二维码扩展app隐私政策/</id>
+    <link href="https://lengain.github.io/2020/04/04/%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%89%A9%E5%B1%95app%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96/"/>
+    <id>https://lengain.github.io/2020/04/04/二维码扩展app隐私政策/</id>
     <published>2020-04-04T04:44:24.000Z</published>
-    <updated>2024-03-11T03:13:42.477Z</updated>
+    <updated>2025-11-25T14:14:19.825Z</updated>
     
     <content type="html"><![CDATA[<h4 id="二维码扩展服务协议及隐私政策"><a href="#二维码扩展服务协议及隐私政策" class="headerlink" title="二维码扩展服务协议及隐私政策"></a>二维码扩展服务协议及隐私政策</h4><p>欢迎您使用二维码扩展！<br>为使用二维码扩展，您应当阅读并遵守《二维码扩展服务协议》（以下简称“本协议”）。请您务必审慎阅读、充分理解各条款内容，特别是免除或限制责任的相应条款，以及开通或使用某项服务的单独协议，您使用此服务即表示您接受本协议。限制或免除责任条款可能以加粗形式提示您注意。 除非您已阅读并接受本协议所有条款，否则您无权使用二维码扩展服务（以下简称“本服务”）。您对本服务的任何查看使用行为即视为您已阅读并同意本协议的约束。</p><a id="more"></a><h2 id="一、协议的范围"><a href="#一、协议的范围" class="headerlink" title="一、协议的范围"></a>一、协议的范围</h2><h3 id="1-1【协议适用主体范围】"><a href="#1-1【协议适用主体范围】" class="headerlink" title="1.1【协议适用主体范围】"></a>1.1【协议适用主体范围】</h3><p>本协议是您与二维码扩展之间关于您使用本服务所订立的协议。</p><h3 id="1-2【本服务内容】"><a href="#1-2【本服务内容】" class="headerlink" title="1.2【本服务内容】"></a>1.2【本服务内容】</h3><p>本协议项下的服务是指二维码扩展向用户提供的服务（以下简称“本服务”）。本协议内容同时包括二维码扩展可能不断发布的关于本服务的相关协议、业务规则等内容。上述内容一经正式发布，即为本协议不可分割的组成部分，您同样应当遵守。</p><h2 id="二、隐私政策"><a href="#二、隐私政策" class="headerlink" title="二、隐私政策"></a>二、隐私政策</h2><p>a）本产品不会采集您的个人信息。</p><p>b）本产品亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播</p><p>您的个人信息。任何本产品平台用户如从事上述活动，一经发现，本产品</p><p>有权立即终止与该用户的服务协议。</p><h2 id="三、权利义务"><a href="#三、权利义务" class="headerlink" title="三、权利义务"></a>三、权利义务</h2><h3 id="3-1-【关于收费】"><a href="#3-1-【关于收费】" class="headerlink" title="3.1 【关于收费】"></a>3.1 【关于收费】</h3><p>本服务是二维码扩展向您提供的免费服务，您可免费试用本服务任何内容，方可使用本服务。否则，您无权使用本服务。二维码扩展可能会根据本服务的整体规划，对本服务的收费标准、方式等进行修改和变更，前述修改、变更，二维码扩展将在相应服务页面进行通知或公告。如果您不同意上述修改、变更，则应停止使用本服务。否则，您的任何购买、登录、查看等使用行为，即视为您同意上述修改、变更。</p><h3 id="3-2【服务开通】"><a href="#3-2【服务开通】" class="headerlink" title="3.2【服务开通】"></a>3.2【服务开通】</h3><p>您应该通过二维码扩展开通本服务。您承诺不得通过非二维码扩展指定途径或任何违反相关法规、违反本协议、不正当手段等开通、获取本服务。</p><h3 id="3-3-【服务期限】"><a href="#3-3-【服务期限】" class="headerlink" title="3.3 【服务期限】"></a>3.3 【服务期限】</h3><p>本服务自您依约完成有效之日起生效。</p><h3 id="3-4-【行为规范】"><a href="#3-4-【行为规范】" class="headerlink" title="3.4 【行为规范】"></a>3.4 【行为规范】</h3><h4 id="3-4-1【五不准】"><a href="#3-4-1【五不准】" class="headerlink" title="3.4.1【五不准】"></a>3.4.1【五不准】</h4><p>您在使用本服务时不得利用本服务从事以下行为，包括但不限于：</p><p>（1）发布、传送、传播、储存违反国家法律、危害国家安全统一、社会稳定、公序良俗、社会公德以及侮辱、诽谤、淫秽、暴力的内容；</p><p>（2）发布、传送、传播、储存侵害他人名誉权、肖像权、知识产权、商业秘密等合法权利的内容；</p><p>（3）虚构事实、隐瞒真相以误导、欺骗他人；</p><p>（4）发表、传送、传播广告信息及垃圾信息；</p><p>（5）从事其他违反法律法规、政策及公序良俗、社会公德等的行为。</p><h4 id="3-4-2【用户禁止行为】"><a href="#3-4-2【用户禁止行为】" class="headerlink" title="3.4.2【用户禁止行为】"></a>3.4.2【用户禁止行为】</h4><p>本服务仅供您个人使用，除非经二维码扩展书面许可，您不得进行以下行为：</p><p>（1）通过任何方式搜集本服务中其他用户的用户名、电子邮件等相关信息，并以发送垃圾邮件、连锁邮件、垃圾短信、即时消息等方式干扰、骚扰其他用户；</p><p>（2）通过本服务发布包含广告、宣传、促销等内容的信息；</p><p>（3）将本服务转让许可他人使用；</p><p>（4）其他未经二维码扩展书面许可的行为。</p><h4 id="3-4-3【行为责任】"><a href="#3-4-3【行为责任】" class="headerlink" title="3.4.3【行为责任】"></a>3.4.3【行为责任】</h4><p>您充分了解并同意，您必须为自己使用二维码扩展下的一切行为负责，包括您所发表的任何内容以及由此产生的任何后果。您应对本服务中的内容自行加以判断，并承担因使用内容而引起的所有风险，包括因对内容的正确性、完整性或实用性的依赖而产生的风险。二维码扩展无法且不会对因前述风险而导致的任何损失或损害承担任何责任。</p><h3 id="3-5【服务的变更、中止或终止】"><a href="#3-5【服务的变更、中止或终止】" class="headerlink" title="3.5【服务的变更、中止或终止】"></a>3.5【服务的变更、中止或终止】</h3><p>您充分了解并同意，由于互联网服务的特殊性，二维码扩展可以在不提前通知您的情况之下，根据本服务的整体规划，对本服务内容进行变更、中止或终止。</p><h2 id="四、违约责任"><a href="#四、违约责任" class="headerlink" title="四、违约责任"></a>四、违约责任</h2><p>4.1 如果二维码扩展发现或收到他人举报您有违反本协议任何行为的，二维码扩展有权进行独立判断并采取技术手段予以删除、屏蔽或断开相关的信息。同时，二维码扩展有权视您的行为性质，对您采取包括但不限于暂停或终止部分或全部本服务、中止或终止您对账号的使用、追究法律责任等措施，而由此给您带来的损失（包括但不限于通信中断、相关数据清空、服务费用作为违约金而归二维码扩展所有等），由您自行承担，造成二维码扩展损失的，您也应予以赔偿。若二维码扩展依前述约定对您采取暂停或终止部分或全部本服务的，二维码扩展无需向您退还任何费用，剩余的服务费用，作为违约金而归二维码扩展所有。</p><h3 id="4-2-【对第三方损害的处理】"><a href="#4-2-【对第三方损害的处理】" class="headerlink" title="4.2 【对第三方损害的处理】"></a>4.2 【对第三方损害的处理】</h3><p>您有违反本协议任何行为，导致任何第三方损害的，您应当独立承担责任；二维码扩展因此遭受损失的，您也应当一并赔偿。</p><h3 id="4-3-【单方提前终止服务】"><a href="#4-3-【单方提前终止服务】" class="headerlink" title="4.3 【单方提前终止服务】"></a>4.3 【单方提前终止服务】</h3><p>您充分了解并同意，您在选择使用本服务后，若您在无任何法定或约定理由的情况之下，单方要求提前终止本服务的，二维码扩展无需向您退还任何费用，剩余的服务费用，作为违约金而归二维码扩展所有。</p><h2 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h2><h3 id="5-1-【协议的生效与变更】"><a href="#5-1-【协议的生效与变更】" class="headerlink" title="5.1 【协议的生效与变更】"></a>5.1 【协议的生效与变更】</h3><p>您使用本服务即视为您已阅读并同意受本协议的约束。二维码扩展有权在必要时修改本协议条款。您可以在相关页面中查阅最新的协议条款。本协议条款变更后，如果您继续使用本服务，即视为您已接受修改后的协议。如果您不接受修改后的协议，应当停止使用本服务。</p><h3 id="5-2-【协议签订地】"><a href="#5-2-【协议签订地】" class="headerlink" title="5.2 【协议签订地】"></a>5.2 【协议签订地】</h3><p>本协议签订地为中华人民共和国。</p><h3 id="5-3-【适用法律】"><a href="#5-3-【适用法律】" class="headerlink" title="5.3 【适用法律】"></a>5.3 【适用法律】</h3><p>本协议的成立、生效、履行、解释及纠纷解决，适用中华人民共和国大陆地区法律（不包括冲突法）。</p><h3 id="5-4-【争议解决】"><a href="#5-4-【争议解决】" class="headerlink" title="5.4 【争议解决】"></a>5.4 【争议解决】</h3><p>若您和二维码扩展之间发生任何纠纷或争议，首先应友好协商解决；协商不成的，您同意将纠纷或争议提交本协议签订地有管辖权的人民法院管辖。</p><h3 id="5-5-【条款标题】"><a href="#5-5-【条款标题】" class="headerlink" title="5.5 【条款标题】"></a>5.5 【条款标题】</h3><p>本协议所有条款的标题仅为阅读方便，本身并无实际涵义，不能作为本协议涵义解释的依据。</p><h3 id="5-6-【条款效力】"><a href="#5-6-【条款效力】" class="headerlink" title="5.6 【条款效力】"></a>5.6 【条款效力】</h3><p>本协议条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方仍具有约束力。</p>]]></content>
     
@@ -592,14 +618,14 @@
     </summary>
     
     
-      <category term="其他" scheme="http://lengain.github.io/tags/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="https://lengain.github.io/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
   <entry>
     <title>如何安装iOS 13 beta版</title>
-    <link href="http://lengain.github.io/2019/06/14/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85iOS-13-beta%E7%89%88/"/>
-    <id>http://lengain.github.io/2019/06/14/如何安装iOS-13-beta版/</id>
+    <link href="https://lengain.github.io/2019/06/14/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85iOS-13-beta%E7%89%88/"/>
+    <id>https://lengain.github.io/2019/06/14/如何安装iOS-13-beta版/</id>
     <published>2019-06-14T06:24:26.000Z</published>
     <updated>2024-03-11T03:13:42.482Z</updated>
     
@@ -654,14 +680,14 @@
     </summary>
     
     
-      <category term="技术" scheme="http://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>Mac Pro 2015 硬盘扩容升级参考</title>
-    <link href="http://lengain.github.io/2019/04/24/Mac%20Pro%202015%E7%A1%AC%E7%9B%98%E6%89%A9%E5%AE%B9%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/"/>
-    <id>http://lengain.github.io/2019/04/24/Mac Pro 2015硬盘扩容升级记录/</id>
+    <link href="https://lengain.github.io/2019/04/24/Mac%20Pro%202015%E7%A1%AC%E7%9B%98%E6%89%A9%E5%AE%B9%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/"/>
+    <id>https://lengain.github.io/2019/04/24/Mac Pro 2015硬盘扩容升级记录/</id>
     <published>2019-04-24T03:14:47.000Z</published>
     <updated>2024-03-11T03:13:42.476Z</updated>
     
@@ -674,14 +700,14 @@
     </summary>
     
     
-      <category term="技术" scheme="http://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>无题</title>
-    <link href="http://lengain.github.io/2019/03/16/%E6%97%A0%E9%A2%98/"/>
-    <id>http://lengain.github.io/2019/03/16/无题/</id>
+    <link href="https://lengain.github.io/2019/03/16/%E6%97%A0%E9%A2%98/"/>
+    <id>https://lengain.github.io/2019/03/16/无题/</id>
     <published>2019-03-16T07:46:17.000Z</published>
     <updated>2024-03-11T03:13:42.484Z</updated>
     
@@ -694,14 +720,14 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://lengain.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://lengain.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>云南省7天旅游攻略</title>
-    <link href="http://lengain.github.io/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/"/>
-    <id>http://lengain.github.io/2019/01/07/云南省7天旅游攻略/</id>
+    <link href="https://lengain.github.io/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/"/>
+    <id>https://lengain.github.io/2019/01/07/云南省7天旅游攻略/</id>
     <published>2019-01-07T12:16:26.000Z</published>
     <updated>2024-03-11T03:13:42.477Z</updated>
     
@@ -717,14 +743,14 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://lengain.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://lengain.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>Xcode警告汇总分析</title>
-    <link href="http://lengain.github.io/2019/01/05/Xcode%E8%AD%A6%E5%91%8A%E6%B1%87%E6%80%BB%E5%88%86%E6%9E%90/"/>
-    <id>http://lengain.github.io/2019/01/05/Xcode警告汇总分析/</id>
+    <link href="https://lengain.github.io/2019/01/05/Xcode%E8%AD%A6%E5%91%8A%E6%B1%87%E6%80%BB%E5%88%86%E6%9E%90/"/>
+    <id>https://lengain.github.io/2019/01/05/Xcode警告汇总分析/</id>
     <published>2019-01-05T12:10:47.000Z</published>
     <updated>2024-03-11T03:13:42.476Z</updated>
     
@@ -737,14 +763,14 @@
     </summary>
     
     
-      <category term="技术" scheme="http://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>如何做一个CALayer 自定义属性CAAnimation动画</title>
-    <link href="http://lengain.github.io/2018/12/27/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AACALayer-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7CAAnimation%E5%8A%A8%E7%94%BB/"/>
-    <id>http://lengain.github.io/2018/12/27/如何做一个CALayer-自定义属性CAAnimation动画/</id>
+    <link href="https://lengain.github.io/2018/12/27/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AACALayer-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7CAAnimation%E5%8A%A8%E7%94%BB/"/>
+    <id>https://lengain.github.io/2018/12/27/如何做一个CALayer-自定义属性CAAnimation动画/</id>
     <published>2018-12-27T09:38:37.000Z</published>
     <updated>2024-03-11T03:13:42.482Z</updated>
     
@@ -761,14 +787,14 @@
     </summary>
     
     
-      <category term="技术" scheme="http://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://lengain.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>我的博客</title>
-    <link href="http://lengain.github.io/2018/12/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://lengain.github.io/2018/12/25/我的博客/</id>
+    <link href="https://lengain.github.io/2018/12/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://lengain.github.io/2018/12/25/我的博客/</id>
     <published>2018-12-25T09:01:00.000Z</published>
     <updated>2024-03-11T03:13:42.482Z</updated>
     

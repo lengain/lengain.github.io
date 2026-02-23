@@ -23,7 +23,7 @@
   <meta name="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
 <meta property="og:type" content="website">
 <meta property="og:title" content="时光地下铁">
-<meta property="og:url" content="http://lengain.github.io/page/2/index.html">
+<meta property="og:url" content="https://lengain.github.io/page/2/index.html">
 <meta property="og:site_name" content="时光地下铁">
 <meta property="og:description" content="宝剑锋从磨砺出，梅花香自苦寒来">
 <meta property="og:locale" content="zh_CN">
@@ -31,7 +31,7 @@
 <meta property="article:tag" content="iOS,开发者,程序员,编程,代码,开源,harmony,Developer,Programmer,Coder,Geek">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://lengain.github.io/page/2/">
+<link rel="canonical" href="https://lengain.github.io/page/2/">
 
 
 <script id="page-configurations">
@@ -159,7 +159,137 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/10/05/%E6%94%92%E4%B8%AA%E6%9C%BA/">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2023/08/08/Dart-%E5%B1%95%E5%BC%80%E6%93%8D%E4%BD%9C%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/08/Dart-%E5%B1%95%E5%BC%80%E6%93%8D%E4%BD%9C%E7%AC%A6/" class="post-title-link" itemprop="url">Dart ...展开操作符</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-08-08 16:30:18" itemprop="dateCreated datePublished" datetime="2023-08-08T16:30:18+08:00">2023-08-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Dart支持展开操作符(<strong>spread operator</strong>)<code>...</code>和空感展开操作符(<strong>null-aware spread operator</strong>)<code>...?</code>。</p>
+<p>展开操作符支持所有的集合(Collections)类型，包括Set，List，Map。</p>
+<h5 id="展开操作符-spread-operator"><a href="#展开操作符-spread-operator" class="headerlink" title="展开操作符(spread operator)"></a>展开操作符(<strong>spread operator</strong>)</h5><p>展开操作符<code>...</code>可以将一个列表的所有值，插入到另一个列表中。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> list2 = [<span class="number">0</span>, ...list];</span><br><span class="line"><span class="keyword">assert</span>(list2.length == <span class="number">4</span>);</span><br><span class="line"><span class="comment">// list2 = [0, 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="空感展开操作符-null-aware-spread-operator"><a href="#空感展开操作符-null-aware-spread-operator" class="headerlink" title="空感展开操作符(null-aware spread operator)"></a>空感展开操作符(<strong>null-aware spread operator</strong>)</h5><p>如果展开操作符右边的表达式可能为空，为了避免程序出问题可以使用空感展开操作符(<strong>null-aware spread operator</strong>)<code>...?</code>。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">List</span>&lt;<span class="built_in">int</span>&gt;? list;</span><br><span class="line"><span class="keyword">var</span> list2 = [<span class="number">0</span>, ...?list];</span><br><span class="line"><span class="keyword">assert</span>(list2.length == <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/" class="post-title-link" itemprop="url">iOS Category源码探究</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-19 10:08:21" itemprop="dateCreated datePublished" datetime="2020-11-19T10:08:21+08:00">2020-11-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Objective-C的Category特性，使的开发者在处理某些问题时，简单而又方便。理解Category的源码，对OC编程的理解会有很大的帮助。</p>
+<p>Category的处理源码在libobjc.A.dylib中，苹果已经<a target="_blank" rel="noopener" href="https://opensource.apple.com/tarballs/objc4/">开源</a>，但是下载后直接使用Xcode编译，会报很多错误。网上有很多帖子，介绍如何解决libobjc编译错误，这里就不介绍了。在github上有个开源项目<a target="_blank" rel="noopener" href="https://github.com/xdxu1126/objc4">objc4</a>，提供了可编译版本的objc工程，可按需索取。目前苹果刚发布macOS Big Sur 11.0.1，适配该系统的Objc还没有开源，<code>objc4</code>在这个系统上会有一点错误，不过不影响阅读，各个函数，变量定义之间的跳转也没有问题。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2020/10/05/%E6%94%92%E4%B8%AA%E6%9C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -226,7 +356,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -302,7 +432,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/08/19/%E5%85%B3%E4%BA%8E%E7%BD%91%E4%B8%8A%E6%95%99%E8%82%B2%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2020/08/19/%E5%85%B3%E4%BA%8E%E7%BD%91%E4%B8%8A%E6%95%99%E8%82%B2%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -366,7 +496,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/08/07/8086%E6%B1%87%E7%BC%96%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2020/08/07/8086%E6%B1%87%E7%BC%96%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -432,7 +562,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/08/01/%E4%BB%8E%E7%9F%A5%E8%AF%86%E5%B1%8F%E8%94%BD%E6%83%B3%E5%88%B0%E7%9A%84/">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2020/08/01/%E4%BB%8E%E7%9F%A5%E8%AF%86%E5%B1%8F%E8%94%BD%E6%83%B3%E5%88%B0%E7%9A%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -494,7 +624,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/07/28/%E6%B1%87%E7%BC%96%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2020/07/28/%E6%B1%87%E7%BC%96%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -564,72 +694,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/07/22/%E2%80%9C%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BA%8A%E2%80%9D%E5%8F%91%E5%B8%83%E4%BA%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Lengain">
-      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时光地下铁">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/22/%E2%80%9C%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BA%8A%E2%80%9D%E5%8F%91%E5%B8%83%E4%BA%86/" class="post-title-link" itemprop="url">“简单图床”发布了</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-22 11:00:49" itemprop="dateCreated datePublished" datetime="2020-07-22T11:00:49+08:00">2020-07-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>&emsp;&emsp;<code>简单图床</code>前两天发布了，<a target="_blank" rel="noopener" href="https://apps.apple.com/cn/app/%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BA%8A/id1524122388">点击</a>可转到AppStore。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/22/%E2%80%9C%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BA%8A%E2%80%9D%E5%8F%91%E5%B8%83%E4%BA%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/07/22/%E6%B1%87%E7%BC%96%EF%BC%9A%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2020/07/22/%E6%B1%87%E7%BC%96%EF%BC%9A%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -697,7 +762,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/06/26/%E5%85%B3%E4%BA%8E%E5%BA%94%E7%94%A8%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D%E7%9A%84UI%E5%92%8C%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2020/06/26/%E5%85%B3%E4%BA%8E%E5%BA%94%E7%94%A8%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D%E7%9A%84UI%E5%92%8C%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -741,75 +806,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/06/26/%E5%85%B3%E4%BA%8E%E5%BA%94%E7%94%A8%E2%80%9C%E7%AE%80%E5%9B%BE%E2%80%9D%E7%9A%84UI%E5%92%8C%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/06/21/%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%AD%E9%97%B4%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Lengain">
-      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时光地下铁">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/21/%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%AD%E9%97%B4%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">在屏幕中间显示字符串</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-21 22:18:30" itemprop="dateCreated datePublished" datetime="2020-06-21T22:18:30+08:00">2020-06-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>8086汇编中有一道编程题，今天花了两个小时做完了，这里记录一下做的过程</p>
-<p>题目是这样的:</p>
-<blockquote>
-<p>在屏幕中间分别显示绿色、绿底红色、白底蓝色的字符串’welcome to masm!’</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/21/%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%AD%E9%97%B4%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -900,9 +896,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
@@ -964,7 +964,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2025</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

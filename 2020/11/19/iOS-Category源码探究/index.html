@@ -23,7 +23,7 @@
   <meta name="description" content="Objective-C的Category特性，使的开发者在处理某些问题时，简单而又方便。理解Category的源码，对OC编程的理解会有很大的帮助。 Category的处理源码在libobjc.A.dylib中，苹果已经开源，但是下载后直接使用Xcode编译，会报很多错误。网上有很多帖子，介绍如何解决libobjc编译错误，这里就不介绍了。在github上有个开源项目objc4，提供了可编译版本的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS Category源码探究">
-<meta property="og:url" content="http://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/index.html">
+<meta property="og:url" content="https://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/index.html">
 <meta property="og:site_name" content="时光地下铁">
 <meta property="og:description" content="Objective-C的Category特性，使的开发者在处理某些问题时，简单而又方便。理解Category的源码，对OC编程的理解会有很大的帮助。 Category的处理源码在libobjc.A.dylib中，苹果已经开源，但是下载后直接使用Xcode编译，会报很多错误。网上有很多帖子，介绍如何解决libobjc编译错误，这里就不介绍了。在github上有个开源项目objc4，提供了可编译版本的">
 <meta property="og:locale" content="zh_CN">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/">
+<link rel="canonical" href="https://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/">
 
 
 <script id="page-configurations">
@@ -162,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -328,9 +328,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
@@ -392,7 +396,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2025</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
