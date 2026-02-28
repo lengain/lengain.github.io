@@ -16,6 +16,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Mac电脑Safari浏览器上禁止百度广告</title>
+    <url>/2020/05/29/Mac%E7%94%B5%E8%84%91Safari%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%A6%81%E6%AD%A2%E7%99%BE%E5%BA%A6%E5%B9%BF%E5%91%8A/</url>
+    <content><![CDATA[<h4 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h4><p>我是一个Chrome浏览器用户，用Chrome浏览器进行百度搜索时，我用到了一个插件<a href="https://github.com/unclehking/bdAdfinisher">https://github.com/unclehking/bdAdfinisher</a>，这个插件可以过滤掉百度搜索结果的广告，实现无广告浏览，它让每个搜索结果页都很干净。这个插件几乎是我司程序员的Chrome浏览器标配插件。</p>
+<a id="more"></a>
+
+<p>但因为我用的是Mac电脑，难不免也会用到Safari浏览器。我遍寻GitHub和AppStore，也没找到一个可以禁止Safari浏览器百度广告的软件，恰好上段时间，我研究了一下Safari浏览器插件的写法，于是便产生了写一款Safari浏览器上禁止百度广告插件的想法。</p>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>然后就真的写成了。</p>
+<p>地址：<a href="https://github.com/lengain/BanbdAdForSafari">https://github.com/lengain/BanbdAdForSafari</a></p>
+<p>下载：<a href="https://github.com/lengain/BanbdAdForSafari/releases/download/1.0/BanBdAd.dmg">BanBdAd.dmg</a></p>
+<p>图文教程：<a href="https://github.com/lengain/BanbdAdForSafari/blob/master/Tutorial.md">https://github.com/lengain/BanbdAdForSafari/blob/master/Tutorial.md</a></p>
+<h4 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h4><p>写的过程中，借鉴了<a href="https://github.com/unclehking">unclehking</a>的chorme浏览器插件的一些代码，也和他沟通了一些关于百度的法律问题，向他的无私帮助致谢。</p>
+<h4 id="以后"><a href="#以后" class="headerlink" title="以后"></a>以后</h4><p>禁止谷歌广告，掘金广告，知乎广告……？</p>
+]]></content>
+      <tags>
+        <tag>软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mac Pro 2015 硬盘扩容升级参考</title>
     <url>/2019/04/24/Mac%20Pro%202015%E7%A1%AC%E7%9B%98%E6%89%A9%E5%AE%B9%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>前几天升级了我的Mac Pro硬盘，也查找了一下资料，现在写下来，如果你想对你的Mac进行升级，这也许能给你一些参考。</p>
@@ -133,24 +151,6 @@
 ]]></content>
       <tags>
         <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac电脑Safari浏览器上禁止百度广告</title>
-    <url>/2020/05/29/Mac%E7%94%B5%E8%84%91Safari%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%A6%81%E6%AD%A2%E7%99%BE%E5%BA%A6%E5%B9%BF%E5%91%8A/</url>
-    <content><![CDATA[<h4 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h4><p>我是一个Chrome浏览器用户，用Chrome浏览器进行百度搜索时，我用到了一个插件<a href="https://github.com/unclehking/bdAdfinisher">https://github.com/unclehking/bdAdfinisher</a>，这个插件可以过滤掉百度搜索结果的广告，实现无广告浏览，它让每个搜索结果页都很干净。这个插件几乎是我司程序员的Chrome浏览器标配插件。</p>
-<a id="more"></a>
-
-<p>但因为我用的是Mac电脑，难不免也会用到Safari浏览器。我遍寻GitHub和AppStore，也没找到一个可以禁止Safari浏览器百度广告的软件，恰好上段时间，我研究了一下Safari浏览器插件的写法，于是便产生了写一款Safari浏览器上禁止百度广告插件的想法。</p>
-<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>然后就真的写成了。</p>
-<p>地址：<a href="https://github.com/lengain/BanbdAdForSafari">https://github.com/lengain/BanbdAdForSafari</a></p>
-<p>下载：<a href="https://github.com/lengain/BanbdAdForSafari/releases/download/1.0/BanBdAd.dmg">BanBdAd.dmg</a></p>
-<p>图文教程：<a href="https://github.com/lengain/BanbdAdForSafari/blob/master/Tutorial.md">https://github.com/lengain/BanbdAdForSafari/blob/master/Tutorial.md</a></p>
-<h4 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h4><p>写的过程中，借鉴了<a href="https://github.com/unclehking">unclehking</a>的chorme浏览器插件的一些代码，也和他沟通了一些关于百度的法律问题，向他的无私帮助致谢。</p>
-<h4 id="以后"><a href="#以后" class="headerlink" title="以后"></a>以后</h4><p>禁止谷歌广告，掘金广告，知乎广告……？</p>
-]]></content>
-      <tags>
-        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
@@ -302,35 +302,177 @@
       </tags>
   </entry>
   <entry>
-    <title>Ruby方法中的!和?</title>
-    <url>/2023/12/11/Ruby%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84!%E5%92%8C?/</url>
-    <content><![CDATA[<h5 id="方法名后缀为”-”的方法"><a href="#方法名后缀为”-”的方法" class="headerlink" title="方法名后缀为”!”的方法"></a>方法名后缀为”!”的方法</h5><p>在Ruby中，方法名后缀为”!”的方法通常表示该方法会修改调用它的对象。这种约定起源于Smalltalk语言，在Ruby中广泛使用。</p>
-<p>当一个方法后面带有”!”符号时，这个方法通常会修改调用它的对象的状态。例如，如果我们对一个数组调用<code>sort!</code>方法，这个方法会对数组进行排序，并返回排序后的数组，而原始数组将被修改。</p>
+    <title>OpusOhos：为 HarmonyOS 打造高性能音频编解码库</title>
+    <url>/2026/02/19/OpusOhos%EF%BC%9A%E4%B8%BA%20HarmonyOS%20%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E5%BA%93/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>随着 HarmonyOS 生态的快速发展，移动应用对高质量音频处理的需求日益增长。无论是实时语音通话、音频录制还是流媒体传输，都需要一个高效、可靠的音频编解码解决方案。Opus 作为一种开放、免版税的音频编解码标准，以其卓越的音质和灵活性在业界广受认可。然而，HarmonyOS 平台缺乏成熟的 Opus 编解码库支持。本文将详细介绍 OpusOhos 库的设计与实现过程，探讨如何将 C/C++ 原生库高效集成到 HarmonyOS 应用开发生态中。</p>
+<p>目前该库已发布到OpenHarmony三方库中心仓，<a href="https://ohpm.openharmony.cn/#/cn/result?sortedType=relevancy&page=1&q=OpusOhos">点击前往</a></p>
 <a id="more"></a>
 
-<p>下面是一个例子：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">rubynumbers = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">sorted_numbers = numbers.sort! </span><br><span class="line"><span class="comment"># 修改原始数组，并返回排序后的数组  </span></span><br><span class="line"><span class="comment"># puts numbers </span></span><br><span class="line"><span class="comment"># 输出: [1, 2, 3]  </span></span><br><span class="line"><span class="comment"># puts sorted_numbers </span></span><br><span class="line"><span class="comment"># 输出: [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，<code>sort!</code>方法修改了原始数组<code>numbers</code>的状态，并返回了排序后的数组。</p>
-<p>需要注意的是，有些方法同时有带”!”和不带”!”的版本。例如，<code>sort</code>方法不会修改原始数组，而是返回一个新的排序后的数组。因此，我们需要仔细查看方法的文档来了解它们的行为。</p>
-<h5 id="方法名后缀为”-”的方法-1"><a href="#方法名后缀为”-”的方法-1" class="headerlink" title="方法名后缀为”?”的方法"></a>方法名后缀为”?”的方法</h5><p>在Ruby中，以”?”结尾的方法通常表示该方法返回一个布尔值（true或false）。这种约定使得代码更加可读和易于理解。</p>
-<p>例如，Ruby中有很多方法以”?”结尾，如<code>nil?</code>、<code>empty?</code>、<code>blank?</code>等。这些方法通常用于条件判断，根据给定的条件返回true或false。</p>
-<p>以下是一些示例：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用nil?方法判断变量是否为nil  </span></span><br><span class="line"><span class="keyword">if</span> my_variable.<span class="literal">nil</span>?    </span><br><span class="line">    puts <span class="string">&quot;my_variable is nil&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_variable is not nil&quot;</span></span><br><span class="line"><span class="keyword">end</span>    </span><br><span class="line"><span class="comment"># 使用empty?方法判断字符串是否为空  </span></span><br><span class="line"><span class="keyword">if</span> my_string.empty?</span><br><span class="line">    puts <span class="string">&quot;my_string is empty&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_string is not empty&quot;</span>  </span><br><span class="line"><span class="keyword">end</span>    </span><br><span class="line"><span class="comment"># 使用blank?方法判断字符串是否为空白（只包含空格、制表符等空白字符）</span></span><br><span class="line"><span class="keyword">if</span> my_string.blank?</span><br><span class="line">    puts <span class="string">&quot;my_string is blank&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_string is not blank&quot;</span>  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>在这些示例中，通过调用以”?”结尾的方法，我们可以根据条件判断得到相应的结果。这些方法通常用于控制程序流程，根据条件执行相应的操作。</p>
-<h5 id="反引号"><a href="#反引号" class="headerlink" title="反引号"></a>反引号</h5><p>在Ruby中，反引号用于执行shell命令，并将执行结果作为字符串返回。以下是反引号的使用方法：</p>
+<h2 id="开发背景"><a href="#开发背景" class="headerlink" title="开发背景"></a>开发背景</h2><h3 id="技术需求分析"><a href="#技术需求分析" class="headerlink" title="技术需求分析"></a>技术需求分析</h3><p>在开发 HarmonyOS 音频应用时，我们面临以下核心需求：</p>
 <ol>
-<li>反引号包围一个shell命令，Ruby会执行该命令，并将执行结果作为字符串返回。</li>
-<li>使用<code>puts</code>方法打印该变量的值。</li>
+<li><strong>高压缩比与高音质</strong>：需要在有限的带宽条件下传输高质量音频</li>
+<li><strong>低延迟</strong>：实时通话场景要求端到端延迟控制在毫秒级</li>
+<li><strong>多场景适配</strong>：支持从窄带语音（8kHz）到全频带音乐（48kHz）的各种应用场景</li>
+<li><strong>跨平台兼容</strong>：与主流平台的 Opus 实现保持兼容</li>
 </ol>
-<p>例如：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">output=<span class="string">`ls -l`</span>  </span><br><span class="line">puts output</span><br></pre></td></tr></table></figure>
+<h3 id="为什么选择-Opus"><a href="#为什么选择-Opus" class="headerlink" title="为什么选择 Opus"></a>为什么选择 Opus</h3><p>Opus 编解码器由 IETF（互联网工程任务组）标准化（RFC 6716），具有以下显著优势：</p>
+<ul>
+<li><strong>优异的音频质量</strong>：在各种比特率下都能提供出色的音质</li>
+<li><strong>超低延迟</strong>：算法延迟仅 5-66.5ms，适合实时通信</li>
+<li><strong>宽泛的比特率范围</strong>：支持 6 kbps 到 510 kbps</li>
+<li><strong>自适应性强</strong>：可动态调整比特率以适应网络状况</li>
+<li><strong>开源免费</strong>：无需支付版税，降低开发成本</li>
+</ul>
+<h3 id="HarmonyOS-集成挑战"><a href="#HarmonyOS-集成挑战" class="headerlink" title="HarmonyOS 集成挑战"></a>HarmonyOS 集成挑战</h3><p>HarmonyOS 应用主要使用 ArkTS 进行开发，而 Opus 库是用 C 语言实现的。如何在两者之间搭建高效、稳定的桥梁成为关键挑战：</p>
+<ol>
+<li><strong>语言互操作</strong>：ArkTS 与 C/C++ 之间的数据传递和类型转换</li>
+<li><strong>内存管理</strong>：跨语言边界的内存安全问题</li>
+<li><strong>性能优化</strong>：最小化跨层调用开销</li>
+<li><strong>API 设计</strong>：为 ArkTS 开发者提供符合习惯的接口</li>
+</ol>
+<h2 id="技术方案设计"><a href="#技术方案设计" class="headerlink" title="技术方案设计"></a>技术方案设计</h2><h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p>OpusOhos 采用三层架构设计，实现了从底层编解码算法到上层应用接口的完整封装：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">┌─────────────────────────────────────────┐</span><br><span class="line">│         ArkTS Application Layer         │</span><br><span class="line">│   (OpusEncoder &#x2F; OpusDecoder Class)     │</span><br><span class="line">├─────────────────────────────────────────┤</span><br><span class="line">│          N-API Bridge Layer             │</span><br><span class="line">│      (napi_init.cpp - 接口适配)         │</span><br><span class="line">├─────────────────────────────────────────┤</span><br><span class="line">│        Native Library Layer             │</span><br><span class="line">│    (libopus.so - Opus 1.5.2 核心)      │</span><br><span class="line">└─────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
 
-<p>在上述代码中，<code>ls -l</code>命令会在shell中执行，并返回结果。然后，将结果赋值给变量output，并使用puts方法打印该变量的值。</p>
+<p><strong>各层职责划分：</strong></p>
+<ul>
+<li><strong>ArkTS 应用层</strong>：提供面向对象的 API，处理业务逻辑和数据格式转换</li>
+<li><strong>N-API 桥接层</strong>：实现 JavaScript/ArkTS 与 C++ 的互操作，负责类型转换和错误处理</li>
+<li><strong>原生库层</strong>：基于 libopus 1.5.2 实现高性能的编解码算法</li>
+</ul>
+<h3 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h3><h4 id="1-Opus-库版本"><a href="#1-Opus-库版本" class="headerlink" title="1. Opus 库版本"></a>1. Opus 库版本</h4><p>OpusOhos 1.0.1 基于 libopus 1.5.2 实现，提供了：</p>
+<ul>
+<li>优化的 ARM NEON 指令集支持</li>
+<li>改进的低比特率性能</li>
+<li>更好的音频质量评估算法</li>
+</ul>
+<h4 id="2-N-API-接口技术"><a href="#2-N-API-接口技术" class="headerlink" title="2. N-API 接口技术"></a>2. N-API 接口技术</h4><p>N-API（Native API）是 HarmonyOS 提供的用于构建原生插件的接口层，具有以下特点：</p>
+<ul>
+<li><strong>ABI 稳定性</strong>：跨版本兼容，减少维护成本</li>
+<li><strong>上下文隔离</strong>：安全地管理 JavaScript 和 C++ 对象生命周期</li>
+<li><strong>异常安全</strong>：提供完善的错误处理机制</li>
+</ul>
+<h4 id="3-构建系统"><a href="#3-构建系统" class="headerlink" title="3. 构建系统"></a>3. 构建系统</h4><p>采用 CMake 作为构建工具，配合 HarmonyOS SDK 提供的工具链：</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.5</span>.<span class="number">0</span>)</span><br><span class="line"><span class="keyword">project</span>(myNpmLib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(opusohos SHARED napi_init.cpp opus)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(opusohos PUBLIC </span><br><span class="line">    libace_napi.z.so </span><br><span class="line">    libhilog_ndk.z.so</span><br><span class="line">    <span class="variable">$&#123;NATIVERENDER_ROOT_PATH&#125;</span>/../../../libs/<span class="variable">$&#123;OHOS_ARCH&#125;</span>/libopus.so</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据流设计"><a href="#数据流设计" class="headerlink" title="数据流设计"></a>数据流设计</h3><h4 id="编码流程"><a href="#编码流程" class="headerlink" title="编码流程"></a>编码流程</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PCM Audio (Int16Array)</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: 准备单个音频帧</span><br><span class="line">    ↓</span><br><span class="line">N-API Layer: ArrayBuffer 传递</span><br><span class="line">    ↓</span><br><span class="line">Native Layer: opus_encode() 编码单帧</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: 返回裸 Opus 帧数据</span><br></pre></td></tr></table></figure>
+
+<h4 id="解码流程"><a href="#解码流程" class="headerlink" title="解码流程"></a>解码流程</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Opus Frame (Uint8Array &#x2F; ArrayBuffer)</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: 接收单个 Opus 帧</span><br><span class="line">    ↓</span><br><span class="line">N-API Layer: 帧数据传递</span><br><span class="line">    ↓</span><br><span class="line">Native Layer: opus_decode() 解码单帧</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: 返回 Int16Array PCM 样本</span><br></pre></td></tr></table></figure>
+
+<h3 id="内存管理策略"><a href="#内存管理策略" class="headerlink" title="内存管理策略"></a>内存管理策略</h3><p>跨语言边界的内存管理是整个方案的核心难点之一。我们采用以下策略：</p>
+<ol>
+<li><strong>零拷贝传递</strong>：使用 ArrayBuffer 在 ArkTS 和 C++ 之间共享内存</li>
+<li><strong>明确的生命周期</strong>：通过 <code>init()</code> 和 <code>destroy()</code> 方法明确资源管理</li>
+<li><strong>RAII 原则</strong>：在 C++ 层使用智能指针和自动析构</li>
+<li><strong>错误恢复</strong>：任何异常都要确保资源正确释放</li>
+</ol>
+<h2 id="核心实现详解"><a href="#核心实现详解" class="headerlink" title="核心实现详解"></a>核心实现详解</h2><h3 id="1-N-API-编码器实现"><a href="#1-N-API-编码器实现" class="headerlink" title="1. N-API 编码器实现"></a>1. N-API 编码器实现</h3><p>N-API 层的编码器实现是整个系统的核心，处理数据转换、单帧编码、内存管理等环节。</p>
+<h4 id="初始化过程"><a href="#初始化过程" class="headerlink" title="初始化过程"></a>初始化过程</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">InitEncoder</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 参数解析</span></span><br><span class="line">    <span class="keyword">size_t</span> argc = <span class="number">4</span>;</span><br><span class="line">    napi_value args[<span class="number">4</span>];</span><br><span class="line">    napi_get_cb_info(env, info, &amp;argc, args, <span class="literal">nullptr</span>, <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int32_t</span> sampleRate, channels, bitRate, frameDurationMs;</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">0</span>], &amp;sampleRate);</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">1</span>], &amp;channels);</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">2</span>], &amp;bitRate);</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">3</span>], &amp;frameDurationMs);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 创建 Opus 编码器</span></span><br><span class="line">    <span class="keyword">int</span> err;</span><br><span class="line">    encoder_ = opus_encoder_create(sampleRate, channels, </span><br><span class="line">                                    OPUS_APPLICATION_AUDIO, &amp;err);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 根据帧时长动态计算帧大小</span></span><br><span class="line">    gFrameDurationMs = frameDurationMs;</span><br><span class="line">    gFrameSize = <span class="keyword">static_cast</span>&lt;opus_int32&gt;(sampleRate * frameDurationMs / <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 验证帧时长合法性</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> validDurations[] = &#123;</span><br><span class="line">        sampleRate / <span class="number">400</span>,      <span class="comment">// 2.5ms</span></span><br><span class="line">        sampleRate / <span class="number">200</span>,      <span class="comment">// 5ms</span></span><br><span class="line">        sampleRate / <span class="number">100</span>,      <span class="comment">// 10ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span>,       <span class="comment">// 20ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span> * <span class="number">2</span>,   <span class="comment">// 40ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span> * <span class="number">3</span>,   <span class="comment">// 60ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span> * <span class="number">4</span>,   <span class="comment">// 80ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span> * <span class="number">5</span>,   <span class="comment">// 100ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span> * <span class="number">6</span>    <span class="comment">// 120ms</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">bool</span> isValidFrame = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> validSize : validDurations) &#123;</span><br><span class="line">        <span class="keyword">if</span> (gFrameSize == validSize) &#123;</span><br><span class="line">            isValidFrame = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!isValidFrame) &#123;</span><br><span class="line">        OH_LOG_ERROR(LOG_APP, <span class="string">&quot;Invalid frame duration: %d ms for sample rate %d&quot;</span>,</span><br><span class="line">                     frameDurationMs, sampleRate);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 配置比特率</span></span><br><span class="line">    opus_encoder_ctl(encoder_, OPUS_SET_BITRATE(bitRate));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>设计要点：</strong></p>
+<ul>
+<li><strong>动态帧大小计算</strong>：根据采样率和帧时长灵活计算，不再固定为20ms</li>
+<li><strong>帧时长验证</strong>：支持2.5/5/10/20/40/60/80/100/120ms多种配置</li>
+<li><strong>采样率适配</strong>：根据不同采样率正确计算对应的帧样本数</li>
+<li><strong>错误检查</strong>：验证帧时长合法性，确保初始化成功</li>
+</ul>
+<h4 id="编码过程"><a href="#编码过程" class="headerlink" title="编码过程"></a>编码过程</h4><p>编码过程现在专注于单个帧的高效编码，返回裸Opus数据：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">Encode</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 获取单个 PCM 帧数据</span></span><br><span class="line">    napi_value args[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">size_t</span> argc = <span class="number">1</span>;</span><br><span class="line">    napi_get_cb_info(env, info, &amp;argc, args, <span class="literal">nullptr</span>, <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> *pcm = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">size_t</span> len = <span class="number">0</span>;</span><br><span class="line">    napi_get_arraybuffer_info(env, args[<span class="number">0</span>], &amp;pcm, &amp;len);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 数据验证 - 确保输入的样本数与帧大小一致</span></span><br><span class="line">    <span class="keyword">size_t</span> numSamples = len / <span class="keyword">sizeof</span>(<span class="keyword">int16_t</span>);</span><br><span class="line">    <span class="keyword">if</span> (numSamples != gFrameSize) &#123;</span><br><span class="line">        OH_LOG_ERROR(LOG_APP, </span><br><span class="line">                     <span class="string">&quot;PCM frame size mismatch: expected %d samples, got %zu&quot;</span>,</span><br><span class="line">                     gFrameSize, numSamples);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 分配输出缓冲区 - 裸 Opus 帧数据</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> maxEncodedSize = <span class="number">4000</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span>* outputBuffer = </span><br><span class="line">        <span class="keyword">static_cast</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">char</span>*&gt;(<span class="built_in">malloc</span>(maxEncodedSize));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 编码单个帧</span></span><br><span class="line">    <span class="keyword">int16_t</span>* pcmSamples = <span class="keyword">static_cast</span>&lt;<span class="keyword">int16_t</span>*&gt;(pcm);</span><br><span class="line">    <span class="keyword">int</span> encodedBytes = opus_encode(encoder_,</span><br><span class="line">                                   pcmSamples,</span><br><span class="line">                                   gFrameSize,</span><br><span class="line">                                   outputBuffer,</span><br><span class="line">                                   maxEncodedSize);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (encodedBytes &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        OH_LOG_ERROR(LOG_APP, <span class="string">&quot;opus_encode failed with error: %d&quot;</span>, </span><br><span class="line">                     encodedBytes);</span><br><span class="line">        <span class="built_in">free</span>(outputBuffer);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 创建返回的 ArrayBuffer - 直接返回裸 Opus 帧</span></span><br><span class="line">    napi_value result;</span><br><span class="line">    <span class="keyword">void</span>* resultData = <span class="literal">nullptr</span>;</span><br><span class="line">    napi_create_arraybuffer(env, encodedBytes, &amp;resultData, &amp;result);</span><br><span class="line">    <span class="built_in">memcpy</span>(resultData, outputBuffer, encodedBytes);</span><br><span class="line">    <span class="built_in">free</span>(outputBuffer);</span><br><span class="line"></span><br><span class="line">    OH_LOG_INFO(LOG_APP, <span class="string">&quot;Encoding completed: %d bytes&quot;</span>, encodedBytes);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键特点：</strong></p>
+<ol>
+<li><strong>单帧处理</strong>：一次编码调用处理一个音频帧</li>
+<li><strong>裸数据输出</strong>：直接返回 Opus 编码数据，无额外打包开销</li>
+<li><strong>实时流传输</strong>：编码后的数据可直接通过 WebSocket/RTC 发送</li>
+<li><strong>高效内存使用</strong>：预分配固定大小缓冲区，避免频繁分配</li>
+</ol>
+<h3 id="2-N-API-解码器实现"><a href="#2-N-API-解码器实现" class="headerlink" title="2. N-API 解码器实现"></a>2. N-API 解码器实现</h3><p>解码器处理裸 Opus 帧数据，直接转换为 PCM 样本：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">Decode</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 获取单个 Opus 帧数据</span></span><br><span class="line">    napi_value args[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">size_t</span> argc = <span class="number">1</span>;</span><br><span class="line">    napi_get_cb_info(env, info, &amp;argc, args, <span class="literal">nullptr</span>, <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> *opusData = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">size_t</span> len = <span class="number">0</span>;</span><br><span class="line">    napi_get_arraybuffer_info(env, args[<span class="number">0</span>], &amp;opusData, &amp;len);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 分配 PCM 输出缓冲区</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> maxFrameSize = <span class="number">5760</span>;  <span class="comment">// 48kHz 时的最大帧（120ms）</span></span><br><span class="line">    <span class="keyword">int16_t</span> *pcmOutput = <span class="keyword">static_cast</span>&lt;<span class="keyword">int16_t</span>*&gt;(</span><br><span class="line">        <span class="built_in">malloc</span>(maxFrameSize * <span class="keyword">sizeof</span>(<span class="keyword">int16_t</span>))</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 解码单个 Opus 帧</span></span><br><span class="line">    <span class="keyword">int</span> decodedSamples = opus_decode(</span><br><span class="line">        decoder_,</span><br><span class="line">        <span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span>*&gt;(opusData),</span><br><span class="line">        <span class="keyword">static_cast</span>&lt;opus_int32&gt;(len),</span><br><span class="line">        pcmOutput,</span><br><span class="line">        maxFrameSize,</span><br><span class="line">        <span class="number">0</span>  <span class="comment">// FEC disabled（前向纠错关闭）</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (decodedSamples &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        OH_LOG_ERROR(LOG_APP, <span class="string">&quot;opus_decode failed with error: %d&quot;</span>, </span><br><span class="line">                     decodedSamples);</span><br><span class="line">        <span class="built_in">free</span>(pcmOutput);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 创建返回的 ArrayBuffer - 直接返回 PCM 数据</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> resultSize = decodedSamples * <span class="keyword">sizeof</span>(<span class="keyword">int16_t</span>);</span><br><span class="line">    napi_value result;</span><br><span class="line">    <span class="keyword">void</span>* resultData = <span class="literal">nullptr</span>;</span><br><span class="line">    napi_create_arraybuffer(env, resultSize, &amp;resultData, &amp;result);</span><br><span class="line">    <span class="built_in">memcpy</span>(resultData, pcmOutput, resultSize);</span><br><span class="line">    <span class="built_in">free</span>(pcmOutput);</span><br><span class="line"></span><br><span class="line">    OH_LOG_INFO(LOG_APP, <span class="string">&quot;Decoding completed: %d samples&quot;</span>, decodedSamples);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键特点：</strong></p>
+<ol>
+<li><strong>单帧解码</strong>：处理单个裸 Opus 帧，返回对应的 PCM 样本</li>
+<li><strong>直接数据传递</strong>：解码结果直接作为 ArrayBuffer 返回，可立即播放</li>
+<li><strong>动态采样数</strong>：返回实际解码出的样本数，支持可变帧长</li>
+<li><strong>内存高效</strong>：使用预分配的最大缓冲区，一次分配完成</li>
+</ol>
+<h3 id="3-ArkTS-封装层设计"><a href="#3-ArkTS-封装层设计" class="headerlink" title="3. ArkTS 封装层设计"></a>3. ArkTS 封装层设计</h3><p>ArkTS 层提供面向对象的 API，简化使用流程：</p>
+<h4 id="OpusEncoder-类"><a href="#OpusEncoder-类" class="headerlink" title="OpusEncoder 类"></a>OpusEncoder 类</h4><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">OpusEncoder</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> sampleRate: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> channels: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> bitRate: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> frameSize: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> frameDurationMs: <span class="built_in">number</span> = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 初始化编码器</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>sampleRate 采样率（8000/12000/16000/24000/48000）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>channels 声道数（1 或 2）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>bitRate 比特率（bps）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameDurationMs 帧时长（ms），可选，默认 20ms</span></span><br><span class="line"><span class="comment">   *        支持值：2.5 | 5 | 10 | 20 | 40 | 60 | 80 | 100 | 120</span></span><br><span class="line"><span class="comment">   *        推荐值：20ms（低延迟）、60ms（与 iOS opus_dart 兼容）</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  init(sampleRate: <span class="built_in">number</span>, <span class="attr">channels</span>: <span class="built_in">number</span>, <span class="attr">bitRate</span>: <span class="built_in">number</span>, </span><br><span class="line">       frameDurationMs?: <span class="built_in">number</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> actualFrameDuration = frameDurationMs ?? <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 验证帧时长</span></span><br><span class="line">    <span class="built_in">this</span>.frameSize = OpusEncoder.getFrameSize(sampleRate, actualFrameDuration);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化编码器</span></span><br><span class="line">    opusOhos.initEncoder(sampleRate, channels, bitRate, actualFrameDuration);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.sampleRate = sampleRate;</span><br><span class="line">    <span class="built_in">this</span>.channels = channels;</span><br><span class="line">    <span class="built_in">this</span>.bitRate = bitRate;</span><br><span class="line">    <span class="built_in">this</span>.frameDurationMs = actualFrameDuration;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 编码单个 PCM 帧为裸 Opus 数据</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>pcmData Int16Array 格式的 PCM 样本</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@returns </span>ArrayBuffer 格式的裸 Opus 帧数据</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  encode(pcmData: <span class="built_in">Int16Array</span>): <span class="built_in">ArrayBuffer</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (pcmData.length !== <span class="built_in">this</span>.frameSize) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`PCM frame size mismatch: expected <span class="subst">$&#123;<span class="built_in">this</span>.frameSize&#125;</span>, `</span> +</span><br><span class="line">                      <span class="string">`got <span class="subst">$&#123;pcmData.length&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> cleanBuffer = <span class="built_in">this</span>.ensureAlignedBuffer(pcmData);</span><br><span class="line">    <span class="keyword">return</span> opusOhos.encode(cleanBuffer);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 根据采样率和帧时长计算帧大小</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>sampleRate 采样率</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameDurationMs 帧时长（ms），可选，默认 20ms</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@returns </span>每帧样本数</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">static</span> getFrameSize(sampleRate: <span class="built_in">number</span>, frameDurationMs?: <span class="built_in">number</span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> duration = frameDurationMs ?? <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">const</span> frameSize = <span class="built_in">Math</span>.floor(sampleRate * duration / <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 验证帧时长支持</span></span><br><span class="line">    <span class="keyword">const</span> validDurations = [<span class="number">2.5</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">40</span>, <span class="number">60</span>, <span class="number">80</span>, <span class="number">100</span>, <span class="number">120</span>];</span><br><span class="line">    <span class="keyword">if</span> (!validDurations.includes(duration)) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`Unsupported frame duration <span class="subst">$&#123;duration&#125;</span>ms. `</span> +</span><br><span class="line">                      <span class="string">`Supported: 2.5, 5, 10, 20, 40, 60, 80, 100, 120`</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> frameSize;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 工具方法：Uint8Array 转 Int16Array</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">static</span> bytesToInt16(bytes: <span class="built_in">Uint8Array</span>): <span class="built_in">Int16Array</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (bytes.byteOffset % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Int16Array</span>(bytes.buffer, bytes.byteOffset, </span><br><span class="line">                           <span class="built_in">Math</span>.floor(bytes.length / <span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> int16Length = <span class="built_in">Math</span>.floor(bytes.length / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">const</span> int16List = <span class="keyword">new</span> <span class="built_in">Int16Array</span>(int16Length);</span><br><span class="line">    <span class="keyword">const</span> dataView = <span class="keyword">new</span> <span class="built_in">DataView</span>(bytes.buffer, bytes.byteOffset);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; int16Length; i++) &#123;</span><br><span class="line">      int16List[i] = dataView.getInt16(i * <span class="number">2</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> int16List;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> ensureAlignedBuffer(pcmData: <span class="built_in">Int16Array</span>): <span class="built_in">ArrayBuffer</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (pcmData.byteOffset === <span class="number">0</span> &amp;&amp; </span><br><span class="line">        pcmData.buffer.byteLength === pcmData.byteLength) &#123;</span><br><span class="line">      <span class="keyword">return</span> pcmData.buffer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> cleanBuffer = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(pcmData.byteLength);</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(cleanBuffer).set(</span><br><span class="line">      <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(pcmData.buffer, pcmData.byteOffset, pcmData.byteLength)</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">return</span> cleanBuffer;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">destroy</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    opusOhos.destroyEncoder();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>API 特点：</strong></p>
+<ol>
+<li><strong>灵活的帧时长</strong>：支持2.5-120ms多种配置</li>
+<li><strong>单帧编码</strong>：一次处理一个音频帧，直接返回裸Opus数据</li>
+<li><strong>流传输优化</strong>：编码结果可直接通过网络发送</li>
+<li><strong>输入验证</strong>：自动检查帧大小，提前发现错误</li>
+</ol>
+<h4 id="OpusDecoder-类"><a href="#OpusDecoder-类" class="headerlink" title="OpusDecoder 类"></a>OpusDecoder 类</h4><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">OpusDecoder</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> sampleRate: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> channels: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> frameSize: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> frameDurationMs: <span class="built_in">number</span> = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 初始化解码器</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>sampleRate 采样率（8000/12000/16000/24000/48000）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>channels 声道数（1 或 2）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameDurationMs 帧时长（ms），可选，默认 20ms</span></span><br><span class="line"><span class="comment">   *        支持值：2.5 | 5 | 10 | 20 | 40 | 60 | 80 | 100 | 120</span></span><br><span class="line"><span class="comment">   *        推荐值：20ms（低延迟）、60ms</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@note </span>解码时的帧时长应与编码时一致</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="title">init</span>(<span class="params">sampleRate: <span class="built_in">number</span>, channels: <span class="built_in">number</span>, frameDurationMs?: <span class="built_in">number</span></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> actualFrameDuration = frameDurationMs ?? <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 验证帧时长</span></span><br><span class="line">    <span class="built_in">this</span>.frameSize = OpusDecoder.getFrameSize(sampleRate, actualFrameDuration);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化解码器</span></span><br><span class="line">    opusOhos.initDecoder(sampleRate, channels, actualFrameDuration);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.sampleRate = sampleRate;</span><br><span class="line">    <span class="built_in">this</span>.channels = channels;</span><br><span class="line">    <span class="built_in">this</span>.frameDurationMs = actualFrameDuration;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 解码单个裸 Opus 帧为 PCM 数据</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * 适用于实时流传输场景（WebSocket 接收）：</span></span><br><span class="line"><span class="comment">   * - 输入：单个裸 Opus 帧（从网络接收的原始数据）</span></span><br><span class="line"><span class="comment">   * - 输出：PCM 样本数组（Int16Array）</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameData 单个 Opus 帧数据 (Uint8Array 或 ArrayBuffer)</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@returns </span>解码后的 PCM 样本 (Int16Array)</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  decode(frameData: <span class="built_in">Uint8Array</span> | <span class="built_in">ArrayBuffer</span>): <span class="built_in">Int16Array</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.sampleRate === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;Decoder not initialized. Call init() first.&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 统一转换为 ArrayBuffer</span></span><br><span class="line">    <span class="keyword">const</span> buffer = frameData <span class="keyword">instanceof</span> <span class="built_in">Uint8Array</span> ? frameData.buffer : frameData;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用 native decode 方法</span></span><br><span class="line">    <span class="keyword">const</span> pcmBuffer: <span class="built_in">ArrayBuffer</span> = opusOhos.decode(buffer);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将 ArrayBuffer 转换为 Int16Array</span></span><br><span class="line">    <span class="keyword">const</span> int16Length = pcmBuffer.byteLength / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Int16Array</span>(pcmBuffer, <span class="number">0</span>, int16Length);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 解码单个裸 Opus 帧，直接返回 Uint8Array 格式的 PCM 数据</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameData 单个 Opus 帧数据 (Uint8Array 或 ArrayBuffer)</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@returns </span>Uint8Array 格式的 PCM 数据</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  decodeToBytes(frameData: <span class="built_in">Uint8Array</span> | <span class="built_in">ArrayBuffer</span>): <span class="built_in">Uint8Array</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> samples = <span class="built_in">this</span>.decode(frameData);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(samples.buffer, samples.byteOffset, samples.byteLength);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 根据采样率和帧时长计算帧大小</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>sampleRate 采样率</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameDurationMs 帧时长（ms），可选，默认 20ms</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@returns </span>每帧样本数</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">static</span> getFrameSize(sampleRate: <span class="built_in">number</span>, frameDurationMs?: <span class="built_in">number</span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> duration = frameDurationMs ?? <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">const</span> frameSize = <span class="built_in">Math</span>.floor(sampleRate * duration / <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> validDurations = [<span class="number">2.5</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">40</span>, <span class="number">60</span>, <span class="number">80</span>, <span class="number">100</span>, <span class="number">120</span>];</span><br><span class="line">    <span class="keyword">if</span> (!validDurations.includes(duration)) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`Unsupported frame duration <span class="subst">$&#123;duration&#125;</span>ms. `</span> +</span><br><span class="line">                      <span class="string">`Supported: 2.5, 5, 10, 20, 40, 60, 80, 100, 120`</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> frameSize;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 工具方法：Uint8Array 转 Int16Array</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">static</span> bytesToInt16(bytes: <span class="built_in">Uint8Array</span>): <span class="built_in">Int16Array</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (bytes.byteOffset % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Int16Array</span>(bytes.buffer, bytes.byteOffset, </span><br><span class="line">                           <span class="built_in">Math</span>.floor(bytes.length / <span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> int16Length = <span class="built_in">Math</span>.floor(bytes.length / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">const</span> int16List = <span class="keyword">new</span> <span class="built_in">Int16Array</span>(int16Length);</span><br><span class="line">    <span class="keyword">const</span> dataView = <span class="keyword">new</span> <span class="built_in">DataView</span>(bytes.buffer, bytes.byteOffset);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; int16Length; i++) &#123;</span><br><span class="line">      int16List[i] = dataView.getInt16(i * <span class="number">2</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> int16List;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">destroy</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    opusOhos.destroyDecoder();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>API 特点：</strong></p>
+<ol>
+<li><strong>单帧解码</strong>：处理单个裸Opus帧，直接返回PCM样本</li>
+<li><strong>多种返回格式</strong>：支持Int16Array和Uint8Array两种输出格式</li>
+<li><strong>灵活的帧时长</strong>：支持与编码器一致的多种帧时长配置</li>
+<li><strong>流传输优化</strong>：接收网络数据后可直接解码播放</li>
+</ol>
+<h3 id="4-多架构支持"><a href="#4-多架构支持" class="headerlink" title="4. 多架构支持"></a>4. 多架构支持</h3><p>OpusOhos 支持 HarmonyOS 的主要架构平台：</p>
+<h4 id="预编译库管理"><a href="#预编译库管理" class="headerlink" title="预编译库管理"></a>预编译库管理</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">libs&#x2F;</span><br><span class="line">├── arm64-v8a&#x2F;</span><br><span class="line">│   └── libopus.so      # ARM64 平台库</span><br><span class="line">└── x86_64&#x2F;</span><br><span class="line">    └── libopus.so      # x86_64 模拟器库</span><br></pre></td></tr></table></figure>
+
+<h4 id="CMake-架构选择"><a href="#CMake-架构选择" class="headerlink" title="CMake 架构选择"></a>CMake 架构选择</h4><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">target_link_libraries</span>(opusohos PUBLIC </span><br><span class="line">    <span class="variable">$&#123;NATIVERENDER_ROOT_PATH&#125;</span>/../../../libs/<span class="variable">$&#123;OHOS_ARCH&#125;</span>/libopus.so</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><code>$&#123;OHOS_ARCH&#125;</code> 变量由 HarmonyOS 构建系统自动设置，确保链接正确的库版本。</p>
+<h2 id="性能优化策略"><a href="#性能优化策略" class="headerlink" title="性能优化策略"></a>性能优化策略</h2><h3 id="1-单帧流传输优化"><a href="#1-单帧流传输优化" class="headerlink" title="1. 单帧流传输优化"></a>1. 单帧流传输优化</h3><p><strong>直接编解码</strong>：</p>
+<ul>
+<li>编码：PCM 帧 → 裸 Opus 数据（无打包开销）</li>
+<li>解码：裸 Opus 帧 → PCM 样本（无解包开销）</li>
+<li>适合实时流传输（WebSocket、RTC）</li>
+</ul>
+<p><strong>实测性能指标</strong>（48kHz, 单声道）：</p>
+<ul>
+<li>单帧编码延迟：~0.3-0.5ms</li>
+<li>单帧解码延迟：~0.2-0.4ms</li>
+<li>低开销的网络传输</li>
+</ul>
+<h3 id="2-内存优化"><a href="#2-内存优化" class="headerlink" title="2. 内存优化"></a>2. 内存优化</h3><p><strong>零拷贝技术</strong>：</p>
+<ul>
+<li>使用 ArrayBuffer 共享内存</li>
+<li>避免 ArkTS 和 C++ 之间的数据复制</li>
+<li>直接在原始 buffer 上操作</li>
+</ul>
+<p><strong>高效的帧大小计算</strong>：</p>
+<ul>
+<li>预计算帧大小，避免重复计算</li>
+<li>支持多种帧时长配置（2.5-120ms）</li>
+</ul>
+<h3 id="3-错误处理与日志"><a href="#3-错误处理与日志" class="headerlink" title="3. 错误处理与日志"></a>3. 错误处理与日志</h3><p><strong>快速失败</strong>：</p>
+<ul>
+<li>参数验证前置（帧大小、帧时长）</li>
+<li>早期返回避免无效计算</li>
+<li>详细的日志记录（使用 HiLog）</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">OH_LOG_INFO(LOG_APP, <span class="string">&quot;Encoding completed: %d bytes&quot;</span>, encodedBytes);</span><br><span class="line">OH_LOG_ERROR(LOG_APP, <span class="string">&quot;opus_encode failed with error: %d&quot;</span>, encodedBytes);</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署与使用"><a href="#部署与使用" class="headerlink" title="部署与使用"></a>部署与使用</h2><h3 id="包管理配置"><a href="#包管理配置" class="headerlink" title="包管理配置"></a>包管理配置</h3><p><code>oh-package.json5</code>:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;@lengain/opusohos&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.1&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Opus audio codec for HarmonyOS&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;Index.ets&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;Apache-2.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;libopusohos.so&quot;</span>: <span class="string">&quot;file:./src/main/cpp/types/libopusohos&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="应用集成"><a href="#应用集成" class="headerlink" title="应用集成"></a>应用集成</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; OpusEncoder, OpusDecoder &#125; <span class="keyword">from</span> <span class="string">&#x27;@lengain/opusohos&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编码示例 - 支持灵活的帧时长配置</span></span><br><span class="line"><span class="keyword">const</span> encoder = <span class="keyword">new</span> OpusEncoder();</span><br><span class="line">encoder.init(<span class="number">48000</span>, <span class="number">1</span>, <span class="number">64000</span>, <span class="number">20</span>);  <span class="comment">// 48kHz, 单声道, 64kbps, 20ms帧</span></span><br><span class="line"><span class="keyword">const</span> pcmFrame = <span class="keyword">new</span> <span class="built_in">Int16Array</span>(<span class="number">960</span>);  <span class="comment">// 960 samples = 20ms @ 48kHz</span></span><br><span class="line"><span class="keyword">const</span> opusFrame = encoder.encode(pcmFrame);  <span class="comment">// 返回裸 Opus 帧</span></span><br><span class="line">encoder.destroy();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解码示例 - 接收的裸 Opus 帧可直接解码</span></span><br><span class="line"><span class="keyword">const</span> decoder = <span class="keyword">new</span> OpusDecoder();</span><br><span class="line">decoder.init(<span class="number">48000</span>, <span class="number">1</span>, <span class="number">20</span>);  <span class="comment">// 参数须与编码端一致</span></span><br><span class="line"><span class="keyword">const</span> pcmData = decoder.decode(opusFrame);  <span class="comment">// 直接返回 PCM 样本</span></span><br><span class="line"><span class="comment">// 或返回 Uint8Array 格式</span></span><br><span class="line"><span class="keyword">const</span> pcmBytes = decoder.decodeToBytes(opusFrame);</span><br><span class="line">decoder.destroy();</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键改进</strong>：</p>
+<ol>
+<li><strong>单帧编解码</strong>：直接处理单个帧，返回裸Opus数据，无打包开销</li>
+<li><strong>灵活帧时长</strong>：支持2.5-120ms的多种帧时长配置</li>
+<li><strong>流传输友好</strong>：编码结果可直接通过WebSocket/RTC发送</li>
+<li><strong>简化的API</strong>：不再需要复杂的打包/解包逻辑</li>
+</ol>
+<h3 id><a href="#" class="headerlink" title></a></h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://opus-codec.org/">Opus Codec Official Website</a></li>
+<li><a href="https://tools.ietf.org/html/rfc6716">RFC 6716 - Definition of the Opus Audio Codec</a></li>
+<li><a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/napi-guidelines-V5">HarmonyOS N-API Development Guide</a></li>
+<li><a href="https://opus-codec.org/docs/opus_api-1.5.2/">libopus API Documentation</a></li>
+<li><a href="https://cmake.org/documentation/">CMake Official Documentation</a></li>
+</ol>
 ]]></content>
       <tags>
-        <tag>Ruby</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -437,6 +579,38 @@
       </categories>
       <tags>
         <tag>AI大模型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ruby方法中的!和?</title>
+    <url>/2023/12/11/Ruby%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84!%E5%92%8C?/</url>
+    <content><![CDATA[<h5 id="方法名后缀为”-”的方法"><a href="#方法名后缀为”-”的方法" class="headerlink" title="方法名后缀为”!”的方法"></a>方法名后缀为”!”的方法</h5><p>在Ruby中，方法名后缀为”!”的方法通常表示该方法会修改调用它的对象。这种约定起源于Smalltalk语言，在Ruby中广泛使用。</p>
+<p>当一个方法后面带有”!”符号时，这个方法通常会修改调用它的对象的状态。例如，如果我们对一个数组调用<code>sort!</code>方法，这个方法会对数组进行排序，并返回排序后的数组，而原始数组将被修改。</p>
+<a id="more"></a>
+
+<p>下面是一个例子：</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">rubynumbers = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">sorted_numbers = numbers.sort! </span><br><span class="line"><span class="comment"># 修改原始数组，并返回排序后的数组  </span></span><br><span class="line"><span class="comment"># puts numbers </span></span><br><span class="line"><span class="comment"># 输出: [1, 2, 3]  </span></span><br><span class="line"><span class="comment"># puts sorted_numbers </span></span><br><span class="line"><span class="comment"># 输出: [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>sort!</code>方法修改了原始数组<code>numbers</code>的状态，并返回了排序后的数组。</p>
+<p>需要注意的是，有些方法同时有带”!”和不带”!”的版本。例如，<code>sort</code>方法不会修改原始数组，而是返回一个新的排序后的数组。因此，我们需要仔细查看方法的文档来了解它们的行为。</p>
+<h5 id="方法名后缀为”-”的方法-1"><a href="#方法名后缀为”-”的方法-1" class="headerlink" title="方法名后缀为”?”的方法"></a>方法名后缀为”?”的方法</h5><p>在Ruby中，以”?”结尾的方法通常表示该方法返回一个布尔值（true或false）。这种约定使得代码更加可读和易于理解。</p>
+<p>例如，Ruby中有很多方法以”?”结尾，如<code>nil?</code>、<code>empty?</code>、<code>blank?</code>等。这些方法通常用于条件判断，根据给定的条件返回true或false。</p>
+<p>以下是一些示例：</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用nil?方法判断变量是否为nil  </span></span><br><span class="line"><span class="keyword">if</span> my_variable.<span class="literal">nil</span>?    </span><br><span class="line">    puts <span class="string">&quot;my_variable is nil&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_variable is not nil&quot;</span></span><br><span class="line"><span class="keyword">end</span>    </span><br><span class="line"><span class="comment"># 使用empty?方法判断字符串是否为空  </span></span><br><span class="line"><span class="keyword">if</span> my_string.empty?</span><br><span class="line">    puts <span class="string">&quot;my_string is empty&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_string is not empty&quot;</span>  </span><br><span class="line"><span class="keyword">end</span>    </span><br><span class="line"><span class="comment"># 使用blank?方法判断字符串是否为空白（只包含空格、制表符等空白字符）</span></span><br><span class="line"><span class="keyword">if</span> my_string.blank?</span><br><span class="line">    puts <span class="string">&quot;my_string is blank&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_string is not blank&quot;</span>  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>在这些示例中，通过调用以”?”结尾的方法，我们可以根据条件判断得到相应的结果。这些方法通常用于控制程序流程，根据条件执行相应的操作。</p>
+<h5 id="反引号"><a href="#反引号" class="headerlink" title="反引号"></a>反引号</h5><p>在Ruby中，反引号用于执行shell命令，并将执行结果作为字符串返回。以下是反引号的使用方法：</p>
+<ol>
+<li>反引号包围一个shell命令，Ruby会执行该命令，并将执行结果作为字符串返回。</li>
+<li>使用<code>puts</code>方法打印该变量的值。</li>
+</ol>
+<p>例如：</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">output=<span class="string">`ls -l`</span>  </span><br><span class="line">puts output</span><br></pre></td></tr></table></figure>
+
+<p>在上述代码中，<code>ls -l</code>命令会在shell中执行，并返回结果。然后，将结果赋值给变量output，并使用puts方法打印该变量的值。</p>
+]]></content>
+      <tags>
+        <tag>Ruby</tag>
       </tags>
   </entry>
   <entry>
@@ -661,297 +835,6 @@
 ]]></content>
       <tags>
         <tag>汇编</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Xcode警告汇总分析</title>
-    <url>/2019/01/05/Xcode%E8%AD%A6%E5%91%8A%E6%B1%87%E6%80%BB%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<p>Xcode工程警告在我们工作中经常遇到，却又常常忽略的。正确的处理Xcode警告可以使得我们开发出优秀的程序。而在实际开发过程中，我们有可能因为项目紧，开发周期短而忽视掉一些警告。本文旨在分析Xcode工程中的各种警告，并根据警告部分的程序对工程影响程度的大小，进行排序，然后提醒开发者，及时处理对工程影响较大的警告。</p>
-<a id="more"></a>
-
-<p>我会按照10分（严重）到1分（可忽略）的顺序，对各种警告进行打分。分数说明：严重（10）、较严重（8）、建议处理（5）、一般（3）、可忽略（1）。其中&gt;=5分的，建议立即处理，其他可稍后处理，但是一定要去处理，除非该处警告经观察后，无需处理。</p>
-<p>我的Xcode版本：<code>Version 10.1 (10B61)</code></p>
-<p>这里从<code>Run/Build</code>时和 <code>Analyze</code>时两种情况来分析。</p>
-<h4 id="Xcode-Run-Build警告"><a href="#Xcode-Run-Build警告" class="headerlink" title="Xcode Run/Build警告"></a>Xcode Run/Build警告</h4><h5 id="Dependency-Analysis-Warning（依赖分析警告）"><a href="#Dependency-Analysis-Warning（依赖分析警告）" class="headerlink" title="Dependency Analysis Warning（依赖分析警告）"></a>Dependency Analysis Warning（依赖分析警告）</h5><p>通常是工程配置不正确引起。</p>
-<p>例如：Mutiple build commands for output file xxx。解决方法：通常是由于重复引用文件导致。在<code>Build Phases</code> <code>Copy Bundle Resources</code>中删除重复文件就可以了。</p>
-<p>分析：本警告在Xcode10之前，无需处理，但是，Xcode10之后，会报错，导致无法运行程序，虽然可以切换Xcode 的Build System为<code>Legncy Build System</code>，但这其实是避开问题不去解决的鸵鸟心态。因此这里定此警告为6分，建议碰到即处理。</p>
-<h5 id="Documentation-Issue（文档问题）"><a href="#Documentation-Issue（文档问题）" class="headerlink" title="Documentation Issue（文档问题）"></a>Documentation Issue（文档问题）</h5><p>通常是方法的文档里，方法的参数未写文档或文档的参数与方法的参数不匹配引起的问题。</p>
-<p>分析：文档警告对要求比较高的程序员，可能不能忍受。看见的话还是会改一下，但是有些参数真的是没什么好写的。这里定为2分。</p>
-<p>扩展：工程里可以禁用Documentation Issue，参照这里<a href="https://stackoverflow.com/questions/24453188/disable-documentation-comments-warning-for-selected-files">Disable “Documentation Comments” warning for selected files</a></p>
-<h5 id="Lexical-or-Preprocessor-Issue（词汇或预处理程序问题）"><a href="#Lexical-or-Preprocessor-Issue（词汇或预处理程序问题）" class="headerlink" title="Lexical or Preprocessor Issue（词汇或预处理程序问题）"></a>Lexical or Preprocessor Issue（词汇或预处理程序问题）</h5><p>通常是宏重复定义，引用文件名大小写不匹配等警告。</p>
-<p>例如：</p>
-<p>non-portable path to file .h,specified path differs in case from file name on disk 解决方法：检查文件名，修改正确</p>
-<p>‘xxx’ macro redefined 解决方法：重新定义新的宏或删除宏</p>
-<p>分析：当宏重复定义，但是值不一样时，有可能会造成错误。因此词汇或预处理程序问题建议碰到后，立即修改。这里定为5分。</p>
-<h5 id="Semantic-Issue（语义问题）"><a href="#Semantic-Issue（语义问题）" class="headerlink" title="Semantic Issue（语义问题）"></a>Semantic Issue（语义问题）</h5><p>这种问题在工程中经常见到，通常情况并不会影响程序的运行，通常是由于程序员的编码习惯所致，程序员在注意到这个问题后，应尽量避免这种问题。而且代码里一堆警告，也不美观。</p>
-<p>例如：</p>
-<p>Block implicitly retains ‘self’; explicitly mention ‘self’ to indicate this is intended behavior 解决方法：指定全局变量为<code>self.iVar</code>或<code>self-&gt;_iVar</code>，同时，也可以禁掉这个提示，参照<a href="https://stackoverflow.com/questions/21577711/block-implicitly-retains-self-explicitly-mention-self-to-indicate-this-is-i">这里</a>。</p>
-<p>Method definition for ‘custom method’ not found 解决方法：删除或定义方法</p>
-<p>Incompatible pointer types initializing ‘xxx’ with an expression of type ‘yyy’ Format String Issue 解决方法：类型强转</p>
-<p>Class ‘xxx’ does not conform to protocol ‘yyy’ 解决方法：实现协议中的方法或声明协议中的方法为<code>@optional</code>。</p>
-<p>等。</p>
-<p>分析：语义问题很常见，通常不会引起什么错误。这里定为4分。在了解是那种警告并且确认不改不会造成问题之后可以放任不管。</p>
-<h5 id="User-Defined-Issue（用户自定义问题）"><a href="#User-Defined-Issue（用户自定义问题）" class="headerlink" title="User-Defined Issue（用户自定义问题）"></a>User-Defined Issue（用户自定义问题）</h5><p>分析：使用<code>#warning</code>之后引发的warning，为User-Defined Issue。这中警告一般是用户自定义或是系统预先定义的，警告级别，可高可低，因此这里不打分。</p>
-<h5 id="Format-String-Issue（格式化字符串问题）"><a href="#Format-String-Issue（格式化字符串问题）" class="headerlink" title="Format String Issue（格式化字符串问题）"></a>Format String Issue（格式化字符串问题）</h5><p>分析：该问题通常是基本数据类型转<code>NSString</code>时，出现这样的问题。点击问题后，再次点击问题框上的<code>fix</code>按钮，就可以修复。这里打2分。</p>
-<h5 id="Unused-Entity-Issue（未使用的实体）"><a href="#Unused-Entity-Issue（未使用的实体）" class="headerlink" title="Unused Entity Issue（未使用的实体）"></a>Unused Entity Issue（未使用的实体）</h5><p>分析：项目中有声明后未使用的实体（变量，常量）会报这个警告。有用的话可以注释掉，没用删除掉就可以了。这里打1分。</p>
-<h5 id="Value-Conversion-Issue（值转换问题）"><a href="#Value-Conversion-Issue（值转换问题）" class="headerlink" title="Value Conversion Issue（值转换问题）"></a>Value Conversion Issue（值转换问题）</h5><p>当函数中传的参数和定义的参数类型不一致时，会报值转换错误，例如：</p>
-<p>Implicit conversion loses integer precision</p>
-<p>implicit conversion from enumeration type等，解决方法：传入正确的类型</p>
-<p>分析：当传入函数的参数为类型不正确的参数时，容易引发未知问题。这里打7分。</p>
-<h5 id="ARC-Retain-Cycle（自动内存管理循环引用）"><a href="#ARC-Retain-Cycle（自动内存管理循环引用）" class="headerlink" title="ARC Retain Cycle（自动内存管理循环引用）"></a>ARC Retain Cycle（自动内存管理循环引用）</h5><p>分析：循环引用时OC开发中经常遇到的问题。当Xcode提示循环引用时，一般是比较明显的循环引用。循环引用导致内存泄漏，严重的情况，会导致内存暴增，App Crash。因此，遇到循环引用，应及时解决。这里打10分。</p>
-<h5 id="Deprecations（过期不推荐使用）"><a href="#Deprecations（过期不推荐使用）" class="headerlink" title="Deprecations（过期不推荐使用）"></a>Deprecations（过期不推荐使用）</h5><p>分析：使用过期的方法会报<code>Deprecations</code>问题。过期方法都不推荐使用，一本情况，过期的方法又能正常运行。这里打6分，推荐遇到<code>Deprecations</code>问题改为合适的方法。</p>
-<h5 id="Asset-Catalog-Compiler-Warning（资源文件编译警告）"><a href="#Asset-Catalog-Compiler-Warning（资源文件编译警告）" class="headerlink" title="Asset Catalog Compiler Warning（资源文件编译警告）"></a>Asset Catalog Compiler Warning（资源文件编译警告）</h5><p>当<code>Assets.xcassets</code>中的文件，编译时出现异常，会报这个警告。例如：</p>
-<p>The image set name “xxx” is used by multiple image sets.</p>
-<p>app icon is required for iPad/iPhone apps targeting IOS 7.0 and later</p>
-<p>解决方法：正确的使用放入图片，包括尺寸，名字不能重复。</p>
-<p>分析：当图片使用不当时，会直观的显示在UI上，这对App的美观时致命的。这里打8分。</p>
-<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>经过排序结果如下：</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Score</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ARC Retain Cycle（自动内存管理循环引用）</td>
-<td>10</td>
-</tr>
-<tr>
-<td>Asset Catalog Compiler Warning（资源文件编译警告）</td>
-<td>8</td>
-</tr>
-<tr>
-<td>Value Conversion Issue（值转换问题）</td>
-<td>7</td>
-</tr>
-<tr>
-<td>Dependency Analysis Warning（依赖分析警告）</td>
-<td>6</td>
-</tr>
-<tr>
-<td>Deprecations（过期不推荐使用）</td>
-<td>6</td>
-</tr>
-<tr>
-<td>Lexical or Preprocessor Issue（词汇或预处理程序问题）</td>
-<td>5</td>
-</tr>
-<tr>
-<td>Semantic Issue（语义问题）</td>
-<td>4</td>
-</tr>
-<tr>
-<td>Documentation Issue（文档问题）</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Format String Issue（格式化字符串问题）</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Unused Entity Issue（未使用的实体）</td>
-<td>1</td>
-</tr>
-<tr>
-<td>User-Defined Issue（用户自定义问题）</td>
-<td>根据情况而定</td>
-</tr>
-</tbody></table>
-<p>建议遇到五分及以上的警告，及时处理，以免造成无法预料的错误。</p>
-<p>希望开发者（包括我）在编码时，就顺手解决警告，尽量做到零警告。</p>
-<h4 id="Xcode-Analyze警告"><a href="#Xcode-Analyze警告" class="headerlink" title="Xcode Analyze警告"></a>Xcode Analyze警告</h4><p>当使用Xcode <code>Analyze</code>进行分析工程时，也会分析出一些警告。而且分析的警告，大都是必须修复的，这里不在分级，遇到应及时解决。大概有这几中类型：</p>
-<ul>
-<li><p>API Misuse（API滥用）</p>
-</li>
-<li><p>Logic error（逻辑错误）</p>
-</li>
-<li><p>Dead Store（无作用存储体）</p>
-</li>
-<li><p>Leak（内存泄漏）</p>
-</li>
-<li><p>Memory error（内存错误）</p>
-</li>
-</ul>
-<p><a href="https://blog.csdn.net/it_liuchengli/article/details/52948031">这里</a>有更详细的解释，有兴趣可以再看看。</p>
-<p>谢谢观看！</p>
-]]></content>
-      <tags>
-        <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpusOhos：为 HarmonyOS 打造高性能音频编解码库</title>
-    <url>/2026/02/19/OpusOhos%EF%BC%9A%E4%B8%BA%20HarmonyOS%20%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E5%BA%93/</url>
-    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>随着 HarmonyOS 生态的快速发展，移动应用对高质量音频处理的需求日益增长。无论是实时语音通话、音频录制还是流媒体传输，都需要一个高效、可靠的音频编解码解决方案。Opus 作为一种开放、免版税的音频编解码标准，以其卓越的音质和灵活性在业界广受认可。然而，HarmonyOS 平台缺乏成熟的 Opus 编解码库支持。本文将详细介绍 OpusOhos 库的设计与实现过程，探讨如何将 C/C++ 原生库高效集成到 HarmonyOS 应用开发生态中。</p>
-<p>目前该库已发布到OpenHarmony三方库中心仓，<a href="https://ohpm.openharmony.cn/#/cn/result?sortedType=relevancy&page=1&q=OpusOhos">点击前往</a></p>
-<a id="more"></a>
-
-<h2 id="开发背景"><a href="#开发背景" class="headerlink" title="开发背景"></a>开发背景</h2><h3 id="技术需求分析"><a href="#技术需求分析" class="headerlink" title="技术需求分析"></a>技术需求分析</h3><p>在开发 HarmonyOS 音频应用时，我们面临以下核心需求：</p>
-<ol>
-<li><strong>高压缩比与高音质</strong>：需要在有限的带宽条件下传输高质量音频</li>
-<li><strong>低延迟</strong>：实时通话场景要求端到端延迟控制在毫秒级</li>
-<li><strong>多场景适配</strong>：支持从窄带语音（8kHz）到全频带音乐（48kHz）的各种应用场景</li>
-<li><strong>跨平台兼容</strong>：与主流平台的 Opus 实现保持兼容</li>
-</ol>
-<h3 id="为什么选择-Opus"><a href="#为什么选择-Opus" class="headerlink" title="为什么选择 Opus"></a>为什么选择 Opus</h3><p>Opus 编解码器由 IETF（互联网工程任务组）标准化（RFC 6716），具有以下显著优势：</p>
-<ul>
-<li><strong>优异的音频质量</strong>：在各种比特率下都能提供出色的音质</li>
-<li><strong>超低延迟</strong>：算法延迟仅 5-66.5ms，适合实时通信</li>
-<li><strong>宽泛的比特率范围</strong>：支持 6 kbps 到 510 kbps</li>
-<li><strong>自适应性强</strong>：可动态调整比特率以适应网络状况</li>
-<li><strong>开源免费</strong>：无需支付版税，降低开发成本</li>
-</ul>
-<h3 id="HarmonyOS-集成挑战"><a href="#HarmonyOS-集成挑战" class="headerlink" title="HarmonyOS 集成挑战"></a>HarmonyOS 集成挑战</h3><p>HarmonyOS 应用主要使用 ArkTS 进行开发，而 Opus 库是用 C 语言实现的。如何在两者之间搭建高效、稳定的桥梁成为关键挑战：</p>
-<ol>
-<li><strong>语言互操作</strong>：ArkTS 与 C/C++ 之间的数据传递和类型转换</li>
-<li><strong>内存管理</strong>：跨语言边界的内存安全问题</li>
-<li><strong>性能优化</strong>：最小化跨层调用开销</li>
-<li><strong>API 设计</strong>：为 ArkTS 开发者提供符合习惯的接口</li>
-</ol>
-<h2 id="技术方案设计"><a href="#技术方案设计" class="headerlink" title="技术方案设计"></a>技术方案设计</h2><h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p>OpusOhos 采用三层架构设计，实现了从底层编解码算法到上层应用接口的完整封装：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">┌─────────────────────────────────────────┐</span><br><span class="line">│         ArkTS Application Layer         │</span><br><span class="line">│   (OpusEncoder &#x2F; OpusDecoder Class)     │</span><br><span class="line">├─────────────────────────────────────────┤</span><br><span class="line">│          N-API Bridge Layer             │</span><br><span class="line">│      (napi_init.cpp - 接口适配)         │</span><br><span class="line">├─────────────────────────────────────────┤</span><br><span class="line">│        Native Library Layer             │</span><br><span class="line">│    (libopus.so - Opus 1.5.2 核心)      │</span><br><span class="line">└─────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
-
-<p><strong>各层职责划分：</strong></p>
-<ul>
-<li><strong>ArkTS 应用层</strong>：提供面向对象的 API，处理业务逻辑和数据格式转换</li>
-<li><strong>N-API 桥接层</strong>：实现 JavaScript/ArkTS 与 C++ 的互操作，负责类型转换和错误处理</li>
-<li><strong>原生库层</strong>：基于 libopus 1.5.2 实现高性能的编解码算法</li>
-</ul>
-<h3 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h3><h4 id="1-Opus-库版本"><a href="#1-Opus-库版本" class="headerlink" title="1. Opus 库版本"></a>1. Opus 库版本</h4><p>OpusOhos 1.0.1 基于 libopus 1.5.2 实现，提供了：</p>
-<ul>
-<li>优化的 ARM NEON 指令集支持</li>
-<li>改进的低比特率性能</li>
-<li>更好的音频质量评估算法</li>
-</ul>
-<h4 id="2-N-API-接口技术"><a href="#2-N-API-接口技术" class="headerlink" title="2. N-API 接口技术"></a>2. N-API 接口技术</h4><p>N-API（Native API）是 HarmonyOS 提供的用于构建原生插件的接口层，具有以下特点：</p>
-<ul>
-<li><strong>ABI 稳定性</strong>：跨版本兼容，减少维护成本</li>
-<li><strong>上下文隔离</strong>：安全地管理 JavaScript 和 C++ 对象生命周期</li>
-<li><strong>异常安全</strong>：提供完善的错误处理机制</li>
-</ul>
-<h4 id="3-构建系统"><a href="#3-构建系统" class="headerlink" title="3. 构建系统"></a>3. 构建系统</h4><p>采用 CMake 作为构建工具，配合 HarmonyOS SDK 提供的工具链：</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.5</span>.<span class="number">0</span>)</span><br><span class="line"><span class="keyword">project</span>(myNpmLib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(opusohos SHARED napi_init.cpp opus)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(opusohos PUBLIC </span><br><span class="line">    libace_napi.z.so </span><br><span class="line">    libhilog_ndk.z.so</span><br><span class="line">    <span class="variable">$&#123;NATIVERENDER_ROOT_PATH&#125;</span>/../../../libs/<span class="variable">$&#123;OHOS_ARCH&#125;</span>/libopus.so</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h3 id="数据流设计"><a href="#数据流设计" class="headerlink" title="数据流设计"></a>数据流设计</h3><h4 id="编码流程"><a href="#编码流程" class="headerlink" title="编码流程"></a>编码流程</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PCM Audio (Int16Array)</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: 准备单个音频帧</span><br><span class="line">    ↓</span><br><span class="line">N-API Layer: ArrayBuffer 传递</span><br><span class="line">    ↓</span><br><span class="line">Native Layer: opus_encode() 编码单帧</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: 返回裸 Opus 帧数据</span><br></pre></td></tr></table></figure>
-
-<h4 id="解码流程"><a href="#解码流程" class="headerlink" title="解码流程"></a>解码流程</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Opus Frame (Uint8Array &#x2F; ArrayBuffer)</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: 接收单个 Opus 帧</span><br><span class="line">    ↓</span><br><span class="line">N-API Layer: 帧数据传递</span><br><span class="line">    ↓</span><br><span class="line">Native Layer: opus_decode() 解码单帧</span><br><span class="line">    ↓</span><br><span class="line">ArkTS Layer: 返回 Int16Array PCM 样本</span><br></pre></td></tr></table></figure>
-
-<h3 id="内存管理策略"><a href="#内存管理策略" class="headerlink" title="内存管理策略"></a>内存管理策略</h3><p>跨语言边界的内存管理是整个方案的核心难点之一。我们采用以下策略：</p>
-<ol>
-<li><strong>零拷贝传递</strong>：使用 ArrayBuffer 在 ArkTS 和 C++ 之间共享内存</li>
-<li><strong>明确的生命周期</strong>：通过 <code>init()</code> 和 <code>destroy()</code> 方法明确资源管理</li>
-<li><strong>RAII 原则</strong>：在 C++ 层使用智能指针和自动析构</li>
-<li><strong>错误恢复</strong>：任何异常都要确保资源正确释放</li>
-</ol>
-<h2 id="核心实现详解"><a href="#核心实现详解" class="headerlink" title="核心实现详解"></a>核心实现详解</h2><h3 id="1-N-API-编码器实现"><a href="#1-N-API-编码器实现" class="headerlink" title="1. N-API 编码器实现"></a>1. N-API 编码器实现</h3><p>N-API 层的编码器实现是整个系统的核心，处理数据转换、单帧编码、内存管理等环节。</p>
-<h4 id="初始化过程"><a href="#初始化过程" class="headerlink" title="初始化过程"></a>初始化过程</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">InitEncoder</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 参数解析</span></span><br><span class="line">    <span class="keyword">size_t</span> argc = <span class="number">4</span>;</span><br><span class="line">    napi_value args[<span class="number">4</span>];</span><br><span class="line">    napi_get_cb_info(env, info, &amp;argc, args, <span class="literal">nullptr</span>, <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int32_t</span> sampleRate, channels, bitRate, frameDurationMs;</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">0</span>], &amp;sampleRate);</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">1</span>], &amp;channels);</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">2</span>], &amp;bitRate);</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">3</span>], &amp;frameDurationMs);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 创建 Opus 编码器</span></span><br><span class="line">    <span class="keyword">int</span> err;</span><br><span class="line">    encoder_ = opus_encoder_create(sampleRate, channels, </span><br><span class="line">                                    OPUS_APPLICATION_AUDIO, &amp;err);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 根据帧时长动态计算帧大小</span></span><br><span class="line">    gFrameDurationMs = frameDurationMs;</span><br><span class="line">    gFrameSize = <span class="keyword">static_cast</span>&lt;opus_int32&gt;(sampleRate * frameDurationMs / <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 验证帧时长合法性</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> validDurations[] = &#123;</span><br><span class="line">        sampleRate / <span class="number">400</span>,      <span class="comment">// 2.5ms</span></span><br><span class="line">        sampleRate / <span class="number">200</span>,      <span class="comment">// 5ms</span></span><br><span class="line">        sampleRate / <span class="number">100</span>,      <span class="comment">// 10ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span>,       <span class="comment">// 20ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span> * <span class="number">2</span>,   <span class="comment">// 40ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span> * <span class="number">3</span>,   <span class="comment">// 60ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span> * <span class="number">4</span>,   <span class="comment">// 80ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span> * <span class="number">5</span>,   <span class="comment">// 100ms</span></span><br><span class="line">        sampleRate / <span class="number">50</span> * <span class="number">6</span>    <span class="comment">// 120ms</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">bool</span> isValidFrame = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> validSize : validDurations) &#123;</span><br><span class="line">        <span class="keyword">if</span> (gFrameSize == validSize) &#123;</span><br><span class="line">            isValidFrame = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!isValidFrame) &#123;</span><br><span class="line">        OH_LOG_ERROR(LOG_APP, <span class="string">&quot;Invalid frame duration: %d ms for sample rate %d&quot;</span>,</span><br><span class="line">                     frameDurationMs, sampleRate);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 配置比特率</span></span><br><span class="line">    opus_encoder_ctl(encoder_, OPUS_SET_BITRATE(bitRate));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>设计要点：</strong></p>
-<ul>
-<li><strong>动态帧大小计算</strong>：根据采样率和帧时长灵活计算，不再固定为20ms</li>
-<li><strong>帧时长验证</strong>：支持2.5/5/10/20/40/60/80/100/120ms多种配置</li>
-<li><strong>采样率适配</strong>：根据不同采样率正确计算对应的帧样本数</li>
-<li><strong>错误检查</strong>：验证帧时长合法性，确保初始化成功</li>
-</ul>
-<h4 id="编码过程"><a href="#编码过程" class="headerlink" title="编码过程"></a>编码过程</h4><p>编码过程现在专注于单个帧的高效编码，返回裸Opus数据：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">Encode</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 获取单个 PCM 帧数据</span></span><br><span class="line">    napi_value args[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">size_t</span> argc = <span class="number">1</span>;</span><br><span class="line">    napi_get_cb_info(env, info, &amp;argc, args, <span class="literal">nullptr</span>, <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> *pcm = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">size_t</span> len = <span class="number">0</span>;</span><br><span class="line">    napi_get_arraybuffer_info(env, args[<span class="number">0</span>], &amp;pcm, &amp;len);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 数据验证 - 确保输入的样本数与帧大小一致</span></span><br><span class="line">    <span class="keyword">size_t</span> numSamples = len / <span class="keyword">sizeof</span>(<span class="keyword">int16_t</span>);</span><br><span class="line">    <span class="keyword">if</span> (numSamples != gFrameSize) &#123;</span><br><span class="line">        OH_LOG_ERROR(LOG_APP, </span><br><span class="line">                     <span class="string">&quot;PCM frame size mismatch: expected %d samples, got %zu&quot;</span>,</span><br><span class="line">                     gFrameSize, numSamples);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 分配输出缓冲区 - 裸 Opus 帧数据</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> maxEncodedSize = <span class="number">4000</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span>* outputBuffer = </span><br><span class="line">        <span class="keyword">static_cast</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">char</span>*&gt;(<span class="built_in">malloc</span>(maxEncodedSize));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 编码单个帧</span></span><br><span class="line">    <span class="keyword">int16_t</span>* pcmSamples = <span class="keyword">static_cast</span>&lt;<span class="keyword">int16_t</span>*&gt;(pcm);</span><br><span class="line">    <span class="keyword">int</span> encodedBytes = opus_encode(encoder_,</span><br><span class="line">                                   pcmSamples,</span><br><span class="line">                                   gFrameSize,</span><br><span class="line">                                   outputBuffer,</span><br><span class="line">                                   maxEncodedSize);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (encodedBytes &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        OH_LOG_ERROR(LOG_APP, <span class="string">&quot;opus_encode failed with error: %d&quot;</span>, </span><br><span class="line">                     encodedBytes);</span><br><span class="line">        <span class="built_in">free</span>(outputBuffer);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 创建返回的 ArrayBuffer - 直接返回裸 Opus 帧</span></span><br><span class="line">    napi_value result;</span><br><span class="line">    <span class="keyword">void</span>* resultData = <span class="literal">nullptr</span>;</span><br><span class="line">    napi_create_arraybuffer(env, encodedBytes, &amp;resultData, &amp;result);</span><br><span class="line">    <span class="built_in">memcpy</span>(resultData, outputBuffer, encodedBytes);</span><br><span class="line">    <span class="built_in">free</span>(outputBuffer);</span><br><span class="line"></span><br><span class="line">    OH_LOG_INFO(LOG_APP, <span class="string">&quot;Encoding completed: %d bytes&quot;</span>, encodedBytes);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>关键特点：</strong></p>
-<ol>
-<li><strong>单帧处理</strong>：一次编码调用处理一个音频帧</li>
-<li><strong>裸数据输出</strong>：直接返回 Opus 编码数据，无额外打包开销</li>
-<li><strong>实时流传输</strong>：编码后的数据可直接通过 WebSocket/RTC 发送</li>
-<li><strong>高效内存使用</strong>：预分配固定大小缓冲区，避免频繁分配</li>
-</ol>
-<h3 id="2-N-API-解码器实现"><a href="#2-N-API-解码器实现" class="headerlink" title="2. N-API 解码器实现"></a>2. N-API 解码器实现</h3><p>解码器处理裸 Opus 帧数据，直接转换为 PCM 样本：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">Decode</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 获取单个 Opus 帧数据</span></span><br><span class="line">    napi_value args[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">size_t</span> argc = <span class="number">1</span>;</span><br><span class="line">    napi_get_cb_info(env, info, &amp;argc, args, <span class="literal">nullptr</span>, <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> *opusData = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">size_t</span> len = <span class="number">0</span>;</span><br><span class="line">    napi_get_arraybuffer_info(env, args[<span class="number">0</span>], &amp;opusData, &amp;len);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 分配 PCM 输出缓冲区</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> maxFrameSize = <span class="number">5760</span>;  <span class="comment">// 48kHz 时的最大帧（120ms）</span></span><br><span class="line">    <span class="keyword">int16_t</span> *pcmOutput = <span class="keyword">static_cast</span>&lt;<span class="keyword">int16_t</span>*&gt;(</span><br><span class="line">        <span class="built_in">malloc</span>(maxFrameSize * <span class="keyword">sizeof</span>(<span class="keyword">int16_t</span>))</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 解码单个 Opus 帧</span></span><br><span class="line">    <span class="keyword">int</span> decodedSamples = opus_decode(</span><br><span class="line">        decoder_,</span><br><span class="line">        <span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span>*&gt;(opusData),</span><br><span class="line">        <span class="keyword">static_cast</span>&lt;opus_int32&gt;(len),</span><br><span class="line">        pcmOutput,</span><br><span class="line">        maxFrameSize,</span><br><span class="line">        <span class="number">0</span>  <span class="comment">// FEC disabled（前向纠错关闭）</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (decodedSamples &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        OH_LOG_ERROR(LOG_APP, <span class="string">&quot;opus_decode failed with error: %d&quot;</span>, </span><br><span class="line">                     decodedSamples);</span><br><span class="line">        <span class="built_in">free</span>(pcmOutput);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 创建返回的 ArrayBuffer - 直接返回 PCM 数据</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> resultSize = decodedSamples * <span class="keyword">sizeof</span>(<span class="keyword">int16_t</span>);</span><br><span class="line">    napi_value result;</span><br><span class="line">    <span class="keyword">void</span>* resultData = <span class="literal">nullptr</span>;</span><br><span class="line">    napi_create_arraybuffer(env, resultSize, &amp;resultData, &amp;result);</span><br><span class="line">    <span class="built_in">memcpy</span>(resultData, pcmOutput, resultSize);</span><br><span class="line">    <span class="built_in">free</span>(pcmOutput);</span><br><span class="line"></span><br><span class="line">    OH_LOG_INFO(LOG_APP, <span class="string">&quot;Decoding completed: %d samples&quot;</span>, decodedSamples);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>关键特点：</strong></p>
-<ol>
-<li><strong>单帧解码</strong>：处理单个裸 Opus 帧，返回对应的 PCM 样本</li>
-<li><strong>直接数据传递</strong>：解码结果直接作为 ArrayBuffer 返回，可立即播放</li>
-<li><strong>动态采样数</strong>：返回实际解码出的样本数，支持可变帧长</li>
-<li><strong>内存高效</strong>：使用预分配的最大缓冲区，一次分配完成</li>
-</ol>
-<h3 id="3-ArkTS-封装层设计"><a href="#3-ArkTS-封装层设计" class="headerlink" title="3. ArkTS 封装层设计"></a>3. ArkTS 封装层设计</h3><p>ArkTS 层提供面向对象的 API，简化使用流程：</p>
-<h4 id="OpusEncoder-类"><a href="#OpusEncoder-类" class="headerlink" title="OpusEncoder 类"></a>OpusEncoder 类</h4><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">OpusEncoder</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> sampleRate: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> channels: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> bitRate: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> frameSize: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> frameDurationMs: <span class="built_in">number</span> = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 初始化编码器</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>sampleRate 采样率（8000/12000/16000/24000/48000）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>channels 声道数（1 或 2）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>bitRate 比特率（bps）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameDurationMs 帧时长（ms），可选，默认 20ms</span></span><br><span class="line"><span class="comment">   *        支持值：2.5 | 5 | 10 | 20 | 40 | 60 | 80 | 100 | 120</span></span><br><span class="line"><span class="comment">   *        推荐值：20ms（低延迟）、60ms（与 iOS opus_dart 兼容）</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  init(sampleRate: <span class="built_in">number</span>, <span class="attr">channels</span>: <span class="built_in">number</span>, <span class="attr">bitRate</span>: <span class="built_in">number</span>, </span><br><span class="line">       frameDurationMs?: <span class="built_in">number</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> actualFrameDuration = frameDurationMs ?? <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 验证帧时长</span></span><br><span class="line">    <span class="built_in">this</span>.frameSize = OpusEncoder.getFrameSize(sampleRate, actualFrameDuration);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化编码器</span></span><br><span class="line">    opusOhos.initEncoder(sampleRate, channels, bitRate, actualFrameDuration);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.sampleRate = sampleRate;</span><br><span class="line">    <span class="built_in">this</span>.channels = channels;</span><br><span class="line">    <span class="built_in">this</span>.bitRate = bitRate;</span><br><span class="line">    <span class="built_in">this</span>.frameDurationMs = actualFrameDuration;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 编码单个 PCM 帧为裸 Opus 数据</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>pcmData Int16Array 格式的 PCM 样本</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@returns </span>ArrayBuffer 格式的裸 Opus 帧数据</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  encode(pcmData: <span class="built_in">Int16Array</span>): <span class="built_in">ArrayBuffer</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (pcmData.length !== <span class="built_in">this</span>.frameSize) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`PCM frame size mismatch: expected <span class="subst">$&#123;<span class="built_in">this</span>.frameSize&#125;</span>, `</span> +</span><br><span class="line">                      <span class="string">`got <span class="subst">$&#123;pcmData.length&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> cleanBuffer = <span class="built_in">this</span>.ensureAlignedBuffer(pcmData);</span><br><span class="line">    <span class="keyword">return</span> opusOhos.encode(cleanBuffer);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 根据采样率和帧时长计算帧大小</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>sampleRate 采样率</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameDurationMs 帧时长（ms），可选，默认 20ms</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@returns </span>每帧样本数</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">static</span> getFrameSize(sampleRate: <span class="built_in">number</span>, frameDurationMs?: <span class="built_in">number</span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> duration = frameDurationMs ?? <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">const</span> frameSize = <span class="built_in">Math</span>.floor(sampleRate * duration / <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 验证帧时长支持</span></span><br><span class="line">    <span class="keyword">const</span> validDurations = [<span class="number">2.5</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">40</span>, <span class="number">60</span>, <span class="number">80</span>, <span class="number">100</span>, <span class="number">120</span>];</span><br><span class="line">    <span class="keyword">if</span> (!validDurations.includes(duration)) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`Unsupported frame duration <span class="subst">$&#123;duration&#125;</span>ms. `</span> +</span><br><span class="line">                      <span class="string">`Supported: 2.5, 5, 10, 20, 40, 60, 80, 100, 120`</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> frameSize;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 工具方法：Uint8Array 转 Int16Array</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">static</span> bytesToInt16(bytes: <span class="built_in">Uint8Array</span>): <span class="built_in">Int16Array</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (bytes.byteOffset % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Int16Array</span>(bytes.buffer, bytes.byteOffset, </span><br><span class="line">                           <span class="built_in">Math</span>.floor(bytes.length / <span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> int16Length = <span class="built_in">Math</span>.floor(bytes.length / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">const</span> int16List = <span class="keyword">new</span> <span class="built_in">Int16Array</span>(int16Length);</span><br><span class="line">    <span class="keyword">const</span> dataView = <span class="keyword">new</span> <span class="built_in">DataView</span>(bytes.buffer, bytes.byteOffset);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; int16Length; i++) &#123;</span><br><span class="line">      int16List[i] = dataView.getInt16(i * <span class="number">2</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> int16List;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> ensureAlignedBuffer(pcmData: <span class="built_in">Int16Array</span>): <span class="built_in">ArrayBuffer</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (pcmData.byteOffset === <span class="number">0</span> &amp;&amp; </span><br><span class="line">        pcmData.buffer.byteLength === pcmData.byteLength) &#123;</span><br><span class="line">      <span class="keyword">return</span> pcmData.buffer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> cleanBuffer = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(pcmData.byteLength);</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(cleanBuffer).set(</span><br><span class="line">      <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(pcmData.buffer, pcmData.byteOffset, pcmData.byteLength)</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">return</span> cleanBuffer;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">destroy</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    opusOhos.destroyEncoder();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>API 特点：</strong></p>
-<ol>
-<li><strong>灵活的帧时长</strong>：支持2.5-120ms多种配置</li>
-<li><strong>单帧编码</strong>：一次处理一个音频帧，直接返回裸Opus数据</li>
-<li><strong>流传输优化</strong>：编码结果可直接通过网络发送</li>
-<li><strong>输入验证</strong>：自动检查帧大小，提前发现错误</li>
-</ol>
-<h4 id="OpusDecoder-类"><a href="#OpusDecoder-类" class="headerlink" title="OpusDecoder 类"></a>OpusDecoder 类</h4><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">OpusDecoder</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> sampleRate: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> channels: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> frameSize: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> frameDurationMs: <span class="built_in">number</span> = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 初始化解码器</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>sampleRate 采样率（8000/12000/16000/24000/48000）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>channels 声道数（1 或 2）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameDurationMs 帧时长（ms），可选，默认 20ms</span></span><br><span class="line"><span class="comment">   *        支持值：2.5 | 5 | 10 | 20 | 40 | 60 | 80 | 100 | 120</span></span><br><span class="line"><span class="comment">   *        推荐值：20ms（低延迟）、60ms</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@note </span>解码时的帧时长应与编码时一致</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="title">init</span>(<span class="params">sampleRate: <span class="built_in">number</span>, channels: <span class="built_in">number</span>, frameDurationMs?: <span class="built_in">number</span></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> actualFrameDuration = frameDurationMs ?? <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 验证帧时长</span></span><br><span class="line">    <span class="built_in">this</span>.frameSize = OpusDecoder.getFrameSize(sampleRate, actualFrameDuration);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化解码器</span></span><br><span class="line">    opusOhos.initDecoder(sampleRate, channels, actualFrameDuration);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.sampleRate = sampleRate;</span><br><span class="line">    <span class="built_in">this</span>.channels = channels;</span><br><span class="line">    <span class="built_in">this</span>.frameDurationMs = actualFrameDuration;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 解码单个裸 Opus 帧为 PCM 数据</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * 适用于实时流传输场景（WebSocket 接收）：</span></span><br><span class="line"><span class="comment">   * - 输入：单个裸 Opus 帧（从网络接收的原始数据）</span></span><br><span class="line"><span class="comment">   * - 输出：PCM 样本数组（Int16Array）</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameData 单个 Opus 帧数据 (Uint8Array 或 ArrayBuffer)</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@returns </span>解码后的 PCM 样本 (Int16Array)</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  decode(frameData: <span class="built_in">Uint8Array</span> | <span class="built_in">ArrayBuffer</span>): <span class="built_in">Int16Array</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.sampleRate === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;Decoder not initialized. Call init() first.&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 统一转换为 ArrayBuffer</span></span><br><span class="line">    <span class="keyword">const</span> buffer = frameData <span class="keyword">instanceof</span> <span class="built_in">Uint8Array</span> ? frameData.buffer : frameData;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用 native decode 方法</span></span><br><span class="line">    <span class="keyword">const</span> pcmBuffer: <span class="built_in">ArrayBuffer</span> = opusOhos.decode(buffer);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将 ArrayBuffer 转换为 Int16Array</span></span><br><span class="line">    <span class="keyword">const</span> int16Length = pcmBuffer.byteLength / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Int16Array</span>(pcmBuffer, <span class="number">0</span>, int16Length);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 解码单个裸 Opus 帧，直接返回 Uint8Array 格式的 PCM 数据</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameData 单个 Opus 帧数据 (Uint8Array 或 ArrayBuffer)</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@returns </span>Uint8Array 格式的 PCM 数据</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  decodeToBytes(frameData: <span class="built_in">Uint8Array</span> | <span class="built_in">ArrayBuffer</span>): <span class="built_in">Uint8Array</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> samples = <span class="built_in">this</span>.decode(frameData);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(samples.buffer, samples.byteOffset, samples.byteLength);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 根据采样率和帧时长计算帧大小</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>sampleRate 采样率</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param </span>frameDurationMs 帧时长（ms），可选，默认 20ms</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@returns </span>每帧样本数</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">static</span> getFrameSize(sampleRate: <span class="built_in">number</span>, frameDurationMs?: <span class="built_in">number</span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> duration = frameDurationMs ?? <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">const</span> frameSize = <span class="built_in">Math</span>.floor(sampleRate * duration / <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> validDurations = [<span class="number">2.5</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">40</span>, <span class="number">60</span>, <span class="number">80</span>, <span class="number">100</span>, <span class="number">120</span>];</span><br><span class="line">    <span class="keyword">if</span> (!validDurations.includes(duration)) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`Unsupported frame duration <span class="subst">$&#123;duration&#125;</span>ms. `</span> +</span><br><span class="line">                      <span class="string">`Supported: 2.5, 5, 10, 20, 40, 60, 80, 100, 120`</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> frameSize;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 工具方法：Uint8Array 转 Int16Array</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">static</span> bytesToInt16(bytes: <span class="built_in">Uint8Array</span>): <span class="built_in">Int16Array</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (bytes.byteOffset % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Int16Array</span>(bytes.buffer, bytes.byteOffset, </span><br><span class="line">                           <span class="built_in">Math</span>.floor(bytes.length / <span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> int16Length = <span class="built_in">Math</span>.floor(bytes.length / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">const</span> int16List = <span class="keyword">new</span> <span class="built_in">Int16Array</span>(int16Length);</span><br><span class="line">    <span class="keyword">const</span> dataView = <span class="keyword">new</span> <span class="built_in">DataView</span>(bytes.buffer, bytes.byteOffset);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; int16Length; i++) &#123;</span><br><span class="line">      int16List[i] = dataView.getInt16(i * <span class="number">2</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> int16List;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">destroy</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    opusOhos.destroyDecoder();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>API 特点：</strong></p>
-<ol>
-<li><strong>单帧解码</strong>：处理单个裸Opus帧，直接返回PCM样本</li>
-<li><strong>多种返回格式</strong>：支持Int16Array和Uint8Array两种输出格式</li>
-<li><strong>灵活的帧时长</strong>：支持与编码器一致的多种帧时长配置</li>
-<li><strong>流传输优化</strong>：接收网络数据后可直接解码播放</li>
-</ol>
-<h3 id="4-多架构支持"><a href="#4-多架构支持" class="headerlink" title="4. 多架构支持"></a>4. 多架构支持</h3><p>OpusOhos 支持 HarmonyOS 的主要架构平台：</p>
-<h4 id="预编译库管理"><a href="#预编译库管理" class="headerlink" title="预编译库管理"></a>预编译库管理</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">libs&#x2F;</span><br><span class="line">├── arm64-v8a&#x2F;</span><br><span class="line">│   └── libopus.so      # ARM64 平台库</span><br><span class="line">└── x86_64&#x2F;</span><br><span class="line">    └── libopus.so      # x86_64 模拟器库</span><br></pre></td></tr></table></figure>
-
-<h4 id="CMake-架构选择"><a href="#CMake-架构选择" class="headerlink" title="CMake 架构选择"></a>CMake 架构选择</h4><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">target_link_libraries</span>(opusohos PUBLIC </span><br><span class="line">    <span class="variable">$&#123;NATIVERENDER_ROOT_PATH&#125;</span>/../../../libs/<span class="variable">$&#123;OHOS_ARCH&#125;</span>/libopus.so</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p><code>$&#123;OHOS_ARCH&#125;</code> 变量由 HarmonyOS 构建系统自动设置，确保链接正确的库版本。</p>
-<h2 id="性能优化策略"><a href="#性能优化策略" class="headerlink" title="性能优化策略"></a>性能优化策略</h2><h3 id="1-单帧流传输优化"><a href="#1-单帧流传输优化" class="headerlink" title="1. 单帧流传输优化"></a>1. 单帧流传输优化</h3><p><strong>直接编解码</strong>：</p>
-<ul>
-<li>编码：PCM 帧 → 裸 Opus 数据（无打包开销）</li>
-<li>解码：裸 Opus 帧 → PCM 样本（无解包开销）</li>
-<li>适合实时流传输（WebSocket、RTC）</li>
-</ul>
-<p><strong>实测性能指标</strong>（48kHz, 单声道）：</p>
-<ul>
-<li>单帧编码延迟：~0.3-0.5ms</li>
-<li>单帧解码延迟：~0.2-0.4ms</li>
-<li>低开销的网络传输</li>
-</ul>
-<h3 id="2-内存优化"><a href="#2-内存优化" class="headerlink" title="2. 内存优化"></a>2. 内存优化</h3><p><strong>零拷贝技术</strong>：</p>
-<ul>
-<li>使用 ArrayBuffer 共享内存</li>
-<li>避免 ArkTS 和 C++ 之间的数据复制</li>
-<li>直接在原始 buffer 上操作</li>
-</ul>
-<p><strong>高效的帧大小计算</strong>：</p>
-<ul>
-<li>预计算帧大小，避免重复计算</li>
-<li>支持多种帧时长配置（2.5-120ms）</li>
-</ul>
-<h3 id="3-错误处理与日志"><a href="#3-错误处理与日志" class="headerlink" title="3. 错误处理与日志"></a>3. 错误处理与日志</h3><p><strong>快速失败</strong>：</p>
-<ul>
-<li>参数验证前置（帧大小、帧时长）</li>
-<li>早期返回避免无效计算</li>
-<li>详细的日志记录（使用 HiLog）</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">OH_LOG_INFO(LOG_APP, <span class="string">&quot;Encoding completed: %d bytes&quot;</span>, encodedBytes);</span><br><span class="line">OH_LOG_ERROR(LOG_APP, <span class="string">&quot;opus_encode failed with error: %d&quot;</span>, encodedBytes);</span><br></pre></td></tr></table></figure>
-
-<h2 id="部署与使用"><a href="#部署与使用" class="headerlink" title="部署与使用"></a>部署与使用</h2><h3 id="包管理配置"><a href="#包管理配置" class="headerlink" title="包管理配置"></a>包管理配置</h3><p><code>oh-package.json5</code>:</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;@lengain/opusohos&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.1&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Opus audio codec for HarmonyOS&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;Index.ets&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;Apache-2.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;libopusohos.so&quot;</span>: <span class="string">&quot;file:./src/main/cpp/types/libopusohos&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="应用集成"><a href="#应用集成" class="headerlink" title="应用集成"></a>应用集成</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; OpusEncoder, OpusDecoder &#125; <span class="keyword">from</span> <span class="string">&#x27;@lengain/opusohos&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编码示例 - 支持灵活的帧时长配置</span></span><br><span class="line"><span class="keyword">const</span> encoder = <span class="keyword">new</span> OpusEncoder();</span><br><span class="line">encoder.init(<span class="number">48000</span>, <span class="number">1</span>, <span class="number">64000</span>, <span class="number">20</span>);  <span class="comment">// 48kHz, 单声道, 64kbps, 20ms帧</span></span><br><span class="line"><span class="keyword">const</span> pcmFrame = <span class="keyword">new</span> <span class="built_in">Int16Array</span>(<span class="number">960</span>);  <span class="comment">// 960 samples = 20ms @ 48kHz</span></span><br><span class="line"><span class="keyword">const</span> opusFrame = encoder.encode(pcmFrame);  <span class="comment">// 返回裸 Opus 帧</span></span><br><span class="line">encoder.destroy();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解码示例 - 接收的裸 Opus 帧可直接解码</span></span><br><span class="line"><span class="keyword">const</span> decoder = <span class="keyword">new</span> OpusDecoder();</span><br><span class="line">decoder.init(<span class="number">48000</span>, <span class="number">1</span>, <span class="number">20</span>);  <span class="comment">// 参数须与编码端一致</span></span><br><span class="line"><span class="keyword">const</span> pcmData = decoder.decode(opusFrame);  <span class="comment">// 直接返回 PCM 样本</span></span><br><span class="line"><span class="comment">// 或返回 Uint8Array 格式</span></span><br><span class="line"><span class="keyword">const</span> pcmBytes = decoder.decodeToBytes(opusFrame);</span><br><span class="line">decoder.destroy();</span><br></pre></td></tr></table></figure>
-
-<p><strong>关键改进</strong>：</p>
-<ol>
-<li><strong>单帧编解码</strong>：直接处理单个帧，返回裸Opus数据，无打包开销</li>
-<li><strong>灵活帧时长</strong>：支持2.5-120ms的多种帧时长配置</li>
-<li><strong>流传输友好</strong>：编码结果可直接通过WebSocket/RTC发送</li>
-<li><strong>简化的API</strong>：不再需要复杂的打包/解包逻辑</li>
-</ol>
-<h3 id><a href="#" class="headerlink" title></a></h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="https://opus-codec.org/">Opus Codec Official Website</a></li>
-<li><a href="https://tools.ietf.org/html/rfc6716">RFC 6716 - Definition of the Opus Audio Codec</a></li>
-<li><a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/napi-guidelines-V5">HarmonyOS N-API Development Guide</a></li>
-<li><a href="https://opus-codec.org/docs/opus_api-1.5.2/">libopus API Documentation</a></li>
-<li><a href="https://cmake.org/documentation/">CMake Official Documentation</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -1293,6 +1176,15 @@
       </tags>
   </entry>
   <entry>
+    <title>一千种人生</title>
+    <url>/2020/05/29/%E4%B8%80%E5%8D%83%E7%A7%8D%E4%BA%BA%E7%94%9F/</url>
+    <content><![CDATA[<p>&emsp;&emsp;不知道从哪一刻开始，脑海里会如电影胶片般浮现各种场景，似是平行时空，让我觉得那就是我经历的一样。<br>&emsp;&emsp;等到这种想法蹦出的越来越多，越来越频繁的时候，我决定把这些写出来。<br>&emsp;&emsp;我在标签里面添加了一个新标签，叫做<code>一千种人生</code>。<br>&emsp;&emsp;你是否也有一千种人生？</p>
+]]></content>
+      <tags>
+        <tag>一千种人生</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一个NSObject对象占用多少内存</title>
     <url>/2023/12/13/%E4%B8%80%E4%B8%AANSObject%E5%AF%B9%E8%B1%A1%E5%8D%A0%E7%94%A8%E5%A4%9A%E5%B0%91%E5%86%85%E5%AD%98/</url>
     <content><![CDATA[<p>OC类型的代码，底层实现都是C/C++语言，可以说，OC语言就是对C/C++语言的封装，比如，任何OC对象，添加<code>__bridge const void *</code>修饰，都可以转变为void指针类型。</p>
@@ -1350,12 +1242,120 @@
       </tags>
   </entry>
   <entry>
-    <title>一千种人生</title>
-    <url>/2020/05/29/%E4%B8%80%E5%8D%83%E7%A7%8D%E4%BA%BA%E7%94%9F/</url>
-    <content><![CDATA[<p>&emsp;&emsp;不知道从哪一刻开始，脑海里会如电影胶片般浮现各种场景，似是平行时空，让我觉得那就是我经历的一样。<br>&emsp;&emsp;等到这种想法蹦出的越来越多，越来越频繁的时候，我决定把这些写出来。<br>&emsp;&emsp;我在标签里面添加了一个新标签，叫做<code>一千种人生</code>。<br>&emsp;&emsp;你是否也有一千种人生？</p>
+    <title>Xcode警告汇总分析</title>
+    <url>/2019/01/05/Xcode%E8%AD%A6%E5%91%8A%E6%B1%87%E6%80%BB%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<p>Xcode工程警告在我们工作中经常遇到，却又常常忽略的。正确的处理Xcode警告可以使得我们开发出优秀的程序。而在实际开发过程中，我们有可能因为项目紧，开发周期短而忽视掉一些警告。本文旨在分析Xcode工程中的各种警告，并根据警告部分的程序对工程影响程度的大小，进行排序，然后提醒开发者，及时处理对工程影响较大的警告。</p>
+<a id="more"></a>
+
+<p>我会按照10分（严重）到1分（可忽略）的顺序，对各种警告进行打分。分数说明：严重（10）、较严重（8）、建议处理（5）、一般（3）、可忽略（1）。其中&gt;=5分的，建议立即处理，其他可稍后处理，但是一定要去处理，除非该处警告经观察后，无需处理。</p>
+<p>我的Xcode版本：<code>Version 10.1 (10B61)</code></p>
+<p>这里从<code>Run/Build</code>时和 <code>Analyze</code>时两种情况来分析。</p>
+<h4 id="Xcode-Run-Build警告"><a href="#Xcode-Run-Build警告" class="headerlink" title="Xcode Run/Build警告"></a>Xcode Run/Build警告</h4><h5 id="Dependency-Analysis-Warning（依赖分析警告）"><a href="#Dependency-Analysis-Warning（依赖分析警告）" class="headerlink" title="Dependency Analysis Warning（依赖分析警告）"></a>Dependency Analysis Warning（依赖分析警告）</h5><p>通常是工程配置不正确引起。</p>
+<p>例如：Mutiple build commands for output file xxx。解决方法：通常是由于重复引用文件导致。在<code>Build Phases</code> <code>Copy Bundle Resources</code>中删除重复文件就可以了。</p>
+<p>分析：本警告在Xcode10之前，无需处理，但是，Xcode10之后，会报错，导致无法运行程序，虽然可以切换Xcode 的Build System为<code>Legncy Build System</code>，但这其实是避开问题不去解决的鸵鸟心态。因此这里定此警告为6分，建议碰到即处理。</p>
+<h5 id="Documentation-Issue（文档问题）"><a href="#Documentation-Issue（文档问题）" class="headerlink" title="Documentation Issue（文档问题）"></a>Documentation Issue（文档问题）</h5><p>通常是方法的文档里，方法的参数未写文档或文档的参数与方法的参数不匹配引起的问题。</p>
+<p>分析：文档警告对要求比较高的程序员，可能不能忍受。看见的话还是会改一下，但是有些参数真的是没什么好写的。这里定为2分。</p>
+<p>扩展：工程里可以禁用Documentation Issue，参照这里<a href="https://stackoverflow.com/questions/24453188/disable-documentation-comments-warning-for-selected-files">Disable “Documentation Comments” warning for selected files</a></p>
+<h5 id="Lexical-or-Preprocessor-Issue（词汇或预处理程序问题）"><a href="#Lexical-or-Preprocessor-Issue（词汇或预处理程序问题）" class="headerlink" title="Lexical or Preprocessor Issue（词汇或预处理程序问题）"></a>Lexical or Preprocessor Issue（词汇或预处理程序问题）</h5><p>通常是宏重复定义，引用文件名大小写不匹配等警告。</p>
+<p>例如：</p>
+<p>non-portable path to file .h,specified path differs in case from file name on disk 解决方法：检查文件名，修改正确</p>
+<p>‘xxx’ macro redefined 解决方法：重新定义新的宏或删除宏</p>
+<p>分析：当宏重复定义，但是值不一样时，有可能会造成错误。因此词汇或预处理程序问题建议碰到后，立即修改。这里定为5分。</p>
+<h5 id="Semantic-Issue（语义问题）"><a href="#Semantic-Issue（语义问题）" class="headerlink" title="Semantic Issue（语义问题）"></a>Semantic Issue（语义问题）</h5><p>这种问题在工程中经常见到，通常情况并不会影响程序的运行，通常是由于程序员的编码习惯所致，程序员在注意到这个问题后，应尽量避免这种问题。而且代码里一堆警告，也不美观。</p>
+<p>例如：</p>
+<p>Block implicitly retains ‘self’; explicitly mention ‘self’ to indicate this is intended behavior 解决方法：指定全局变量为<code>self.iVar</code>或<code>self-&gt;_iVar</code>，同时，也可以禁掉这个提示，参照<a href="https://stackoverflow.com/questions/21577711/block-implicitly-retains-self-explicitly-mention-self-to-indicate-this-is-i">这里</a>。</p>
+<p>Method definition for ‘custom method’ not found 解决方法：删除或定义方法</p>
+<p>Incompatible pointer types initializing ‘xxx’ with an expression of type ‘yyy’ Format String Issue 解决方法：类型强转</p>
+<p>Class ‘xxx’ does not conform to protocol ‘yyy’ 解决方法：实现协议中的方法或声明协议中的方法为<code>@optional</code>。</p>
+<p>等。</p>
+<p>分析：语义问题很常见，通常不会引起什么错误。这里定为4分。在了解是那种警告并且确认不改不会造成问题之后可以放任不管。</p>
+<h5 id="User-Defined-Issue（用户自定义问题）"><a href="#User-Defined-Issue（用户自定义问题）" class="headerlink" title="User-Defined Issue（用户自定义问题）"></a>User-Defined Issue（用户自定义问题）</h5><p>分析：使用<code>#warning</code>之后引发的warning，为User-Defined Issue。这中警告一般是用户自定义或是系统预先定义的，警告级别，可高可低，因此这里不打分。</p>
+<h5 id="Format-String-Issue（格式化字符串问题）"><a href="#Format-String-Issue（格式化字符串问题）" class="headerlink" title="Format String Issue（格式化字符串问题）"></a>Format String Issue（格式化字符串问题）</h5><p>分析：该问题通常是基本数据类型转<code>NSString</code>时，出现这样的问题。点击问题后，再次点击问题框上的<code>fix</code>按钮，就可以修复。这里打2分。</p>
+<h5 id="Unused-Entity-Issue（未使用的实体）"><a href="#Unused-Entity-Issue（未使用的实体）" class="headerlink" title="Unused Entity Issue（未使用的实体）"></a>Unused Entity Issue（未使用的实体）</h5><p>分析：项目中有声明后未使用的实体（变量，常量）会报这个警告。有用的话可以注释掉，没用删除掉就可以了。这里打1分。</p>
+<h5 id="Value-Conversion-Issue（值转换问题）"><a href="#Value-Conversion-Issue（值转换问题）" class="headerlink" title="Value Conversion Issue（值转换问题）"></a>Value Conversion Issue（值转换问题）</h5><p>当函数中传的参数和定义的参数类型不一致时，会报值转换错误，例如：</p>
+<p>Implicit conversion loses integer precision</p>
+<p>implicit conversion from enumeration type等，解决方法：传入正确的类型</p>
+<p>分析：当传入函数的参数为类型不正确的参数时，容易引发未知问题。这里打7分。</p>
+<h5 id="ARC-Retain-Cycle（自动内存管理循环引用）"><a href="#ARC-Retain-Cycle（自动内存管理循环引用）" class="headerlink" title="ARC Retain Cycle（自动内存管理循环引用）"></a>ARC Retain Cycle（自动内存管理循环引用）</h5><p>分析：循环引用时OC开发中经常遇到的问题。当Xcode提示循环引用时，一般是比较明显的循环引用。循环引用导致内存泄漏，严重的情况，会导致内存暴增，App Crash。因此，遇到循环引用，应及时解决。这里打10分。</p>
+<h5 id="Deprecations（过期不推荐使用）"><a href="#Deprecations（过期不推荐使用）" class="headerlink" title="Deprecations（过期不推荐使用）"></a>Deprecations（过期不推荐使用）</h5><p>分析：使用过期的方法会报<code>Deprecations</code>问题。过期方法都不推荐使用，一本情况，过期的方法又能正常运行。这里打6分，推荐遇到<code>Deprecations</code>问题改为合适的方法。</p>
+<h5 id="Asset-Catalog-Compiler-Warning（资源文件编译警告）"><a href="#Asset-Catalog-Compiler-Warning（资源文件编译警告）" class="headerlink" title="Asset Catalog Compiler Warning（资源文件编译警告）"></a>Asset Catalog Compiler Warning（资源文件编译警告）</h5><p>当<code>Assets.xcassets</code>中的文件，编译时出现异常，会报这个警告。例如：</p>
+<p>The image set name “xxx” is used by multiple image sets.</p>
+<p>app icon is required for iPad/iPhone apps targeting IOS 7.0 and later</p>
+<p>解决方法：正确的使用放入图片，包括尺寸，名字不能重复。</p>
+<p>分析：当图片使用不当时，会直观的显示在UI上，这对App的美观时致命的。这里打8分。</p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>经过排序结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ARC Retain Cycle（自动内存管理循环引用）</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Asset Catalog Compiler Warning（资源文件编译警告）</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Value Conversion Issue（值转换问题）</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Dependency Analysis Warning（依赖分析警告）</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Deprecations（过期不推荐使用）</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Lexical or Preprocessor Issue（词汇或预处理程序问题）</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Semantic Issue（语义问题）</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Documentation Issue（文档问题）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Format String Issue（格式化字符串问题）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Unused Entity Issue（未使用的实体）</td>
+<td>1</td>
+</tr>
+<tr>
+<td>User-Defined Issue（用户自定义问题）</td>
+<td>根据情况而定</td>
+</tr>
+</tbody></table>
+<p>建议遇到五分及以上的警告，及时处理，以免造成无法预料的错误。</p>
+<p>希望开发者（包括我）在编码时，就顺手解决警告，尽量做到零警告。</p>
+<h4 id="Xcode-Analyze警告"><a href="#Xcode-Analyze警告" class="headerlink" title="Xcode Analyze警告"></a>Xcode Analyze警告</h4><p>当使用Xcode <code>Analyze</code>进行分析工程时，也会分析出一些警告。而且分析的警告，大都是必须修复的，这里不在分级，遇到应及时解决。大概有这几中类型：</p>
+<ul>
+<li><p>API Misuse（API滥用）</p>
+</li>
+<li><p>Logic error（逻辑错误）</p>
+</li>
+<li><p>Dead Store（无作用存储体）</p>
+</li>
+<li><p>Leak（内存泄漏）</p>
+</li>
+<li><p>Memory error（内存错误）</p>
+</li>
+</ul>
+<p><a href="https://blog.csdn.net/it_liuchengli/article/details/52948031">这里</a>有更详细的解释，有兴趣可以再看看。</p>
+<p>谢谢观看！</p>
 ]]></content>
       <tags>
-        <tag>一千种人生</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -1451,126 +1451,6 @@
       </tags>
   </entry>
   <entry>
-    <title>云南省7天旅游攻略</title>
-    <url>/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/</url>
-    <content><![CDATA[<p><img src="/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/%E4%BA%91%E5%8D%97%E6%97%85%E6%B8%B8%E5%9C%B0%E5%9B%BE.jpg" alt="云南旅游地图"></p>
-<p>2019新年，放假十天。和几个朋友一商量，决定过年不回家了，去云南旅游。</p>
-<p>前几天买了高铁票，今天规划一下旅游路线，以便买返程高铁。</p>
-<p>计划出游七天：</p>
-<a id="more"></a>
-
-<h4 id="第一天-2月1号-（腊月二十七）"><a href="#第一天-2月1号-（腊月二十七）" class="headerlink" title="第一天 2月1号 （腊月二十七）"></a>第一天 2月1号 （腊月二十七）</h4><p>杭州出发，到昆明。G1379 杭州东(9:28)-昆明南(20:19) </p>
-<p>晚上：高铁去大理 150元 两个小时 晚上住大理</p>
-<p>消费:900 + 150（交通）+ 200（住宿） = 1250</p>
-<h4 id="第二天-2月2号-（腊月二十八）大理"><a href="#第二天-2月2号-（腊月二十八）大理" class="headerlink" title="第二天 2月2号 （腊月二十八）大理"></a>第二天 2月2号 （腊月二十八）大理</h4><p><img src="/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/%E5%A4%A7%E7%90%86%E6%97%85%E6%B8%B8%E5%9C%B0%E5%9B%BE.jpeg" alt="大理旅游地图"></p>
-<p>洱海（洱海游船 南诏风情岛4A<code>洱海东岸 40元</code>）上午</p>
-<p>大理古城 (洋人街) 下午</p>
-<p>待议：苍山 蝴蝶泉4A，崇圣寺三塔文化旅游区</p>
-<p>晚上：大理 (8:31)到丽江(9:52) 52元 D8791 住宿 丽江 睡眠浅的话建议住在束河古镇，束河古镇整体相对于古城来说就清静许多了</p>
-<blockquote>
-<p>大理到丽江2个小时左右车程，到丽江两种方式：1是火车（34 硬座 2小时），2是客车（2.5小时 75元），</p>
-</blockquote>
-<p>消费：500左右（吃喝逛住）</p>
-<h4 id="第三天-2月3号-（腊月二十九）丽江"><a href="#第三天-2月3号-（腊月二十九）丽江" class="headerlink" title="第三天 2月3号 （腊月二十九）丽江"></a>第三天 2月3号 （腊月二十九）丽江</h4><p><img src="/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/%E4%B8%BD%E6%B1%9F%E6%99%AF%E7%82%B9%E5%9C%B0%E5%9B%BE.jpg" alt="丽江景点地图"></p>
-<p>先去泸沽湖。</p>
-<p>泸沽湖的<a href="http://you.ctrip.com/sight/luguhu105/4200.html">携程介绍</a>还是挺详细的。</p>
-<blockquote>
-<ol>
-<li>泸沽湖畔海拔较高，一旦遇到阴雨天则温度骤降，所以无论何时来泸沽湖，都要记得带一两件保暖衣物。 </li>
-<li>摩梭人因为实行走婚制，所以没有严格意义上的父亲，一家人以祖母为长，孩子以舅舅为大。在泸沽湖畔摩梭人聚居区，不能问孩子的父亲是谁。 </li>
-<li>泸沽湖是当地人赖以为生的水面，所以，不能在湖中洗澡游泳。 </li>
-<li>摩梭人的咣当酒又称走婚酒，喝起来口感不错，但是后劲颇足，需要注意。另外，当地的烤乳猪可以一试，皮脆肉酥，可以7-8人同吃。</li>
-</ol>
-</blockquote>
-<h4 id="第四天-2月4号-（腊月二十三十-除夕）丽江"><a href="#第四天-2月4号-（腊月二十三十-除夕）丽江" class="headerlink" title="第四天 2月4号 （腊月二十三十 除夕）丽江"></a>第四天 2月4号 （腊月二十三十 除夕）丽江</h4><p>四号和五号两天的行程可能互换。</p>
-<p>拉市海因为离丽江比较紧，加上游览了泸沽湖之后，看拉市海应该玩不太久。下午与实践就逛逛古城。</p>
-<p>上午：拉市海（丽江城西10公里）</p>
-<blockquote>
-<p>客栈会有跟拉市海的团合作，200来块钱。</p>
-<p>要找拉市海一天游，划船骑马吃饭，野团是坑，骑马谈好100多就能搞定，还包一顿饭。 骑着马走茶马古道。</p>
-<p>1.拉市海周边有很多马场，不过服务和态度良莠不齐，注意提前谈好价格和服务细节，以免被坑。</p>
-<p>2.骑马游玩时，记得钱包、手机等物品不要放在衣服外兜，不然很容易在马奔跑的过程中消失，马场的马夫每年都能捡到很多此类物品。</p>
-<p>3.骑马时马全程基本都是在走，别期望能像赛马一样跑起来，当然，好处是也基本不用担心安全问题。</p>
-</blockquote>
-<p>下午：丽江古城（大研镇）木府 古城大水车</p>
-<p>束河古镇（30元）</p>
-<p>虎跳峡待议 3号4号 有时间去一趟虎跳峡</p>
-<h4 id="第五天-2月5号（正月初一-春节）丽江"><a href="#第五天-2月5号（正月初一-春节）丽江" class="headerlink" title="第五天 2月5号（正月初一 春节）丽江"></a>第五天 2月5号（正月初一 春节）丽江</h4><p>玉龙雪山 （丽江古城以北15公里处）</p>
-<p>景区停车场氧气100一瓶，提前在古城买好了25一瓶。</p>
-<p>进山费120元，环保车20元，大索道180元（还有中索道和小索道，但是我觉得玉龙雪山还是一定要走大索道才值得）防寒服60元，氧气60到120元。 我们选择的是玉龙雪山商务车纯玩一日游的团，价格是480元全含（可以微信搜索“云南旅游商城”预订），包含了： 丽江到玉龙雪山来回商务车接送，进山费，司机兼向导服务，环保车，大索道，冰川公园，蓝月谷，氧气，防寒服，中餐吃火锅。</p>
-<blockquote>
-<ol>
-<li><p>一般阴雨天气除景色会打折外，不会影响景区开放。暴雨、极端恶劣天气时，索道可能停开，这种情况平时较少，如果遇到恶劣天气，前往游玩前建议电话咨询是否开放。</p>
-</li>
-<li><p>乘坐大索道海拔提升较快，很多人一下子不适应，建议缓慢行动，防止高原反应。若有不良反应也无须惊慌，可到景区医务室咨询、治疗。景区并不禁止老人、小孩前往，不过因海拔较高提升较快，体质弱的游客建议谨慎考虑。</p>
-</li>
-<li><p>乘坐大索道上山后，温度会比较低，建议携带适度保暖衣物。一般情况下，在山下的着装基础上，加一两件较厚的外套即可。如果是冬季或者雨雪天气则需带羽绒服（景区内服务点也可以租借）。</p>
-</li>
-<li><p>玉龙雪山景区空气稀薄，紫外线强烈，在景区游玩需注意防晒，建议提前准备好帽子、墨镜和防晒霜等。</p>
-</li>
-<li><p>不管是丽江古城周围还是玉龙雪山脚下，都有当地人拉客，建议游人“骑马上山、可看全景”等。不建议采信，这类服务无安全保障，而且骑马是绝对不会上到山顶的。</p>
-</li>
-<li><p>乘坐大索道上山是最大众的方式，所以每天排队的人都超级多，夸张的时候单是排队可能就要3-4小时。如果不想排队，建议尽早赶到景区。大索道上下加游玩，一般在4-5小时，下山后，吃点东西，顺路玩下周围的小景点后，就可以回古城了。</p>
-</li>
-</ol>
-</blockquote>
-<h4 id="第六天-2月6号-（正月初二）香格里拉"><a href="#第六天-2月6号-（正月初二）香格里拉" class="headerlink" title="第六天 2月6号 （正月初二）香格里拉"></a>第六天 2月6号 （正月初二）香格里拉</h4><p><img src="/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E6%97%85%E6%B8%B8%E5%9C%B0%E5%9B%BE.png" alt="香格里拉旅游地图"></p>
-<p>上午：7：30 坐车 到香格里拉</p>
-<blockquote>
-<p>丽江到香格里拉170km，不通火车，汽车3个多小时，丽江的高快客运站和新客运站坐班车去香格里拉，半个小时左右一趟，运行时间7:30到17:00。</p>
-</blockquote>
-<p>中午出发去：</p>
-<p>普达措国家公园，门票138+园区大巴120元</p>
-<blockquote>
-<p>“普达措国家公园位于大香格里拉风景区的中心区域，是世界自然遗产“三江并流”风景区的重要组成部分，主要由<a href="http://you.ctrip.com/sight/xianggelila106/56571.html">碧塔海</a>、<a href="http://you.ctrip.com/sight/xianggelila106/56571.html">属都湖</a>和霞给民俗生态文化村三部分组成</p>
-<p>公园内主要的两个湖泊：属都湖、碧塔海，分别位于公园的南北两侧，相距10余公里。两湖之间有洛茸村、弥里塘草原等景点。因距离较远，游人一般都乘坐环保观光车，根据车行路线游玩。</p>
-<p>入口处乘坐景区环保观光车，约20分钟可抵达属都湖景区。属都湖湖水清澈碧蓝，湖畔是一片绵延的高原牧场。冬季的清晨，湖面上水汽凝结，像一层白雾弥漫在水面上，只有搭乘清早的第一班车到此，方可观赏到这一奇景。草场沿湖搭建有步行栈道，走完一圈大约需要一个小时。栈道尽头就是环保车站，游玩结束上车抵达下一个目的地。</p>
-<p>环保车的下一站是弥里塘草原。环保车继续前行，会经过公园游客服务站，这里有桑错卡餐厅，条件一般，价格不便宜。但如果真的累了饿了又没有自带干粮的话，也只能在此吃午餐，顺便休息一下。</p>
-<p>碧塔海是环保车路线的末站，也是此行的重头。碧塔海在藏语里是意思是“栎树成毡的海子”，顾名思义，湖畔栎树茂密如绿色的毡子。</p>
-<p>公园出来后的路边是霞给民俗生态文化村，村里主要以推介藏民族民俗文化为主，有土陶坊、唐卡坊、木器坊、牛角雕刻坊、藏香坊、民居博物馆、藏银坊等各式各样的民间作坊，摆满了制作精美的民族手工艺品，欣赏之余，也可以适当购买中意的小物件</p>
-<ol>
-<li><p>普达措国家公园整体海拔3500米-4150米之间，为预防高原反应的发生，建议不要剧烈运动，并适当携带相关药物等预防措施。</p>
-</li>
-<li><p>普达措公园海拔较高，加之高原气候变化莫测，所以无论何时入园游览，都要记得携带保暖衣物和雨具。如有需要，公园门口有租借羽绒服的服务点。</p>
-</li>
-<li><p>游玩普达措公园至少需要3-5小时，建议自带饮食。否则只能在园内餐厅享用略贵的食物。</p>
-</li>
-</ol>
-</blockquote>
-<h4 id="第七天-2月7号-（正月初三）香格里拉"><a href="#第七天-2月7号-（正月初三）香格里拉" class="headerlink" title="第七天 2月7号 （正月初三）香格里拉"></a>第七天 2月7号 （正月初三）香格里拉</h4><p>上午：</p>
-<p>香格里拉大峡谷 巴拉格宗风景名胜区，位于香格里拉市区的东北侧，拥有非常壮阔的自然风光</p>
-<p>交通：（如果碰到合适的可包车前往）</p>
-<p>香格里拉古城月光停车场–香格里拉大峡谷(巴拉格宗)旅游专线　约50公里　9：00发车 票价50元/人</p>
-<blockquote>
-<p>景区主要分为峡谷区和巴拉古村两部分，都有观光车相通（车费包含在门票内）。一般游客到达景区会先乘观光车（约40分钟）到巴拉村，游玩1小时左右。然后乘车前往峡谷区域的入口—崖咱（车程约20分钟），游玩峡谷大约2-3小时左右返回大门，全程约需4-6小时。若时间紧张也可以选择仅玩峡谷一项，另外景区深处还有几条徒步路线，大约需要3-5天，专业的户外爱好者也可以前去探寻。巴拉村位于景区的西侧，是一座古老的藏族村寨，这里有上百年前的藏式民居。村子周边，有茂密的植被、陡峭的岩壁，远处就是巍巍雪山.</p>
-<p>峡谷区是景区的精华所在，这里沿着香格里拉大峡谷共有多条支峡，目前游客可以游玩的有通天峡和香格里拉大峡谷两处。香格里拉大峡谷非常幽深，其中河流青绿湍急、周围树木茂密，景色壮丽，谷内有5公里栈道，游客沿着栈道步行参观即可（大约1小时）。到达栈道终点后可以乘车出谷前往通天峡，也可以选择在幽深美丽的峡谷里一路漂流而下，到达二号码头后乘车前往通天峡。通天峡谷内最有趣的是700米的悬空栈道，走在上面即能欣赏到优美的景观，又可以体验到刺激的感觉。</p>
-<p>除了峡谷和古村外，景区内还有另外“两绝”不能错过，一处是门口附近的千年菩提树，树干长出了人手掌的形状，非常形象，使很多游客为之惊叹。另一绝位于加拉村深处的牧场里，有一座曲登神山，这座山顶部圆形的尖顶被白雪覆盖，下面是黑色的圆形岩壁，很像藏区随处可见的佛塔形状，被称为天然佛塔，参观天然佛塔需要从加拉村里面的公路尽头徒步约一小时到达，感兴趣的游客可以前往。</p>
-</blockquote>
-<p>下午或晚上：</p>
-<p>独克宗月光古城 ，即香格里拉古城 ，没有门票。</p>
-<p>预算：300左右</p>
-<h4 id="第八天-2月8号-（正月初四）-香格里到-昆明"><a href="#第八天-2月8号-（正月初四）-香格里到-昆明" class="headerlink" title="第八天 2月8号 （正月初四） 香格里到-昆明"></a>第八天 2月8号 （正月初四） 香格里到-昆明</h4><p>上午：独克宗月光古城</p>
-<p>中午：十二点多（12：10一班，13：00一班） 香格里拉汽车客运站到丽江  三小时左右</p>
-<p>晚上：D8792 丽江到昆明 （208元） 住昆明</p>
-<p>预算：400左右</p>
-<h4 id="第九天-2月9号-（正月初五）回程"><a href="#第九天-2月9号-（正月初五）回程" class="headerlink" title="第九天 2月9号 （正月初五）回程"></a>第九天 2月9号 （正月初五）回程</h4><p>上午十点半昆明到杭州 火车</p>
-<p>预算：950元</p>
-<h4 id="旅游注意事项"><a href="#旅游注意事项" class="headerlink" title="旅游注意事项"></a>旅游注意事项</h4><p>1、高原反应，这边的海拔比较高，必须要预防高原反应，提前做一些准备买上抗高原反应的产品，建议你准备氧健能，这是我多次进藏对比下来用得最好的产品。</p>
-<p>2、衣服，那边的早晚温差比较大，任何季节去都要带上厚衣服，去之前查查当时的温度在哪个区间，根据自己的体质做准备。  </p>
-<p>3、在高原晚上睡觉，尽量开窗透气，要不然容易缺氧。</p>
-<p>4、在高海拔地方，最好带上保温杯，尽量喝热水。</p>
-<p>5、准备好一些常用的药品，比如感冒药，肠胃药等。在高原千万不要冷感冒了</p>
-<blockquote>
-<p>1.不要跟机场、车站出口处的拉客仔或拉客大妈去她们推荐的酒店，那可是一条被宰的不归路啊~</p>
-<p>2.云南酒店淡旺季差别很大，不要因为淡季来过很便宜就以为全年都是这样的价格哦</p>
-<p>3.酒店都需要预定，否则有可能因为后面的客人的预定而不能让你续住，所以旅游之前最好预定好房间.特别是晚上临时找住处会很被动，之前有朋友飞机落地没酒店就很惨，不过我上次全程住宿交通都是天纯安排的</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>从知识屏蔽想到的</title>
     <url>/2020/08/01/%E4%BB%8E%E7%9F%A5%E8%AF%86%E5%B1%8F%E8%94%BD%E6%83%B3%E5%88%B0%E7%9A%84/</url>
     <content><![CDATA[<p>前几天刚阅读完王爽老师的《汇编语言》，在书的末尾看到<code>知识屏蔽</code>这个词，回想良多，让我觉得很有趣。知识屏蔽是一个教学相关的概念，指的是在教学过程中，对知识的传授，循序渐进，有的放矢，对教学无关的内容进行屏蔽，，等到受教育者有一定的知识储备后，再放出之前屏蔽的内容，使受教育者能够更好地学习。</p>
@@ -1596,36 +1476,6 @@
 ]]></content>
       <tags>
         <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在屏幕中间显示字符串</title>
-    <url>/2020/06/21/%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%AD%E9%97%B4%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<p>8086汇编中有一道编程题，今天花了两个小时做完了，这里记录一下做的过程</p>
-<p>题目是这样的:</p>
-<blockquote>
-<p>在屏幕中间分别显示绿色、绿底红色、白底蓝色的字符串’welcome to masm!’</p>
-</blockquote>
-<a id="more"></a>
-
-<p>内存空间地址中,地址：B8000h ~ b8f9fh为显示缓存区，显示缓存区8页，每页总共25行，80个字符，每个字符占一个字，通常显示第一页，</p>
-<p>屏幕中间：为12 13 14行，偏移量的计算公式就为：<code>(160 * (行数 - 1))</code>，那么：</p>
-<p>12行对应6e0 ~ 77f </p>
-<p>13行对应780 ~ 81f </p>
-<p>14行对应820 ~ 8bf</p>
-<p>而根据属性字节的公式：</p>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">        <span class="number">7</span>    <span class="number">6</span>    <span class="number">5</span>    <span class="number">4</span>    <span class="number">3</span>    <span class="number">2</span>    <span class="number">1</span>    <span class="number">0</span></span><br><span class="line">含义：  (BL) (R    G    B)  (I)  (R    G    B)</span><br><span class="line">       闪烁      背景        高亮      前景</span><br></pre></td></tr></table></figure>
-
-<p>题目中三种颜色的属性字节应为：</p>
-<p>绿色：             00000010b，十六进制为02h </p>
-<p>绿底红色：     00100100b ，十六进制为24h </p>
-<p>白底蓝色:        01110001b ，十六进制为71h</p>
-<p>显示字符：welcome to masm! 共16个字， 因为有80个字，那么第33~48个字在中间。偏移量为：66 ~ 96</p>
-<p>分析后有以下程序：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line"></span><br><span class="line">data segment</span><br><span class="line">     db &#39;welcome to masm!&#39;</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">color segment</span><br><span class="line">     db 02h,24h,71h</span><br><span class="line">color ends </span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:  mov ax,data</span><br><span class="line">        mov ds,ax</span><br><span class="line"></span><br><span class="line">        mov ax,0b86eh</span><br><span class="line">        mov es,ax</span><br><span class="line"></span><br><span class="line">        mov si,0</span><br><span class="line">        mov cx,3</span><br><span class="line">        mov di,0</span><br><span class="line"></span><br><span class="line">s0:     push cx</span><br><span class="line"></span><br><span class="line">        mov bx,0</span><br><span class="line">        mov bp,0</span><br><span class="line"></span><br><span class="line">        mov cx,16</span><br><span class="line">s1:</span><br><span class="line">        mov al,ds:[bx]</span><br><span class="line">        mov es:[bp+si+66],al</span><br><span class="line">        inc bp</span><br><span class="line">        inc bx</span><br><span class="line"></span><br><span class="line">        push ds</span><br><span class="line">        mov ax,color</span><br><span class="line">        mov ds,ax</span><br><span class="line">        mov al,ds:[di]</span><br><span class="line">        mov es:[bp+si+66],al</span><br><span class="line">        pop ds </span><br><span class="line"></span><br><span class="line">        inc bp</span><br><span class="line">        loop s1</span><br><span class="line"></span><br><span class="line">        add si,0a0h</span><br><span class="line">        inc di</span><br><span class="line"></span><br><span class="line">        pop cx</span><br><span class="line">        loop s0</span><br><span class="line"></span><br><span class="line">        mov ax,4c00h</span><br><span class="line">        int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>汇编</tag>
       </tags>
   </entry>
   <entry>
@@ -1855,71 +1705,153 @@
       </tags>
   </entry>
   <entry>
-    <title>如何安装iOS 13 beta版</title>
-    <url>/2019/06/14/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85iOS-13-beta%E7%89%88/</url>
-    <content><![CDATA[<p>最近，<a href="https://www.apple.com/cn/newsroom/2019/06/apple-previews-ios-13/">Apple发布iOS 13 预览版</a> 支持深色模式，优化了照片与相机功能，还有输入法的升级等。</p>
-<p>想尝鲜的同学可以参考本文进行升级。苹果系统每个版本的前几个beta版，都会有很多bug，因此心里面要有准备。如果想要新系统的开发做出贡献，可以使用Feedback反馈自己使用中遇到的bug，Feedback会在新系统安装后自动出现。</p>
-<p>升级前，请参照如下表格，查看机型是否支持新系统的安装。也可以去官网查看<a href="https://developer.apple.com/download/#ios-restore-images-ipad-new">苹果开发者官网</a></p>
-<table>
-<thead>
-<tr>
-<th align="center">iOS</th>
-<th align="center">iPad OS</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">iPhone XS/XS Max</td>
-<td align="center">iPad Pro 12.9-inch/9.7-inch</td>
-</tr>
-<tr>
-<td align="center">iPhone XR</td>
-<td align="center">iPad Pro 10.5-inch</td>
-</tr>
-<tr>
-<td align="center">iPhone X</td>
-<td align="center">iPad Pro 12.9-inch 2nd/3rd</td>
-</tr>
-<tr>
-<td align="center">iPhone 8/8 Plus</td>
-<td align="center">iPad Pro 11-inch</td>
-</tr>
-<tr>
-<td align="center">iPhone 7/7 Plus</td>
-<td align="center">iPad Mini 4/5th</td>
-</tr>
-<tr>
-<td align="center">iPhone 6s/6s Plus</td>
-<td align="center">iPad 5th/6th</td>
-</tr>
-<tr>
-<td align="center">iPhone SE</td>
-<td align="center">iPad Air 2/3rd</td>
-</tr>
-<tr>
-<td align="center">iPod touch (7th generation)</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
+    <title>云南省7天旅游攻略</title>
+    <url>/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/</url>
+    <content><![CDATA[<p><img src="/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/%E4%BA%91%E5%8D%97%E6%97%85%E6%B8%B8%E5%9C%B0%E5%9B%BE.jpg" alt="云南旅游地图"></p>
+<p>2019新年，放假十天。和几个朋友一商量，决定过年不回家了，去云南旅游。</p>
+<p>前几天买了高铁票，今天规划一下旅游路线，以便买返程高铁。</p>
+<p>计划出游七天：</p>
 <a id="more"></a>
 
-<h5 id="升级前准备"><a href="#升级前准备" class="headerlink" title="升级前准备"></a>升级前准备</h5><p>升级需要Mac电脑，以及符合上表中列出的设备。</p>
-<p>目前iOS13 Beta版还不支持使用OTA 文件辅助安装，因此只能手动下载安装包手动安装。</p>
-<h6 id="1-首先备份自己的设备数据。"><a href="#1-首先备份自己的设备数据。" class="headerlink" title="1.首先备份自己的设备数据。"></a>1.首先备份自己的设备数据。</h6><p>任何时候，数据保护是最重要的。因此，在升级之前，务必先备份自己的设备。</p>
-<h6 id="2-去苹果开发者官网下载与手机对应的安装包"><a href="#2-去苹果开发者官网下载与手机对应的安装包" class="headerlink" title="2.去苹果开发者官网下载与手机对应的安装包"></a>2.去<a href="%5Bhttps://developer.apple.com/download/#ios-restore-images-ipad-new%5D(https://developer.apple.com/download/#ios-restore-images-ipad-new">苹果开发者官网</a>下载与手机对应的安装包</h6><h5 id="升级安装"><a href="#升级安装" class="headerlink" title="升级安装"></a>升级安装</h5><p>安装之前，首先要升级Mac安装环境，目前有三种途径，以下任何一种都可以。</p>
-<ol start="2">
-<li><p>安装MacOS 10.15 Catalina beta</p>
+<h4 id="第一天-2月1号-（腊月二十七）"><a href="#第一天-2月1号-（腊月二十七）" class="headerlink" title="第一天 2月1号 （腊月二十七）"></a>第一天 2月1号 （腊月二十七）</h4><p>杭州出发，到昆明。G1379 杭州东(9:28)-昆明南(20:19) </p>
+<p>晚上：高铁去大理 150元 两个小时 晚上住大理</p>
+<p>消费:900 + 150（交通）+ 200（住宿） = 1250</p>
+<h4 id="第二天-2月2号-（腊月二十八）大理"><a href="#第二天-2月2号-（腊月二十八）大理" class="headerlink" title="第二天 2月2号 （腊月二十八）大理"></a>第二天 2月2号 （腊月二十八）大理</h4><p><img src="/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/%E5%A4%A7%E7%90%86%E6%97%85%E6%B8%B8%E5%9C%B0%E5%9B%BE.jpeg" alt="大理旅游地图"></p>
+<p>洱海（洱海游船 南诏风情岛4A<code>洱海东岸 40元</code>）上午</p>
+<p>大理古城 (洋人街) 下午</p>
+<p>待议：苍山 蝴蝶泉4A，崇圣寺三塔文化旅游区</p>
+<p>晚上：大理 (8:31)到丽江(9:52) 52元 D8791 住宿 丽江 睡眠浅的话建议住在束河古镇，束河古镇整体相对于古城来说就清静许多了</p>
+<blockquote>
+<p>大理到丽江2个小时左右车程，到丽江两种方式：1是火车（34 硬座 2小时），2是客车（2.5小时 75元），</p>
+</blockquote>
+<p>消费：500左右（吃喝逛住）</p>
+<h4 id="第三天-2月3号-（腊月二十九）丽江"><a href="#第三天-2月3号-（腊月二十九）丽江" class="headerlink" title="第三天 2月3号 （腊月二十九）丽江"></a>第三天 2月3号 （腊月二十九）丽江</h4><p><img src="/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/%E4%B8%BD%E6%B1%9F%E6%99%AF%E7%82%B9%E5%9C%B0%E5%9B%BE.jpg" alt="丽江景点地图"></p>
+<p>先去泸沽湖。</p>
+<p>泸沽湖的<a href="http://you.ctrip.com/sight/luguhu105/4200.html">携程介绍</a>还是挺详细的。</p>
+<blockquote>
+<ol>
+<li>泸沽湖畔海拔较高，一旦遇到阴雨天则温度骤降，所以无论何时来泸沽湖，都要记得带一两件保暖衣物。 </li>
+<li>摩梭人因为实行走婚制，所以没有严格意义上的父亲，一家人以祖母为长，孩子以舅舅为大。在泸沽湖畔摩梭人聚居区，不能问孩子的父亲是谁。 </li>
+<li>泸沽湖是当地人赖以为生的水面，所以，不能在湖中洗澡游泳。 </li>
+<li>摩梭人的咣当酒又称走婚酒，喝起来口感不错，但是后劲颇足，需要注意。另外，当地的烤乳猪可以一试，皮脆肉酥，可以7-8人同吃。</li>
+</ol>
+</blockquote>
+<h4 id="第四天-2月4号-（腊月二十三十-除夕）丽江"><a href="#第四天-2月4号-（腊月二十三十-除夕）丽江" class="headerlink" title="第四天 2月4号 （腊月二十三十 除夕）丽江"></a>第四天 2月4号 （腊月二十三十 除夕）丽江</h4><p>四号和五号两天的行程可能互换。</p>
+<p>拉市海因为离丽江比较紧，加上游览了泸沽湖之后，看拉市海应该玩不太久。下午与实践就逛逛古城。</p>
+<p>上午：拉市海（丽江城西10公里）</p>
+<blockquote>
+<p>客栈会有跟拉市海的团合作，200来块钱。</p>
+<p>要找拉市海一天游，划船骑马吃饭，野团是坑，骑马谈好100多就能搞定，还包一顿饭。 骑着马走茶马古道。</p>
+<p>1.拉市海周边有很多马场，不过服务和态度良莠不齐，注意提前谈好价格和服务细节，以免被坑。</p>
+<p>2.骑马游玩时，记得钱包、手机等物品不要放在衣服外兜，不然很容易在马奔跑的过程中消失，马场的马夫每年都能捡到很多此类物品。</p>
+<p>3.骑马时马全程基本都是在走，别期望能像赛马一样跑起来，当然，好处是也基本不用担心安全问题。</p>
+</blockquote>
+<p>下午：丽江古城（大研镇）木府 古城大水车</p>
+<p>束河古镇（30元）</p>
+<p>虎跳峡待议 3号4号 有时间去一趟虎跳峡</p>
+<h4 id="第五天-2月5号（正月初一-春节）丽江"><a href="#第五天-2月5号（正月初一-春节）丽江" class="headerlink" title="第五天 2月5号（正月初一 春节）丽江"></a>第五天 2月5号（正月初一 春节）丽江</h4><p>玉龙雪山 （丽江古城以北15公里处）</p>
+<p>景区停车场氧气100一瓶，提前在古城买好了25一瓶。</p>
+<p>进山费120元，环保车20元，大索道180元（还有中索道和小索道，但是我觉得玉龙雪山还是一定要走大索道才值得）防寒服60元，氧气60到120元。 我们选择的是玉龙雪山商务车纯玩一日游的团，价格是480元全含（可以微信搜索“云南旅游商城”预订），包含了： 丽江到玉龙雪山来回商务车接送，进山费，司机兼向导服务，环保车，大索道，冰川公园，蓝月谷，氧气，防寒服，中餐吃火锅。</p>
+<blockquote>
+<ol>
+<li><p>一般阴雨天气除景色会打折外，不会影响景区开放。暴雨、极端恶劣天气时，索道可能停开，这种情况平时较少，如果遇到恶劣天气，前往游玩前建议电话咨询是否开放。</p>
 </li>
-<li><p>安装Xcode 11 beta，打开并安装好component</p>
+<li><p>乘坐大索道海拔提升较快，很多人一下子不适应，建议缓慢行动，防止高原反应。若有不良反应也无须惊慌，可到景区医务室咨询、治疗。景区并不禁止老人、小孩前往，不过因海拔较高提升较快，体质弱的游客建议谨慎考虑。</p>
 </li>
-<li><p>下载并安装<a href="%5Bhttp://alirezakhoddam.com/wwdc19/MobileDevice.pkg%5D(http://alirezakhoddam.com/wwdc19/MobileDevice.pkg">MobileDevice.pkg</a>，如果安装前已打开iTunes，请重启以下iTunes。</p>
+<li><p>乘坐大索道上山后，温度会比较低，建议携带适度保暖衣物。一般情况下，在山下的着装基础上，加一两件较厚的外套即可。如果是冬季或者雨雪天气则需带羽绒服（景区内服务点也可以租借）。</p>
+</li>
+<li><p>玉龙雪山景区空气稀薄，紫外线强烈，在景区游玩需注意防晒，建议提前准备好帽子、墨镜和防晒霜等。</p>
+</li>
+<li><p>不管是丽江古城周围还是玉龙雪山脚下，都有当地人拉客，建议游人“骑马上山、可看全景”等。不建议采信，这类服务无安全保障，而且骑马是绝对不会上到山顶的。</p>
+</li>
+<li><p>乘坐大索道上山是最大众的方式，所以每天排队的人都超级多，夸张的时候单是排队可能就要3-4小时。如果不想排队，建议尽早赶到景区。大索道上下加游玩，一般在4-5小时，下山后，吃点东西，顺路玩下周围的小景点后，就可以回古城了。</p>
 </li>
 </ol>
-<p>我使用的是第三种方法。</p>
-<p>然后打开 iTunes，把 iPhone / iPad 连接到 Mac，按住 Option，同时点击「检查更新」，选择下载好的固件，点击打开，进行安装。</p>
-<h5 id="恢复到iOS12"><a href="#恢复到iOS12" class="headerlink" title="恢复到iOS12"></a>恢复到iOS12</h5><p>下载最新的<a href="https://developer.apple.com/download/release/">iOS12系统固件</a>，然后用上面的安装步骤，使用iTunes进行安装即可。如果数据损坏，可以用之前的备份，进行恢复。</p>
+</blockquote>
+<h4 id="第六天-2月6号-（正月初二）香格里拉"><a href="#第六天-2月6号-（正月初二）香格里拉" class="headerlink" title="第六天 2月6号 （正月初二）香格里拉"></a>第六天 2月6号 （正月初二）香格里拉</h4><p><img src="/2019/01/07/%E4%BA%91%E5%8D%97%E7%9C%817%E5%A4%A9%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E6%97%85%E6%B8%B8%E5%9C%B0%E5%9B%BE.png" alt="香格里拉旅游地图"></p>
+<p>上午：7：30 坐车 到香格里拉</p>
+<blockquote>
+<p>丽江到香格里拉170km，不通火车，汽车3个多小时，丽江的高快客运站和新客运站坐班车去香格里拉，半个小时左右一趟，运行时间7:30到17:00。</p>
+</blockquote>
+<p>中午出发去：</p>
+<p>普达措国家公园，门票138+园区大巴120元</p>
+<blockquote>
+<p>“普达措国家公园位于大香格里拉风景区的中心区域，是世界自然遗产“三江并流”风景区的重要组成部分，主要由<a href="http://you.ctrip.com/sight/xianggelila106/56571.html">碧塔海</a>、<a href="http://you.ctrip.com/sight/xianggelila106/56571.html">属都湖</a>和霞给民俗生态文化村三部分组成</p>
+<p>公园内主要的两个湖泊：属都湖、碧塔海，分别位于公园的南北两侧，相距10余公里。两湖之间有洛茸村、弥里塘草原等景点。因距离较远，游人一般都乘坐环保观光车，根据车行路线游玩。</p>
+<p>入口处乘坐景区环保观光车，约20分钟可抵达属都湖景区。属都湖湖水清澈碧蓝，湖畔是一片绵延的高原牧场。冬季的清晨，湖面上水汽凝结，像一层白雾弥漫在水面上，只有搭乘清早的第一班车到此，方可观赏到这一奇景。草场沿湖搭建有步行栈道，走完一圈大约需要一个小时。栈道尽头就是环保车站，游玩结束上车抵达下一个目的地。</p>
+<p>环保车的下一站是弥里塘草原。环保车继续前行，会经过公园游客服务站，这里有桑错卡餐厅，条件一般，价格不便宜。但如果真的累了饿了又没有自带干粮的话，也只能在此吃午餐，顺便休息一下。</p>
+<p>碧塔海是环保车路线的末站，也是此行的重头。碧塔海在藏语里是意思是“栎树成毡的海子”，顾名思义，湖畔栎树茂密如绿色的毡子。</p>
+<p>公园出来后的路边是霞给民俗生态文化村，村里主要以推介藏民族民俗文化为主，有土陶坊、唐卡坊、木器坊、牛角雕刻坊、藏香坊、民居博物馆、藏银坊等各式各样的民间作坊，摆满了制作精美的民族手工艺品，欣赏之余，也可以适当购买中意的小物件</p>
+<ol>
+<li><p>普达措国家公园整体海拔3500米-4150米之间，为预防高原反应的发生，建议不要剧烈运动，并适当携带相关药物等预防措施。</p>
+</li>
+<li><p>普达措公园海拔较高，加之高原气候变化莫测，所以无论何时入园游览，都要记得携带保暖衣物和雨具。如有需要，公园门口有租借羽绒服的服务点。</p>
+</li>
+<li><p>游玩普达措公园至少需要3-5小时，建议自带饮食。否则只能在园内餐厅享用略贵的食物。</p>
+</li>
+</ol>
+</blockquote>
+<h4 id="第七天-2月7号-（正月初三）香格里拉"><a href="#第七天-2月7号-（正月初三）香格里拉" class="headerlink" title="第七天 2月7号 （正月初三）香格里拉"></a>第七天 2月7号 （正月初三）香格里拉</h4><p>上午：</p>
+<p>香格里拉大峡谷 巴拉格宗风景名胜区，位于香格里拉市区的东北侧，拥有非常壮阔的自然风光</p>
+<p>交通：（如果碰到合适的可包车前往）</p>
+<p>香格里拉古城月光停车场–香格里拉大峡谷(巴拉格宗)旅游专线　约50公里　9：00发车 票价50元/人</p>
+<blockquote>
+<p>景区主要分为峡谷区和巴拉古村两部分，都有观光车相通（车费包含在门票内）。一般游客到达景区会先乘观光车（约40分钟）到巴拉村，游玩1小时左右。然后乘车前往峡谷区域的入口—崖咱（车程约20分钟），游玩峡谷大约2-3小时左右返回大门，全程约需4-6小时。若时间紧张也可以选择仅玩峡谷一项，另外景区深处还有几条徒步路线，大约需要3-5天，专业的户外爱好者也可以前去探寻。巴拉村位于景区的西侧，是一座古老的藏族村寨，这里有上百年前的藏式民居。村子周边，有茂密的植被、陡峭的岩壁，远处就是巍巍雪山.</p>
+<p>峡谷区是景区的精华所在，这里沿着香格里拉大峡谷共有多条支峡，目前游客可以游玩的有通天峡和香格里拉大峡谷两处。香格里拉大峡谷非常幽深，其中河流青绿湍急、周围树木茂密，景色壮丽，谷内有5公里栈道，游客沿着栈道步行参观即可（大约1小时）。到达栈道终点后可以乘车出谷前往通天峡，也可以选择在幽深美丽的峡谷里一路漂流而下，到达二号码头后乘车前往通天峡。通天峡谷内最有趣的是700米的悬空栈道，走在上面即能欣赏到优美的景观，又可以体验到刺激的感觉。</p>
+<p>除了峡谷和古村外，景区内还有另外“两绝”不能错过，一处是门口附近的千年菩提树，树干长出了人手掌的形状，非常形象，使很多游客为之惊叹。另一绝位于加拉村深处的牧场里，有一座曲登神山，这座山顶部圆形的尖顶被白雪覆盖，下面是黑色的圆形岩壁，很像藏区随处可见的佛塔形状，被称为天然佛塔，参观天然佛塔需要从加拉村里面的公路尽头徒步约一小时到达，感兴趣的游客可以前往。</p>
+</blockquote>
+<p>下午或晚上：</p>
+<p>独克宗月光古城 ，即香格里拉古城 ，没有门票。</p>
+<p>预算：300左右</p>
+<h4 id="第八天-2月8号-（正月初四）-香格里到-昆明"><a href="#第八天-2月8号-（正月初四）-香格里到-昆明" class="headerlink" title="第八天 2月8号 （正月初四） 香格里到-昆明"></a>第八天 2月8号 （正月初四） 香格里到-昆明</h4><p>上午：独克宗月光古城</p>
+<p>中午：十二点多（12：10一班，13：00一班） 香格里拉汽车客运站到丽江  三小时左右</p>
+<p>晚上：D8792 丽江到昆明 （208元） 住昆明</p>
+<p>预算：400左右</p>
+<h4 id="第九天-2月9号-（正月初五）回程"><a href="#第九天-2月9号-（正月初五）回程" class="headerlink" title="第九天 2月9号 （正月初五）回程"></a>第九天 2月9号 （正月初五）回程</h4><p>上午十点半昆明到杭州 火车</p>
+<p>预算：950元</p>
+<h4 id="旅游注意事项"><a href="#旅游注意事项" class="headerlink" title="旅游注意事项"></a>旅游注意事项</h4><p>1、高原反应，这边的海拔比较高，必须要预防高原反应，提前做一些准备买上抗高原反应的产品，建议你准备氧健能，这是我多次进藏对比下来用得最好的产品。</p>
+<p>2、衣服，那边的早晚温差比较大，任何季节去都要带上厚衣服，去之前查查当时的温度在哪个区间，根据自己的体质做准备。  </p>
+<p>3、在高原晚上睡觉，尽量开窗透气，要不然容易缺氧。</p>
+<p>4、在高海拔地方，最好带上保温杯，尽量喝热水。</p>
+<p>5、准备好一些常用的药品，比如感冒药，肠胃药等。在高原千万不要冷感冒了</p>
+<blockquote>
+<p>1.不要跟机场、车站出口处的拉客仔或拉客大妈去她们推荐的酒店，那可是一条被宰的不归路啊~</p>
+<p>2.云南酒店淡旺季差别很大，不要因为淡季来过很便宜就以为全年都是这样的价格哦</p>
+<p>3.酒店都需要预定，否则有可能因为后面的客人的预定而不能让你续住，所以旅游之前最好预定好房间.特别是晚上临时找住处会很被动，之前有朋友飞机落地没酒店就很惨，不过我上次全程住宿交通都是天纯安排的</p>
+</blockquote>
 ]]></content>
       <tags>
-        <tag>技术</tag>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在屏幕中间显示字符串</title>
+    <url>/2020/06/21/%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%AD%E9%97%B4%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<p>8086汇编中有一道编程题，今天花了两个小时做完了，这里记录一下做的过程</p>
+<p>题目是这样的:</p>
+<blockquote>
+<p>在屏幕中间分别显示绿色、绿底红色、白底蓝色的字符串’welcome to masm!’</p>
+</blockquote>
+<a id="more"></a>
+
+<p>内存空间地址中,地址：B8000h ~ b8f9fh为显示缓存区，显示缓存区8页，每页总共25行，80个字符，每个字符占一个字，通常显示第一页，</p>
+<p>屏幕中间：为12 13 14行，偏移量的计算公式就为：<code>(160 * (行数 - 1))</code>，那么：</p>
+<p>12行对应6e0 ~ 77f </p>
+<p>13行对应780 ~ 81f </p>
+<p>14行对应820 ~ 8bf</p>
+<p>而根据属性字节的公式：</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">        <span class="number">7</span>    <span class="number">6</span>    <span class="number">5</span>    <span class="number">4</span>    <span class="number">3</span>    <span class="number">2</span>    <span class="number">1</span>    <span class="number">0</span></span><br><span class="line">含义：  (BL) (R    G    B)  (I)  (R    G    B)</span><br><span class="line">       闪烁      背景        高亮      前景</span><br></pre></td></tr></table></figure>
+
+<p>题目中三种颜色的属性字节应为：</p>
+<p>绿色：             00000010b，十六进制为02h </p>
+<p>绿底红色：     00100100b ，十六进制为24h </p>
+<p>白底蓝色:        01110001b ，十六进制为71h</p>
+<p>显示字符：welcome to masm! 共16个字， 因为有80个字，那么第33~48个字在中间。偏移量为：66 ~ 96</p>
+<p>分析后有以下程序：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line"></span><br><span class="line">data segment</span><br><span class="line">     db &#39;welcome to masm!&#39;</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">color segment</span><br><span class="line">     db 02h,24h,71h</span><br><span class="line">color ends </span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:  mov ax,data</span><br><span class="line">        mov ds,ax</span><br><span class="line"></span><br><span class="line">        mov ax,0b86eh</span><br><span class="line">        mov es,ax</span><br><span class="line"></span><br><span class="line">        mov si,0</span><br><span class="line">        mov cx,3</span><br><span class="line">        mov di,0</span><br><span class="line"></span><br><span class="line">s0:     push cx</span><br><span class="line"></span><br><span class="line">        mov bx,0</span><br><span class="line">        mov bp,0</span><br><span class="line"></span><br><span class="line">        mov cx,16</span><br><span class="line">s1:</span><br><span class="line">        mov al,ds:[bx]</span><br><span class="line">        mov es:[bp+si+66],al</span><br><span class="line">        inc bp</span><br><span class="line">        inc bx</span><br><span class="line"></span><br><span class="line">        push ds</span><br><span class="line">        mov ax,color</span><br><span class="line">        mov ds,ax</span><br><span class="line">        mov al,ds:[di]</span><br><span class="line">        mov es:[bp+si+66],al</span><br><span class="line">        pop ds </span><br><span class="line"></span><br><span class="line">        inc bp</span><br><span class="line">        loop s1</span><br><span class="line"></span><br><span class="line">        add si,0a0h</span><br><span class="line">        inc di</span><br><span class="line"></span><br><span class="line">        pop cx</span><br><span class="line">        loop s0</span><br><span class="line"></span><br><span class="line">        mov ax,4c00h</span><br><span class="line">        int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>汇编</tag>
       </tags>
   </entry>
   <entry>
@@ -1990,6 +1922,16 @@
       </tags>
   </entry>
   <entry>
+    <title>我的博客</title>
+    <url>/2018/12/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>上段时间看一为博主的博客，名字忘了，但是觉得它的博客样式很不错，我看到他的博客是基于<a href="https://hexo.io/">Hexo</a>的，用的主题是<a href="https://github。com/litten/hexo-theme-yilia">Yilia</a>于是便有了我的新博客。</p>
+<p>很早之前，我就开了<code>lengain.gitHub.io</code>这个博客，只是用着不方便，便没有维护进来。博客也写的不多，之前一直用简书，也写过一段时间的微信公众号，应该是写的不好，所以订阅量一直是身边的好友，没有多少读者。后来看到一首小诗，忘了名字和内容，但是根据那首小诗我想到一句话，就是”如果你想写作，就当做没有读者”。但凡你要表达自己的想法，最好的办法就是写出来。所以，我又又一次的决定，开始写起来。作为一个程序猿，还是觉得用自己的博客比较好。今日起，就转到这里吧，如果时间充裕的话，微信公众号我也会同步更新。</p>
+<p>我是一个iOS开发者，博客里面免不了要发布一些技术文章。</p>
+<p>我也是一个感性的人，也会把生活所感写到这里。</p>
+<p>2018年就要过去了，希望2019不会太糟。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>封装一个超级易用的Swift网络请求库</title>
     <url>/2024/03/11/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AA%E8%B6%85%E7%BA%A7%E6%98%93%E7%94%A8%E7%9A%84Swift%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%BA%93/</url>
     <content><![CDATA[<p>Swift网络库最著名的就是<code>Alamofire</code>,但是在实际项目中，想要尽可能简单的发起网络请求，必须对<code>Alamofire</code>进行一层封装。依赖<code>Alamofire</code>的封装库也有很多优秀的，比如<code>Moya</code>。但是经过项目的使用，我发现<code>Moya</code>用起来并不简单。</p>
@@ -2034,16 +1976,6 @@
       <tags>
         <tag>iOS</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>我的博客</title>
-    <url>/2018/12/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>上段时间看一为博主的博客，名字忘了，但是觉得它的博客样式很不错，我看到他的博客是基于<a href="https://hexo.io/">Hexo</a>的，用的主题是<a href="https://github。com/litten/hexo-theme-yilia">Yilia</a>于是便有了我的新博客。</p>
-<p>很早之前，我就开了<code>lengain.gitHub.io</code>这个博客，只是用着不方便，便没有维护进来。博客也写的不多，之前一直用简书，也写过一段时间的微信公众号，应该是写的不好，所以订阅量一直是身边的好友，没有多少读者。后来看到一首小诗，忘了名字和内容，但是根据那首小诗我想到一句话，就是”如果你想写作，就当做没有读者”。但凡你要表达自己的想法，最好的办法就是写出来。所以，我又又一次的决定，开始写起来。作为一个程序猿，还是觉得用自己的博客比较好。今日起，就转到这里吧，如果时间充裕的话，微信公众号我也会同步更新。</p>
-<p>我是一个iOS开发者，博客里面免不了要发布一些技术文章。</p>
-<p>我也是一个感性的人，也会把生活所感写到这里。</p>
-<p>2018年就要过去了，希望2019不会太糟。</p>
-]]></content>
   </entry>
   <entry>
     <title>换了一个新的网站图标</title>
@@ -2418,6 +2350,113 @@
 ]]></content>
   </entry>
   <entry>
+    <title>魔数计算器隐私政策</title>
+    <url>/2024/12/11/%E9%AD%94%E6%95%B0%E8%AE%A1%E7%AE%97%E5%99%A8%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96/</url>
+    <content><![CDATA[<h3 id="魔数计算器服务协议及隐私政策"><a href="#魔数计算器服务协议及隐私政策" class="headerlink" title="魔数计算器服务协议及隐私政策"></a>魔数计算器服务协议及隐私政策</h3><p>欢迎您使用魔数计算器！<br>为使用魔数计算器，您应当阅读并遵守《魔数计算器服务协议及隐私政策》（以下简称“本协议”）。请您务必审慎阅读、充分理解各条款内容，特别是免除或限制责任的相应条款，以及开通或使用某项服务的单独协议，您使用此服务即表示您接受本协议。限制或免除责任条款可能以加粗形式提示您注意。 除非您已阅读并接受本协议所有条款，否则您无权使用魔数计算器服务（以下简称“本服务”）。您对本服务的任何查看使用行为即视为您已阅读并同意本协议的约束。</p>
+<a id="more"></a>
+
+<h2 id="一、协议的范围"><a href="#一、协议的范围" class="headerlink" title="一、协议的范围"></a>一、协议的范围</h2><h3 id="1-1【协议适用主体范围】"><a href="#1-1【协议适用主体范围】" class="headerlink" title="1.1【协议适用主体范围】"></a>1.1【协议适用主体范围】</h3><p>本协议是您与魔数计算器之间关于您使用本服务所订立的协议。</p>
+<h3 id="1-2【本服务内容】"><a href="#1-2【本服务内容】" class="headerlink" title="1.2【本服务内容】"></a>1.2【本服务内容】</h3><p>本协议项下的服务是指魔数计算器向用户提供的服务（以下简称“本服务”）。本协议内容同时包括魔数计算器可能不断发布的关于本服务的相关协议、业务规则等内容。上述内容一经正式发布，即为本协议不可分割的组成部分，您同样应当遵守。</p>
+<h2 id="二、隐私政策"><a href="#二、隐私政策" class="headerlink" title="二、隐私政策"></a>二、隐私政策</h2><p>a）本产品不会采集您的个人信息。</p>
+<p>b）本产品亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播</p>
+<p>您的个人信息。任何本产品平台用户如从事上述活动，一经发现，本产品</p>
+<p>有权立即终止与该用户的服务协议。</p>
+<h2 id="三、权利义务"><a href="#三、权利义务" class="headerlink" title="三、权利义务"></a>三、权利义务</h2><h3 id="3-1-【关于收费】"><a href="#3-1-【关于收费】" class="headerlink" title="3.1 【关于收费】"></a>3.1 【关于收费】</h3><p>本服务是魔数计算器向您提供的免费服务，您可免费试用本服务任何内容，方可使用本服务。否则，您无权使用本服务。魔数计算器可能会根据本服务的整体规划，对本服务的收费标准、方式等进行修改和变更，前述修改、变更，魔数计算器将在相应服务页面进行通知或公告。如果您不同意上述修改、变更，则应停止使用本服务。否则，您的任何购买、登录、查看等使用行为，即视为您同意上述修改、变更。</p>
+<h3 id="3-2【服务开通】"><a href="#3-2【服务开通】" class="headerlink" title="3.2【服务开通】"></a>3.2【服务开通】</h3><p>您应该通过魔数计算器开通本服务。您承诺不得通过非魔数计算器指定途径或任何违反相关法规、违反本协议、不正当手段等开通、获取本服务。</p>
+<h3 id="3-3-【服务期限】"><a href="#3-3-【服务期限】" class="headerlink" title="3.3 【服务期限】"></a>3.3 【服务期限】</h3><p>本服务自您依约完成有效之日起生效。</p>
+<h3 id="3-4-【行为规范】"><a href="#3-4-【行为规范】" class="headerlink" title="3.4 【行为规范】"></a>3.4 【行为规范】</h3><h4 id="3-4-1【五不准】"><a href="#3-4-1【五不准】" class="headerlink" title="3.4.1【五不准】"></a>3.4.1【五不准】</h4><p>您在使用本服务时不得利用本服务从事以下行为，包括但不限于：</p>
+<p>（1）发布、传送、传播、储存违反国家法律、危害国家安全统一、社会稳定、公序良俗、社会公德以及侮辱、诽谤、淫秽、暴力的内容；</p>
+<p>（2）发布、传送、传播、储存侵害他人名誉权、肖像权、知识产权、商业秘密等合法权利的内容；</p>
+<p>（3）虚构事实、隐瞒真相以误导、欺骗他人；</p>
+<p>（4）发表、传送、传播广告信息及垃圾信息；</p>
+<p>（5）从事其他违反法律法规、政策及公序良俗、社会公德等的行为。</p>
+<h4 id="3-4-2【用户禁止行为】"><a href="#3-4-2【用户禁止行为】" class="headerlink" title="3.4.2【用户禁止行为】"></a>3.4.2【用户禁止行为】</h4><p>本服务仅供您个人使用，除非经魔数计算器书面许可，您不得进行以下行为：</p>
+<p>（1）通过任何方式搜集本服务中其他用户的用户名、电子邮件等相关信息，并以发送垃圾邮件、连锁邮件、垃圾短信、即时消息等方式干扰、骚扰其他用户；</p>
+<p>（2）通过本服务发布包含广告、宣传、促销等内容的信息；</p>
+<p>（3）将本服务转让许可他人使用；</p>
+<p>（4）其他未经魔数计算器书面许可的行为。</p>
+<h4 id="3-4-3【行为责任】"><a href="#3-4-3【行为责任】" class="headerlink" title="3.4.3【行为责任】"></a>3.4.3【行为责任】</h4><p>您充分了解并同意，您必须为自己使用魔数计算器下的一切行为负责，包括您所发表的任何内容以及由此产生的任何后果。您应对本服务中的内容自行加以判断，并承担因使用内容而引起的所有风险，包括因对内容的正确性、完整性或实用性的依赖而产生的风险。魔数计算器无法且不会对因前述风险而导致的任何损失或损害承担任何责任。</p>
+<h3 id="3-5【服务的变更、中止或终止】"><a href="#3-5【服务的变更、中止或终止】" class="headerlink" title="3.5【服务的变更、中止或终止】"></a>3.5【服务的变更、中止或终止】</h3><p>您充分了解并同意，由于互联网服务的特殊性，魔数计算器可以在不提前通知您的情况之下，根据本服务的整体规划，对本服务内容进行变更、中止或终止。</p>
+<h2 id="四、违约责任"><a href="#四、违约责任" class="headerlink" title="四、违约责任"></a>四、违约责任</h2><p>4.1 如果魔数计算器发现或收到他人举报您有违反本协议任何行为的，魔数计算器有权进行独立判断并采取技术手段予以删除、屏蔽或断开相关的信息。同时，魔数计算器有权视您的行为性质，对您采取包括但不限于暂停或终止部分或全部本服务、中止或终止您对账号的使用、追究法律责任等措施，而由此给您带来的损失（包括但不限于通信中断、相关数据清空、服务费用作为违约金而归魔数计算器所有等），由您自行承担，造成魔数计算器损失的，您也应予以赔偿。若魔数计算器依前述约定对您采取暂停或终止部分或全部本服务的，魔数计算器无需向您退还任何费用，剩余的服务费用，作为违约金而归魔数计算器所有。</p>
+<h3 id="4-2-【对第三方损害的处理】"><a href="#4-2-【对第三方损害的处理】" class="headerlink" title="4.2 【对第三方损害的处理】"></a>4.2 【对第三方损害的处理】</h3><p>您有违反本协议任何行为，导致任何第三方损害的，您应当独立承担责任；魔数计算器因此遭受损失的，您也应当一并赔偿。</p>
+<h3 id="4-3-【单方提前终止服务】"><a href="#4-3-【单方提前终止服务】" class="headerlink" title="4.3 【单方提前终止服务】"></a>4.3 【单方提前终止服务】</h3><p>您充分了解并同意，您在选择使用本服务后，若您在无任何法定或约定理由的情况之下，单方要求提前终止本服务的，魔数计算器无需向您退还任何费用，剩余的服务费用，作为违约金而归魔数计算器所有。</p>
+<h2 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h2><h3 id="5-1-【协议的生效与变更】"><a href="#5-1-【协议的生效与变更】" class="headerlink" title="5.1 【协议的生效与变更】"></a>5.1 【协议的生效与变更】</h3><p>您使用本服务即视为您已阅读并同意受本协议的约束。魔数计算器有权在必要时修改本协议条款。您可以在相关页面中查阅最新的协议条款。本协议条款变更后，如果您继续使用本服务，即视为您已接受修改后的协议。如果您不接受修改后的协议，应当停止使用本服务。</p>
+<h3 id="5-2-【协议签订地】"><a href="#5-2-【协议签订地】" class="headerlink" title="5.2 【协议签订地】"></a>5.2 【协议签订地】</h3><p>本协议签订地为中华人民共和国。</p>
+<h3 id="5-3-【适用法律】"><a href="#5-3-【适用法律】" class="headerlink" title="5.3 【适用法律】"></a>5.3 【适用法律】</h3><p>本协议的成立、生效、履行、解释及纠纷解决，适用中华人民共和国大陆地区法律（不包括冲突法）。</p>
+<h3 id="5-4-【争议解决】"><a href="#5-4-【争议解决】" class="headerlink" title="5.4 【争议解决】"></a>5.4 【争议解决】</h3><p>若您和魔数计算器之间发生任何纠纷或争议，首先应友好协商解决；协商不成的，您同意将纠纷或争议提交本协议签订地有管辖权的人民法院管辖。</p>
+<h3 id="5-5-【条款标题】"><a href="#5-5-【条款标题】" class="headerlink" title="5.5 【条款标题】"></a>5.5 【条款标题】</h3><p>本协议所有条款的标题仅为阅读方便，本身并无实际涵义，不能作为本协议涵义解释的依据。</p>
+<h3 id="5-6-【条款效力】"><a href="#5-6-【条款效力】" class="headerlink" title="5.6 【条款效力】"></a>5.6 【条款效力】</h3><p>本协议条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方仍具有约束力。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>如何安装iOS 13 beta版</title>
+    <url>/2019/06/14/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85iOS-13-beta%E7%89%88/</url>
+    <content><![CDATA[<p>最近，<a href="https://www.apple.com/cn/newsroom/2019/06/apple-previews-ios-13/">Apple发布iOS 13 预览版</a> 支持深色模式，优化了照片与相机功能，还有输入法的升级等。</p>
+<p>想尝鲜的同学可以参考本文进行升级。苹果系统每个版本的前几个beta版，都会有很多bug，因此心里面要有准备。如果想要新系统的开发做出贡献，可以使用Feedback反馈自己使用中遇到的bug，Feedback会在新系统安装后自动出现。</p>
+<p>升级前，请参照如下表格，查看机型是否支持新系统的安装。也可以去官网查看<a href="https://developer.apple.com/download/#ios-restore-images-ipad-new">苹果开发者官网</a></p>
+<table>
+<thead>
+<tr>
+<th align="center">iOS</th>
+<th align="center">iPad OS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">iPhone XS/XS Max</td>
+<td align="center">iPad Pro 12.9-inch/9.7-inch</td>
+</tr>
+<tr>
+<td align="center">iPhone XR</td>
+<td align="center">iPad Pro 10.5-inch</td>
+</tr>
+<tr>
+<td align="center">iPhone X</td>
+<td align="center">iPad Pro 12.9-inch 2nd/3rd</td>
+</tr>
+<tr>
+<td align="center">iPhone 8/8 Plus</td>
+<td align="center">iPad Pro 11-inch</td>
+</tr>
+<tr>
+<td align="center">iPhone 7/7 Plus</td>
+<td align="center">iPad Mini 4/5th</td>
+</tr>
+<tr>
+<td align="center">iPhone 6s/6s Plus</td>
+<td align="center">iPad 5th/6th</td>
+</tr>
+<tr>
+<td align="center">iPhone SE</td>
+<td align="center">iPad Air 2/3rd</td>
+</tr>
+<tr>
+<td align="center">iPod touch (7th generation)</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<h5 id="升级前准备"><a href="#升级前准备" class="headerlink" title="升级前准备"></a>升级前准备</h5><p>升级需要Mac电脑，以及符合上表中列出的设备。</p>
+<p>目前iOS13 Beta版还不支持使用OTA 文件辅助安装，因此只能手动下载安装包手动安装。</p>
+<h6 id="1-首先备份自己的设备数据。"><a href="#1-首先备份自己的设备数据。" class="headerlink" title="1.首先备份自己的设备数据。"></a>1.首先备份自己的设备数据。</h6><p>任何时候，数据保护是最重要的。因此，在升级之前，务必先备份自己的设备。</p>
+<h6 id="2-去苹果开发者官网下载与手机对应的安装包"><a href="#2-去苹果开发者官网下载与手机对应的安装包" class="headerlink" title="2.去苹果开发者官网下载与手机对应的安装包"></a>2.去<a href="%5Bhttps://developer.apple.com/download/#ios-restore-images-ipad-new%5D(https://developer.apple.com/download/#ios-restore-images-ipad-new">苹果开发者官网</a>下载与手机对应的安装包</h6><h5 id="升级安装"><a href="#升级安装" class="headerlink" title="升级安装"></a>升级安装</h5><p>安装之前，首先要升级Mac安装环境，目前有三种途径，以下任何一种都可以。</p>
+<ol start="2">
+<li><p>安装MacOS 10.15 Catalina beta</p>
+</li>
+<li><p>安装Xcode 11 beta，打开并安装好component</p>
+</li>
+<li><p>下载并安装<a href="%5Bhttp://alirezakhoddam.com/wwdc19/MobileDevice.pkg%5D(http://alirezakhoddam.com/wwdc19/MobileDevice.pkg">MobileDevice.pkg</a>，如果安装前已打开iTunes，请重启以下iTunes。</p>
+</li>
+</ol>
+<p>我使用的是第三种方法。</p>
+<p>然后打开 iTunes，把 iPhone / iPad 连接到 Mac，按住 Option，同时点击「检查更新」，选择下载好的固件，点击打开，进行安装。</p>
+<h5 id="恢复到iOS12"><a href="#恢复到iOS12" class="headerlink" title="恢复到iOS12"></a>恢复到iOS12</h5><p>下载最新的<a href="https://developer.apple.com/download/release/">iOS12系统固件</a>，然后用上面的安装步骤，使用iTunes进行安装即可。如果数据损坏，可以用之前的备份，进行恢复。</p>
+]]></content>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>魔数鸿蒙扫描</title>
     <url>/2025/01/16/%E9%AD%94%E6%95%B0%E9%B8%BF%E8%92%99%E6%89%AB%E6%8F%8F/</url>
     <content><![CDATA[<h1 id="魔数鸿蒙扫描"><a href="#魔数鸿蒙扫描" class="headerlink" title="魔数鸿蒙扫描"></a>魔数鸿蒙扫描</h1><p><a href="https://github.com/lengain/harmony_scan_tool">魔数鸿蒙扫描Git</a></p>
@@ -2463,45 +2502,6 @@
 <p>如果您在使用魔数鸿蒙扫描过程中遇到任何问题或建议，请随时联系我。您可以通过以下方式与我取得联系：</p>
 <p>• GitHub Issues<br>• 邮箱：<a href="mailto:lengain@yeah.net">lengain@yeah.net</a></p>
 <p>非常期待您的宝贵意见和反馈，将不断努力提升工具的性能和功能，为鸿蒙应用开发者提供更加全面、高效的服务。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>魔数计算器隐私政策</title>
-    <url>/2024/12/11/%E9%AD%94%E6%95%B0%E8%AE%A1%E7%AE%97%E5%99%A8%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96/</url>
-    <content><![CDATA[<h3 id="魔数计算器服务协议及隐私政策"><a href="#魔数计算器服务协议及隐私政策" class="headerlink" title="魔数计算器服务协议及隐私政策"></a>魔数计算器服务协议及隐私政策</h3><p>欢迎您使用魔数计算器！<br>为使用魔数计算器，您应当阅读并遵守《魔数计算器服务协议及隐私政策》（以下简称“本协议”）。请您务必审慎阅读、充分理解各条款内容，特别是免除或限制责任的相应条款，以及开通或使用某项服务的单独协议，您使用此服务即表示您接受本协议。限制或免除责任条款可能以加粗形式提示您注意。 除非您已阅读并接受本协议所有条款，否则您无权使用魔数计算器服务（以下简称“本服务”）。您对本服务的任何查看使用行为即视为您已阅读并同意本协议的约束。</p>
-<a id="more"></a>
-
-<h2 id="一、协议的范围"><a href="#一、协议的范围" class="headerlink" title="一、协议的范围"></a>一、协议的范围</h2><h3 id="1-1【协议适用主体范围】"><a href="#1-1【协议适用主体范围】" class="headerlink" title="1.1【协议适用主体范围】"></a>1.1【协议适用主体范围】</h3><p>本协议是您与魔数计算器之间关于您使用本服务所订立的协议。</p>
-<h3 id="1-2【本服务内容】"><a href="#1-2【本服务内容】" class="headerlink" title="1.2【本服务内容】"></a>1.2【本服务内容】</h3><p>本协议项下的服务是指魔数计算器向用户提供的服务（以下简称“本服务”）。本协议内容同时包括魔数计算器可能不断发布的关于本服务的相关协议、业务规则等内容。上述内容一经正式发布，即为本协议不可分割的组成部分，您同样应当遵守。</p>
-<h2 id="二、隐私政策"><a href="#二、隐私政策" class="headerlink" title="二、隐私政策"></a>二、隐私政策</h2><p>a）本产品不会采集您的个人信息。</p>
-<p>b）本产品亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播</p>
-<p>您的个人信息。任何本产品平台用户如从事上述活动，一经发现，本产品</p>
-<p>有权立即终止与该用户的服务协议。</p>
-<h2 id="三、权利义务"><a href="#三、权利义务" class="headerlink" title="三、权利义务"></a>三、权利义务</h2><h3 id="3-1-【关于收费】"><a href="#3-1-【关于收费】" class="headerlink" title="3.1 【关于收费】"></a>3.1 【关于收费】</h3><p>本服务是魔数计算器向您提供的免费服务，您可免费试用本服务任何内容，方可使用本服务。否则，您无权使用本服务。魔数计算器可能会根据本服务的整体规划，对本服务的收费标准、方式等进行修改和变更，前述修改、变更，魔数计算器将在相应服务页面进行通知或公告。如果您不同意上述修改、变更，则应停止使用本服务。否则，您的任何购买、登录、查看等使用行为，即视为您同意上述修改、变更。</p>
-<h3 id="3-2【服务开通】"><a href="#3-2【服务开通】" class="headerlink" title="3.2【服务开通】"></a>3.2【服务开通】</h3><p>您应该通过魔数计算器开通本服务。您承诺不得通过非魔数计算器指定途径或任何违反相关法规、违反本协议、不正当手段等开通、获取本服务。</p>
-<h3 id="3-3-【服务期限】"><a href="#3-3-【服务期限】" class="headerlink" title="3.3 【服务期限】"></a>3.3 【服务期限】</h3><p>本服务自您依约完成有效之日起生效。</p>
-<h3 id="3-4-【行为规范】"><a href="#3-4-【行为规范】" class="headerlink" title="3.4 【行为规范】"></a>3.4 【行为规范】</h3><h4 id="3-4-1【五不准】"><a href="#3-4-1【五不准】" class="headerlink" title="3.4.1【五不准】"></a>3.4.1【五不准】</h4><p>您在使用本服务时不得利用本服务从事以下行为，包括但不限于：</p>
-<p>（1）发布、传送、传播、储存违反国家法律、危害国家安全统一、社会稳定、公序良俗、社会公德以及侮辱、诽谤、淫秽、暴力的内容；</p>
-<p>（2）发布、传送、传播、储存侵害他人名誉权、肖像权、知识产权、商业秘密等合法权利的内容；</p>
-<p>（3）虚构事实、隐瞒真相以误导、欺骗他人；</p>
-<p>（4）发表、传送、传播广告信息及垃圾信息；</p>
-<p>（5）从事其他违反法律法规、政策及公序良俗、社会公德等的行为。</p>
-<h4 id="3-4-2【用户禁止行为】"><a href="#3-4-2【用户禁止行为】" class="headerlink" title="3.4.2【用户禁止行为】"></a>3.4.2【用户禁止行为】</h4><p>本服务仅供您个人使用，除非经魔数计算器书面许可，您不得进行以下行为：</p>
-<p>（1）通过任何方式搜集本服务中其他用户的用户名、电子邮件等相关信息，并以发送垃圾邮件、连锁邮件、垃圾短信、即时消息等方式干扰、骚扰其他用户；</p>
-<p>（2）通过本服务发布包含广告、宣传、促销等内容的信息；</p>
-<p>（3）将本服务转让许可他人使用；</p>
-<p>（4）其他未经魔数计算器书面许可的行为。</p>
-<h4 id="3-4-3【行为责任】"><a href="#3-4-3【行为责任】" class="headerlink" title="3.4.3【行为责任】"></a>3.4.3【行为责任】</h4><p>您充分了解并同意，您必须为自己使用魔数计算器下的一切行为负责，包括您所发表的任何内容以及由此产生的任何后果。您应对本服务中的内容自行加以判断，并承担因使用内容而引起的所有风险，包括因对内容的正确性、完整性或实用性的依赖而产生的风险。魔数计算器无法且不会对因前述风险而导致的任何损失或损害承担任何责任。</p>
-<h3 id="3-5【服务的变更、中止或终止】"><a href="#3-5【服务的变更、中止或终止】" class="headerlink" title="3.5【服务的变更、中止或终止】"></a>3.5【服务的变更、中止或终止】</h3><p>您充分了解并同意，由于互联网服务的特殊性，魔数计算器可以在不提前通知您的情况之下，根据本服务的整体规划，对本服务内容进行变更、中止或终止。</p>
-<h2 id="四、违约责任"><a href="#四、违约责任" class="headerlink" title="四、违约责任"></a>四、违约责任</h2><p>4.1 如果魔数计算器发现或收到他人举报您有违反本协议任何行为的，魔数计算器有权进行独立判断并采取技术手段予以删除、屏蔽或断开相关的信息。同时，魔数计算器有权视您的行为性质，对您采取包括但不限于暂停或终止部分或全部本服务、中止或终止您对账号的使用、追究法律责任等措施，而由此给您带来的损失（包括但不限于通信中断、相关数据清空、服务费用作为违约金而归魔数计算器所有等），由您自行承担，造成魔数计算器损失的，您也应予以赔偿。若魔数计算器依前述约定对您采取暂停或终止部分或全部本服务的，魔数计算器无需向您退还任何费用，剩余的服务费用，作为违约金而归魔数计算器所有。</p>
-<h3 id="4-2-【对第三方损害的处理】"><a href="#4-2-【对第三方损害的处理】" class="headerlink" title="4.2 【对第三方损害的处理】"></a>4.2 【对第三方损害的处理】</h3><p>您有违反本协议任何行为，导致任何第三方损害的，您应当独立承担责任；魔数计算器因此遭受损失的，您也应当一并赔偿。</p>
-<h3 id="4-3-【单方提前终止服务】"><a href="#4-3-【单方提前终止服务】" class="headerlink" title="4.3 【单方提前终止服务】"></a>4.3 【单方提前终止服务】</h3><p>您充分了解并同意，您在选择使用本服务后，若您在无任何法定或约定理由的情况之下，单方要求提前终止本服务的，魔数计算器无需向您退还任何费用，剩余的服务费用，作为违约金而归魔数计算器所有。</p>
-<h2 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h2><h3 id="5-1-【协议的生效与变更】"><a href="#5-1-【协议的生效与变更】" class="headerlink" title="5.1 【协议的生效与变更】"></a>5.1 【协议的生效与变更】</h3><p>您使用本服务即视为您已阅读并同意受本协议的约束。魔数计算器有权在必要时修改本协议条款。您可以在相关页面中查阅最新的协议条款。本协议条款变更后，如果您继续使用本服务，即视为您已接受修改后的协议。如果您不接受修改后的协议，应当停止使用本服务。</p>
-<h3 id="5-2-【协议签订地】"><a href="#5-2-【协议签订地】" class="headerlink" title="5.2 【协议签订地】"></a>5.2 【协议签订地】</h3><p>本协议签订地为中华人民共和国。</p>
-<h3 id="5-3-【适用法律】"><a href="#5-3-【适用法律】" class="headerlink" title="5.3 【适用法律】"></a>5.3 【适用法律】</h3><p>本协议的成立、生效、履行、解释及纠纷解决，适用中华人民共和国大陆地区法律（不包括冲突法）。</p>
-<h3 id="5-4-【争议解决】"><a href="#5-4-【争议解决】" class="headerlink" title="5.4 【争议解决】"></a>5.4 【争议解决】</h3><p>若您和魔数计算器之间发生任何纠纷或争议，首先应友好协商解决；协商不成的，您同意将纠纷或争议提交本协议签订地有管辖权的人民法院管辖。</p>
-<h3 id="5-5-【条款标题】"><a href="#5-5-【条款标题】" class="headerlink" title="5.5 【条款标题】"></a>5.5 【条款标题】</h3><p>本协议所有条款的标题仅为阅读方便，本身并无实际涵义，不能作为本协议涵义解释的依据。</p>
-<h3 id="5-6-【条款效力】"><a href="#5-6-【条款效力】" class="headerlink" title="5.6 【条款效力】"></a>5.6 【条款效力】</h3><p>本协议条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方仍具有约束力。</p>
 ]]></content>
   </entry>
 </search>
