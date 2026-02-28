@@ -159,6 +159,72 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2023/12/11/Ruby%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84!%E5%92%8C?/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/12/11/Ruby%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84!%E5%92%8C?/" class="post-title-link" itemprop="url">Ruby方法中的!和?</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-11 20:26:24" itemprop="dateCreated datePublished" datetime="2023-12-11T20:26:24+08:00">2023-12-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="方法名后缀为”-”的方法"><a href="#方法名后缀为”-”的方法" class="headerlink" title="方法名后缀为”!”的方法"></a>方法名后缀为”!”的方法</h5><p>在Ruby中，方法名后缀为”!”的方法通常表示该方法会修改调用它的对象。这种约定起源于Smalltalk语言，在Ruby中广泛使用。</p>
+<p>当一个方法后面带有”!”符号时，这个方法通常会修改调用它的对象的状态。例如，如果我们对一个数组调用<code>sort!</code>方法，这个方法会对数组进行排序，并返回排序后的数组，而原始数组将被修改。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/12/11/Ruby%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84!%E5%92%8C?/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2023/08/18/%E6%8D%A2%E4%BA%86%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -759,74 +825,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2020/07/22/%E6%B1%87%E7%BC%96%EF%BC%9A%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Lengain">
-      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时光地下铁">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/22/%E6%B1%87%E7%BC%96%EF%BC%9A%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">汇编：显示字符串</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-22 10:05:31" itemprop="dateCreated datePublished" datetime="2020-07-22T10:05:31+08:00">2020-07-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>8086汇编中，有一道在屏幕上显示字符串的子程序。因为好久没做汇编题了，花了两个多小时，这里记录一下做的过程。<br>题目是这样的：</p>
-<blockquote>
-<p>显示字符串是现实工作中经常要用到的功能， 应该编写一个通用的子程序来实现这个功能。我们应该提供灵活的调用接口，使调用者可以决定显示的位置（行、列）、内容和颜色。<br>子程序描述<br>名称： show_str<br>功能： 在指定的位置，用指定的颜色，显示一个用0结束的字符串。<br>参数： （dh)＝ 行号（取值范围0<del>24), (di)＝ 列号（取值范围0</del>79)<br>(cl)＝颜色， ds:si指向字符串的首地址<br>返回： 无</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/22/%E6%B1%87%E7%BC%96%EF%BC%9A%E6%98%BE%E7%A4%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -898,7 +896,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
