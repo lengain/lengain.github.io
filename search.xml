@@ -16,126 +16,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Mac Pro 2015 硬盘扩容升级参考</title>
-    <url>/2019/04/24/Mac%20Pro%202015%E7%A1%AC%E7%9B%98%E6%89%A9%E5%AE%B9%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>前几天升级了我的Mac Pro硬盘，也查找了一下资料，现在写下来，如果你想对你的Mac进行升级，这也许能给你一些参考。</p>
-<a id="more"></a>
-
-<h4 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h4><blockquote>
-<h6 id="我的Mac信息"><a href="#我的Mac信息" class="headerlink" title="我的Mac信息"></a>我的Mac信息</h6><p>配置：Mac Pro 2015 13英寸</p>
-<p>型号：A1502</p>
-<p>内存：8G</p>
-<p>硬盘：128G Apple SSD</p>
-</blockquote>
-<p>我是2015年下半年买的这款Mac，如今19年四月份，已经将近四年了，电脑一般的寿命是五年左右，超过五年的电脑，一般都有各种元器件老化的问题，要换零件才能继续使用。我这电脑坚挺了近四年，没有坏过一次。想着明年准备换台新电脑，在换电脑以前，也想让它发挥一下余热。我这款Mac的硬盘是128G，作为iOSer，Xcode的一个软件，占用将近60G左右，还不包扩各种工程文件，其他软件。所以，内存紧张的问题困扰我也有一段时间了，因此这次准备换一下硬盘，将硬盘升级到512G。</p>
-<p>其实也想加一个内存条，但是这款Mac的内存条已经焊接在主板上了，增加有点难度，需要专业人员才行，因此只能作罢。</p>
-<h4 id="资料整理"><a href="#资料整理" class="headerlink" title="资料整理"></a>资料整理</h4><p>硬盘的选择还是综合下价格和性能的考虑。</p>
-<ul>
-<li><p>最优的是原装配件的Apple SSD，厂家是三星的。512G硬盘的淘宝价格大概1800软妹币。支持双系统。</p>
-</li>
-<li><p>东芝XG5 M.2 PCIE NVMe M2系列固态硬盘，512G硬盘价格大概在1100软妹币。支持双系统（<a href="[https://bbs.feng.com/read-htm-tid-11795599.html](https://bbs.feng.com/read-htm-tid-11795599.html">案例</a>）。需要硬盘转接卡。</p>
-</li>
-<li><p>三星SM951 PCIE NVMe M2系列固态硬盘，512G硬盘大概750软妹币左右。论坛有人说不支持双系统。需要硬盘转接卡。</p>
-</li>
-<li><p>Intel 760P PCIE NVMe M2系列固态硬盘。512G硬盘大概600软妹币左右。论坛有人说不支持双系统。需要硬盘转接卡。</p>
-</li>
-<li><p>其他NVME硬盘也可以。但是尽量选择大厂硬盘，质量有所保障。</p>
-</li>
-</ul>
-<p>我不需要安装双系统，东芝XG5，三星951和英特尔760P性能相差不大，我对三星无感，因此选择了Intel 760P。</p>
-<p>因为Apple SSD硬盘卡接口和NVMe硬盘卡接口不一致，所以只能使用硬盘转接卡。英特尔760P装上硬盘转接卡后，长度和Apple SSD一样。</p>
-<p>我在买硬盘转接卡的时候，看到商品详情里表明了一些可以更换硬盘的mac版本，如下：</p>
-<blockquote>
-<p>2013 version MacBook Pro retina A1398 A1502 (ME864 ME865 ME866 ME293 ME294)</p>
-<p>2014 version MacBook Pro retina A1502 A1398 (MGX72 MGX82 MGX92 MGXA2 MGXC2)</p>
-<p>2015 version MacBook Pro retina A1502 A1398(MF839 MF840 MF841 MJLU2 MJLT2 MJLQ2)</p>
-<p>2013-2014 version MacBook Air A1465 A1466(MD711 MD712 MD760 MD761)</p>
-<p>2015 version MacBook Air A1465 A1466(MJVM2 MJVP2 MJVE2 MJVG2)</p>
-<p>2017 version MacBook Air A1466(MQD32 MQD42 MQD52 EMC3178)</p>
-<p>Mac Pro ME253 MD878,iMAC A1419(Late 2013 and newer).</p>
-<p>2014版Mac mini A1347</p>
-<p>2013版苹果一体机iMAC A1418</p>
-<p>2017版iMAC A1418</p>
-<p>2013 2014 2015 1016 2017版27寸iMAC A1419</p>
-</blockquote>
-<h4 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h4><h6 id="1-最优方案"><a href="#1-最优方案" class="headerlink" title="1.最优方案"></a>1.最优方案</h6><ol>
-<li>使用<code>TimeMachine</code>备份到新硬盘作为备份盘。备份盘可以选择机械硬盘，没有太高的要求，空间只要比电脑已使用空间大一些就行。备份盘格式为Mac os 扩展(日志式)，如果不是，可以打开磁盘工具，抹掉重新格式化一下，然后再使用<code>TimeMachine</code>备份到磁盘。</li>
-<li>将新的SSD放到硬盘盒，然后连接电脑，格式化，格式为Mac os 扩展(日志式)，名字建议改为<code>Macintosh</code>,因为原系统的硬盘名字为<code>Macintosh HD</code>，其实新硬盘名字和旧的一样也行。</li>
-<li>备份盘也连接电脑，重启Mac，按住option，稍等片刻，选择备份盘，然后将备份恢复到新硬盘就行了。</li>
-<li>然后更换新SSD到Mac上就行了。</li>
-</ol>
-<p>优点：操作简单，数据不会丢失，软件不需要重装。</p>
-<h6 id="2-第二方案"><a href="#2-第二方案" class="headerlink" title="2.第二方案"></a>2.第二方案</h6><ol>
-<li><p>下载macOS Mojave或macOS Sierra安装包（下面有下载地址），打开dmg镜像，将安装程序，拖到应用程序文件夹，准备一个大于安装包大小的U盘，16就足够了。格式化为Mac os 扩展(日志式)，然后看这个教程<a href="https://www.iplaysoft.com/macos-usb-install-drive.html">https://www.iplaysoft.com/macos-usb-install-drive.html</a>，将优盘制作成启动盘，教程最下面，也有安装办法，只不过，安装的话，要安装到新硬盘上。</p>
-</li>
-<li><p>将新的SSD放到硬盘盒，然后连接电脑，格式化，格式为Mac os 扩展(日志式)，名字建议改为<code>Macintosh</code>,因为原系统的硬盘名字为<code>Macintosh HD</code>，其实新硬盘名字和旧的一样也行。</p>
-</li>
-<li><p>将启动U盘和新SSD一同连接电脑，重启Mac，按住option，稍等片刻，等到启动U盘和新SSD都出现后，选择启动U盘，将系统安装到新SSD上。</p>
-</li>
-<li><p>然后更换新SSD到Mac上就行了。</p>
-</li>
-</ol>
-<p>优点：启动优盘制作后，以后可以一直用。新系统全新，相当于换了一个新电脑。缺点就是所有东西都要重新安装。</p>
-<h6 id="3-第三方案"><a href="#3-第三方案" class="headerlink" title="3.第三方案"></a>3.第三方案</h6><ol>
-<li><p>将新的SSD放到硬盘盒，然后连接电脑，格式化，格式为Mac os 扩展(日志式)，名字建议改为<code>Macintosh</code>,因为原系统的硬盘名字为<code>Macintosh HD</code>，其实新硬盘名字和旧的一样也行。</p>
-</li>
-<li><p>下载macOS Mojave或macOS Sierra安装包（下面有下载地址），打开dmg镜像，直接打开安装程序，启动安装，安装到新SSD。</p>
-</li>
-<li><p>然后更换新SSD到Mac上就行了。</p>
-</li>
-</ol>
-<p>优点：操作简单，一次性。缺点和第二方案一样。</p>
-<p>安装成功之后，可以首先升级一下系统到最新版本。</p>
-<p>我选择的是第三方案，强烈建议安装前，使用备份盘，备份一下原电脑。谁知道我为啥没有备份，安装之前用的所有程序都花了我一天时间。</p>
-<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><h6 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h6><p>我的更换的过程主要是参考网友<code>late哥哥</code>的<a href="https://blog.csdn.net/qq_28029345/article/details/85262542">MacBook Pro 2015 mid ssd存储升级扩容需求以及解决方案</a></p>
-<p>Mac OS最近几年的版本，都不支持安装包的直接下载，而是直接调起App Store，因此只能在网上找资源了，据说可以从<code>MAS</code>下载系统安装包。这是我找到的一个Install macOS Mojave 10.14的下载地址，直接打开安装，或者制作启动U盘安装，都可以。</p>
-<p>Install macOS Mojave 10.14.dmg软件下载<a href="https://pan.baidu.com/s/1Tz86rXPTLjaHid1tsPx_MA">https://pan.baidu.com/s/1Tz86rXPTLjaHid1tsPx_MA</a>密码<code>d5n2</code></p>
-<h6 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h6><ol>
-<li><p>硬盘。选择合适的硬盘，512G或1T SSD硬盘卡。</p>
-</li>
-<li><p>拆机工具。如果只更换硬盘的话，只需要准备5星和6星的螺丝刀。五星螺丝刀用来拆Mac后壳，六星螺丝刀用来拆硬盘。<strong>注意：</strong>拆卸时，螺丝刀顺时针是拧紧，逆时针是拆下。切记不可太过用力，容易损坏螺丝。</p>
-</li>
-<li><p>Mac SSD或NVMe硬盘盒。用硬盘盒的目的就是在更换硬盘之前，将mac os安装到硬盘上，这样，换过硬盘就直接能使用了。</p>
-</li>
-<li><p>NVMe M.2转mac ssd转接卡。如果你买的是Mac SSD就无需转接卡了。转接卡淘宝有卖。</p>
-</li>
-<li><p>静电手环。非必须。</p>
-</li>
-</ol>
-<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
-<li><p>根据所选方案，将新系统安装到新硬盘。</p>
-</li>
-<li><p>拆卸Mac。断开电源，关机电脑。有静电手环的可以带上。使用螺丝刀拆卸Mac后壳，一般是五星螺丝刀，注意，因为Mac后壳的螺丝钉并不是全都一样，最好对每个位置编个号，然后各个位置的螺丝钉放到编号位置上，这样后壳安装时，还可以使用之前位置的螺丝钉，这样不会搞错。</p>
-</li>
-<li><p>螺丝钉拆除后，后壳会有活的卡扣卡着，稍微使点劲儿，就可以把Mac后壳掰下来，不用怕掰坏。</p>
-</li>
-<li><p>更换硬盘。使用螺丝刀，这时应该是六星螺丝刀，拆掉螺丝钉。然后，小心翼翼，拔出原装硬盘，然后将安装好系统的新硬盘，安装到电脑上。这里我找到一个<a href="https://cloud.video.taobao.com/play/u/2551849822/p/2/e/6/t/1/221280457504.mp4?appKey=7596">更换视频</a>，可以观看一下。</p>
-</li>
-<li><p>更换好硬盘后，先合上后盖，开机，确认硬盘可用后，再关机，安装螺丝钉。如果开机不可用，换回原装硬盘，合上后壳，开机，再次尝试其他方法。</p>
-</li>
-</ol>
-<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><h6 id="1-重新启动加载或休眠问题"><a href="#1-重新启动加载或休眠问题" class="headerlink" title="1.重新启动加载或休眠问题"></a>1.重新启动加载或休眠问题</h6><p>如果遇到翻盖启动时，重新启动加载或休眠问题，可以试试重置了smc或nvram。</p>
-<p>重置smc：关机，按下键盘左侧的shift + control +  option，然后同时按下电源按钮，按住10秒钟，松开所有案件，然后重启。</p>
-<p>nvram（pram）：将mac关机，然后按下 option + command + p + r ，按住大约20秒松开，期间大致会重启两次，然后松开。</p>
-<h6 id="2-安装系统后，升级到最新版本一直报错，失败的问题"><a href="#2-安装系统后，升级到最新版本一直报错，失败的问题" class="headerlink" title="2.安装系统后，升级到最新版本一直报错，失败的问题"></a>2.安装系统后，升级到最新版本一直报错，失败的问题</h6><p>如果在升级到最新版本时一直报错，导致无法升级。请按照以下指示，再次重装系统试试。</p>
-<ol>
-<li><p>在 Mac 上，选取苹果菜单<code>重新启动</code>。</p>
-</li>
-<li><p>在 Mac 重新启动时立即执行以下操作：</p>
-<p>从电脑上的内建恢复磁盘中重新安装 macOS：*按住 Command-R 直到“实用工具”窗口出现。</p>
-<p>此选项将重新安装储存在您电脑内建恢复磁盘中的 macOS 版本以及您已安装的任何更新。</p>
-</li>
-<li><p>选择“重新安装 macOS”，然后点按“继续”。</p>
-</li>
-<li><p>请按照屏幕指示进行操作。在您选择磁盘的面板中，选择您当前的 macOS 磁盘。</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>8086汇编常用知识手册</title>
     <url>/2020/08/07/8086%E6%B1%87%E7%BC%96%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/</url>
     <content><![CDATA[<p>8086 16位CPU 80386 32位CPU（王爽 《汇编语言》）<br>AT&amp;T汇编（Mac，iOS模拟器）<br>ARM汇编 （嵌入式，iOS设备）</p>
@@ -357,6 +237,126 @@
 ]]></content>
       <tags>
         <tag>汇编</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac Pro 2015 硬盘扩容升级参考</title>
+    <url>/2019/04/24/Mac%20Pro%202015%E7%A1%AC%E7%9B%98%E6%89%A9%E5%AE%B9%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>前几天升级了我的Mac Pro硬盘，也查找了一下资料，现在写下来，如果你想对你的Mac进行升级，这也许能给你一些参考。</p>
+<a id="more"></a>
+
+<h4 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h4><blockquote>
+<h6 id="我的Mac信息"><a href="#我的Mac信息" class="headerlink" title="我的Mac信息"></a>我的Mac信息</h6><p>配置：Mac Pro 2015 13英寸</p>
+<p>型号：A1502</p>
+<p>内存：8G</p>
+<p>硬盘：128G Apple SSD</p>
+</blockquote>
+<p>我是2015年下半年买的这款Mac，如今19年四月份，已经将近四年了，电脑一般的寿命是五年左右，超过五年的电脑，一般都有各种元器件老化的问题，要换零件才能继续使用。我这电脑坚挺了近四年，没有坏过一次。想着明年准备换台新电脑，在换电脑以前，也想让它发挥一下余热。我这款Mac的硬盘是128G，作为iOSer，Xcode的一个软件，占用将近60G左右，还不包扩各种工程文件，其他软件。所以，内存紧张的问题困扰我也有一段时间了，因此这次准备换一下硬盘，将硬盘升级到512G。</p>
+<p>其实也想加一个内存条，但是这款Mac的内存条已经焊接在主板上了，增加有点难度，需要专业人员才行，因此只能作罢。</p>
+<h4 id="资料整理"><a href="#资料整理" class="headerlink" title="资料整理"></a>资料整理</h4><p>硬盘的选择还是综合下价格和性能的考虑。</p>
+<ul>
+<li><p>最优的是原装配件的Apple SSD，厂家是三星的。512G硬盘的淘宝价格大概1800软妹币。支持双系统。</p>
+</li>
+<li><p>东芝XG5 M.2 PCIE NVMe M2系列固态硬盘，512G硬盘价格大概在1100软妹币。支持双系统（<a href="[https://bbs.feng.com/read-htm-tid-11795599.html](https://bbs.feng.com/read-htm-tid-11795599.html">案例</a>）。需要硬盘转接卡。</p>
+</li>
+<li><p>三星SM951 PCIE NVMe M2系列固态硬盘，512G硬盘大概750软妹币左右。论坛有人说不支持双系统。需要硬盘转接卡。</p>
+</li>
+<li><p>Intel 760P PCIE NVMe M2系列固态硬盘。512G硬盘大概600软妹币左右。论坛有人说不支持双系统。需要硬盘转接卡。</p>
+</li>
+<li><p>其他NVME硬盘也可以。但是尽量选择大厂硬盘，质量有所保障。</p>
+</li>
+</ul>
+<p>我不需要安装双系统，东芝XG5，三星951和英特尔760P性能相差不大，我对三星无感，因此选择了Intel 760P。</p>
+<p>因为Apple SSD硬盘卡接口和NVMe硬盘卡接口不一致，所以只能使用硬盘转接卡。英特尔760P装上硬盘转接卡后，长度和Apple SSD一样。</p>
+<p>我在买硬盘转接卡的时候，看到商品详情里表明了一些可以更换硬盘的mac版本，如下：</p>
+<blockquote>
+<p>2013 version MacBook Pro retina A1398 A1502 (ME864 ME865 ME866 ME293 ME294)</p>
+<p>2014 version MacBook Pro retina A1502 A1398 (MGX72 MGX82 MGX92 MGXA2 MGXC2)</p>
+<p>2015 version MacBook Pro retina A1502 A1398(MF839 MF840 MF841 MJLU2 MJLT2 MJLQ2)</p>
+<p>2013-2014 version MacBook Air A1465 A1466(MD711 MD712 MD760 MD761)</p>
+<p>2015 version MacBook Air A1465 A1466(MJVM2 MJVP2 MJVE2 MJVG2)</p>
+<p>2017 version MacBook Air A1466(MQD32 MQD42 MQD52 EMC3178)</p>
+<p>Mac Pro ME253 MD878,iMAC A1419(Late 2013 and newer).</p>
+<p>2014版Mac mini A1347</p>
+<p>2013版苹果一体机iMAC A1418</p>
+<p>2017版iMAC A1418</p>
+<p>2013 2014 2015 1016 2017版27寸iMAC A1419</p>
+</blockquote>
+<h4 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h4><h6 id="1-最优方案"><a href="#1-最优方案" class="headerlink" title="1.最优方案"></a>1.最优方案</h6><ol>
+<li>使用<code>TimeMachine</code>备份到新硬盘作为备份盘。备份盘可以选择机械硬盘，没有太高的要求，空间只要比电脑已使用空间大一些就行。备份盘格式为Mac os 扩展(日志式)，如果不是，可以打开磁盘工具，抹掉重新格式化一下，然后再使用<code>TimeMachine</code>备份到磁盘。</li>
+<li>将新的SSD放到硬盘盒，然后连接电脑，格式化，格式为Mac os 扩展(日志式)，名字建议改为<code>Macintosh</code>,因为原系统的硬盘名字为<code>Macintosh HD</code>，其实新硬盘名字和旧的一样也行。</li>
+<li>备份盘也连接电脑，重启Mac，按住option，稍等片刻，选择备份盘，然后将备份恢复到新硬盘就行了。</li>
+<li>然后更换新SSD到Mac上就行了。</li>
+</ol>
+<p>优点：操作简单，数据不会丢失，软件不需要重装。</p>
+<h6 id="2-第二方案"><a href="#2-第二方案" class="headerlink" title="2.第二方案"></a>2.第二方案</h6><ol>
+<li><p>下载macOS Mojave或macOS Sierra安装包（下面有下载地址），打开dmg镜像，将安装程序，拖到应用程序文件夹，准备一个大于安装包大小的U盘，16就足够了。格式化为Mac os 扩展(日志式)，然后看这个教程<a href="https://www.iplaysoft.com/macos-usb-install-drive.html">https://www.iplaysoft.com/macos-usb-install-drive.html</a>，将优盘制作成启动盘，教程最下面，也有安装办法，只不过，安装的话，要安装到新硬盘上。</p>
+</li>
+<li><p>将新的SSD放到硬盘盒，然后连接电脑，格式化，格式为Mac os 扩展(日志式)，名字建议改为<code>Macintosh</code>,因为原系统的硬盘名字为<code>Macintosh HD</code>，其实新硬盘名字和旧的一样也行。</p>
+</li>
+<li><p>将启动U盘和新SSD一同连接电脑，重启Mac，按住option，稍等片刻，等到启动U盘和新SSD都出现后，选择启动U盘，将系统安装到新SSD上。</p>
+</li>
+<li><p>然后更换新SSD到Mac上就行了。</p>
+</li>
+</ol>
+<p>优点：启动优盘制作后，以后可以一直用。新系统全新，相当于换了一个新电脑。缺点就是所有东西都要重新安装。</p>
+<h6 id="3-第三方案"><a href="#3-第三方案" class="headerlink" title="3.第三方案"></a>3.第三方案</h6><ol>
+<li><p>将新的SSD放到硬盘盒，然后连接电脑，格式化，格式为Mac os 扩展(日志式)，名字建议改为<code>Macintosh</code>,因为原系统的硬盘名字为<code>Macintosh HD</code>，其实新硬盘名字和旧的一样也行。</p>
+</li>
+<li><p>下载macOS Mojave或macOS Sierra安装包（下面有下载地址），打开dmg镜像，直接打开安装程序，启动安装，安装到新SSD。</p>
+</li>
+<li><p>然后更换新SSD到Mac上就行了。</p>
+</li>
+</ol>
+<p>优点：操作简单，一次性。缺点和第二方案一样。</p>
+<p>安装成功之后，可以首先升级一下系统到最新版本。</p>
+<p>我选择的是第三方案，强烈建议安装前，使用备份盘，备份一下原电脑。谁知道我为啥没有备份，安装之前用的所有程序都花了我一天时间。</p>
+<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><h6 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h6><p>我的更换的过程主要是参考网友<code>late哥哥</code>的<a href="https://blog.csdn.net/qq_28029345/article/details/85262542">MacBook Pro 2015 mid ssd存储升级扩容需求以及解决方案</a></p>
+<p>Mac OS最近几年的版本，都不支持安装包的直接下载，而是直接调起App Store，因此只能在网上找资源了，据说可以从<code>MAS</code>下载系统安装包。这是我找到的一个Install macOS Mojave 10.14的下载地址，直接打开安装，或者制作启动U盘安装，都可以。</p>
+<p>Install macOS Mojave 10.14.dmg软件下载<a href="https://pan.baidu.com/s/1Tz86rXPTLjaHid1tsPx_MA">https://pan.baidu.com/s/1Tz86rXPTLjaHid1tsPx_MA</a>密码<code>d5n2</code></p>
+<h6 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h6><ol>
+<li><p>硬盘。选择合适的硬盘，512G或1T SSD硬盘卡。</p>
+</li>
+<li><p>拆机工具。如果只更换硬盘的话，只需要准备5星和6星的螺丝刀。五星螺丝刀用来拆Mac后壳，六星螺丝刀用来拆硬盘。<strong>注意：</strong>拆卸时，螺丝刀顺时针是拧紧，逆时针是拆下。切记不可太过用力，容易损坏螺丝。</p>
+</li>
+<li><p>Mac SSD或NVMe硬盘盒。用硬盘盒的目的就是在更换硬盘之前，将mac os安装到硬盘上，这样，换过硬盘就直接能使用了。</p>
+</li>
+<li><p>NVMe M.2转mac ssd转接卡。如果你买的是Mac SSD就无需转接卡了。转接卡淘宝有卖。</p>
+</li>
+<li><p>静电手环。非必须。</p>
+</li>
+</ol>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
+<li><p>根据所选方案，将新系统安装到新硬盘。</p>
+</li>
+<li><p>拆卸Mac。断开电源，关机电脑。有静电手环的可以带上。使用螺丝刀拆卸Mac后壳，一般是五星螺丝刀，注意，因为Mac后壳的螺丝钉并不是全都一样，最好对每个位置编个号，然后各个位置的螺丝钉放到编号位置上，这样后壳安装时，还可以使用之前位置的螺丝钉，这样不会搞错。</p>
+</li>
+<li><p>螺丝钉拆除后，后壳会有活的卡扣卡着，稍微使点劲儿，就可以把Mac后壳掰下来，不用怕掰坏。</p>
+</li>
+<li><p>更换硬盘。使用螺丝刀，这时应该是六星螺丝刀，拆掉螺丝钉。然后，小心翼翼，拔出原装硬盘，然后将安装好系统的新硬盘，安装到电脑上。这里我找到一个<a href="https://cloud.video.taobao.com/play/u/2551849822/p/2/e/6/t/1/221280457504.mp4?appKey=7596">更换视频</a>，可以观看一下。</p>
+</li>
+<li><p>更换好硬盘后，先合上后盖，开机，确认硬盘可用后，再关机，安装螺丝钉。如果开机不可用，换回原装硬盘，合上后壳，开机，再次尝试其他方法。</p>
+</li>
+</ol>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><h6 id="1-重新启动加载或休眠问题"><a href="#1-重新启动加载或休眠问题" class="headerlink" title="1.重新启动加载或休眠问题"></a>1.重新启动加载或休眠问题</h6><p>如果遇到翻盖启动时，重新启动加载或休眠问题，可以试试重置了smc或nvram。</p>
+<p>重置smc：关机，按下键盘左侧的shift + control +  option，然后同时按下电源按钮，按住10秒钟，松开所有案件，然后重启。</p>
+<p>nvram（pram）：将mac关机，然后按下 option + command + p + r ，按住大约20秒松开，期间大致会重启两次，然后松开。</p>
+<h6 id="2-安装系统后，升级到最新版本一直报错，失败的问题"><a href="#2-安装系统后，升级到最新版本一直报错，失败的问题" class="headerlink" title="2.安装系统后，升级到最新版本一直报错，失败的问题"></a>2.安装系统后，升级到最新版本一直报错，失败的问题</h6><p>如果在升级到最新版本时一直报错，导致无法升级。请按照以下指示，再次重装系统试试。</p>
+<ol>
+<li><p>在 Mac 上，选取苹果菜单<code>重新启动</code>。</p>
+</li>
+<li><p>在 Mac 重新启动时立即执行以下操作：</p>
+<p>从电脑上的内建恢复磁盘中重新安装 macOS：*按住 Command-R 直到“实用工具”窗口出现。</p>
+<p>此选项将重新安装储存在您电脑内建恢复磁盘中的 macOS 版本以及您已安装的任何更新。</p>
+</li>
+<li><p>选择“重新安装 macOS”，然后点按“继续”。</p>
+</li>
+<li><p>请按照屏幕指示进行操作。在您选择磁盘的面板中，选择您当前的 macOS 磁盘。</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -2171,91 +2171,6 @@
       </tags>
   </entry>
   <entry>
-    <title>给设计师，产品经理的iOS UI介绍</title>
-    <url>/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<p>iOS为一名iOS开发者，在日常工作中常常会遇到设计师，产品经理犯一些常识性的错误，令人啼笑皆非。有些扯皮，因为没有共识，浪费了很多时间。部分设计师和产品经理对iOS系统的理解停留在表面。我这篇分享，将从程序员的角度带你去认识一下iOS系统的UI。</p>
-<p>读完之后的目标：</p>
-<ul>
-<li><p>认识iOS操作系统中大部分系统控件的UI</p>
-</li>
-<li><p>理解iOS开发中视图组织的内部逻辑</p>
-</li>
-<li><p>一些常识</p>
-</li>
-<li><p>一些设计资源的分享</p>
-</li>
-</ul>
-<a id="more"></a>
-
-<h3 id="UIKit"><a href="#UIKit" class="headerlink" title="UIKit"></a>UIKit</h3><p>iOS系统中，用于显示界面的UI库叫<code>UIKit</code>，<code>UIKit</code>中有丰富的UI控件帮助开发者快速的构建美观，功能丰富，符合苹果设计规范的UI界面。</p>
-<p>苹果官方写了一个App，用来展示UIKit中的组件，这里是<a href="https://developer.apple.com/documentation/uikit/mac_catalyst/uikit_catalog_creating_and_customizing_views_and_controls">地址</a>，如果地址失效了，请用关键字<code>Apple UIKitCatalog</code>搜索。有条件的可以自己在Mac电脑上下载Xcode软件，连接电脑安装。也可以自己找iOS开发的程序猿来帮你安装到手机上。</p>
-<p>下面的分享中，我将使用这个App中的截图，来介绍UIKit中控件。</p>
-<p>我的手机的iOS系统版本是<code>iOS14.0.1</code></p>
-<h5 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a>UIView</h5><p><code>UIView</code>是UIKit中最基础的控件，所有其他控件都是继承于UIView。UIView相当于ps中的一个画板，即可以作为一个容器，放置其他控件视图，又可以单独当做一个空间使用。</p>
-<p>UIView有以下属性：</p>
-<ul>
-<li><p>大小、位置、背景颜色、是否隐藏</p>
-</li>
-<li><p>圆角、阴影</p>
-</li>
-<li><p>手势触控（点击，滑动，拖动，捏合，长按）</p>
-</li>
-</ul>
-<p>同样的，继承UIView的其他视图也都是有这些属性的。</p>
-<p>下图即是一个iOS App的首页。它的可见部分全部都是由UIView及其子类控件组成的。各种控件大大小小相互嵌套就组成了各种页面。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/snapshot2020-09-30.png" alt></p>
-<h5 id="各种控件"><a href="#各种控件" class="headerlink" title="各种控件"></a>各种控件</h5><p>以下控件都是继承于UIView，即UIView有的属性，它们也都有，同时它们也有UIView没有的特性。</p>
-<p><strong>UIButton</strong></p>
-<p><code>UIButton</code>为按钮控件，常用于点击事件。按钮可设置图片和文本。按钮是一种可设置状态的控件。比如普通状态(normal)，选中状态(selected)，高亮状态(highlighted)，禁用状态(disabled)等，开发者可以为按钮的每个状态设置不同的图片和文本。</p>
-<p>下图左侧Buttons展示了各种按钮，其中标明System为系统图标。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/1.png" alt="1"></p>
-<p><strong>UIPageControl</strong></p>
-<p><code>UIPageControl</code>为页码控制器，通常用于指示轮播图的位置，控制器的指示视图默认为圆点。开发者可自定义页码控制器上指示视图（即上图中页面Page Control，小圆点）的图片。上图右侧图Custom Page Control为自定义指示视图的页面。</p>
-<p><strong>UISearchBar</strong></p>
-<p><code>UISearchBar</code>为搜索框， 下图Default Search Bar中展示的即是。搜索框可自定义搜索图标🔍的图片，以及文本的字体大小颜色，取消按钮的文本，样式等，Scope范围的设置为可选项。</p>
-<p>UISearchBar和列表视图放在一起时，再搭配UISearchController，可以带动画效果的搜索视图，具体可以在iPhone-&gt;设置页面看到。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/2.png" alt="2"></p>
-<p><strong>UISegmentView</strong>为分段控制器，分段控制器可以自定义各种样式，如上图Segmented Contols。开发者可以设置分段控制器按钮的背景色，选中色，甚至可以将按钮设置为图片。分段控制器通常放在页面的导航栏区域，用来分页或者分类数据，在iPhone-&gt;最近通话的导航栏区域可看到。</p>
-<p><strong>UISlider</strong>为滑块，由一个进度条和拇指可拖动视图（小圆点）组成，如上图Siders中展示的那样。开发者可以自定义滑块进图条的前景色，背景色，粗细，也可以设置拇指视图（圆点）的大小颜色，样式。</p>
-<p><strong>UIStepper</strong>为步进器，UI样式如下图，常用于一些较小数值值的加减操作，典型场景打印页面的页数。开发者可自定义背景色，左右加减符号的图片，分割线的图片，加减值的大小。</p>
-<p><strong>UISwitch</strong>为开关。常用于设置页面某项设置的开关。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/3.png" alt="3"></p>
-<p><strong>UITextField</strong>为单行输入框，常用于输入用户名，密码，或搜索。开发者可设置占位文本用于提醒，每个UITextField有左右视图，默认不显示，开发者可自定义显示，比如上图中第四个UITextField，设置了左右两个视图，开发者可设置文本大小，字体，颜色，是否是密码输入（即输入后变为黑点），视图背景色等，不过不能换行。</p>
-<p><strong>UITextView</strong>为多行输入框。常用于输入较长的文本。UITextView的属性比UITextField少一些。开发者可设置文本大小，字体，颜色，不支持密文输入，支持富文本编辑，插入图片（自定义表情）等，Apple的Demo中没有UITextView的示例，你可以参考微信朋友圈发布新内容时的输入框。</p>
-<p><strong>UIActivityIndicatorView</strong>是活动指示器，如下图，通常用于表示页面加载中。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/4.png" alt="4"></p>
-<p><strong>UIAlertController</strong>是警告框。警告框有两种样式，一种是在屏幕中间的，如上图，可以自定义左右两边的按钮，也可以在警告框中添加单行输入框。另一种是动作表单（Action Sheet），如下图，通常用于多个可选择操作。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/5.png" alt="5"></p>
-<p>UIProgressView是进度条，开发者可设置进度条的前景色，背景色，宽高等。</p>
-<p>UIToolBar为工具栏，位于页面的下方，可放置一些操作按钮。</p>
-<p>UIPickerView是选择器。通常用于时间，日期等数字的选择。开发者可以设置选择器的列数和行数，以及每个条目的文本信息，下图中是3列，255行。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/6.png" alt="6"></p>
-<p>以上就是一些常用的苹果官方控件。</p>
-<p>苹果在设计这些控件和视图时，会遵循六个设计原则，这六个设计原则放在苹果iOS<a href="https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/">人机界面指南</a>的首页。建议去官网观看。</p>
-<p>苹果六大设计原则</p>
-<ul>
-<li><p>美学完整性(Aesthetic Integrity)</p>
-</li>
-<li><p>一致性(Consistency)</p>
-</li>
-<li><p>直接操作性(Direct Manipulation)</p>
-</li>
-<li><p>反馈(Feedback)</p>
-</li>
-<li><p>隐喻(Metaphors)</p>
-</li>
-<li><p>用户控制(User Control)</p>
-</li>
-</ul>
-<p>同样，如果你想了解更多，可以去苹果设计官网进行观看学习。</p>
-<p>苹果设计（<a href="https://developer.apple.com/design/resources/">https://developer.apple.com/design/resources/</a> ）</p>
-<p>苹果设计相关视频（<a href="https://developer.apple.com/videos/design/">https://developer.apple.com/videos/design/</a> ）</p>
-]]></content>
-      <tags>
-        <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>项目管理平台搭建：以iOS开发为例</title>
     <url>/2025/10/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%EF%BC%9A%E4%BB%A5iOS%E5%BC%80%E5%8F%91%E4%B8%BA%E4%BE%8B/</url>
     <content><![CDATA[<h1 id="项目管理平台搭建：以iOS开发为例"><a href="#项目管理平台搭建：以iOS开发为例" class="headerlink" title="项目管理平台搭建：以iOS开发为例"></a>项目管理平台搭建：以iOS开发为例</h1><p>在中大型项目中，目前主流的开发方式都是组件化开发，根据项目业务的大小，工程中组件一般会有几十，上百，甚至上千组件，如何在项目开发中合理的管理组件，管理项目版本，进行项目开发是个棘手的问题。</p>
@@ -2503,5 +2418,90 @@
 <p>• GitHub Issues<br>• 邮箱：<a href="mailto:lengain@yeah.net">lengain@yeah.net</a></p>
 <p>非常期待您的宝贵意见和反馈，将不断努力提升工具的性能和功能，为鸿蒙应用开发者提供更加全面、高效的服务。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>给设计师，产品经理的iOS UI介绍</title>
+    <url>/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<p>iOS为一名iOS开发者，在日常工作中常常会遇到设计师，产品经理犯一些常识性的错误，令人啼笑皆非。有些扯皮，因为没有共识，浪费了很多时间。部分设计师和产品经理对iOS系统的理解停留在表面。我这篇分享，将从程序员的角度带你去认识一下iOS系统的UI。</p>
+<p>读完之后的目标：</p>
+<ul>
+<li><p>认识iOS操作系统中大部分系统控件的UI</p>
+</li>
+<li><p>理解iOS开发中视图组织的内部逻辑</p>
+</li>
+<li><p>一些常识</p>
+</li>
+<li><p>一些设计资源的分享</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="UIKit"><a href="#UIKit" class="headerlink" title="UIKit"></a>UIKit</h3><p>iOS系统中，用于显示界面的UI库叫<code>UIKit</code>，<code>UIKit</code>中有丰富的UI控件帮助开发者快速的构建美观，功能丰富，符合苹果设计规范的UI界面。</p>
+<p>苹果官方写了一个App，用来展示UIKit中的组件，这里是<a href="https://developer.apple.com/documentation/uikit/mac_catalyst/uikit_catalog_creating_and_customizing_views_and_controls">地址</a>，如果地址失效了，请用关键字<code>Apple UIKitCatalog</code>搜索。有条件的可以自己在Mac电脑上下载Xcode软件，连接电脑安装。也可以自己找iOS开发的程序猿来帮你安装到手机上。</p>
+<p>下面的分享中，我将使用这个App中的截图，来介绍UIKit中控件。</p>
+<p>我的手机的iOS系统版本是<code>iOS14.0.1</code></p>
+<h5 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a>UIView</h5><p><code>UIView</code>是UIKit中最基础的控件，所有其他控件都是继承于UIView。UIView相当于ps中的一个画板，即可以作为一个容器，放置其他控件视图，又可以单独当做一个空间使用。</p>
+<p>UIView有以下属性：</p>
+<ul>
+<li><p>大小、位置、背景颜色、是否隐藏</p>
+</li>
+<li><p>圆角、阴影</p>
+</li>
+<li><p>手势触控（点击，滑动，拖动，捏合，长按）</p>
+</li>
+</ul>
+<p>同样的，继承UIView的其他视图也都是有这些属性的。</p>
+<p>下图即是一个iOS App的首页。它的可见部分全部都是由UIView及其子类控件组成的。各种控件大大小小相互嵌套就组成了各种页面。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/snapshot2020-09-30.png" alt></p>
+<h5 id="各种控件"><a href="#各种控件" class="headerlink" title="各种控件"></a>各种控件</h5><p>以下控件都是继承于UIView，即UIView有的属性，它们也都有，同时它们也有UIView没有的特性。</p>
+<p><strong>UIButton</strong></p>
+<p><code>UIButton</code>为按钮控件，常用于点击事件。按钮可设置图片和文本。按钮是一种可设置状态的控件。比如普通状态(normal)，选中状态(selected)，高亮状态(highlighted)，禁用状态(disabled)等，开发者可以为按钮的每个状态设置不同的图片和文本。</p>
+<p>下图左侧Buttons展示了各种按钮，其中标明System为系统图标。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/1.png" alt="1"></p>
+<p><strong>UIPageControl</strong></p>
+<p><code>UIPageControl</code>为页码控制器，通常用于指示轮播图的位置，控制器的指示视图默认为圆点。开发者可自定义页码控制器上指示视图（即上图中页面Page Control，小圆点）的图片。上图右侧图Custom Page Control为自定义指示视图的页面。</p>
+<p><strong>UISearchBar</strong></p>
+<p><code>UISearchBar</code>为搜索框， 下图Default Search Bar中展示的即是。搜索框可自定义搜索图标🔍的图片，以及文本的字体大小颜色，取消按钮的文本，样式等，Scope范围的设置为可选项。</p>
+<p>UISearchBar和列表视图放在一起时，再搭配UISearchController，可以带动画效果的搜索视图，具体可以在iPhone-&gt;设置页面看到。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/2.png" alt="2"></p>
+<p><strong>UISegmentView</strong>为分段控制器，分段控制器可以自定义各种样式，如上图Segmented Contols。开发者可以设置分段控制器按钮的背景色，选中色，甚至可以将按钮设置为图片。分段控制器通常放在页面的导航栏区域，用来分页或者分类数据，在iPhone-&gt;最近通话的导航栏区域可看到。</p>
+<p><strong>UISlider</strong>为滑块，由一个进度条和拇指可拖动视图（小圆点）组成，如上图Siders中展示的那样。开发者可以自定义滑块进图条的前景色，背景色，粗细，也可以设置拇指视图（圆点）的大小颜色，样式。</p>
+<p><strong>UIStepper</strong>为步进器，UI样式如下图，常用于一些较小数值值的加减操作，典型场景打印页面的页数。开发者可自定义背景色，左右加减符号的图片，分割线的图片，加减值的大小。</p>
+<p><strong>UISwitch</strong>为开关。常用于设置页面某项设置的开关。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/3.png" alt="3"></p>
+<p><strong>UITextField</strong>为单行输入框，常用于输入用户名，密码，或搜索。开发者可设置占位文本用于提醒，每个UITextField有左右视图，默认不显示，开发者可自定义显示，比如上图中第四个UITextField，设置了左右两个视图，开发者可设置文本大小，字体，颜色，是否是密码输入（即输入后变为黑点），视图背景色等，不过不能换行。</p>
+<p><strong>UITextView</strong>为多行输入框。常用于输入较长的文本。UITextView的属性比UITextField少一些。开发者可设置文本大小，字体，颜色，不支持密文输入，支持富文本编辑，插入图片（自定义表情）等，Apple的Demo中没有UITextView的示例，你可以参考微信朋友圈发布新内容时的输入框。</p>
+<p><strong>UIActivityIndicatorView</strong>是活动指示器，如下图，通常用于表示页面加载中。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/4.png" alt="4"></p>
+<p><strong>UIAlertController</strong>是警告框。警告框有两种样式，一种是在屏幕中间的，如上图，可以自定义左右两边的按钮，也可以在警告框中添加单行输入框。另一种是动作表单（Action Sheet），如下图，通常用于多个可选择操作。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/5.png" alt="5"></p>
+<p>UIProgressView是进度条，开发者可设置进度条的前景色，背景色，宽高等。</p>
+<p>UIToolBar为工具栏，位于页面的下方，可放置一些操作按钮。</p>
+<p>UIPickerView是选择器。通常用于时间，日期等数字的选择。开发者可以设置选择器的列数和行数，以及每个条目的文本信息，下图中是3列，255行。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/6.png" alt="6"></p>
+<p>以上就是一些常用的苹果官方控件。</p>
+<p>苹果在设计这些控件和视图时，会遵循六个设计原则，这六个设计原则放在苹果iOS<a href="https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/">人机界面指南</a>的首页。建议去官网观看。</p>
+<p>苹果六大设计原则</p>
+<ul>
+<li><p>美学完整性(Aesthetic Integrity)</p>
+</li>
+<li><p>一致性(Consistency)</p>
+</li>
+<li><p>直接操作性(Direct Manipulation)</p>
+</li>
+<li><p>反馈(Feedback)</p>
+</li>
+<li><p>隐喻(Metaphors)</p>
+</li>
+<li><p>用户控制(User Control)</p>
+</li>
+</ul>
+<p>同样，如果你想了解更多，可以去苹果设计官网进行观看学习。</p>
+<p>苹果设计（<a href="https://developer.apple.com/design/resources/">https://developer.apple.com/design/resources/</a> ）</p>
+<p>苹果设计相关视频（<a href="https://developer.apple.com/videos/design/">https://developer.apple.com/videos/design/</a> ）</p>
+]]></content>
+      <tags>
+        <tag>技术</tag>
+      </tags>
   </entry>
 </search>
