@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Dart ...展开操作符</title>
-    <url>/2023/08/08/Dart-%E5%B1%95%E5%BC%80%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
-    <content><![CDATA[<p>Dart支持展开操作符(<strong>spread operator</strong>)<code>...</code>和空感展开操作符(<strong>null-aware spread operator</strong>)<code>...?</code>。</p>
-<p>展开操作符支持所有的集合(Collections)类型，包括Set，List，Map。</p>
-<h5 id="展开操作符-spread-operator"><a href="#展开操作符-spread-operator" class="headerlink" title="展开操作符(spread operator)"></a>展开操作符(<strong>spread operator</strong>)</h5><p>展开操作符<code>...</code>可以将一个列表的所有值，插入到另一个列表中。</p>
-<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> list2 = [<span class="number">0</span>, ...list];</span><br><span class="line"><span class="keyword">assert</span>(list2.length == <span class="number">4</span>);</span><br><span class="line"><span class="comment">// list2 = [0, 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="空感展开操作符-null-aware-spread-operator"><a href="#空感展开操作符-null-aware-spread-operator" class="headerlink" title="空感展开操作符(null-aware spread operator)"></a>空感展开操作符(<strong>null-aware spread operator</strong>)</h5><p>如果展开操作符右边的表达式可能为空，为了避免程序出问题可以使用空感展开操作符(<strong>null-aware spread operator</strong>)<code>...?</code>。</p>
-<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="built_in">List</span>&lt;<span class="built_in">int</span>&gt;? list;</span><br><span class="line"><span class="keyword">var</span> list2 = [<span class="number">0</span>, ...?list];</span><br><span class="line"><span class="keyword">assert</span>(list2.length == <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>Dart</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>8086汇编常用知识手册</title>
     <url>/2020/08/07/8086%E6%B1%87%E7%BC%96%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/</url>
     <content><![CDATA[<p>8086 16位CPU 80386 32位CPU（王爽 《汇编语言》）<br>AT&amp;T汇编（Mac，iOS模拟器）<br>ARM汇编 （嵌入式，iOS设备）</p>
@@ -235,8 +220,32 @@
 </ul>
 <h4 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h4><p><strong>idata</strong> 表示常量<br><strong>dup</strong> 用来进行数据重复的操作符<br><strong>db</strong> 3 dup (0)     ;定义3个字节，他们的都是0，相当于db 0,0,0<br><strong>db</strong> 字节型数据<br><strong>dw</strong> 字形数据<br><strong>dd</strong> 双字型数据<br><strong>offset</strong> 取得标号的偏移地址；offset start表示取得start的偏移地址<br><strong>nop</strong> 空指令，不执行操作，但占一个程序步骤。占一个byte，8位即ff。</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
         <tag>汇编</tag>
+        <tag>8086</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dart ...展开操作符</title>
+    <url>/2023/08/08/Dart-%E5%B1%95%E5%BC%80%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
+    <content><![CDATA[<p>Dart支持展开操作符(<strong>spread operator</strong>)<code>...</code>和空感展开操作符(<strong>null-aware spread operator</strong>)<code>...?</code>。</p>
+<p>展开操作符支持所有的集合(Collections)类型，包括Set，List，Map。</p>
+<h5 id="展开操作符-spread-operator"><a href="#展开操作符-spread-operator" class="headerlink" title="展开操作符(spread operator)"></a>展开操作符(<strong>spread operator</strong>)</h5><p>展开操作符<code>...</code>可以将一个列表的所有值，插入到另一个列表中。</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> list2 = [<span class="number">0</span>, ...list];</span><br><span class="line"><span class="keyword">assert</span>(list2.length == <span class="number">4</span>);</span><br><span class="line"><span class="comment">// list2 = [0, 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="空感展开操作符-null-aware-spread-operator"><a href="#空感展开操作符-null-aware-spread-operator" class="headerlink" title="空感展开操作符(null-aware spread operator)"></a>空感展开操作符(<strong>null-aware spread operator</strong>)</h5><p>如果展开操作符右边的表达式可能为空，为了避免程序出问题可以使用空感展开操作符(<strong>null-aware spread operator</strong>)<code>...?</code>。</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="built_in">List</span>&lt;<span class="built_in">int</span>&gt;? list;</span><br><span class="line"><span class="keyword">var</span> list2 = [<span class="number">0</span>, ...?list];</span><br><span class="line"><span class="keyword">assert</span>(list2.length == <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Dart</tag>
+        <tag>Flutter</tag>
+        <tag>跨平台</tag>
       </tags>
   </entry>
   <entry>
@@ -355,8 +364,12 @@
 </li>
 </ol>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
-        <tag>技术</tag>
+        <tag>Mac</tag>
+        <tag>硬件</tag>
       </tags>
   </entry>
   <entry>
@@ -373,262 +386,13 @@
 <h4 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h4><p>写的过程中，借鉴了<a href="https://github.com/unclehking">unclehking</a>的chorme浏览器插件的一些代码，也和他沟通了一些关于百度的法律问题，向他的无私帮助致谢。</p>
 <h4 id="以后"><a href="#以后" class="headerlink" title="以后"></a>以后</h4><p>禁止谷歌广告，掘金广告，知乎广告……？</p>
 ]]></content>
-      <tags>
-        <tag>软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OggOhos：为HarmonyOS打造标准Ogg容器音频编解码库</title>
-    <url>/2026/02/28/OggOhos%EF%BC%9A%E4%B8%BAHarmonyOS%E6%89%93%E9%80%A0%E6%A0%87%E5%87%86Ogg%E5%AE%B9%E5%99%A8%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E5%BA%93/</url>
-    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在音频应用开发过程中，单纯的Opus编解码往往不足以满足复杂的生产需求。标准的Ogg Opus容器格式能够为音频数据提供完整的元数据、时间戳、以及与主流播放器的兼容性。HarmonyOS平台在这方面同样存在空白，现有的音频编解码方案缺乏标准容器支持。OggOhos库应运而生，通过结合OpusOhos编码能力和libogg容器支持，为HarmonyOS开发者提供生产级别的Ogg Opus编解码解决方案。本文详细阐述OggOhos库的架构设计、实现原理及技术细节。</p>
-<p>本库发布到<a href="https://ohpm.openharmony.cn/#/cn/detail/@lengain%2Foggohos">OpenHarmony三方库中心仓</a>。</p>
-<h2 id="开发背景"><a href="#开发背景" class="headerlink" title="开发背景"></a>开发背景</h2><h3 id="技术需求分析"><a href="#技术需求分析" class="headerlink" title="技术需求分析"></a>技术需求分析</h3><p>音频应用的完整开发需要解决以下核心问题：</p>
-<ol>
-<li><strong>标准文件格式支持</strong>：应用需要生成和读取符合RFC 7845标准的Ogg Opus文件，确保与其他平台和播放器的兼容性</li>
-<li><strong>元数据管理</strong>：需要在音频文件中持久化存储采样率、声道数、时间戳等关键信息</li>
-<li><strong>流式处理能力</strong>：支持大文件的流式编解码，而非一次性加载到内存</li>
-<li><strong>跨生态协作</strong>：生成的音频文件可被各平台（Web、iOS、Android等）正确识别和播放</li>
-</ol>
-<p>传统的单纯Opus编码只能生成裸音频帧，缺乏完整的文件格式封装，这在实际应用中很难被主流播放器直接识别。</p>
-<h3 id="为什么选择Ogg容器"><a href="#为什么选择Ogg容器" class="headerlink" title="为什么选择Ogg容器"></a>为什么选择Ogg容器</h3><p>Ogg Vorbis容器能够为音频编解码器提供以下支持：</p>
-<ul>
-<li><strong>标准规范</strong>：RFC 7845明确定义了Ogg Opus的封装方式，确保跨平台兼容</li>
-<li><strong>灵活扩展</strong>：通过OpusHead和OpusTags包提供参数携带和标签管理</li>
-<li><strong>流式音频</strong>：支持流式编码和解码，适合实时应用和大文件处理</li>
-<li><strong>时间精度</strong>：Granulepos机制提供精确的样本级时间戳</li>
-<li><strong>广泛支持</strong>：几乎所有主流音频播放器都原生支持Ogg Opus格式</li>
-</ul>
-<a id="more"></a>
-
-<h3 id="HarmonyOS平台的挑战"><a href="#HarmonyOS平台的挑战" class="headerlink" title="HarmonyOS平台的挑战"></a>HarmonyOS平台的挑战</h3><p>在HarmonyOS上实现Ogg Opus编解码面临以下技术难题：</p>
-<ol>
-<li><strong>双重跨语言互操作</strong>：不仅要处理ArkTS与C++的互操作，还需协调OpusOhos与新增的libogg库</li>
-<li><strong>内存安全与初始化</strong>：C语言的ogg结构体需要严格初始化，任何垃圾数据都可能导致段错误</li>
-<li><strong>生命周期管理</strong>：编码和解码的多次调用需要妥善管理内部状态和资源</li>
-<li><strong>性能优化</strong>：确保容器封装不成为编解码的性能瓶颈</li>
-</ol>
-<h2 id="技术方案设计"><a href="#技术方案设计" class="headerlink" title="技术方案设计"></a>技术方案设计</h2><h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p>OggOhos采用分层架构设计，在OpusOhos的基础上增加Ogg容器层：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">┌────────────────────────────────────────────┐</span><br><span class="line">│    ArkTS Application Layer                 │</span><br><span class="line">│  (OggOpusEncoder &#x2F; OggOpusDecoder Class)   │</span><br><span class="line">├────────────────────────────────────────────┤</span><br><span class="line">│    ArkTS Codec Wrapper Layer               │</span><br><span class="line">│  (OpusEncoder &#x2F; OpusDecoder Integration)   │</span><br><span class="line">├────────────────────────────────────────────┤</span><br><span class="line">│    N-API Bridge Layer                      │</span><br><span class="line">│  (Ogg stream init&#x2F;write&#x2F;read operations)   │</span><br><span class="line">├────────────────────────────────────────────┤</span><br><span class="line">│    Native Codec Layer                      │</span><br><span class="line">│  (libopus 1.5.2 + libogg)                  │</span><br><span class="line">└────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
-
-<p><strong>各层职责划分</strong>：</p>
-<ul>
-<li><strong>ArkTS应用层</strong>：提供OggOpusEncoder和OggOpusDecoder高级API，屏蔽复杂细节</li>
-<li><strong>ArkTS集成层</strong>：管理OpusOhos编码器状态，与Ogg层协调</li>
-<li><strong>N-API桥接层</strong>：实现Ogg流操作（初始化、写入、读取、提取包），处理结构体管理</li>
-<li><strong>原生库层</strong>：libopus处理音频编解码，libogg处理容器封装</li>
-</ul>
-<h3 id="关键技术选型"><a href="#关键技术选型" class="headerlink" title="关键技术选型"></a>关键技术选型</h3><h4 id="1-Ogg容器库版本"><a href="#1-Ogg容器库版本" class="headerlink" title="1. Ogg容器库版本"></a>1. Ogg容器库版本</h4><p>采用标准的libogg库，提供：</p>
-<ul>
-<li>轻量级API：专注于页面和包的管理</li>
-<li>兼容性强：遵循RFC 3533（Ogg Bitstream Format）</li>
-<li>无外部依赖：纯C实现，易于集成到HarmonyOS NDK</li>
-</ul>
-<h4 id="2-RFC-7845遵循"><a href="#2-RFC-7845遵循" class="headerlink" title="2. RFC 7845遵循"></a>2. RFC 7845遵循</h4><p>严格按照Ogg Encapsulation for Opus标准实现：</p>
-<ul>
-<li><strong>OpusHead</strong>包：携带版本号、声道数、采样率等参数（19字节固定长度）</li>
-<li><strong>OpusTags</strong>包：支持厂商信息和用户注释</li>
-<li><strong>Opus数据包</strong>：普通音频帧，每个包记录对应的样本数（granulepos）</li>
-</ul>
-<h4 id="3-N-API设计"><a href="#3-N-API设计" class="headerlink" title="3. N-API设计"></a>3. N-API设计</h4><p>利用N-API的稳定性实现跨版本兼容：</p>
-<ul>
-<li>全局状态管理：编码器和解码器使用静态全局指针</li>
-<li>内存池化：避免频繁的内存分配</li>
-<li>错误传播：C++异常转换为JavaScript/ArkTS错误</li>
-</ul>
-<h3 id="数据流设计"><a href="#数据流设计" class="headerlink" title="数据流设计"></a>数据流设计</h3><h4 id="编码流程"><a href="#编码流程" class="headerlink" title="编码流程"></a>编码流程</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PCM Audio (Int16Array)</span><br><span class="line">    ↓</span><br><span class="line">OpusEncoder.encode() </span><br><span class="line">    ↓ (Opus编码数据，打包格式)</span><br><span class="line">OggOpusEncoder.encodePCM()</span><br><span class="line">    ↓ (解析打包的Opus帧)</span><br><span class="line">OggOpusEncoder.writeOpusData()</span><br><span class="line">    ↓ (N-API调用)</span><br><span class="line">Native: ogg_stream_packetin()</span><br><span class="line">    ↓ (装配为Ogg页面)</span><br><span class="line">Native: ogg_stream_pageout()</span><br><span class="line">    ↓ (累积输出缓冲)</span><br><span class="line">OggOpusEncoder.finish()</span><br><span class="line">    ↓ (返回完整Ogg文件)</span><br><span class="line">ArrayBuffer (可保存为.ogg文件)</span><br></pre></td></tr></table></figure>
-
-<h4 id="解码流程"><a href="#解码流程" class="headerlink" title="解码流程"></a>解码流程</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Ogg Opus File (ArrayBuffer)</span><br><span class="line">    ↓</span><br><span class="line">OggOpusDecoder.decodeAll()</span><br><span class="line">    ↓ (N-API：initOggDecoder)</span><br><span class="line">Native: ogg_sync_init()</span><br><span class="line">    ↓ (N-API：feedOggData)</span><br><span class="line">Native: ogg_sync_pageout() + ogg_stream_pagein()</span><br><span class="line">    ↓ (N-API：getNextPacket)</span><br><span class="line">Native: ogg_stream_packetout()</span><br><span class="line">    ↓ (OpusDecoder.decode())</span><br><span class="line">PCM样本 (Int16Array)</span><br><span class="line">    ↓</span><br><span class="line">N-API: ArrayBuffer</span><br><span class="line">    ↓</span><br><span class="line">OggOpusDecoder返回 Int16Array</span><br></pre></td></tr></table></figure>
-
-<h3 id="内存管理与生命周期"><a href="#内存管理与生命周期" class="headerlink" title="内存管理与生命周期"></a>内存管理与生命周期</h3><p>OggOhos采用显式的资源管理模式：</p>
-<ol>
-<li><strong>初始化阶段</strong>：init()方法创建编码/解码器，所有ogg结构体被清零</li>
-<li><strong>处理阶段</strong>：encodePCM()/decodeAll()进行核心操作，内部缓冲累积数据</li>
-<li><strong>清理阶段</strong>：destroy()或自动GC时释放所有资源</li>
-</ol>
-<p>关键的内存安全实践：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 构造函数显式清零</span></span><br><span class="line">OggOpusEncoder() : ... &#123;</span><br><span class="line">    <span class="built_in">memset</span>(&amp;os, <span class="number">0</span>, <span class="keyword">sizeof</span>(os));</span><br><span class="line">    <span class="built_in">memset</span>(&amp;og, <span class="number">0</span>, <span class="keyword">sizeof</span>(og));</span><br><span class="line">    <span class="built_in">memset</span>(&amp;op, <span class="number">0</span>, <span class="keyword">sizeof</span>(op));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="核心实现详解"><a href="#核心实现详解" class="headerlink" title="核心实现详解"></a>核心实现详解</h2><h3 id="1-Ogg容器初始化"><a href="#1-Ogg容器初始化" class="headerlink" title="1. Ogg容器初始化"></a>1. Ogg容器初始化</h3><p>编码器初始化是整个系统的起点，需要创建标准的Ogg流头部：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">InitOggEncoder</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 参数解析</span></span><br><span class="line">    <span class="keyword">int32_t</span> sampleRate, channels;</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">0</span>], &amp;sampleRate);</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">1</span>], &amp;channels);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建编码器实例</span></span><br><span class="line">    g_oggEncoder = <span class="keyword">new</span> OggOpusEncoder();</span><br><span class="line">    g_oggEncoder-&gt;sampleRate = sampleRate;</span><br><span class="line">    g_oggEncoder-&gt;channels = channels;</span><br><span class="line">    g_oggEncoder-&gt;serialno = rand();  <span class="comment">// 唯一的流标识</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化ogg流</span></span><br><span class="line">    ogg_stream_init(&amp;g_oggEncoder-&gt;os, g_oggEncoder-&gt;serialno);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建OpusHead包（RFC 7845）</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> header[<span class="number">19</span>];</span><br><span class="line">    <span class="built_in">memcpy</span>(header, <span class="string">&quot;OpusHead&quot;</span>, <span class="number">8</span>);</span><br><span class="line">    header[<span class="number">8</span>] = <span class="number">1</span>;                    <span class="comment">// Version</span></span><br><span class="line">    header[<span class="number">9</span>] = channels;             <span class="comment">// Channel count</span></span><br><span class="line">    <span class="comment">// ... 采样率等参数编码（小端序）...</span></span><br><span class="line">    header[<span class="number">18</span>] = <span class="number">0</span>;                   <span class="comment">// Channel mapping family</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 装配为ogg包</span></span><br><span class="line">    g_oggEncoder-&gt;op.packet = header;</span><br><span class="line">    g_oggEncoder-&gt;op.bytes = <span class="number">19</span>;</span><br><span class="line">    g_oggEncoder-&gt;op.b_o_s = <span class="number">1</span>;       <span class="comment">// Beginning of Stream标志</span></span><br><span class="line">    g_oggEncoder-&gt;op.granulepos = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 写入流并刷出页面</span></span><br><span class="line">    ogg_stream_packetin(&amp;g_oggEncoder-&gt;os, &amp;g_oggEncoder-&gt;op);</span><br><span class="line">    <span class="keyword">while</span> (ogg_stream_flush(&amp;g_oggEncoder-&gt;os, &amp;g_oggEncoder-&gt;og) != <span class="number">0</span>) &#123;</span><br><span class="line">        appendPage(g_oggEncoder, &amp;g_oggEncoder-&gt;og);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 类似地创建OpusTags包</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>关键设计点</strong>：</p>
-<ul>
-<li><strong>serialno</strong>：每个Ogg流的唯一标识，允许多路复用</li>
-<li><strong>b_o_s/e_o_s标志</strong>：标记流的开始和结束，解码器检查</li>
-<li><strong>Granulepos初始化</strong>：从0开始，每次递增添加的样本数</li>
-</ul>
-<h3 id="2-Opus帧的Ogg封装"><a href="#2-Opus帧的Ogg封装" class="headerlink" title="2. Opus帧的Ogg封装"></a>2. Opus帧的Ogg封装</h3><p>编码数据通过关键的writeOpusData方法装配到Ogg页面：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">WriteOpusData</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 获取Opus编码数据和对应的样本数</span></span><br><span class="line">    <span class="keyword">void</span>* opusData = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">size_t</span> dataLen = <span class="number">0</span>;</span><br><span class="line">    napi_get_arraybuffer_info(env, args[<span class="number">0</span>], &amp;opusData, &amp;dataLen);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int32_t</span> samplesCount;</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">1</span>], &amp;samplesCount);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 更新累积的样本位置（granulepos）</span></span><br><span class="line">    <span class="comment">// 这是时间戳，解码器通过它计算播放位置</span></span><br><span class="line">    g_oggEncoder-&gt;granulepos += samplesCount;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 装配为ogg包</span></span><br><span class="line">    g_oggEncoder-&gt;op.packet = <span class="keyword">static_cast</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">char</span>*&gt;(opusData);</span><br><span class="line">    g_oggEncoder-&gt;op.bytes = dataLen;</span><br><span class="line">    g_oggEncoder-&gt;op.b_o_s = <span class="number">0</span>;</span><br><span class="line">    g_oggEncoder-&gt;op.e_o_s = <span class="number">0</span>;</span><br><span class="line">    g_oggEncoder-&gt;op.granulepos = g_oggEncoder-&gt;granulepos;</span><br><span class="line">    g_oggEncoder-&gt;op.packetno = g_oggEncoder-&gt;packetno++;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 装配到流中</span></span><br><span class="line">    ogg_stream_packetin(&amp;g_oggEncoder-&gt;os, &amp;g_oggEncoder-&gt;op);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当积累足够数据时，libogg会自动生成页面</span></span><br><span class="line">    <span class="comment">// 页面大小通常为4096-8192字节</span></span><br><span class="line">    <span class="keyword">while</span> (ogg_stream_pageout(&amp;g_oggEncoder-&gt;os, &amp;g_oggEncoder-&gt;og) != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 页面可以被立即写出或缓冲</span></span><br><span class="line">        appendPage(g_oggEncoder, &amp;g_oggEncoder-&gt;og);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>核心机制</strong>：</p>
-<ul>
-<li><strong>Granulepos</strong>：代表该页面包含的最后一个样本的位置，允许精确定位</li>
-<li><strong>页面生成</strong>：libogg在包积累到一定数量后自动生成页面（约4KB）</li>
-<li><strong>流式处理</strong>：pageout()而非flush()，避免过多的小包页面</li>
-</ul>
-<h3 id="3-解码器的Ogg解析"><a href="#3-解码器的Ogg解析" class="headerlink" title="3. 解码器的Ogg解析"></a>3. 解码器的Ogg解析</h3><p>解码器需要逐步解析Ogg流、提取包、验证头部信息：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">FeedOggData</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化sync状态用于解析页面边界</span></span><br><span class="line">    <span class="keyword">char</span>* buffer = ogg_sync_buffer(&amp;g_oggDecoder-&gt;oy, inputLen);</span><br><span class="line">    <span class="built_in">memcpy</span>(buffer, inputData, inputLen);</span><br><span class="line">    ogg_sync_wrote(&amp;g_oggDecoder-&gt;oy, inputLen);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 逐个页面解析</span></span><br><span class="line">    <span class="keyword">while</span> (ogg_sync_pageout(&amp;g_oggDecoder-&gt;oy, &amp;g_oggDecoder-&gt;og) == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">// 首个页面决定了stream参数</span></span><br><span class="line">        <span class="keyword">if</span> (g_oggDecoder-&gt;os.serialno == <span class="number">0</span>) &#123;</span><br><span class="line">            ogg_stream_init(&amp;g_oggDecoder-&gt;os, ogg_page_serialno(&amp;g_oggDecoder-&gt;og));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将页面装配到流中</span></span><br><span class="line">        ogg_stream_pagein(&amp;g_oggDecoder-&gt;os, &amp;g_oggDecoder-&gt;og);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>解析步骤</strong>：</p>
-<ol>
-<li><strong>同步初始化</strong>：ogg_sync用于找到页面边界（0x4F 0x67 0x67 0x53）</li>
-<li><strong>页面提取</strong>：ogg_sync_pageout逐个解析页面</li>
-<li><strong>流初始化</strong>：从首个页面的serialno创建对应的stream</li>
-<li><strong>包提取</strong>：ogg_stream_packetout获取页面中的包</li>
-</ol>
-<h3 id="4-ArkTS应用层设计"><a href="#4-ArkTS应用层设计" class="headerlink" title="4. ArkTS应用层设计"></a>4. ArkTS应用层设计</h3><p>OggOpusEncoder的高级API屏蔽了底层Ogg复杂性：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">OggOpusEncoder</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> opusEncoder: OpusEncoder;</span><br><span class="line">  <span class="keyword">private</span> sampleRate: <span class="built_in">number</span> = <span class="number">48000</span>;</span><br><span class="line">  <span class="keyword">private</span> channels: <span class="built_in">number</span> = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">private</span> frameSize: <span class="built_in">number</span> = <span class="number">960</span>;</span><br><span class="line">  <span class="keyword">private</span> initialized: <span class="built_in">boolean</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  init(sampleRate: <span class="built_in">number</span>, <span class="attr">channels</span>: <span class="built_in">number</span>, <span class="attr">bitRate</span>: <span class="built_in">number</span>): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.sampleRate = sampleRate;</span><br><span class="line">    <span class="built_in">this</span>.channels = channels;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算20ms帧对应的样本数</span></span><br><span class="line">    <span class="built_in">this</span>.frameSize = <span class="built_in">Math</span>.floor(sampleRate * <span class="number">0.02</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化下层的Opus编码器</span></span><br><span class="line">    <span class="built_in">this</span>.opusEncoder.init(sampleRate, channels, bitRate);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化Ogg容器</span></span><br><span class="line">    oggOhos.initOggEncoder(sampleRate, channels);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.initialized = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  encodePCM(pcmData: <span class="built_in">Int16Array</span>): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">this</span>.initialized) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;Encoder not initialized&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用OpusEncoder编码PCM数据</span></span><br><span class="line">    <span class="comment">// 返回的是打包格式：[4字节长度|帧数据|4字节长度|帧数据|...]</span></span><br><span class="line">    <span class="keyword">const</span> encodedData: <span class="built_in">ArrayBuffer</span> = <span class="built_in">this</span>.opusEncoder.encode(pcmData);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析打包格式，逐帧写入Ogg</span></span><br><span class="line">    <span class="keyword">const</span> frames = <span class="built_in">this</span>.parseEncodedFrames(encodedData);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> frame <span class="keyword">of</span> frames) &#123;</span><br><span class="line">      oggOhos.writeOpusData(frame, <span class="built_in">this</span>.frameSize);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  finish(): <span class="built_in">ArrayBuffer</span> &#123;</span><br><span class="line">    <span class="comment">// 完成编码并获取完整Ogg文件</span></span><br><span class="line">    <span class="keyword">return</span> oggOhos.finishOggStream();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> parseEncodedFrames(encodedData: <span class="built_in">ArrayBuffer</span>): <span class="built_in">ArrayBuffer</span>[] &#123;</span><br><span class="line">    <span class="keyword">const</span> frames: <span class="built_in">ArrayBuffer</span>[] = [];</span><br><span class="line">    <span class="keyword">const</span> view = <span class="keyword">new</span> <span class="built_in">DataView</span>(encodedData);</span><br><span class="line">    <span class="keyword">let</span> offset = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析打包格式</span></span><br><span class="line">    <span class="keyword">while</span> (offset &lt; view.byteLength) &#123;</span><br><span class="line">      <span class="keyword">const</span> frameLength = view.getInt32(offset, <span class="literal">true</span>);</span><br><span class="line">      offset += <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">      frames.push(encodedData.slice(offset, offset + frameLength));</span><br><span class="line">      offset += frameLength;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> frames;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>设计特点</strong>：</p>
-<ol>
-<li><strong>对象组合</strong>：OggOpusEncoder包含OpusEncoder实例，而非继承</li>
-<li><strong>无缝集成</strong>：自动适配OpusOhos的编码能力和打包格式</li>
-<li><strong>隐藏细节</strong>：用户无需了解Ogg页面、granulepos等底层机制</li>
-<li><strong>资源安全</strong>：通过init/destroy配对管理生命周期</li>
-</ol>
-<h3 id="5-内存安全问题解决"><a href="#5-内存安全问题解决" class="headerlink" title="5. 内存安全问题解决"></a>5. 内存安全问题解决</h3><p>早期版本在多次编码/解码时会崩溃，原因是ogg结构体未初始化：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 问题代码</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">OggOpusEncoder</span> &#123;</span></span><br><span class="line">    ogg_stream_state os;  <span class="comment">// 包含random serialno等垃圾数据</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ogg_stream_init()检查条件：if (os.serialno == 0)</span></span><br><span class="line"><span class="comment">// 由于未初始化，serialno包含垃圾值，条件判断失败</span></span><br><span class="line"><span class="comment">// 导致后续ogg_stream_packetout()在未初始化的结构体上操作，段错误</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决方案：显式清零</span></span><br><span class="line">OggOpusEncoder() &#123;</span><br><span class="line">    <span class="built_in">memset</span>(&amp;os, <span class="number">0</span>, <span class="keyword">sizeof</span>(os));</span><br><span class="line">    <span class="built_in">memset</span>(&amp;og, <span class="number">0</span>, <span class="keyword">sizeof</span>(og));</span><br><span class="line">    <span class="built_in">memset</span>(&amp;op, <span class="number">0</span>, <span class="keyword">sizeof</span>(op));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个关键修复确保了结构体的可靠初始化，使多次调用成为可能。</p>
-<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="场景1：音频文件录制"><a href="#场景1：音频文件录制" class="headerlink" title="场景1：音频文件录制"></a>场景1：音频文件录制</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> encoder = <span class="keyword">new</span> OggOpusEncoder();</span><br><span class="line">encoder.init(<span class="number">48000</span>, <span class="number">1</span>, <span class="number">128000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从麦克风逐块读取PCM数据</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> pcmBlock <span class="keyword">of</span> audioBlocks) &#123;</span><br><span class="line">  encoder.encodePCM(pcmBlock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> oggData = encoder.finish();</span><br><span class="line"><span class="comment">// 将oggData保存为.ogg文件</span></span><br><span class="line"><span class="keyword">await</span> saveToFile(<span class="string">&#x27;recording.ogg&#x27;</span>, oggData);</span><br><span class="line">encoder.destroy();</span><br></pre></td></tr></table></figure>
-
-<h3 id="场景2：音频文件播放"><a href="#场景2：音频文件播放" class="headerlink" title="场景2：音频文件播放"></a>场景2：音频文件播放</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> decoder = <span class="keyword">new</span> OggOpusDecoder();</span><br><span class="line"><span class="keyword">const</span> fileData = <span class="keyword">await</span> readFile(<span class="string">&#x27;audio.ogg&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> pcmSamples = decoder.decodeAll(fileData);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将PCM数据送给HarmonyOS音频播放框架</span></span><br><span class="line"><span class="keyword">await</span> audioPlayer.play(pcmSamples);</span><br><span class="line">decoder.destroy();</span><br></pre></td></tr></table></figure>
-
-<h3 id="场景3：实时音频转换"><a href="#场景3：实时音频转换" class="headerlink" title="场景3：实时音频转换"></a>场景3：实时音频转换</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将用户麦克风输入的PCM转为标准Ogg Opus格式分享</span></span><br><span class="line"><span class="keyword">const</span> encoder = <span class="keyword">new</span> OggOpusEncoder();</span><br><span class="line">encoder.init(<span class="number">16000</span>, <span class="number">1</span>, <span class="number">32000</span>);</span><br><span class="line"></span><br><span class="line">microphone.onAudioFrame = <span class="function">(<span class="params">pcmData</span>) =&gt;</span> &#123;</span><br><span class="line">  encoder.encodePCM(pcmData);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定期获取部分编码结果用于实时传输，使用ogg_stream_flush()</span></span><br><span class="line"><span class="keyword">const</span> partialOgg = encoder.finishOggStream();  <span class="comment">// 获取到目前为止的Ogg数据</span></span><br><span class="line"><span class="comment">// 发送partialOgg到服务器或其他设备</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="性能考量"><a href="#性能考量" class="headerlink" title="性能考量"></a>性能考量</h2><h3 id="编码性能"><a href="#编码性能" class="headerlink" title="编码性能"></a>编码性能</h3><ul>
-<li><strong>Opus编码延迟</strong>：单帧（20ms）约0.3-0.5ms</li>
-<li><strong>Ogg封装开销</strong>：页面生成和缓冲累积通常&lt;0.1ms</li>
-<li><strong>总体延迟</strong>：编码一个音频块（多帧）约2-5ms，不影响实时应用</li>
-</ul>
-<h3 id="内存占用"><a href="#内存占用" class="headerlink" title="内存占用"></a>内存占用</h3><ul>
-<li><strong>固定开销</strong>：编码器状态约1-2KB，解码器状态约3-5KB</li>
-<li><strong>输出缓冲</strong>：动态增长，每个Ogg页面约4-8KB</li>
-<li><strong>流式处理</strong>：支持大文件编解码，不需一次性加载</li>
-</ul>
-<h2 id="常见问题与最佳实践"><a href="#常见问题与最佳实践" class="headerlink" title="常见问题与最佳实践"></a>常见问题与最佳实践</h2><h3 id="Q1：编码后的Ogg文件无法播放"><a href="#Q1：编码后的Ogg文件无法播放" class="headerlink" title="Q1：编码后的Ogg文件无法播放"></a>Q1：编码后的Ogg文件无法播放</h3><p><strong>处理要点</strong>：</p>
-<ol>
-<li>确认OpusHead和OpusTags包正确生成（可用十六进制编辑器检查）</li>
-<li>验证granulepos的递增是否正确（应该严格单调递增）</li>
-<li>检查最后一个包的e_o_s标志是否被设置</li>
-</ol>
-<h3 id="Q2：多次调用encode-decode导致崩溃"><a href="#Q2：多次调用encode-decode导致崩溃" class="headerlink" title="Q2：多次调用encode/decode导致崩溃"></a>Q2：多次调用encode/decode导致崩溃</h3><p><strong>解决方案</strong>：升级到1.0.1版本，该版本修复了ogg结构体初始化问题。确保每次init前都有清晰的destroy操作。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="https://tools.ietf.org/html/rfc7845">RFC 7845 - Ogg Encapsulation for the Opus Audio Codec</a></li>
-<li><a href="https://xiph.org/ogg/">libogg Official Documentation</a></li>
-<li><a href="https://opus-codec.org/docs/opus_api-1.5.2/">libopus API Reference</a></li>
-<li><a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/napi-guidelines-V5">HarmonyOS N-API Development Guide</a></li>
-<li><a href="../OpusOhos：为HarmonyOS打造高性能音频编解码库.md">OpusOhos Library Documentation</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RAG:检索增强生成</title>
-    <url>/2025/11/27/RAG-%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90/</url>
-    <content><![CDATA[<p>RAG（Retrieval-Augmented Generation）是一个将<strong>信息检索</strong>（Retrieval）和<strong>生成式模型</strong>（Generation）结合的来增强生成内容的准确性和丰富度的一种技术，广泛应用于提高大语言模型（LLM）在处理复杂任务时的表现，尤其是在信息量庞大、需要背景知识支持的场景下，表现尤为突出。它通过结合外部知识库进行检索，增强模型生成的能力，特别适用于需要大量背景知识的任务。</p>
-<p>对于开发者而言，理解并实现 RAG 技术，不仅能提升 AI 应用的质量，还能帮助你构建更加智能、高效的产品。</p>
-<h3 id="RAG-的基本概念"><a href="#RAG-的基本概念" class="headerlink" title="RAG 的基本概念"></a>RAG 的基本概念</h3><p>RAG 通过将<strong>信息检索</strong>（如从数据库或文档中检索相关信息）与生成式模型（如 GPT-4、T5）结合，来提供更准确的回答和高效的生成能力。其流程分为两个步骤：</p>
-<ol>
-<li><p><strong>信息检索（Retrieval）：</strong></p>
-<ul>
-<li><p>在这一步，模型根据用户的查询从一个外部的知识库、数据库或者文本集合中检索出与查询最相关的信息。</p>
-</li>
-<li><p>检索过程中使用技术如 <strong>embedding</strong>（文本向量化）和 <strong>相似度计算</strong>（如余弦相似度），通过匹配查询和文档的语义相似度来提取相关信息。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>生成式回答（Generation）：</strong></p>
-<ul>
-<li><p>一旦检索到相关信息，生成式模型（如 GPT-4）使用这些信息来生成最终的答案或内容。</p>
-</li>
-<li><p>生成模型会将检索到的文本与用户的原始查询结合，生成更具信息量和准确性的输出。</p>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="RAG-的优势"><a href="#RAG-的优势" class="headerlink" title="RAG 的优势"></a>RAG 的优势</h3><p>RAG 的结合检索与生成的特点，使得它在以下几个方面具有明显优势：</p>
-<ul>
-<li><p><strong>减少生成模型的幻觉（hallucination）：</strong><br>传统的生成式模型在没有外部信息的支持下可能会生成虚假或不准确的答案。RAG 通过引入检索步骤，确保生成的内容是基于现实中的信息来源，提高了结果的准确性。</p>
-</li>
-<li><p><strong>扩展模型知识：</strong><br>生成式模型通常只依赖于训练时的数据，但通过 RAG，模型可以动态地从外部知识库中检索更新的信息，避免了过时或不完整的知识。</p>
-</li>
-<li><p><strong>提高效率：</strong><br>由于检索步骤是通过外部资源完成的，生成模型只需要在相关信息的基础上生成输出，从而减少了需要处理的信息量，提高了生成效率。</p>
-</li>
-</ul>
-<h3 id="RAG-的工作流程"><a href="#RAG-的工作流程" class="headerlink" title="RAG 的工作流程"></a>RAG 的工作流程</h3><p>RAG 系统的工作流程可以通过以下几个步骤来描述：</p>
-<ol>
-<li><p><strong>查询用户输入：</strong></p>
-<ul>
-<li>用户提出问题或请求。</li>
-</ul>
-</li>
-<li><p><strong>信息检索（Retrieval）：</strong></p>
-<ul>
-<li>通过将用户的输入转化为 embedding（例如通过文本编码模型），从外部知识库中检索相关文档或信息。</li>
-</ul>
-</li>
-<li><p><strong>信息过滤与排序：</strong></p>
-<ul>
-<li>检索到的信息会根据与用户查询的相关性进行排序，并过滤掉不相关的内容。</li>
-</ul>
-</li>
-<li><p><strong>生成模型（Generation）：</strong></p>
-<ul>
-<li>将检索到的信息与用户的查询结合，送入生成式模型（如 GPT-4、T5）中，生成准确的响应。</li>
-</ul>
-</li>
-<li><p><strong>返回答案：</strong></p>
-<ul>
-<li>最终的生成文本作为回答返回给用户。</li>
-</ul>
-</li>
-</ol>
-<h3 id="RAG-在-iOS-开发中的应用"><a href="#RAG-在-iOS-开发中的应用" class="headerlink" title="RAG 在 iOS 开发中的应用"></a>RAG 在 iOS 开发中的应用</h3><p>在 iOS 开发中，RAG 主要用于构建智能助手、问答系统、文档检索系统等应用。它能够结合本地嵌入（embedding）与云端大模型，提供快速、准确的信息检索与生成。</p>
-<h4 id="示例：在-iOS-中实现-RAG"><a href="#示例：在-iOS-中实现-RAG" class="headerlink" title="示例：在 iOS 中实现 RAG"></a>示例：在 iOS 中实现 RAG</h4><p>假设你正在开发一个 RAG-based 文档检索助手，流程如下：</p>
-<ol>
-<li><p><strong>文档处理：</strong></p>
-<ul>
-<li>将大量文档（如 PDF、Word 文件）转换成文本，并通过嵌入技术（如 sentence-transformer）将文档转换为向量表示。</li>
-</ul>
-</li>
-<li><p><strong>查询处理：</strong></p>
-<ul>
-<li>用户提出查询，系统将查询也转化为 embedding，并通过相似度计算在本地数据库中进行检索。</li>
-</ul>
-</li>
-<li><p><strong>信息检索：</strong></p>
-<ul>
-<li>系统从本地数据库中检索出与用户查询最相关的文档段落。</li>
-</ul>
-</li>
-<li><p><strong>生成回答：</strong></p>
-<ul>
-<li>将检索到的相关段落与用户查询一起传递给大模型（如 Qwen、GLM），生成最终的回答。</li>
-</ul>
-</li>
-<li><p><strong>输出答案：</strong></p>
-<ul>
-<li>返回生成的答案，用户可以得到基于检索和生成结合的高质量回答。</li>
-</ul>
-</li>
-</ol>
-<h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><ul>
-<li><p><strong>智能客服助手：</strong> 根据用户的提问，结合历史对话和知识库内容，生成准确的服务回复。</p>
-</li>
-<li><p><strong>智能文档助手：</strong> 在文档中检索相关信息，并生成精确的答复或摘要。</p>
-</li>
-<li><p><strong>知识库查询系统：</strong> 通过检索外部知识库的信息并生成相关回答，帮助用户获取所需的知识。</p>
-</li>
-</ul>
-]]></content>
       <categories>
-        <category>AI大模型</category>
+        <category>技术</category>
       </categories>
       <tags>
-        <tag>AI大模型</tag>
+        <tag>Mac</tag>
+        <tag>Safari</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -801,8 +565,274 @@
 <li><a href="https://cmake.org/documentation/">CMake Official Documentation</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
-        <tag>技术</tag>
+        <tag>鸿蒙</tag>
+        <tag>音频</tag>
+        <tag>编解码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OggOhos：为HarmonyOS打造标准Ogg容器音频编解码库</title>
+    <url>/2026/02/28/OggOhos%EF%BC%9A%E4%B8%BAHarmonyOS%E6%89%93%E9%80%A0%E6%A0%87%E5%87%86Ogg%E5%AE%B9%E5%99%A8%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E5%BA%93/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在音频应用开发过程中，单纯的Opus编解码往往不足以满足复杂的生产需求。标准的Ogg Opus容器格式能够为音频数据提供完整的元数据、时间戳、以及与主流播放器的兼容性。HarmonyOS平台在这方面同样存在空白，现有的音频编解码方案缺乏标准容器支持。OggOhos库应运而生，通过结合OpusOhos编码能力和libogg容器支持，为HarmonyOS开发者提供生产级别的Ogg Opus编解码解决方案。本文详细阐述OggOhos库的架构设计、实现原理及技术细节。</p>
+<p>本库发布到<a href="https://ohpm.openharmony.cn/#/cn/detail/@lengain%2Foggohos">OpenHarmony三方库中心仓</a>。</p>
+<h2 id="开发背景"><a href="#开发背景" class="headerlink" title="开发背景"></a>开发背景</h2><h3 id="技术需求分析"><a href="#技术需求分析" class="headerlink" title="技术需求分析"></a>技术需求分析</h3><p>音频应用的完整开发需要解决以下核心问题：</p>
+<ol>
+<li><strong>标准文件格式支持</strong>：应用需要生成和读取符合RFC 7845标准的Ogg Opus文件，确保与其他平台和播放器的兼容性</li>
+<li><strong>元数据管理</strong>：需要在音频文件中持久化存储采样率、声道数、时间戳等关键信息</li>
+<li><strong>流式处理能力</strong>：支持大文件的流式编解码，而非一次性加载到内存</li>
+<li><strong>跨生态协作</strong>：生成的音频文件可被各平台（Web、iOS、Android等）正确识别和播放</li>
+</ol>
+<p>传统的单纯Opus编码只能生成裸音频帧，缺乏完整的文件格式封装，这在实际应用中很难被主流播放器直接识别。</p>
+<h3 id="为什么选择Ogg容器"><a href="#为什么选择Ogg容器" class="headerlink" title="为什么选择Ogg容器"></a>为什么选择Ogg容器</h3><p>Ogg Vorbis容器能够为音频编解码器提供以下支持：</p>
+<ul>
+<li><strong>标准规范</strong>：RFC 7845明确定义了Ogg Opus的封装方式，确保跨平台兼容</li>
+<li><strong>灵活扩展</strong>：通过OpusHead和OpusTags包提供参数携带和标签管理</li>
+<li><strong>流式音频</strong>：支持流式编码和解码，适合实时应用和大文件处理</li>
+<li><strong>时间精度</strong>：Granulepos机制提供精确的样本级时间戳</li>
+<li><strong>广泛支持</strong>：几乎所有主流音频播放器都原生支持Ogg Opus格式</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="HarmonyOS平台的挑战"><a href="#HarmonyOS平台的挑战" class="headerlink" title="HarmonyOS平台的挑战"></a>HarmonyOS平台的挑战</h3><p>在HarmonyOS上实现Ogg Opus编解码面临以下技术难题：</p>
+<ol>
+<li><strong>双重跨语言互操作</strong>：不仅要处理ArkTS与C++的互操作，还需协调OpusOhos与新增的libogg库</li>
+<li><strong>内存安全与初始化</strong>：C语言的ogg结构体需要严格初始化，任何垃圾数据都可能导致段错误</li>
+<li><strong>生命周期管理</strong>：编码和解码的多次调用需要妥善管理内部状态和资源</li>
+<li><strong>性能优化</strong>：确保容器封装不成为编解码的性能瓶颈</li>
+</ol>
+<h2 id="技术方案设计"><a href="#技术方案设计" class="headerlink" title="技术方案设计"></a>技术方案设计</h2><h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p>OggOhos采用分层架构设计，在OpusOhos的基础上增加Ogg容器层：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">┌────────────────────────────────────────────┐</span><br><span class="line">│    ArkTS Application Layer                 │</span><br><span class="line">│  (OggOpusEncoder &#x2F; OggOpusDecoder Class)   │</span><br><span class="line">├────────────────────────────────────────────┤</span><br><span class="line">│    ArkTS Codec Wrapper Layer               │</span><br><span class="line">│  (OpusEncoder &#x2F; OpusDecoder Integration)   │</span><br><span class="line">├────────────────────────────────────────────┤</span><br><span class="line">│    N-API Bridge Layer                      │</span><br><span class="line">│  (Ogg stream init&#x2F;write&#x2F;read operations)   │</span><br><span class="line">├────────────────────────────────────────────┤</span><br><span class="line">│    Native Codec Layer                      │</span><br><span class="line">│  (libopus 1.5.2 + libogg)                  │</span><br><span class="line">└────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p><strong>各层职责划分</strong>：</p>
+<ul>
+<li><strong>ArkTS应用层</strong>：提供OggOpusEncoder和OggOpusDecoder高级API，屏蔽复杂细节</li>
+<li><strong>ArkTS集成层</strong>：管理OpusOhos编码器状态，与Ogg层协调</li>
+<li><strong>N-API桥接层</strong>：实现Ogg流操作（初始化、写入、读取、提取包），处理结构体管理</li>
+<li><strong>原生库层</strong>：libopus处理音频编解码，libogg处理容器封装</li>
+</ul>
+<h3 id="关键技术选型"><a href="#关键技术选型" class="headerlink" title="关键技术选型"></a>关键技术选型</h3><h4 id="1-Ogg容器库版本"><a href="#1-Ogg容器库版本" class="headerlink" title="1. Ogg容器库版本"></a>1. Ogg容器库版本</h4><p>采用标准的libogg库，提供：</p>
+<ul>
+<li>轻量级API：专注于页面和包的管理</li>
+<li>兼容性强：遵循RFC 3533（Ogg Bitstream Format）</li>
+<li>无外部依赖：纯C实现，易于集成到HarmonyOS NDK</li>
+</ul>
+<h4 id="2-RFC-7845遵循"><a href="#2-RFC-7845遵循" class="headerlink" title="2. RFC 7845遵循"></a>2. RFC 7845遵循</h4><p>严格按照Ogg Encapsulation for Opus标准实现：</p>
+<ul>
+<li><strong>OpusHead</strong>包：携带版本号、声道数、采样率等参数（19字节固定长度）</li>
+<li><strong>OpusTags</strong>包：支持厂商信息和用户注释</li>
+<li><strong>Opus数据包</strong>：普通音频帧，每个包记录对应的样本数（granulepos）</li>
+</ul>
+<h4 id="3-N-API设计"><a href="#3-N-API设计" class="headerlink" title="3. N-API设计"></a>3. N-API设计</h4><p>利用N-API的稳定性实现跨版本兼容：</p>
+<ul>
+<li>全局状态管理：编码器和解码器使用静态全局指针</li>
+<li>内存池化：避免频繁的内存分配</li>
+<li>错误传播：C++异常转换为JavaScript/ArkTS错误</li>
+</ul>
+<h3 id="数据流设计"><a href="#数据流设计" class="headerlink" title="数据流设计"></a>数据流设计</h3><h4 id="编码流程"><a href="#编码流程" class="headerlink" title="编码流程"></a>编码流程</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PCM Audio (Int16Array)</span><br><span class="line">    ↓</span><br><span class="line">OpusEncoder.encode() </span><br><span class="line">    ↓ (Opus编码数据，打包格式)</span><br><span class="line">OggOpusEncoder.encodePCM()</span><br><span class="line">    ↓ (解析打包的Opus帧)</span><br><span class="line">OggOpusEncoder.writeOpusData()</span><br><span class="line">    ↓ (N-API调用)</span><br><span class="line">Native: ogg_stream_packetin()</span><br><span class="line">    ↓ (装配为Ogg页面)</span><br><span class="line">Native: ogg_stream_pageout()</span><br><span class="line">    ↓ (累积输出缓冲)</span><br><span class="line">OggOpusEncoder.finish()</span><br><span class="line">    ↓ (返回完整Ogg文件)</span><br><span class="line">ArrayBuffer (可保存为.ogg文件)</span><br></pre></td></tr></table></figure>
+
+<h4 id="解码流程"><a href="#解码流程" class="headerlink" title="解码流程"></a>解码流程</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Ogg Opus File (ArrayBuffer)</span><br><span class="line">    ↓</span><br><span class="line">OggOpusDecoder.decodeAll()</span><br><span class="line">    ↓ (N-API：initOggDecoder)</span><br><span class="line">Native: ogg_sync_init()</span><br><span class="line">    ↓ (N-API：feedOggData)</span><br><span class="line">Native: ogg_sync_pageout() + ogg_stream_pagein()</span><br><span class="line">    ↓ (N-API：getNextPacket)</span><br><span class="line">Native: ogg_stream_packetout()</span><br><span class="line">    ↓ (OpusDecoder.decode())</span><br><span class="line">PCM样本 (Int16Array)</span><br><span class="line">    ↓</span><br><span class="line">N-API: ArrayBuffer</span><br><span class="line">    ↓</span><br><span class="line">OggOpusDecoder返回 Int16Array</span><br></pre></td></tr></table></figure>
+
+<h3 id="内存管理与生命周期"><a href="#内存管理与生命周期" class="headerlink" title="内存管理与生命周期"></a>内存管理与生命周期</h3><p>OggOhos采用显式的资源管理模式：</p>
+<ol>
+<li><strong>初始化阶段</strong>：init()方法创建编码/解码器，所有ogg结构体被清零</li>
+<li><strong>处理阶段</strong>：encodePCM()/decodeAll()进行核心操作，内部缓冲累积数据</li>
+<li><strong>清理阶段</strong>：destroy()或自动GC时释放所有资源</li>
+</ol>
+<p>关键的内存安全实践：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 构造函数显式清零</span></span><br><span class="line">OggOpusEncoder() : ... &#123;</span><br><span class="line">    <span class="built_in">memset</span>(&amp;os, <span class="number">0</span>, <span class="keyword">sizeof</span>(os));</span><br><span class="line">    <span class="built_in">memset</span>(&amp;og, <span class="number">0</span>, <span class="keyword">sizeof</span>(og));</span><br><span class="line">    <span class="built_in">memset</span>(&amp;op, <span class="number">0</span>, <span class="keyword">sizeof</span>(op));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="核心实现详解"><a href="#核心实现详解" class="headerlink" title="核心实现详解"></a>核心实现详解</h2><h3 id="1-Ogg容器初始化"><a href="#1-Ogg容器初始化" class="headerlink" title="1. Ogg容器初始化"></a>1. Ogg容器初始化</h3><p>编码器初始化是整个系统的起点，需要创建标准的Ogg流头部：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">InitOggEncoder</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 参数解析</span></span><br><span class="line">    <span class="keyword">int32_t</span> sampleRate, channels;</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">0</span>], &amp;sampleRate);</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">1</span>], &amp;channels);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建编码器实例</span></span><br><span class="line">    g_oggEncoder = <span class="keyword">new</span> OggOpusEncoder();</span><br><span class="line">    g_oggEncoder-&gt;sampleRate = sampleRate;</span><br><span class="line">    g_oggEncoder-&gt;channels = channels;</span><br><span class="line">    g_oggEncoder-&gt;serialno = rand();  <span class="comment">// 唯一的流标识</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化ogg流</span></span><br><span class="line">    ogg_stream_init(&amp;g_oggEncoder-&gt;os, g_oggEncoder-&gt;serialno);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建OpusHead包（RFC 7845）</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> header[<span class="number">19</span>];</span><br><span class="line">    <span class="built_in">memcpy</span>(header, <span class="string">&quot;OpusHead&quot;</span>, <span class="number">8</span>);</span><br><span class="line">    header[<span class="number">8</span>] = <span class="number">1</span>;                    <span class="comment">// Version</span></span><br><span class="line">    header[<span class="number">9</span>] = channels;             <span class="comment">// Channel count</span></span><br><span class="line">    <span class="comment">// ... 采样率等参数编码（小端序）...</span></span><br><span class="line">    header[<span class="number">18</span>] = <span class="number">0</span>;                   <span class="comment">// Channel mapping family</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 装配为ogg包</span></span><br><span class="line">    g_oggEncoder-&gt;op.packet = header;</span><br><span class="line">    g_oggEncoder-&gt;op.bytes = <span class="number">19</span>;</span><br><span class="line">    g_oggEncoder-&gt;op.b_o_s = <span class="number">1</span>;       <span class="comment">// Beginning of Stream标志</span></span><br><span class="line">    g_oggEncoder-&gt;op.granulepos = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 写入流并刷出页面</span></span><br><span class="line">    ogg_stream_packetin(&amp;g_oggEncoder-&gt;os, &amp;g_oggEncoder-&gt;op);</span><br><span class="line">    <span class="keyword">while</span> (ogg_stream_flush(&amp;g_oggEncoder-&gt;os, &amp;g_oggEncoder-&gt;og) != <span class="number">0</span>) &#123;</span><br><span class="line">        appendPage(g_oggEncoder, &amp;g_oggEncoder-&gt;og);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 类似地创建OpusTags包</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键设计点</strong>：</p>
+<ul>
+<li><strong>serialno</strong>：每个Ogg流的唯一标识，允许多路复用</li>
+<li><strong>b_o_s/e_o_s标志</strong>：标记流的开始和结束，解码器检查</li>
+<li><strong>Granulepos初始化</strong>：从0开始，每次递增添加的样本数</li>
+</ul>
+<h3 id="2-Opus帧的Ogg封装"><a href="#2-Opus帧的Ogg封装" class="headerlink" title="2. Opus帧的Ogg封装"></a>2. Opus帧的Ogg封装</h3><p>编码数据通过关键的writeOpusData方法装配到Ogg页面：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">WriteOpusData</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 获取Opus编码数据和对应的样本数</span></span><br><span class="line">    <span class="keyword">void</span>* opusData = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">size_t</span> dataLen = <span class="number">0</span>;</span><br><span class="line">    napi_get_arraybuffer_info(env, args[<span class="number">0</span>], &amp;opusData, &amp;dataLen);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int32_t</span> samplesCount;</span><br><span class="line">    napi_get_value_int32(env, args[<span class="number">1</span>], &amp;samplesCount);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 更新累积的样本位置（granulepos）</span></span><br><span class="line">    <span class="comment">// 这是时间戳，解码器通过它计算播放位置</span></span><br><span class="line">    g_oggEncoder-&gt;granulepos += samplesCount;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 装配为ogg包</span></span><br><span class="line">    g_oggEncoder-&gt;op.packet = <span class="keyword">static_cast</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">char</span>*&gt;(opusData);</span><br><span class="line">    g_oggEncoder-&gt;op.bytes = dataLen;</span><br><span class="line">    g_oggEncoder-&gt;op.b_o_s = <span class="number">0</span>;</span><br><span class="line">    g_oggEncoder-&gt;op.e_o_s = <span class="number">0</span>;</span><br><span class="line">    g_oggEncoder-&gt;op.granulepos = g_oggEncoder-&gt;granulepos;</span><br><span class="line">    g_oggEncoder-&gt;op.packetno = g_oggEncoder-&gt;packetno++;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 装配到流中</span></span><br><span class="line">    ogg_stream_packetin(&amp;g_oggEncoder-&gt;os, &amp;g_oggEncoder-&gt;op);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当积累足够数据时，libogg会自动生成页面</span></span><br><span class="line">    <span class="comment">// 页面大小通常为4096-8192字节</span></span><br><span class="line">    <span class="keyword">while</span> (ogg_stream_pageout(&amp;g_oggEncoder-&gt;os, &amp;g_oggEncoder-&gt;og) != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 页面可以被立即写出或缓冲</span></span><br><span class="line">        appendPage(g_oggEncoder, &amp;g_oggEncoder-&gt;og);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>核心机制</strong>：</p>
+<ul>
+<li><strong>Granulepos</strong>：代表该页面包含的最后一个样本的位置，允许精确定位</li>
+<li><strong>页面生成</strong>：libogg在包积累到一定数量后自动生成页面（约4KB）</li>
+<li><strong>流式处理</strong>：pageout()而非flush()，避免过多的小包页面</li>
+</ul>
+<h3 id="3-解码器的Ogg解析"><a href="#3-解码器的Ogg解析" class="headerlink" title="3. 解码器的Ogg解析"></a>3. 解码器的Ogg解析</h3><p>解码器需要逐步解析Ogg流、提取包、验证头部信息：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> napi_value <span class="title">FeedOggData</span><span class="params">(napi_env env, napi_callback_info info)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化sync状态用于解析页面边界</span></span><br><span class="line">    <span class="keyword">char</span>* buffer = ogg_sync_buffer(&amp;g_oggDecoder-&gt;oy, inputLen);</span><br><span class="line">    <span class="built_in">memcpy</span>(buffer, inputData, inputLen);</span><br><span class="line">    ogg_sync_wrote(&amp;g_oggDecoder-&gt;oy, inputLen);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 逐个页面解析</span></span><br><span class="line">    <span class="keyword">while</span> (ogg_sync_pageout(&amp;g_oggDecoder-&gt;oy, &amp;g_oggDecoder-&gt;og) == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">// 首个页面决定了stream参数</span></span><br><span class="line">        <span class="keyword">if</span> (g_oggDecoder-&gt;os.serialno == <span class="number">0</span>) &#123;</span><br><span class="line">            ogg_stream_init(&amp;g_oggDecoder-&gt;os, ogg_page_serialno(&amp;g_oggDecoder-&gt;og));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将页面装配到流中</span></span><br><span class="line">        ogg_stream_pagein(&amp;g_oggDecoder-&gt;os, &amp;g_oggDecoder-&gt;og);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>解析步骤</strong>：</p>
+<ol>
+<li><strong>同步初始化</strong>：ogg_sync用于找到页面边界（0x4F 0x67 0x67 0x53）</li>
+<li><strong>页面提取</strong>：ogg_sync_pageout逐个解析页面</li>
+<li><strong>流初始化</strong>：从首个页面的serialno创建对应的stream</li>
+<li><strong>包提取</strong>：ogg_stream_packetout获取页面中的包</li>
+</ol>
+<h3 id="4-ArkTS应用层设计"><a href="#4-ArkTS应用层设计" class="headerlink" title="4. ArkTS应用层设计"></a>4. ArkTS应用层设计</h3><p>OggOpusEncoder的高级API屏蔽了底层Ogg复杂性：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">OggOpusEncoder</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> opusEncoder: OpusEncoder;</span><br><span class="line">  <span class="keyword">private</span> sampleRate: <span class="built_in">number</span> = <span class="number">48000</span>;</span><br><span class="line">  <span class="keyword">private</span> channels: <span class="built_in">number</span> = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">private</span> frameSize: <span class="built_in">number</span> = <span class="number">960</span>;</span><br><span class="line">  <span class="keyword">private</span> initialized: <span class="built_in">boolean</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  init(sampleRate: <span class="built_in">number</span>, <span class="attr">channels</span>: <span class="built_in">number</span>, <span class="attr">bitRate</span>: <span class="built_in">number</span>): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.sampleRate = sampleRate;</span><br><span class="line">    <span class="built_in">this</span>.channels = channels;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算20ms帧对应的样本数</span></span><br><span class="line">    <span class="built_in">this</span>.frameSize = <span class="built_in">Math</span>.floor(sampleRate * <span class="number">0.02</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化下层的Opus编码器</span></span><br><span class="line">    <span class="built_in">this</span>.opusEncoder.init(sampleRate, channels, bitRate);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化Ogg容器</span></span><br><span class="line">    oggOhos.initOggEncoder(sampleRate, channels);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.initialized = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  encodePCM(pcmData: <span class="built_in">Int16Array</span>): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">this</span>.initialized) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;Encoder not initialized&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用OpusEncoder编码PCM数据</span></span><br><span class="line">    <span class="comment">// 返回的是打包格式：[4字节长度|帧数据|4字节长度|帧数据|...]</span></span><br><span class="line">    <span class="keyword">const</span> encodedData: <span class="built_in">ArrayBuffer</span> = <span class="built_in">this</span>.opusEncoder.encode(pcmData);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析打包格式，逐帧写入Ogg</span></span><br><span class="line">    <span class="keyword">const</span> frames = <span class="built_in">this</span>.parseEncodedFrames(encodedData);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> frame <span class="keyword">of</span> frames) &#123;</span><br><span class="line">      oggOhos.writeOpusData(frame, <span class="built_in">this</span>.frameSize);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  finish(): <span class="built_in">ArrayBuffer</span> &#123;</span><br><span class="line">    <span class="comment">// 完成编码并获取完整Ogg文件</span></span><br><span class="line">    <span class="keyword">return</span> oggOhos.finishOggStream();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> parseEncodedFrames(encodedData: <span class="built_in">ArrayBuffer</span>): <span class="built_in">ArrayBuffer</span>[] &#123;</span><br><span class="line">    <span class="keyword">const</span> frames: <span class="built_in">ArrayBuffer</span>[] = [];</span><br><span class="line">    <span class="keyword">const</span> view = <span class="keyword">new</span> <span class="built_in">DataView</span>(encodedData);</span><br><span class="line">    <span class="keyword">let</span> offset = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析打包格式</span></span><br><span class="line">    <span class="keyword">while</span> (offset &lt; view.byteLength) &#123;</span><br><span class="line">      <span class="keyword">const</span> frameLength = view.getInt32(offset, <span class="literal">true</span>);</span><br><span class="line">      offset += <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">      frames.push(encodedData.slice(offset, offset + frameLength));</span><br><span class="line">      offset += frameLength;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> frames;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>设计特点</strong>：</p>
+<ol>
+<li><strong>对象组合</strong>：OggOpusEncoder包含OpusEncoder实例，而非继承</li>
+<li><strong>无缝集成</strong>：自动适配OpusOhos的编码能力和打包格式</li>
+<li><strong>隐藏细节</strong>：用户无需了解Ogg页面、granulepos等底层机制</li>
+<li><strong>资源安全</strong>：通过init/destroy配对管理生命周期</li>
+</ol>
+<h3 id="5-内存安全问题解决"><a href="#5-内存安全问题解决" class="headerlink" title="5. 内存安全问题解决"></a>5. 内存安全问题解决</h3><p>早期版本在多次编码/解码时会崩溃，原因是ogg结构体未初始化：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 问题代码</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">OggOpusEncoder</span> &#123;</span></span><br><span class="line">    ogg_stream_state os;  <span class="comment">// 包含random serialno等垃圾数据</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ogg_stream_init()检查条件：if (os.serialno == 0)</span></span><br><span class="line"><span class="comment">// 由于未初始化，serialno包含垃圾值，条件判断失败</span></span><br><span class="line"><span class="comment">// 导致后续ogg_stream_packetout()在未初始化的结构体上操作，段错误</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决方案：显式清零</span></span><br><span class="line">OggOpusEncoder() &#123;</span><br><span class="line">    <span class="built_in">memset</span>(&amp;os, <span class="number">0</span>, <span class="keyword">sizeof</span>(os));</span><br><span class="line">    <span class="built_in">memset</span>(&amp;og, <span class="number">0</span>, <span class="keyword">sizeof</span>(og));</span><br><span class="line">    <span class="built_in">memset</span>(&amp;op, <span class="number">0</span>, <span class="keyword">sizeof</span>(op));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个关键修复确保了结构体的可靠初始化，使多次调用成为可能。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="场景1：音频文件录制"><a href="#场景1：音频文件录制" class="headerlink" title="场景1：音频文件录制"></a>场景1：音频文件录制</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> encoder = <span class="keyword">new</span> OggOpusEncoder();</span><br><span class="line">encoder.init(<span class="number">48000</span>, <span class="number">1</span>, <span class="number">128000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从麦克风逐块读取PCM数据</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> pcmBlock <span class="keyword">of</span> audioBlocks) &#123;</span><br><span class="line">  encoder.encodePCM(pcmBlock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> oggData = encoder.finish();</span><br><span class="line"><span class="comment">// 将oggData保存为.ogg文件</span></span><br><span class="line"><span class="keyword">await</span> saveToFile(<span class="string">&#x27;recording.ogg&#x27;</span>, oggData);</span><br><span class="line">encoder.destroy();</span><br></pre></td></tr></table></figure>
+
+<h3 id="场景2：音频文件播放"><a href="#场景2：音频文件播放" class="headerlink" title="场景2：音频文件播放"></a>场景2：音频文件播放</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> decoder = <span class="keyword">new</span> OggOpusDecoder();</span><br><span class="line"><span class="keyword">const</span> fileData = <span class="keyword">await</span> readFile(<span class="string">&#x27;audio.ogg&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> pcmSamples = decoder.decodeAll(fileData);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将PCM数据送给HarmonyOS音频播放框架</span></span><br><span class="line"><span class="keyword">await</span> audioPlayer.play(pcmSamples);</span><br><span class="line">decoder.destroy();</span><br></pre></td></tr></table></figure>
+
+<h3 id="场景3：实时音频转换"><a href="#场景3：实时音频转换" class="headerlink" title="场景3：实时音频转换"></a>场景3：实时音频转换</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将用户麦克风输入的PCM转为标准Ogg Opus格式分享</span></span><br><span class="line"><span class="keyword">const</span> encoder = <span class="keyword">new</span> OggOpusEncoder();</span><br><span class="line">encoder.init(<span class="number">16000</span>, <span class="number">1</span>, <span class="number">32000</span>);</span><br><span class="line"></span><br><span class="line">microphone.onAudioFrame = <span class="function">(<span class="params">pcmData</span>) =&gt;</span> &#123;</span><br><span class="line">  encoder.encodePCM(pcmData);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定期获取部分编码结果用于实时传输，使用ogg_stream_flush()</span></span><br><span class="line"><span class="keyword">const</span> partialOgg = encoder.finishOggStream();  <span class="comment">// 获取到目前为止的Ogg数据</span></span><br><span class="line"><span class="comment">// 发送partialOgg到服务器或其他设备</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="性能考量"><a href="#性能考量" class="headerlink" title="性能考量"></a>性能考量</h2><h3 id="编码性能"><a href="#编码性能" class="headerlink" title="编码性能"></a>编码性能</h3><ul>
+<li><strong>Opus编码延迟</strong>：单帧（20ms）约0.3-0.5ms</li>
+<li><strong>Ogg封装开销</strong>：页面生成和缓冲累积通常&lt;0.1ms</li>
+<li><strong>总体延迟</strong>：编码一个音频块（多帧）约2-5ms，不影响实时应用</li>
+</ul>
+<h3 id="内存占用"><a href="#内存占用" class="headerlink" title="内存占用"></a>内存占用</h3><ul>
+<li><strong>固定开销</strong>：编码器状态约1-2KB，解码器状态约3-5KB</li>
+<li><strong>输出缓冲</strong>：动态增长，每个Ogg页面约4-8KB</li>
+<li><strong>流式处理</strong>：支持大文件编解码，不需一次性加载</li>
+</ul>
+<h2 id="常见问题与最佳实践"><a href="#常见问题与最佳实践" class="headerlink" title="常见问题与最佳实践"></a>常见问题与最佳实践</h2><h3 id="Q1：编码后的Ogg文件无法播放"><a href="#Q1：编码后的Ogg文件无法播放" class="headerlink" title="Q1：编码后的Ogg文件无法播放"></a>Q1：编码后的Ogg文件无法播放</h3><p><strong>处理要点</strong>：</p>
+<ol>
+<li>确认OpusHead和OpusTags包正确生成（可用十六进制编辑器检查）</li>
+<li>验证granulepos的递增是否正确（应该严格单调递增）</li>
+<li>检查最后一个包的e_o_s标志是否被设置</li>
+</ol>
+<h3 id="Q2：多次调用encode-decode导致崩溃"><a href="#Q2：多次调用encode-decode导致崩溃" class="headerlink" title="Q2：多次调用encode/decode导致崩溃"></a>Q2：多次调用encode/decode导致崩溃</h3><p><strong>解决方案</strong>：升级到1.0.1版本，该版本修复了ogg结构体初始化问题。确保每次init前都有清晰的destroy操作。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://tools.ietf.org/html/rfc7845">RFC 7845 - Ogg Encapsulation for the Opus Audio Codec</a></li>
+<li><a href="https://xiph.org/ogg/">libogg Official Documentation</a></li>
+<li><a href="https://opus-codec.org/docs/opus_api-1.5.2/">libopus API Reference</a></li>
+<li><a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/napi-guidelines-V5">HarmonyOS N-API Development Guide</a></li>
+<li><a href="../OpusOhos：为HarmonyOS打造高性能音频编解码库.md">OpusOhos Library Documentation</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>鸿蒙</tag>
+        <tag>音频</tag>
+        <tag>编解码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RAG:检索增强生成</title>
+    <url>/2025/11/27/RAG-%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90/</url>
+    <content><![CDATA[<p>RAG（Retrieval-Augmented Generation）是一个将<strong>信息检索</strong>（Retrieval）和<strong>生成式模型</strong>（Generation）结合的来增强生成内容的准确性和丰富度的一种技术，广泛应用于提高大语言模型（LLM）在处理复杂任务时的表现，尤其是在信息量庞大、需要背景知识支持的场景下，表现尤为突出。它通过结合外部知识库进行检索，增强模型生成的能力，特别适用于需要大量背景知识的任务。</p>
+<p>对于开发者而言，理解并实现 RAG 技术，不仅能提升 AI 应用的质量，还能帮助你构建更加智能、高效的产品。</p>
+<h3 id="RAG-的基本概念"><a href="#RAG-的基本概念" class="headerlink" title="RAG 的基本概念"></a>RAG 的基本概念</h3><p>RAG 通过将<strong>信息检索</strong>（如从数据库或文档中检索相关信息）与生成式模型（如 GPT-4、T5）结合，来提供更准确的回答和高效的生成能力。其流程分为两个步骤：</p>
+<ol>
+<li><p><strong>信息检索（Retrieval）：</strong></p>
+<ul>
+<li><p>在这一步，模型根据用户的查询从一个外部的知识库、数据库或者文本集合中检索出与查询最相关的信息。</p>
+</li>
+<li><p>检索过程中使用技术如 <strong>embedding</strong>（文本向量化）和 <strong>相似度计算</strong>（如余弦相似度），通过匹配查询和文档的语义相似度来提取相关信息。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>生成式回答（Generation）：</strong></p>
+<ul>
+<li><p>一旦检索到相关信息，生成式模型（如 GPT-4）使用这些信息来生成最终的答案或内容。</p>
+</li>
+<li><p>生成模型会将检索到的文本与用户的原始查询结合，生成更具信息量和准确性的输出。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="RAG-的优势"><a href="#RAG-的优势" class="headerlink" title="RAG 的优势"></a>RAG 的优势</h3><p>RAG 的结合检索与生成的特点，使得它在以下几个方面具有明显优势：</p>
+<ul>
+<li><p><strong>减少生成模型的幻觉（hallucination）：</strong><br>传统的生成式模型在没有外部信息的支持下可能会生成虚假或不准确的答案。RAG 通过引入检索步骤，确保生成的内容是基于现实中的信息来源，提高了结果的准确性。</p>
+</li>
+<li><p><strong>扩展模型知识：</strong><br>生成式模型通常只依赖于训练时的数据，但通过 RAG，模型可以动态地从外部知识库中检索更新的信息，避免了过时或不完整的知识。</p>
+</li>
+<li><p><strong>提高效率：</strong><br>由于检索步骤是通过外部资源完成的，生成模型只需要在相关信息的基础上生成输出，从而减少了需要处理的信息量，提高了生成效率。</p>
+</li>
+</ul>
+<h3 id="RAG-的工作流程"><a href="#RAG-的工作流程" class="headerlink" title="RAG 的工作流程"></a>RAG 的工作流程</h3><p>RAG 系统的工作流程可以通过以下几个步骤来描述：</p>
+<ol>
+<li><p><strong>查询用户输入：</strong></p>
+<ul>
+<li>用户提出问题或请求。</li>
+</ul>
+</li>
+<li><p><strong>信息检索（Retrieval）：</strong></p>
+<ul>
+<li>通过将用户的输入转化为 embedding（例如通过文本编码模型），从外部知识库中检索相关文档或信息。</li>
+</ul>
+</li>
+<li><p><strong>信息过滤与排序：</strong></p>
+<ul>
+<li>检索到的信息会根据与用户查询的相关性进行排序，并过滤掉不相关的内容。</li>
+</ul>
+</li>
+<li><p><strong>生成模型（Generation）：</strong></p>
+<ul>
+<li>将检索到的信息与用户的查询结合，送入生成式模型（如 GPT-4、T5）中，生成准确的响应。</li>
+</ul>
+</li>
+<li><p><strong>返回答案：</strong></p>
+<ul>
+<li>最终的生成文本作为回答返回给用户。</li>
+</ul>
+</li>
+</ol>
+<h3 id="RAG-在-iOS-开发中的应用"><a href="#RAG-在-iOS-开发中的应用" class="headerlink" title="RAG 在 iOS 开发中的应用"></a>RAG 在 iOS 开发中的应用</h3><p>在 iOS 开发中，RAG 主要用于构建智能助手、问答系统、文档检索系统等应用。它能够结合本地嵌入（embedding）与云端大模型，提供快速、准确的信息检索与生成。</p>
+<h4 id="示例：在-iOS-中实现-RAG"><a href="#示例：在-iOS-中实现-RAG" class="headerlink" title="示例：在 iOS 中实现 RAG"></a>示例：在 iOS 中实现 RAG</h4><p>假设你正在开发一个 RAG-based 文档检索助手，流程如下：</p>
+<ol>
+<li><p><strong>文档处理：</strong></p>
+<ul>
+<li>将大量文档（如 PDF、Word 文件）转换成文本，并通过嵌入技术（如 sentence-transformer）将文档转换为向量表示。</li>
+</ul>
+</li>
+<li><p><strong>查询处理：</strong></p>
+<ul>
+<li>用户提出查询，系统将查询也转化为 embedding，并通过相似度计算在本地数据库中进行检索。</li>
+</ul>
+</li>
+<li><p><strong>信息检索：</strong></p>
+<ul>
+<li>系统从本地数据库中检索出与用户查询最相关的文档段落。</li>
+</ul>
+</li>
+<li><p><strong>生成回答：</strong></p>
+<ul>
+<li>将检索到的相关段落与用户查询一起传递给大模型（如 Qwen、GLM），生成最终的回答。</li>
+</ul>
+</li>
+<li><p><strong>输出答案：</strong></p>
+<ul>
+<li>返回生成的答案，用户可以得到基于检索和生成结合的高质量回答。</li>
+</ul>
+</li>
+</ol>
+<h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><ul>
+<li><p><strong>智能客服助手：</strong> 根据用户的提问，结合历史对话和知识库内容，生成准确的服务回复。</p>
+</li>
+<li><p><strong>智能文档助手：</strong> 在文档中检索相关信息，并生成精确的答复或摘要。</p>
+</li>
+<li><p><strong>知识库查询系统：</strong> 通过检索外部知识库的信息并生成相关回答，帮助用户获取所需的知识。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>AI大模型</category>
+      </categories>
+      <tags>
+        <tag>AI大模型</tag>
+        <tag>RAG</tag>
+        <tag>LLM</tag>
       </tags>
   </entry>
   <entry>
@@ -833,8 +863,12 @@
 
 <p>在上述代码中，<code>ls -l</code>命令会在shell中执行，并返回结果。然后，将结果赋值给变量output，并使用puts方法打印该变量的值。</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
         <tag>Ruby</tag>
+        <tag>语法</tag>
       </tags>
   </entry>
   <entry>
@@ -950,8 +984,13 @@
 <p><a href="https://blog.csdn.net/it_liuchengli/article/details/52948031">这里</a>有更详细的解释，有兴趣可以再看看。</p>
 <p>谢谢观看！</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
-        <tag>技术</tag>
+        <tag>iOS</tag>
+        <tag>Xcode</tag>
+        <tag>工程化</tag>
       </tags>
   </entry>
   <entry>
@@ -1251,7 +1290,9 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>技术</tag>
+        <tag>iOS</tag>
+        <tag>CocoaPods</tag>
+        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1288,8 +1329,13 @@
 </ol>
 <p>以上。</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
-        <tag>技术</tag>
+        <tag>iOS</tag>
+        <tag>Objective-C</tag>
+        <tag>Category</tag>
       </tags>
   </entry>
   <entry>
@@ -1345,8 +1391,13 @@
 
 <p>然后继续执行xrcun</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
         <tag>iOS</tag>
+        <tag>NSObject</tag>
+        <tag>内存</tag>
       </tags>
   </entry>
   <entry>
@@ -1354,8 +1405,135 @@
     <url>/2020/05/29/%E4%B8%80%E5%8D%83%E7%A7%8D%E4%BA%BA%E7%94%9F/</url>
     <content><![CDATA[<p>&emsp;&emsp;不知道从哪一刻开始，脑海里会如电影胶片般浮现各种场景，似是平行时空，让我觉得那就是我经历的一样。<br>&emsp;&emsp;等到这种想法蹦出的越来越多，越来越频繁的时候，我决定把这些写出来。<br>&emsp;&emsp;我在标签里面添加了一个新标签，叫做<code>一千种人生</code>。<br>&emsp;&emsp;你是否也有一千种人生？</p>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
       <tags>
-        <tag>一千种人生</tag>
+        <tag>随笔</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一台Mac两套Flutter：我用一个脚本解决鸿蒙/iOS 环境来回切换</title>
+    <url>/2026/03/02/%E4%B8%80%E5%8F%B0Mac%E4%B8%A4%E5%A5%97Flutter%EF%BC%9A%E6%88%91%E7%94%A8-150-%E8%A1%8C%E8%84%9A%E6%9C%AC%E8%A7%A3%E5%86%B3%E9%B8%BF%E8%92%99-iOS-%E7%8E%AF%E5%A2%83%E6%9D%A5%E5%9B%9E%E5%88%87%E6%8D%A2/</url>
+    <content><![CDATA[<blockquote>
+<p>每次切环境都像拆盲盒：<code>flutter</code> 到底指向哪个 SDK？<code>pub get</code> 为什么又超时了？</p>
+</blockquote>
+<blockquote>
+<p>这篇文章分享一个可落地的工程化解法：用一个 Shell 脚本，把鸿蒙与 iOS 的 Flutter 环境切换做成“可重复、可追溯、可持久化、可自愈”的标准流程。</p>
+</blockquote>
+<hr>
+<h2 id="先说痛点：为什么“手动-export”迟早出事"><a href="#先说痛点：为什么“手动-export”迟早出事" class="headerlink" title="先说痛点：为什么“手动 export”迟早出事"></a>先说痛点：为什么“手动 export”迟早出事</h2><p>如果你和我一样，一台 Mac 同时做两类 Flutter 开发：</p>
+<ul>
+<li><p><strong>鸿蒙开发</strong>：常用定制 SDK / 镜像源；</p>
+</li>
+<li><p><strong>iOS 开发</strong>：常用官方 Flutter / 官方源。</p>
+</li>
+</ul>
+<p>那你大概率踩过这些坑：</p>
+<ol>
+<li><p><code>PATH</code> 被来回覆盖，<code>which flutter</code> 指向不稳定；</p>
+</li>
+<li><p><code>PUB_HOSTED_URL</code> 和 <code>FLUTTER_STORAGE_BASE_URL</code> 没成套切换，<code>pub get</code> 时灵时不灵；</p>
+</li>
+<li><p>终端重启后环境丢失，要再手动配置一遍；</p>
+</li>
+<li><p>团队成员各自“本地秘方”，问题难复现。</p>
+</li>
+</ol>
+<p>一句话总结：<strong>问题不在 Flutter，而在“环境切换没有工程化”。</strong></p>
+<hr>
+<h2 id="目标：把“人肉操作”变成“标准命令”"><a href="#目标：把“人肉操作”变成“标准命令”" class="headerlink" title="目标：把“人肉操作”变成“标准命令”"></a>目标：把“人肉操作”变成“标准命令”</h2><p>这个工程给出的思路很简单，但很有效：</p>
+<ul>
+<li><p>用 <code>bash flutter_env_switch.sh harmony|ios</code> 执行切换；</p>
+</li>
+<li><p>把最终结果写入 <code>~/.flutter_env</code>；</p>
+</li>
+<li><p>自动把加载配置写入 shell 启动文件（<code>~/.zshrc</code> 或 <code>~/.bash_profile</code>，支持块级去重）。</p>
+</li>
+</ul>
+<p>这相当于建立了一个单一事实来源（Single Source of Truth）：</p>
+<ul>
+<li><p>当前环境是什么，不靠记忆，靠文件；</p>
+</li>
+<li><p>下次开终端自动恢复，不靠手动再 export。</p>
+</li>
+</ul>
+<hr>
+<h2 id="核心原理拆解（带代码）"><a href="#核心原理拆解（带代码）" class="headerlink" title="核心原理拆解（带代码）"></a>核心原理拆解（带代码）</h2><p>下面是脚本里最关键的 5 个设计点，也是这个方案稳定的原因。</p>
+<h3 id="1-先自动“准备环境”，缺啥补啥"><a href="#1-先自动“准备环境”，缺啥补啥" class="headerlink" title="1) 先自动“准备环境”，缺啥补啥"></a>1) 先自动“准备环境”，缺啥补啥</h3><p>现在不是只“检查目录”，而是先自动准备：</p>
+<ul>
+<li>自动创建 <code>~/flutter/harmony</code>、<code>~/flutter/ios</code>；</li>
+<li>自动检测并创建两个 <code>PUB_CACHE</code> 目录；</li>
+<li>检测到 Flutter 缺失时自动 <code>git clone</code>；</li>
+<li>关键下载步骤失败自动重试 3 次。</li>
+</ul>
+<p>这一步把“环境准备”从手工操作变成了脚本内建能力，尤其适合新机器初始化或重装后的恢复。</p>
+<h3 id="2-先校验-SDK，再允许切换"><a href="#2-先校验-SDK，再允许切换" class="headerlink" title="2) 先校验 SDK，再允许切换"></a>2) 先校验 SDK，再允许切换</h3><p>切环境前，脚本会检查目标 SDK 目录和 <code>bin/flutter</code> 是否存在，避免“切换成功但命令不可用”的假成功。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">check_flutter_path</span></span>() &#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">local</span> env=<span class="variable">$1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">local</span> flutter_path=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="variable">$env</span> <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;harmony&quot;</span>) flutter_path=<span class="string">&quot;<span class="variable">$HOME</span>/flutter/harmony/flutter_flutter&quot;</span> ;;</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;ios&quot;</span>) flutter_path=<span class="string">&quot;<span class="variable">$HOME</span>/flutter/ios/flutter&quot;</span> ;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="string">&quot;<span class="variable">$flutter_path</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;错误：Flutter SDK路径不存在: <span class="variable">$flutter_path</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">return</span> 1</span><br><span class="line"></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -f <span class="string">&quot;<span class="variable">$flutter_path</span>/bin/flutter&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;错误：Flutter可执行文件不存在: <span class="variable">$flutter_path</span>/bin/flutter&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">return</span> 1</span><br><span class="line"></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么重要？</strong></p>
+<p>因为环境问题最怕“静默失败”。提前失败，问题定位成本会低很多。</p>
+<h3 id="3-配置按环境模板化，保证“成组切换”"><a href="#3-配置按环境模板化，保证“成组切换”" class="headerlink" title="3) 配置按环境模板化，保证“成组切换”"></a>3) 配置按环境模板化，保证“成组切换”</h3><p>脚本通过 <code>get_env_config()</code> 输出整套变量，而不是零散改一两个：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">get_env_config</span></span>() &#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">local</span> env=<span class="variable">$1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="variable">$env</span> <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;harmony&quot;</span>)</span><br><span class="line"></span><br><span class="line">cat &lt;&lt; <span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PUB_CACHE=<span class="variable">$HOME</span>/flutter/harmony/pub</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PUB_HOSTED_URL=https://pub-web.flutter-io.cn</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> FLUTTER_OHOS_STORAGE_BASE_URL=https://flutter-ohos.obs.cn-south-1.myhuaweicloud.com</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> FLUTTER_GIT_URL=https://gitcode.com/openharmony-tpc/flutter_flutter.git</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$HOME</span>/flutter/harmony/flutter_flutter/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">;;</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;ios&quot;</span>)</span><br><span class="line"></span><br><span class="line">cat &lt;&lt; <span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PUB_CACHE=<span class="variable">$HOME</span>/flutter/ios/pub</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PUB_HOSTED_URL=https://pub.dev</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> FLUTTER_STORAGE_BASE_URL=https://storage.googleapis.com</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> FLUTTER_GIT_URL=https://github.com/flutter/flutter.git</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$HOME</span>/flutter/ios/flutter/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么重要？</strong></p>
+<p>环境变量本质上是“组合关系”，必须原子化切换，不能只改 <code>PATH</code> 不改镜像源。</p>
+<h3 id="4-持久化到-flutter-env，终端重启不丢状态"><a href="#4-持久化到-flutter-env，终端重启不丢状态" class="headerlink" title="4) 持久化到 ~/.flutter_env，终端重启不丢状态"></a>4) 持久化到 <code>~/.flutter_env</code>，终端重启不丢状态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat &gt; ~/.flutter_env &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># Flutter环境配置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 最后更新时间: $(date)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">$config</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.flutter_env</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么重要？</strong></p>
+<p>这一步把“临时会话变量”变成“可审计配置文件”。你可以随时打开 <code>~/.flutter_env</code> 看当前状态。</p>
+<h3 id="5-自动写入-shell-配置-可观测自检"><a href="#5-自动写入-shell-配置-可观测自检" class="headerlink" title="5) 自动写入 shell 配置 + 可观测自检"></a>5) 自动写入 shell 配置 + 可观测自检</h3><ul>
+<li><p>脚本会自动识别并写入 <code>~/.zshrc</code> 或 <code>~/.bash_profile</code>；</p>
+</li>
+<li><p>写入使用“块级去重”，不会重复追加；</p>
+</li>
+<li><p><code>show</code>：查看当前关键变量与 Flutter 版本；</p>
+</li>
+<li><p><code>check</code>：执行自动检查与修复（目录、下载、shell 加载配置）。</p>
+</li>
+</ul>
+<p>这两个命令让脚本不仅能“切”，还能“证明确实切对了”。</p>
+<hr>
+<h2 id="实际使用方式（可直接复制）"><a href="#实际使用方式（可直接复制）" class="headerlink" title="实际使用方式（可直接复制）"></a>实际使用方式（可直接复制）</h2><h3 id="1-切换到鸿蒙环境"><a href="#1-切换到鸿蒙环境" class="headerlink" title="1. 切换到鸿蒙环境"></a>1. 切换到鸿蒙环境</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash ./flutter_env_switch.sh harmony</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-切换到-iOS-环境"><a href="#2-切换到-iOS-环境" class="headerlink" title="2. 切换到 iOS 环境"></a>2. 切换到 iOS 环境</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash ./flutter_env_switch.sh ios</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-查看当前环境"><a href="#3-查看当前环境" class="headerlink" title="3. 查看当前环境"></a>3. 查看当前环境</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash ./flutter_env_switch.sh show</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-检查-shell-是否正确加载"><a href="#4-检查-shell-是否正确加载" class="headerlink" title="4. 检查 shell 是否正确加载"></a>4. 检查 shell 是否正确加载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash ./flutter_env_switch.sh check</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示：请使用 <code>bash</code> 执行脚本，不要用 <code>sh</code>。脚本会检查 <code>BASH_VERSION</code>。</p>
+</blockquote>
+<hr>
+<h2 id="这套方案解决了什么"><a href="#这套方案解决了什么" class="headerlink" title="这套方案解决了什么"></a>这套方案解决了什么</h2><p>从工程角度看，它解决的不是“写命令麻烦”，而是这三个核心问题：</p>
+<ul>
+<li><p><strong>一致性</strong>：团队使用统一入口，减少口口相传的本地配置；</p>
+</li>
+<li><p><strong>稳定性</strong>：自动准备 + 先校验再切换 + 失败重试，降低失败概率；</p>
+</li>
+<li><p><strong>可维护性</strong>：状态持久化、shell 配置自动化且去重，可回溯</p>
+</li>
+</ul>
+<hr>
+<h2 id="常见现象说明（避免误判）"><a href="#常见现象说明（避免误判）" class="headerlink" title="常见现象说明（避免误判）"></a>常见现象说明（避免误判）</h2><ul>
+<li>首次切到某个环境时，<code>flutter --version</code> 可能先触发工具链初始化下载，这是正常行为；</li>
+<li>日志里出现 <code>Downloading...</code> 不一定是错误，脚本会自动重试并提取最终版本行；</li>
+<li>若网络不稳定，脚本会给出重试与后续操作指引（例如执行 <code>check</code>、清理缓存后重试）。</li>
+</ul>
+<hr>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>很多团队在多环境开发时，卡住的不是业务代码，而是“环境不可控”。</p>
+<p>把环境切换做成工程能力，收益往往比想象的大：少踩坑、少沟通、少返工。</p>
+<p>如果你正在同时维护鸿蒙与 iOS Flutter 研发链路，这种“轻量脚本 + 持久化配置”的方法，几乎是成本最低、收益最高的一步。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Flutter</tag>
+        <tag>跨平台</tag>
+        <tag>鸿蒙</tag>
       </tags>
   </entry>
   <entry>
@@ -1404,8 +1582,13 @@
 </blockquote>
 <p>说了半天，其实我也没有违反规定，就被审查了二十天。然后状态变为正在审核，又等了一个星期，审核通过。<br>审核通过后，App并没有直接发布到AppStore，当时是搜索不到的，苹果会在24小时之内传到各个国家地区的AppStore。<br>完结，手动撒花~</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
-        <tag>其他</tag>
+        <tag>iOS</tag>
+        <tag>AppStore</tag>
+        <tag>审核</tag>
       </tags>
   </entry>
   <entry>
@@ -1446,8 +1629,12 @@
 <h3 id="5-5-【条款标题】"><a href="#5-5-【条款标题】" class="headerlink" title="5.5 【条款标题】"></a>5.5 【条款标题】</h3><p>本协议所有条款的标题仅为阅读方便，本身并无实际涵义，不能作为本协议涵义解释的依据。</p>
 <h3 id="5-6-【条款效力】"><a href="#5-6-【条款效力】" class="headerlink" title="5.6 【条款效力】"></a>5.6 【条款效力】</h3><p>本协议条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方仍具有约束力。</p>
 ]]></content>
+      <categories>
+        <category>产品</category>
+      </categories>
       <tags>
-        <tag>其他</tag>
+        <tag>隐私政策</tag>
+        <tag>产品</tag>
       </tags>
   </entry>
   <entry>
@@ -1566,8 +1753,12 @@
 <p>3.酒店都需要预定，否则有可能因为后面的客人的预定而不能让你续住，所以旅游之前最好预定好房间.特别是晚上临时找住处会很被动，之前有朋友飞机落地没酒店就很惨，不过我上次全程住宿交通都是天纯安排的</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
       <tags>
-        <tag>随笔</tag>
+        <tag>生活</tag>
+        <tag>旅行</tag>
       </tags>
   </entry>
   <entry>
@@ -1579,8 +1770,12 @@
 <p>回想起来大学时候，有的计算机课程的教科书，对知识屏蔽做的不好的，学起来晦涩难懂，费时费力。学生学起来困难，老师教起来费劲。还有各种翻译来的专业名词，也应该更贴合国内的语言环境。</p>
 <p>切勿故作高深！</p>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
       <tags>
         <tag>随笔</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -1594,8 +1789,12 @@
 <p>目前很多学校已经对优秀的课程进行录播了，像北大的公开课，还有各个大学和网易合作的公开课等，但是互联互通，公益性，课程的全面性，都做的不好。</p>
 <p>我想象有这样的未来，不管你身处何处，只要是中华人民共和国国民，就可以像她的宪法和教育法中说的那样，有公平的受教育的机会，有终身学习的良好条件，可以得到全面发展，摆脱愚昧和无知，做一个幸福的人。</p>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
       <tags>
         <tag>随笔</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -1624,8 +1823,12 @@
 <p>分析后有以下程序：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line"></span><br><span class="line">data segment</span><br><span class="line">     db &#39;welcome to masm!&#39;</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">color segment</span><br><span class="line">     db 02h,24h,71h</span><br><span class="line">color ends </span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:  mov ax,data</span><br><span class="line">        mov ds,ax</span><br><span class="line"></span><br><span class="line">        mov ax,0b86eh</span><br><span class="line">        mov es,ax</span><br><span class="line"></span><br><span class="line">        mov si,0</span><br><span class="line">        mov cx,3</span><br><span class="line">        mov di,0</span><br><span class="line"></span><br><span class="line">s0:     push cx</span><br><span class="line"></span><br><span class="line">        mov bx,0</span><br><span class="line">        mov bp,0</span><br><span class="line"></span><br><span class="line">        mov cx,16</span><br><span class="line">s1:</span><br><span class="line">        mov al,ds:[bx]</span><br><span class="line">        mov es:[bp+si+66],al</span><br><span class="line">        inc bp</span><br><span class="line">        inc bx</span><br><span class="line"></span><br><span class="line">        push ds</span><br><span class="line">        mov ax,color</span><br><span class="line">        mov ds,ax</span><br><span class="line">        mov al,ds:[di]</span><br><span class="line">        mov es:[bp+si+66],al</span><br><span class="line">        pop ds </span><br><span class="line"></span><br><span class="line">        inc bp</span><br><span class="line">        loop s1</span><br><span class="line"></span><br><span class="line">        add si,0a0h</span><br><span class="line">        inc di</span><br><span class="line"></span><br><span class="line">        pop cx</span><br><span class="line">        loop s0</span><br><span class="line"></span><br><span class="line">        mov ax,4c00h</span><br><span class="line">        int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
         <tag>汇编</tag>
+        <tag>8086</tag>
       </tags>
   </entry>
   <entry>
@@ -1850,8 +2053,13 @@
 <p><strong>Prompt = 生成侧</strong><br><strong>Embedding = 检索侧</strong><br><strong>Function Calling = 执行侧</strong></p>
 <p>三者结合 → 能做出真正高级的智能助手。</p>
 ]]></content>
+      <categories>
+        <category>AI大模型</category>
+      </categories>
       <tags>
         <tag>AI大模型</tag>
+        <tag>LLM</tag>
+        <tag>入门</tag>
       </tags>
   </entry>
   <entry>
@@ -1917,8 +2125,13 @@
 <p>3.<a href="https://www.objc.io/issues/12-animations/animating-custom-layer-properties/">Animating Custom Layer Properties</a></p>
 <p>4.<a href="https://blog.csdn.net/sinat_27706697/article/details/49738957">https://blog.csdn.net/sinat_27706697/article/details/49738957</a></p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
-        <tag>技术</tag>
+        <tag>iOS</tag>
+        <tag>CALayer</tag>
+        <tag>CAAnimation</tag>
       </tags>
   </entry>
   <entry>
@@ -1985,8 +2198,12 @@
 <p>然后打开 iTunes，把 iPhone / iPad 连接到 Mac，按住 Option，同时点击「检查更新」，选择下载好的固件，点击打开，进行安装。</p>
 <h5 id="恢复到iOS12"><a href="#恢复到iOS12" class="headerlink" title="恢复到iOS12"></a>恢复到iOS12</h5><p>下载最新的<a href="https://developer.apple.com/download/release/">iOS12系统固件</a>，然后用上面的安装步骤，使用iTunes进行安装即可。如果数据损坏，可以用之前的备份，进行恢复。</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
-        <tag>技术</tag>
+        <tag>iOS</tag>
+        <tag>系统安装</tag>
       </tags>
   </entry>
   <entry>
@@ -2031,8 +2248,13 @@
 
 <p>以上~</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
         <tag>iOS</tag>
+        <tag>网络</tag>
+        <tag>Swift</tag>
       </tags>
   </entry>
   <entry>
@@ -2044,6 +2266,13 @@
 <p>我也是一个感性的人，也会把生活所感写到这里。</p>
 <p>2018年就要过去了，希望2019不会太糟。</p>
 ]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>换了一个新的网站图标</title>
@@ -2061,8 +2290,12 @@
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
       <tags>
-        <tag>软件</tag>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2097,8 +2330,12 @@
 <p>今年双十一从十一月一号开始，在10号之前我就陆陆续续收到了零件。全部到货后开始组装，我已经不是第一次组装电脑了，组装过程还算顺利，一次点亮。</p>
 <p>使用体验也不错，4K的显示屏就是清晰，虽然相比MacBook Pro的屏幕还是差一点，但还是不错了。只有显卡这个没想到，噪音有点大。我这个人比较喜欢安静，整个主机的噪音来源大户就是显卡，还好之前买的就是静音机箱，里面有隔音棉，不运行大型程序时的噪音还能接受。</p>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
       <tags>
-        <tag>其他</tag>
+        <tag>随笔</tag>
+        <tag>硬件</tag>
       </tags>
   </entry>
   <entry>
@@ -2117,8 +2354,12 @@
 <p>&emsp;&emsp;另一个感触就是漫画主人公夏目贵志，在他身边发生的点点滴滴，让我觉得，做一个善良的人，温暖的人，并不是什么可耻的漂亮话。努力做一个善良的人，温暖的人是真的很美好的事。</p>
 <p>&emsp;&emsp;最近脾气不好，老是怼天怼地，愿我也有一天，也能够包容身边的好与不好，做个温暖的人，善良的人。</p>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
       <tags>
         <tag>随笔</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -2132,8 +2373,12 @@
 
 <p>示例程序要求：在屏幕的8行3列， 用绿色显示data段中的字符串。<br>下面是我写的程序</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line"></span><br><span class="line">data segment</span><br><span class="line">        db &#39;Welcome to masm!&#39;,0</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line"></span><br><span class="line">start:  mov dh,8</span><br><span class="line">        mov dl,3</span><br><span class="line">        mov cl,2</span><br><span class="line">        mov ax,data</span><br><span class="line">        mov ds,ax</span><br><span class="line">        mov si,0</span><br><span class="line">        call show_str</span><br><span class="line">        mov ax,4c00h</span><br><span class="line">        int 21h</span><br><span class="line"></span><br><span class="line">show_str:</span><br><span class="line">        push ax</span><br><span class="line">        push bx</span><br><span class="line">        push bp         ;bp用来读取显存中的偏移地址</span><br><span class="line">        push es         ;es用来读取显存中的起始地址</span><br><span class="line"></span><br><span class="line">        mov ax,0b800h</span><br><span class="line">        mov es,ax         ;将起始地址存入es</span><br><span class="line"></span><br><span class="line">        mov al,dh         ;显存偏移地址行号的偏移计算</span><br><span class="line">        mov ah,0</span><br><span class="line">        sub al,1</span><br><span class="line">        mov bl,0a0h</span><br><span class="line">        mul bl</span><br><span class="line">        mov bp,ax</span><br><span class="line"></span><br><span class="line">        mov ax,0         ;显存偏移地址列号的偏移计算</span><br><span class="line">        mov al,dl</span><br><span class="line">        mov bl,2</span><br><span class="line">        mul bl</span><br><span class="line">        add bp,ax        ;偏移地址都加到bp中</span><br><span class="line"></span><br><span class="line">s:      push cx</span><br><span class="line">        mov cl,[si]</span><br><span class="line">        mov ch,0</span><br><span class="line">        jcxz ok        ;根据0判断循环的结束。程序结束时需要pop cx</span><br><span class="line">        pop cx</span><br><span class="line">        mov al,[si]        ;低位存字母</span><br><span class="line">        mov ah,cl          ;高位存颜色</span><br><span class="line">        mov es:[bp],ax     ;设置到屏幕内存中</span><br><span class="line">        inc si</span><br><span class="line">        add bp,2</span><br><span class="line">        jmp short s</span><br><span class="line"></span><br><span class="line">ok:     pop cx          ;逐个pop用过寄存器</span><br><span class="line">        pop es</span><br><span class="line">        pop bp</span><br><span class="line">        pop bx</span><br><span class="line">        pop ax</span><br><span class="line">        ret</span><br><span class="line"></span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
         <tag>汇编</tag>
+        <tag>8086</tag>
       </tags>
   </entry>
   <entry>
@@ -2166,8 +2411,103 @@
 <li>在转换销售额，人数，平均销售额时，可返回当前转换后字符串的长度。根据返回的长度可算出数字字符串后应填充多少空格</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
         <tag>汇编</tag>
+        <tag>8086</tag>
+        <tag>课程设计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>给设计师，产品经理的iOS UI介绍</title>
+    <url>/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<p>iOS为一名iOS开发者，在日常工作中常常会遇到设计师，产品经理犯一些常识性的错误，令人啼笑皆非。有些扯皮，因为没有共识，浪费了很多时间。部分设计师和产品经理对iOS系统的理解停留在表面。我这篇分享，将从程序员的角度带你去认识一下iOS系统的UI。</p>
+<p>读完之后的目标：</p>
+<ul>
+<li><p>认识iOS操作系统中大部分系统控件的UI</p>
+</li>
+<li><p>理解iOS开发中视图组织的内部逻辑</p>
+</li>
+<li><p>一些常识</p>
+</li>
+<li><p>一些设计资源的分享</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="UIKit"><a href="#UIKit" class="headerlink" title="UIKit"></a>UIKit</h3><p>iOS系统中，用于显示界面的UI库叫<code>UIKit</code>，<code>UIKit</code>中有丰富的UI控件帮助开发者快速的构建美观，功能丰富，符合苹果设计规范的UI界面。</p>
+<p>苹果官方写了一个App，用来展示UIKit中的组件，这里是<a href="https://developer.apple.com/documentation/uikit/mac_catalyst/uikit_catalog_creating_and_customizing_views_and_controls">地址</a>，如果地址失效了，请用关键字<code>Apple UIKitCatalog</code>搜索。有条件的可以自己在Mac电脑上下载Xcode软件，连接电脑安装。也可以自己找iOS开发的程序猿来帮你安装到手机上。</p>
+<p>下面的分享中，我将使用这个App中的截图，来介绍UIKit中控件。</p>
+<p>我的手机的iOS系统版本是<code>iOS14.0.1</code></p>
+<h5 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a>UIView</h5><p><code>UIView</code>是UIKit中最基础的控件，所有其他控件都是继承于UIView。UIView相当于ps中的一个画板，即可以作为一个容器，放置其他控件视图，又可以单独当做一个空间使用。</p>
+<p>UIView有以下属性：</p>
+<ul>
+<li><p>大小、位置、背景颜色、是否隐藏</p>
+</li>
+<li><p>圆角、阴影</p>
+</li>
+<li><p>手势触控（点击，滑动，拖动，捏合，长按）</p>
+</li>
+</ul>
+<p>同样的，继承UIView的其他视图也都是有这些属性的。</p>
+<p>下图即是一个iOS App的首页。它的可见部分全部都是由UIView及其子类控件组成的。各种控件大大小小相互嵌套就组成了各种页面。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/snapshot2020-09-30.png" alt></p>
+<h5 id="各种控件"><a href="#各种控件" class="headerlink" title="各种控件"></a>各种控件</h5><p>以下控件都是继承于UIView，即UIView有的属性，它们也都有，同时它们也有UIView没有的特性。</p>
+<p><strong>UIButton</strong></p>
+<p><code>UIButton</code>为按钮控件，常用于点击事件。按钮可设置图片和文本。按钮是一种可设置状态的控件。比如普通状态(normal)，选中状态(selected)，高亮状态(highlighted)，禁用状态(disabled)等，开发者可以为按钮的每个状态设置不同的图片和文本。</p>
+<p>下图左侧Buttons展示了各种按钮，其中标明System为系统图标。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/1.png" alt="1"></p>
+<p><strong>UIPageControl</strong></p>
+<p><code>UIPageControl</code>为页码控制器，通常用于指示轮播图的位置，控制器的指示视图默认为圆点。开发者可自定义页码控制器上指示视图（即上图中页面Page Control，小圆点）的图片。上图右侧图Custom Page Control为自定义指示视图的页面。</p>
+<p><strong>UISearchBar</strong></p>
+<p><code>UISearchBar</code>为搜索框， 下图Default Search Bar中展示的即是。搜索框可自定义搜索图标🔍的图片，以及文本的字体大小颜色，取消按钮的文本，样式等，Scope范围的设置为可选项。</p>
+<p>UISearchBar和列表视图放在一起时，再搭配UISearchController，可以带动画效果的搜索视图，具体可以在iPhone-&gt;设置页面看到。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/2.png" alt="2"></p>
+<p><strong>UISegmentView</strong>为分段控制器，分段控制器可以自定义各种样式，如上图Segmented Contols。开发者可以设置分段控制器按钮的背景色，选中色，甚至可以将按钮设置为图片。分段控制器通常放在页面的导航栏区域，用来分页或者分类数据，在iPhone-&gt;最近通话的导航栏区域可看到。</p>
+<p><strong>UISlider</strong>为滑块，由一个进度条和拇指可拖动视图（小圆点）组成，如上图Siders中展示的那样。开发者可以自定义滑块进图条的前景色，背景色，粗细，也可以设置拇指视图（圆点）的大小颜色，样式。</p>
+<p><strong>UIStepper</strong>为步进器，UI样式如下图，常用于一些较小数值值的加减操作，典型场景打印页面的页数。开发者可自定义背景色，左右加减符号的图片，分割线的图片，加减值的大小。</p>
+<p><strong>UISwitch</strong>为开关。常用于设置页面某项设置的开关。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/3.png" alt="3"></p>
+<p><strong>UITextField</strong>为单行输入框，常用于输入用户名，密码，或搜索。开发者可设置占位文本用于提醒，每个UITextField有左右视图，默认不显示，开发者可自定义显示，比如上图中第四个UITextField，设置了左右两个视图，开发者可设置文本大小，字体，颜色，是否是密码输入（即输入后变为黑点），视图背景色等，不过不能换行。</p>
+<p><strong>UITextView</strong>为多行输入框。常用于输入较长的文本。UITextView的属性比UITextField少一些。开发者可设置文本大小，字体，颜色，不支持密文输入，支持富文本编辑，插入图片（自定义表情）等，Apple的Demo中没有UITextView的示例，你可以参考微信朋友圈发布新内容时的输入框。</p>
+<p><strong>UIActivityIndicatorView</strong>是活动指示器，如下图，通常用于表示页面加载中。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/4.png" alt="4"></p>
+<p><strong>UIAlertController</strong>是警告框。警告框有两种样式，一种是在屏幕中间的，如上图，可以自定义左右两边的按钮，也可以在警告框中添加单行输入框。另一种是动作表单（Action Sheet），如下图，通常用于多个可选择操作。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/5.png" alt="5"></p>
+<p>UIProgressView是进度条，开发者可设置进度条的前景色，背景色，宽高等。</p>
+<p>UIToolBar为工具栏，位于页面的下方，可放置一些操作按钮。</p>
+<p>UIPickerView是选择器。通常用于时间，日期等数字的选择。开发者可以设置选择器的列数和行数，以及每个条目的文本信息，下图中是3列，255行。</p>
+<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/6.png" alt="6"></p>
+<p>以上就是一些常用的苹果官方控件。</p>
+<p>苹果在设计这些控件和视图时，会遵循六个设计原则，这六个设计原则放在苹果iOS<a href="https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/">人机界面指南</a>的首页。建议去官网观看。</p>
+<p>苹果六大设计原则</p>
+<ul>
+<li><p>美学完整性(Aesthetic Integrity)</p>
+</li>
+<li><p>一致性(Consistency)</p>
+</li>
+<li><p>直接操作性(Direct Manipulation)</p>
+</li>
+<li><p>反馈(Feedback)</p>
+</li>
+<li><p>隐喻(Metaphors)</p>
+</li>
+<li><p>用户控制(User Control)</p>
+</li>
+</ul>
+<p>同样，如果你想了解更多，可以去苹果设计官网进行观看学习。</p>
+<p>苹果设计（<a href="https://developer.apple.com/design/resources/">https://developer.apple.com/design/resources/</a> ）</p>
+<p>苹果设计相关视频（<a href="https://developer.apple.com/videos/design/">https://developer.apple.com/videos/design/</a> ）</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>UI</tag>
+        <tag>设计</tag>
       </tags>
   </entry>
   <entry>
@@ -2331,6 +2671,14 @@
 <li><strong>多人协作冲突</strong>：Trunk-based + 小步提交 + 特性开关，降低合并风险。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>工程化</tag>
+        <tag>项目管理</tag>
+      </tags>
   </entry>
   <entry>
     <title>魔数计算器隐私政策</title>
@@ -2370,6 +2718,13 @@
 <h3 id="5-5-【条款标题】"><a href="#5-5-【条款标题】" class="headerlink" title="5.5 【条款标题】"></a>5.5 【条款标题】</h3><p>本协议所有条款的标题仅为阅读方便，本身并无实际涵义，不能作为本协议涵义解释的依据。</p>
 <h3 id="5-6-【条款效力】"><a href="#5-6-【条款效力】" class="headerlink" title="5.6 【条款效力】"></a>5.6 【条款效力】</h3><p>本协议条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方仍具有约束力。</p>
 ]]></content>
+      <categories>
+        <category>产品</category>
+      </categories>
+      <tags>
+        <tag>隐私政策</tag>
+        <tag>产品</tag>
+      </tags>
   </entry>
   <entry>
     <title>魔数鸿蒙扫描</title>
@@ -2418,90 +2773,12 @@
 <p>• GitHub Issues<br>• 邮箱：<a href="mailto:lengain@yeah.net">lengain@yeah.net</a></p>
 <p>非常期待您的宝贵意见和反馈，将不断努力提升工具的性能和功能，为鸿蒙应用开发者提供更加全面、高效的服务。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>给设计师，产品经理的iOS UI介绍</title>
-    <url>/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<p>iOS为一名iOS开发者，在日常工作中常常会遇到设计师，产品经理犯一些常识性的错误，令人啼笑皆非。有些扯皮，因为没有共识，浪费了很多时间。部分设计师和产品经理对iOS系统的理解停留在表面。我这篇分享，将从程序员的角度带你去认识一下iOS系统的UI。</p>
-<p>读完之后的目标：</p>
-<ul>
-<li><p>认识iOS操作系统中大部分系统控件的UI</p>
-</li>
-<li><p>理解iOS开发中视图组织的内部逻辑</p>
-</li>
-<li><p>一些常识</p>
-</li>
-<li><p>一些设计资源的分享</p>
-</li>
-</ul>
-<a id="more"></a>
-
-<h3 id="UIKit"><a href="#UIKit" class="headerlink" title="UIKit"></a>UIKit</h3><p>iOS系统中，用于显示界面的UI库叫<code>UIKit</code>，<code>UIKit</code>中有丰富的UI控件帮助开发者快速的构建美观，功能丰富，符合苹果设计规范的UI界面。</p>
-<p>苹果官方写了一个App，用来展示UIKit中的组件，这里是<a href="https://developer.apple.com/documentation/uikit/mac_catalyst/uikit_catalog_creating_and_customizing_views_and_controls">地址</a>，如果地址失效了，请用关键字<code>Apple UIKitCatalog</code>搜索。有条件的可以自己在Mac电脑上下载Xcode软件，连接电脑安装。也可以自己找iOS开发的程序猿来帮你安装到手机上。</p>
-<p>下面的分享中，我将使用这个App中的截图，来介绍UIKit中控件。</p>
-<p>我的手机的iOS系统版本是<code>iOS14.0.1</code></p>
-<h5 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a>UIView</h5><p><code>UIView</code>是UIKit中最基础的控件，所有其他控件都是继承于UIView。UIView相当于ps中的一个画板，即可以作为一个容器，放置其他控件视图，又可以单独当做一个空间使用。</p>
-<p>UIView有以下属性：</p>
-<ul>
-<li><p>大小、位置、背景颜色、是否隐藏</p>
-</li>
-<li><p>圆角、阴影</p>
-</li>
-<li><p>手势触控（点击，滑动，拖动，捏合，长按）</p>
-</li>
-</ul>
-<p>同样的，继承UIView的其他视图也都是有这些属性的。</p>
-<p>下图即是一个iOS App的首页。它的可见部分全部都是由UIView及其子类控件组成的。各种控件大大小小相互嵌套就组成了各种页面。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/snapshot2020-09-30.png" alt></p>
-<h5 id="各种控件"><a href="#各种控件" class="headerlink" title="各种控件"></a>各种控件</h5><p>以下控件都是继承于UIView，即UIView有的属性，它们也都有，同时它们也有UIView没有的特性。</p>
-<p><strong>UIButton</strong></p>
-<p><code>UIButton</code>为按钮控件，常用于点击事件。按钮可设置图片和文本。按钮是一种可设置状态的控件。比如普通状态(normal)，选中状态(selected)，高亮状态(highlighted)，禁用状态(disabled)等，开发者可以为按钮的每个状态设置不同的图片和文本。</p>
-<p>下图左侧Buttons展示了各种按钮，其中标明System为系统图标。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/1.png" alt="1"></p>
-<p><strong>UIPageControl</strong></p>
-<p><code>UIPageControl</code>为页码控制器，通常用于指示轮播图的位置，控制器的指示视图默认为圆点。开发者可自定义页码控制器上指示视图（即上图中页面Page Control，小圆点）的图片。上图右侧图Custom Page Control为自定义指示视图的页面。</p>
-<p><strong>UISearchBar</strong></p>
-<p><code>UISearchBar</code>为搜索框， 下图Default Search Bar中展示的即是。搜索框可自定义搜索图标🔍的图片，以及文本的字体大小颜色，取消按钮的文本，样式等，Scope范围的设置为可选项。</p>
-<p>UISearchBar和列表视图放在一起时，再搭配UISearchController，可以带动画效果的搜索视图，具体可以在iPhone-&gt;设置页面看到。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/2.png" alt="2"></p>
-<p><strong>UISegmentView</strong>为分段控制器，分段控制器可以自定义各种样式，如上图Segmented Contols。开发者可以设置分段控制器按钮的背景色，选中色，甚至可以将按钮设置为图片。分段控制器通常放在页面的导航栏区域，用来分页或者分类数据，在iPhone-&gt;最近通话的导航栏区域可看到。</p>
-<p><strong>UISlider</strong>为滑块，由一个进度条和拇指可拖动视图（小圆点）组成，如上图Siders中展示的那样。开发者可以自定义滑块进图条的前景色，背景色，粗细，也可以设置拇指视图（圆点）的大小颜色，样式。</p>
-<p><strong>UIStepper</strong>为步进器，UI样式如下图，常用于一些较小数值值的加减操作，典型场景打印页面的页数。开发者可自定义背景色，左右加减符号的图片，分割线的图片，加减值的大小。</p>
-<p><strong>UISwitch</strong>为开关。常用于设置页面某项设置的开关。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/3.png" alt="3"></p>
-<p><strong>UITextField</strong>为单行输入框，常用于输入用户名，密码，或搜索。开发者可设置占位文本用于提醒，每个UITextField有左右视图，默认不显示，开发者可自定义显示，比如上图中第四个UITextField，设置了左右两个视图，开发者可设置文本大小，字体，颜色，是否是密码输入（即输入后变为黑点），视图背景色等，不过不能换行。</p>
-<p><strong>UITextView</strong>为多行输入框。常用于输入较长的文本。UITextView的属性比UITextField少一些。开发者可设置文本大小，字体，颜色，不支持密文输入，支持富文本编辑，插入图片（自定义表情）等，Apple的Demo中没有UITextView的示例，你可以参考微信朋友圈发布新内容时的输入框。</p>
-<p><strong>UIActivityIndicatorView</strong>是活动指示器，如下图，通常用于表示页面加载中。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/4.png" alt="4"></p>
-<p><strong>UIAlertController</strong>是警告框。警告框有两种样式，一种是在屏幕中间的，如上图，可以自定义左右两边的按钮，也可以在警告框中添加单行输入框。另一种是动作表单（Action Sheet），如下图，通常用于多个可选择操作。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/5.png" alt="5"></p>
-<p>UIProgressView是进度条，开发者可设置进度条的前景色，背景色，宽高等。</p>
-<p>UIToolBar为工具栏，位于页面的下方，可放置一些操作按钮。</p>
-<p>UIPickerView是选择器。通常用于时间，日期等数字的选择。开发者可以设置选择器的列数和行数，以及每个条目的文本信息，下图中是3列，255行。</p>
-<p><img src="/2020/09/23/%E7%BB%99%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84iOS-UI%E4%BB%8B%E7%BB%8D/6.png" alt="6"></p>
-<p>以上就是一些常用的苹果官方控件。</p>
-<p>苹果在设计这些控件和视图时，会遵循六个设计原则，这六个设计原则放在苹果iOS<a href="https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/">人机界面指南</a>的首页。建议去官网观看。</p>
-<p>苹果六大设计原则</p>
-<ul>
-<li><p>美学完整性(Aesthetic Integrity)</p>
-</li>
-<li><p>一致性(Consistency)</p>
-</li>
-<li><p>直接操作性(Direct Manipulation)</p>
-</li>
-<li><p>反馈(Feedback)</p>
-</li>
-<li><p>隐喻(Metaphors)</p>
-</li>
-<li><p>用户控制(User Control)</p>
-</li>
-</ul>
-<p>同样，如果你想了解更多，可以去苹果设计官网进行观看学习。</p>
-<p>苹果设计（<a href="https://developer.apple.com/design/resources/">https://developer.apple.com/design/resources/</a> ）</p>
-<p>苹果设计相关视频（<a href="https://developer.apple.com/videos/design/">https://developer.apple.com/videos/design/</a> ）</p>
-]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
-        <tag>技术</tag>
+        <tag>工具</tag>
+        <tag>鸿蒙</tag>
       </tags>
   </entry>
 </search>
