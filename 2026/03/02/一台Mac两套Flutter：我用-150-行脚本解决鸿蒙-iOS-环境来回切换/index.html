@@ -28,7 +28,7 @@
 <meta property="og:description" content="每次切环境都像拆盲盒：flutter 到底指向哪个 SDK？pub get 为什么又超时了？   这篇文章分享一个可落地的工程化解法：用一个 Shell 脚本，把鸿蒙与 iOS 的 Flutter 环境切换做成“可重复、可追溯、可持久化、可自愈”的标准流程。   先说痛点：为什么“手动 export”迟早出事如果你和我一样，一台 Mac 同时做两类 Flutter 开发：  鸿蒙开发：常用定制">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-03-02T09:34:15.000Z">
-<meta property="article:modified_time" content="2026-03-02T14:07:54.490Z">
+<meta property="article:modified_time" content="2026-03-02T14:18:07.017Z">
 <meta property="article:author" content="Lengain">
 <meta property="article:tag" content="Flutter">
 <meta property="article:tag" content="跨平台">
@@ -239,8 +239,11 @@
 </li>
 <li><p>终端重启后环境丢失，要再手动配置一遍；</p>
 </li>
-<li><p>团队成员各自“本地秘方”，问题难复现。</p>
-</li>
+</ol>
+<a id="more"></a>
+
+<ol start="4">
+<li>团队成员各自“本地秘方”，问题难复现。</li>
 </ol>
 <p>一句话总结：<strong>问题不在 Flutter，而在“环境切换没有工程化”。</strong></p>
 <hr>
