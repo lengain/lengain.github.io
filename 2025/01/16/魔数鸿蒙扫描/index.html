@@ -320,7 +320,7 @@
 <p>• 请确保扫描的App包文件是有效的鸿蒙应用安装包。<br>• 扫描结果仅供参考，具体优化调整需结合实际情况进行。</p>
 <p>联系我们</p>
 <p>如果您在使用魔数鸿蒙扫描过程中遇到任何问题或建议，请随时联系我。您可以通过以下方式与我取得联系：</p>
-<p>• GitHub Issues<br>• 邮箱：<a href="mailto:&#108;&#101;&#x6e;&#103;&#x61;&#105;&#110;&#64;&#x79;&#x65;&#97;&#104;&#x2e;&#x6e;&#101;&#116;">lengain@yeah.net</a></p>
+<p>• GitHub Issues<br>• 邮箱：<a href="mailto:&#x6c;&#x65;&#x6e;&#103;&#97;&#105;&#x6e;&#x40;&#121;&#x65;&#97;&#x68;&#x2e;&#110;&#x65;&#116;">lengain@yeah.net</a></p>
 <p>非常期待您的宝贵意见和反馈，将不断努力提升工具的性能和功能，为鸿蒙应用开发者提供更加全面、高效的服务。</p>
 
     </div>
@@ -409,30 +409,8 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-{# 不蒜子统计数据备份和Fallback脚本 #}
-{# 为防止不蒜子服务不可用导致数据丢失，启用数据备份和降级方案 #}
-
-{# 脚本1：不蒜子Fallback降级方案 - 必须先加载，快速提供降级方案 #}
 <script src="/js/busuanzi_fallback.js"></script>
-
-{# 脚本2：不蒜子数据收集和备份脚本 - 在不蒜子加载后执行，收集数据备份 #}
 <script src="/js/busuanzi_backup.js"></script>
-
-{# 备注文档 #}
-{# 
-数据备份说明：
-1. busuanzi_fallback.js - 当不蒜子超时（>8s）时自动启用，使用localStorage备份数据显示
-2. busuanzi_backup.js - 持续收集BUSUANZI对象数据，保存到localStorage和IndexedDB
-
-可用的浏览器命令（在console中运行）：
-- busuanziExportBackup()     - 导出备份数据为JSON文件下载
-- busuanziViewBackup()       - 在console查看备份数据
-- busuanziClearBackup()      - 清除本地备份数据
-- busuanziShowBackupSummary() - 显示备份数据摘要
-
-Node.js版本的导出脚本：
-- npm run export:busuanzi    - 导出统计数据到data/busuanzi_stats.json
-#}
 
 </body>
 </html>
