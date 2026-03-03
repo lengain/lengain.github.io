@@ -1330,7 +1330,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #baffff;
+    background: #ee0eff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2917,5 +2917,15 @@ header.header {
   }
   .comments {
     padding: 10px 12px;
+  }
+}
+.back-to-top {
+  right: 30px !important;
+  left: auto !important;
+}
+@media (max-width: 991px) {
+  .back-to-top {
+    right: 20px !important;
+    left: auto !important;
   }
 }
