@@ -373,6 +373,29 @@
       </tags>
   </entry>
   <entry>
+    <title>Mac电脑Safari浏览器上禁止百度广告</title>
+    <url>/2020/05/29/Mac%E7%94%B5%E8%84%91Safari%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%A6%81%E6%AD%A2%E7%99%BE%E5%BA%A6%E5%B9%BF%E5%91%8A/</url>
+    <content><![CDATA[<h4 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h4><p>我是一个Chrome浏览器用户，用Chrome浏览器进行百度搜索时，我用到了一个插件<a href="https://github.com/unclehking/bdAdfinisher">https://github.com/unclehking/bdAdfinisher</a>，这个插件可以过滤掉百度搜索结果的广告，实现无广告浏览，它让每个搜索结果页都很干净。这个插件几乎是我司程序员的Chrome浏览器标配插件。</p>
+<a id="more"></a>
+
+<p>但因为我用的是Mac电脑，难不免也会用到Safari浏览器。我遍寻GitHub和AppStore，也没找到一个可以禁止Safari浏览器百度广告的软件，恰好上段时间，我研究了一下Safari浏览器插件的写法，于是便产生了写一款Safari浏览器上禁止百度广告插件的想法。</p>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>然后就真的写成了。</p>
+<p>地址：<a href="https://github.com/lengain/BanbdAdForSafari">https://github.com/lengain/BanbdAdForSafari</a></p>
+<p>下载：<a href="https://github.com/lengain/BanbdAdForSafari/releases/download/1.0/BanBdAd.dmg">BanBdAd.dmg</a></p>
+<p>图文教程：<a href="https://github.com/lengain/BanbdAdForSafari/blob/master/Tutorial.md">https://github.com/lengain/BanbdAdForSafari/blob/master/Tutorial.md</a></p>
+<h4 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h4><p>写的过程中，借鉴了<a href="https://github.com/unclehking">unclehking</a>的chorme浏览器插件的一些代码，也和他沟通了一些关于百度的法律问题，向他的无私帮助致谢。</p>
+<h4 id="以后"><a href="#以后" class="headerlink" title="以后"></a>以后</h4><p>禁止谷歌广告，掘金广告，知乎广告……？</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>Safari</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OggOhos：为HarmonyOS打造标准Ogg容器音频编解码库</title>
     <url>/2026/02/28/OggOhos%EF%BC%9A%E4%B8%BAHarmonyOS%E6%89%93%E9%80%A0%E6%A0%87%E5%87%86Ogg%E5%AE%B9%E5%99%A8%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E5%BA%93/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在音频应用开发过程中，单纯的Opus编解码往往不足以满足复杂的生产需求。标准的Ogg Opus容器格式能够为音频数据提供完整的元数据、时间戳、以及与主流播放器的兼容性。HarmonyOS平台在这方面同样存在空白，现有的音频编解码方案缺乏标准容器支持。OggOhos库应运而生，通过结合OpusOhos编码能力和libogg容器支持，为HarmonyOS开发者提供生产级别的Ogg Opus编解码解决方案。本文详细阐述OggOhos库的架构设计、实现原理及技术细节。</p>
@@ -526,29 +549,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Mac电脑Safari浏览器上禁止百度广告</title>
-    <url>/2020/05/29/Mac%E7%94%B5%E8%84%91Safari%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%A6%81%E6%AD%A2%E7%99%BE%E5%BA%A6%E5%B9%BF%E5%91%8A/</url>
-    <content><![CDATA[<h4 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h4><p>我是一个Chrome浏览器用户，用Chrome浏览器进行百度搜索时，我用到了一个插件<a href="https://github.com/unclehking/bdAdfinisher">https://github.com/unclehking/bdAdfinisher</a>，这个插件可以过滤掉百度搜索结果的广告，实现无广告浏览，它让每个搜索结果页都很干净。这个插件几乎是我司程序员的Chrome浏览器标配插件。</p>
-<a id="more"></a>
-
-<p>但因为我用的是Mac电脑，难不免也会用到Safari浏览器。我遍寻GitHub和AppStore，也没找到一个可以禁止Safari浏览器百度广告的软件，恰好上段时间，我研究了一下Safari浏览器插件的写法，于是便产生了写一款Safari浏览器上禁止百度广告插件的想法。</p>
-<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>然后就真的写成了。</p>
-<p>地址：<a href="https://github.com/lengain/BanbdAdForSafari">https://github.com/lengain/BanbdAdForSafari</a></p>
-<p>下载：<a href="https://github.com/lengain/BanbdAdForSafari/releases/download/1.0/BanBdAd.dmg">BanBdAd.dmg</a></p>
-<p>图文教程：<a href="https://github.com/lengain/BanbdAdForSafari/blob/master/Tutorial.md">https://github.com/lengain/BanbdAdForSafari/blob/master/Tutorial.md</a></p>
-<h4 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h4><p>写的过程中，借鉴了<a href="https://github.com/unclehking">unclehking</a>的chorme浏览器插件的一些代码，也和他沟通了一些关于百度的法律问题，向他的无私帮助致谢。</p>
-<h4 id="以后"><a href="#以后" class="headerlink" title="以后"></a>以后</h4><p>禁止谷歌广告，掘金广告，知乎广告……？</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>Mac</tag>
-        <tag>Safari</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>RAG:检索增强生成</title>
     <url>/2025/11/27/RAG-%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90/</url>
     <content><![CDATA[<p>RAG（Retrieval-Augmented Generation）是一个将<strong>信息检索</strong>（Retrieval）和<strong>生成式模型</strong>（Generation）结合的来增强生成内容的准确性和丰富度的一种技术，广泛应用于提高大语言模型（LLM）在处理复杂任务时的表现，尤其是在信息量庞大、需要背景知识支持的场景下，表现尤为突出。它通过结合外部知识库进行检索，增强模型生成的能力，特别适用于需要大量背景知识的任务。</p>
@@ -654,42 +654,6 @@
         <tag>AI大模型</tag>
         <tag>RAG</tag>
         <tag>LLM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ruby方法中的!和?</title>
-    <url>//2023/12/11/ruby-methods-with-bangs-and-questions/</url>
-    <content><![CDATA[<h5 id="方法名后缀为”-”的方法"><a href="#方法名后缀为”-”的方法" class="headerlink" title="方法名后缀为”!”的方法"></a>方法名后缀为”!”的方法</h5><p>在Ruby中，方法名后缀为”!”的方法通常表示该方法会修改调用它的对象。这种约定起源于Smalltalk语言，在Ruby中广泛使用。</p>
-<p>当一个方法后面带有”!”符号时，这个方法通常会修改调用它的对象的状态。例如，如果我们对一个数组调用<code>sort!</code>方法，这个方法会对数组进行排序，并返回排序后的数组，而原始数组将被修改。</p>
-<a id="more"></a>
-
-<p>下面是一个例子：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">rubynumbers = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">sorted_numbers = numbers.sort! </span><br><span class="line"><span class="comment"># 修改原始数组，并返回排序后的数组  </span></span><br><span class="line"><span class="comment"># puts numbers </span></span><br><span class="line"><span class="comment"># 输出: [1, 2, 3]  </span></span><br><span class="line"><span class="comment"># puts sorted_numbers </span></span><br><span class="line"><span class="comment"># 输出: [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，<code>sort!</code>方法修改了原始数组<code>numbers</code>的状态，并返回了排序后的数组。</p>
-<p>需要注意的是，有些方法同时有带”!”和不带”!”的版本。例如，<code>sort</code>方法不会修改原始数组，而是返回一个新的排序后的数组。因此，我们需要仔细查看方法的文档来了解它们的行为。</p>
-<h5 id="方法名后缀为”-”的方法-1"><a href="#方法名后缀为”-”的方法-1" class="headerlink" title="方法名后缀为”?”的方法"></a>方法名后缀为”?”的方法</h5><p>在Ruby中，以”?”结尾的方法通常表示该方法返回一个布尔值（true或false）。这种约定使得代码更加可读和易于理解。</p>
-<p>例如，Ruby中有很多方法以”?”结尾，如<code>nil?</code>、<code>empty?</code>、<code>blank?</code>等。这些方法通常用于条件判断，根据给定的条件返回true或false。</p>
-<p>以下是一些示例：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用nil?方法判断变量是否为nil  </span></span><br><span class="line"><span class="keyword">if</span> my_variable.<span class="literal">nil</span>?    </span><br><span class="line">    puts <span class="string">&quot;my_variable is nil&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_variable is not nil&quot;</span></span><br><span class="line"><span class="keyword">end</span>    </span><br><span class="line"><span class="comment"># 使用empty?方法判断字符串是否为空  </span></span><br><span class="line"><span class="keyword">if</span> my_string.empty?</span><br><span class="line">    puts <span class="string">&quot;my_string is empty&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_string is not empty&quot;</span>  </span><br><span class="line"><span class="keyword">end</span>    </span><br><span class="line"><span class="comment"># 使用blank?方法判断字符串是否为空白（只包含空格、制表符等空白字符）</span></span><br><span class="line"><span class="keyword">if</span> my_string.blank?</span><br><span class="line">    puts <span class="string">&quot;my_string is blank&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_string is not blank&quot;</span>  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>在这些示例中，通过调用以”?”结尾的方法，我们可以根据条件判断得到相应的结果。这些方法通常用于控制程序流程，根据条件执行相应的操作。</p>
-<h5 id="反引号"><a href="#反引号" class="headerlink" title="反引号"></a>反引号</h5><p>在Ruby中，反引号用于执行shell命令，并将执行结果作为字符串返回。以下是反引号的使用方法：</p>
-<ol>
-<li>反引号包围一个shell命令，Ruby会执行该命令，并将执行结果作为字符串返回。</li>
-<li>使用<code>puts</code>方法打印该变量的值。</li>
-</ol>
-<p>例如：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">output=<span class="string">`ls -l`</span>  </span><br><span class="line">puts output</span><br></pre></td></tr></table></figure>
-
-<p>在上述代码中，<code>ls -l</code>命令会在shell中执行，并返回结果。然后，将结果赋值给变量output，并使用puts方法打印该变量的值。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>Ruby</tag>
-        <tag>语法</tag>
       </tags>
   </entry>
   <entry>
@@ -869,6 +833,42 @@
         <tag>鸿蒙</tag>
         <tag>音频</tag>
         <tag>编解码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ruby方法中的!和?</title>
+    <url>//2023/12/11/ruby-methods-with-bangs-and-questions/</url>
+    <content><![CDATA[<h5 id="方法名后缀为”-”的方法"><a href="#方法名后缀为”-”的方法" class="headerlink" title="方法名后缀为”!”的方法"></a>方法名后缀为”!”的方法</h5><p>在Ruby中，方法名后缀为”!”的方法通常表示该方法会修改调用它的对象。这种约定起源于Smalltalk语言，在Ruby中广泛使用。</p>
+<p>当一个方法后面带有”!”符号时，这个方法通常会修改调用它的对象的状态。例如，如果我们对一个数组调用<code>sort!</code>方法，这个方法会对数组进行排序，并返回排序后的数组，而原始数组将被修改。</p>
+<a id="more"></a>
+
+<p>下面是一个例子：</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">rubynumbers = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">sorted_numbers = numbers.sort! </span><br><span class="line"><span class="comment"># 修改原始数组，并返回排序后的数组  </span></span><br><span class="line"><span class="comment"># puts numbers </span></span><br><span class="line"><span class="comment"># 输出: [1, 2, 3]  </span></span><br><span class="line"><span class="comment"># puts sorted_numbers </span></span><br><span class="line"><span class="comment"># 输出: [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>sort!</code>方法修改了原始数组<code>numbers</code>的状态，并返回了排序后的数组。</p>
+<p>需要注意的是，有些方法同时有带”!”和不带”!”的版本。例如，<code>sort</code>方法不会修改原始数组，而是返回一个新的排序后的数组。因此，我们需要仔细查看方法的文档来了解它们的行为。</p>
+<h5 id="方法名后缀为”-”的方法-1"><a href="#方法名后缀为”-”的方法-1" class="headerlink" title="方法名后缀为”?”的方法"></a>方法名后缀为”?”的方法</h5><p>在Ruby中，以”?”结尾的方法通常表示该方法返回一个布尔值（true或false）。这种约定使得代码更加可读和易于理解。</p>
+<p>例如，Ruby中有很多方法以”?”结尾，如<code>nil?</code>、<code>empty?</code>、<code>blank?</code>等。这些方法通常用于条件判断，根据给定的条件返回true或false。</p>
+<p>以下是一些示例：</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用nil?方法判断变量是否为nil  </span></span><br><span class="line"><span class="keyword">if</span> my_variable.<span class="literal">nil</span>?    </span><br><span class="line">    puts <span class="string">&quot;my_variable is nil&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_variable is not nil&quot;</span></span><br><span class="line"><span class="keyword">end</span>    </span><br><span class="line"><span class="comment"># 使用empty?方法判断字符串是否为空  </span></span><br><span class="line"><span class="keyword">if</span> my_string.empty?</span><br><span class="line">    puts <span class="string">&quot;my_string is empty&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_string is not empty&quot;</span>  </span><br><span class="line"><span class="keyword">end</span>    </span><br><span class="line"><span class="comment"># 使用blank?方法判断字符串是否为空白（只包含空格、制表符等空白字符）</span></span><br><span class="line"><span class="keyword">if</span> my_string.blank?</span><br><span class="line">    puts <span class="string">&quot;my_string is blank&quot;</span>  </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    puts <span class="string">&quot;my_string is not blank&quot;</span>  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>在这些示例中，通过调用以”?”结尾的方法，我们可以根据条件判断得到相应的结果。这些方法通常用于控制程序流程，根据条件执行相应的操作。</p>
+<h5 id="反引号"><a href="#反引号" class="headerlink" title="反引号"></a>反引号</h5><p>在Ruby中，反引号用于执行shell命令，并将执行结果作为字符串返回。以下是反引号的使用方法：</p>
+<ol>
+<li>反引号包围一个shell命令，Ruby会执行该命令，并将执行结果作为字符串返回。</li>
+<li>使用<code>puts</code>方法打印该变量的值。</li>
+</ol>
+<p>例如：</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">output=<span class="string">`ls -l`</span>  </span><br><span class="line">puts output</span><br></pre></td></tr></table></figure>
+
+<p>在上述代码中，<code>ls -l</code>命令会在shell中执行，并返回结果。然后，将结果赋值给变量output，并使用puts方法打印该变量的值。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Ruby</tag>
+        <tag>语法</tag>
       </tags>
   </entry>
   <entry>
@@ -1296,49 +1296,6 @@
       </tags>
   </entry>
   <entry>
-    <title>iOS Category源码探究</title>
-    <url>/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/</url>
-    <content><![CDATA[<p>Objective-C的Category特性，使的开发者在处理某些问题时，简单而又方便。理解Category的源码，对OC编程的理解会有很大的帮助。</p>
-<p>Category的处理源码在libobjc.A.dylib中，苹果已经<a href="https://opensource.apple.com/tarballs/objc4/">开源</a>，但是下载后直接使用Xcode编译，会报很多错误。网上有很多帖子，介绍如何解决libobjc编译错误，这里就不介绍了。在github上有个开源项目<a href="https://github.com/xdxu1126/objc4">objc4</a>，提供了可编译版本的objc工程，可按需索取。目前苹果刚发布macOS Big Sur 11.0.1，适配该系统的Objc还没有开源，<code>objc4</code>在这个系统上会有一点错误，不过不影响阅读，各个函数，变量定义之间的跳转也没有问题。</p>
-<a id="more"></a>
-
-<h3 id="category-t"><a href="#category-t" class="headerlink" title="category_t"></a>category_t</h3><p> 首先从源码层面来看一下Category有什么样的结构。</p>
-<p>使用clang可以将Category的.m文件编译为.cpp文件，文件中有OC对Category的处理。</p>
-<p>Category在objc中的结构体为<code>category_t</code>，该结构体中有实例方法，类方法，协议，属性，类属性等成员。Category的结构体决定了我们在使用Category时，可以为Category添加哪些代码。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">category_t</span> &#123;</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name;<span class="comment">//类名</span></span><br><span class="line">    <span class="keyword">classref_t</span> cls;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">method_list_t</span> *<span class="title">instanceMethods</span>;</span><span class="comment">//实例方法</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">method_list_t</span> *<span class="title">classMethods</span>;</span><span class="comment">//类方法</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">protocol_list_t</span> *<span class="title">protocols</span>;</span><span class="comment">//协议</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">property_list_t</span> *<span class="title">instanceProperties</span>;</span><span class="comment">//属性</span></span><br><span class="line">    <span class="comment">// Fields below this point are not always present on disk.</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">property_list_t</span> *_<span class="title">classProperties</span>;</span><span class="comment">//类属性</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">method_list_t</span> *<span class="title">methodsForMeta</span><span class="params">(<span class="keyword">bool</span> isMeta)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isMeta) <span class="keyword">return</span> classMethods;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> instanceMethods;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">property_list_t</span> *<span class="title">propertiesForMeta</span><span class="params">(<span class="keyword">bool</span> isMeta, struct header_info *hi)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protocol_list_t</span> *<span class="title">protocolsForMeta</span><span class="params">(<span class="keyword">bool</span> isMeta)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isMeta) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> protocols;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>程序初始化时，libobjc会将每个Category中的添加的属性，方法等合并到当前类的属性列表方法列表中。</p>
-<h3 id="从入口到详情"><a href="#从入口到详情" class="headerlink" title="从入口到详情"></a>从入口到详情</h3><p>以下的代码，会从一个个函数调用帮助我们认识Objc对Category的处理。</p>
-<p>objc-os.mm中的_objc_init函数是objc初始化的方法。从_objc_init出发，可以找到加载Category的方法。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// _objc_init objc-os.mm</span></span><br><span class="line"><span class="comment">// Bootstrap initialization. Registers our image notifier with dyld.</span></span><br><span class="line"><span class="comment">// Called by libSystem BEFORE library initialization tim</span></span><br><span class="line"><span class="keyword">void</span> _objc_init(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">bool</span> initialized = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (initialized) <span class="keyword">return</span>;</span><br><span class="line">    initialized = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// fixme defer initialization until an objc-using image is found?</span></span><br><span class="line">    environ_init();</span><br><span class="line">    tls_init();</span><br><span class="line">    static_init();</span><br><span class="line">    runtime_init();</span><br><span class="line">    exception_init();</span><br><span class="line">    cache_init();</span><br><span class="line">    _imp_implementationWithBlock_init();</span><br><span class="line">    <span class="comment">//_dyld_objc_notify_register注册三个回调函数，</span></span><br><span class="line">    <span class="comment">// map_images：dyld将image加载到内存时调用 </span></span><br><span class="line">    <span class="comment">// load_images：dyld初始化image，load方法都在此时调用</span></span><br><span class="line">    <span class="comment">// unmap_image：将image移除内存时调用</span></span><br><span class="line">    <span class="comment">// map_images这个方法，用来处理被dyld映射过来的镜像，注册后就会被调用</span></span><br><span class="line">    _dyld_objc_notify_register(&amp;map_images, load_images, unmap_image);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __OBJC2__</span></span><br><span class="line">    didCallDyldNotifyRegister = <span class="literal">true</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// map_images objc-runtime-new.mm</span></span><br><span class="line"><span class="comment">// Process the given images which are being mapped in by dyld.</span></span><br><span class="line"><span class="comment">// Calls ABI-agnostic code after taking ABI-specific locks.</span></span><br><span class="line"><span class="comment">// Locking: write-locks runtimeLock</span></span><br><span class="line"><span class="keyword">void</span></span><br><span class="line">map_images(<span class="keyword">unsigned</span> count, <span class="keyword">const</span> <span class="keyword">char</span> * <span class="keyword">const</span> paths[],</span><br><span class="line">           <span class="keyword">const</span> struct mach_header * <span class="keyword">const</span> mhdrs[])</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">mutex_locker_t</span> <span class="title">lock</span><span class="params">(runtimeLock)</span></span>;</span><br><span class="line">    <span class="comment">//map_images_nolock方法就是map_images的内部实现</span></span><br><span class="line">    <span class="keyword">return</span> map_images_nolock(count, paths, mhdrs);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//map_images_nolock objc-os.mm</span></span><br><span class="line"><span class="keyword">void</span> </span><br><span class="line">map_images_nolock(<span class="keyword">unsigned</span> mhCount, <span class="keyword">const</span> <span class="keyword">char</span> * <span class="keyword">const</span> mhPaths[],</span><br><span class="line">                  <span class="keyword">const</span> struct mach_header * <span class="keyword">const</span> mhdrs[])</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// Find all images with Objective-C metadata.</span></span><br><span class="line">    <span class="comment">//找到元数据中所有的镜像数量</span></span><br><span class="line">    hCount = <span class="number">0</span>;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> (hCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//读取镜像</span></span><br><span class="line">        _read_images(hList, hCount, totalClasses, unoptimizedTotalClasses);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// _read_images objc-runtime-new.mm</span></span><br><span class="line"><span class="comment">// Perform initial processing of the headers in the linked </span></span><br><span class="line"><span class="comment">// list beginning with headerList. </span></span><br><span class="line"><span class="comment">// Called by: map_images_nolock</span></span><br><span class="line"><span class="comment">// Locking: runtimeLock acquired by map_images</span></span><br><span class="line"><span class="comment">// _read_images中执行了大量的操作，比如加载类，cagetory，协议等信息到内存中</span></span><br><span class="line"><span class="keyword">void</span> _read_images(header_info **hList, <span class="keyword">uint32_t</span> hCount, <span class="keyword">int</span> totalClasses, <span class="keyword">int</span> unoptimizedTotalClasses) &#123;</span><br><span class="line">    <span class="comment">//定义header_info，读取hList中的镜像头信息</span></span><br><span class="line">    <span class="comment">//header_info中存着镜像的信息</span></span><br><span class="line">    <span class="keyword">uint32_t</span> hIndex;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// Discover categories. Only do this after the initial category</span></span><br><span class="line">    <span class="comment">// attachment has been done. For categories present at startup,</span></span><br><span class="line">    <span class="comment">// discovery is deferred until the first load_images call after</span></span><br><span class="line">    <span class="comment">// the call to _dyld_objc_notify_register completes. rdar://problem/53119145</span></span><br><span class="line">    <span class="keyword">if</span> (didInitialAttachCategories) &#123;</span><br><span class="line">        <span class="keyword">for</span> (hIndex = <span class="number">0</span>;hIndex &lt; hCount &amp;&amp; (hi = hList[hIndex]); hIndex++) &#123;</span><br><span class="line">            <span class="comment">//加载分类信息</span></span><br><span class="line">            load_categories_nolock(hi);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">load_categories_nolock</span><span class="params">(header_info *hi)</span> </span>&#123;</span><br><span class="line">     ....</span><br><span class="line">                <span class="comment">// First, register the category with its target class.</span></span><br><span class="line">                <span class="comment">// Then, rebuild the class&#x27;s method lists (etc) if</span></span><br><span class="line">                <span class="comment">// the class is realized.</span></span><br><span class="line">                <span class="keyword">if</span> (cat-&gt;instanceMethods ||  cat-&gt;protocols</span><br><span class="line">                    ||  cat-&gt;instanceProperties)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (cls-&gt;isRealized()) &#123;</span><br><span class="line">                        <span class="comment">//添加Categories</span></span><br><span class="line">                        attachCategories(cls, &amp;lc, <span class="number">1</span>, ATTACH_EXISTING);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        objc::unattachedCategories.addForClass(lc, cls);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (cat-&gt;classMethods  ||  cat-&gt;protocols</span><br><span class="line">                    ||  (hasClassProperties &amp;&amp; cat-&gt;_classProperties))</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (cls-&gt;ISA()-&gt;isRealized()) &#123;</span><br><span class="line">                        attachCategories(cls-&gt;ISA(), &amp;lc, <span class="number">1</span>, ATTACH_EXISTING | ATTACH_METACLASS);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        objc::unattachedCategories.addForClass(lc, cls-&gt;ISA());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Attach method lists and properties and protocols from categories to a class.</span></span><br><span class="line"><span class="comment">// Assumes the categories in cats are all loaded and sorted by load order, </span></span><br><span class="line"><span class="comment">// oldest categories first.</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span></span><br><span class="line">attachCategories(Class cls, <span class="keyword">const</span> <span class="keyword">locstamped_category_t</span> *cats_list, <span class="keyword">uint32_t</span> cats_count,</span><br><span class="line">                 <span class="keyword">int</span> flags)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (slowpath(PrintReplacedMethods)) &#123;</span><br><span class="line">        printReplacements(cls, cats_list, cats_count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (slowpath(PrintConnecting)) &#123;</span><br><span class="line">        _objc_inform(<span class="string">&quot;CLASS: attaching %d categories to%s class &#x27;%s&#x27;%s&quot;</span>,</span><br><span class="line">                     cats_count, (flags &amp; ATTACH_EXISTING) ? <span class="string">&quot; existing&quot;</span> : <span class="string">&quot;&quot;</span>,</span><br><span class="line">                     cls-&gt;nameForLogging(), (flags &amp; ATTACH_METACLASS) ? <span class="string">&quot; (meta)&quot;</span> : <span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * Only a few classes have more than 64 categories during launch.</span></span><br><span class="line"><span class="comment">     * This uses a little stack, and avoids malloc.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * Categories must be added in the proper order, which is back</span></span><br><span class="line"><span class="comment">     * to front. To do that with the chunking, we iterate cats_list</span></span><br><span class="line"><span class="comment">     * from front to back, build up the local buffers backwards,</span></span><br><span class="line"><span class="comment">     * and call attachLists on the chunks. attachLists prepends the</span></span><br><span class="line"><span class="comment">     * lists, so the final result is in the expected order.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">constexpr</span> <span class="keyword">uint32_t</span> ATTACH_BUFSIZ = <span class="number">64</span>;</span><br><span class="line">    <span class="keyword">method_list_t</span>   *mlists[ATTACH_BUFSIZ];</span><br><span class="line">    <span class="keyword">property_list_t</span> *proplists[ATTACH_BUFSIZ];</span><br><span class="line">    <span class="keyword">protocol_list_t</span> *protolists[ATTACH_BUFSIZ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">uint32_t</span> mcount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">uint32_t</span> propcount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">uint32_t</span> protocount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> fromBundle = NO;</span><br><span class="line">    <span class="keyword">bool</span> isMeta = (flags &amp; ATTACH_METACLASS);</span><br><span class="line">    <span class="comment">//auto是C++的语法，表示类型根据自动代码自动推断。</span></span><br><span class="line">    <span class="comment">//cls-&gt;data()-&gt;extAllocIfNeeded()返回的就是class_rw_ext_t *类型</span></span><br><span class="line">    <span class="comment">//class_rw_ext_t中存有方法，属性，协议等信息。</span></span><br><span class="line">    <span class="keyword">auto</span> rwe = cls-&gt;data()-&gt;extAllocIfNeeded();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">uint32_t</span> i = <span class="number">0</span>; i &lt; cats_count; i++) &#123;</span><br><span class="line">        <span class="comment">//entry:locstamped_category_t</span></span><br><span class="line">        <span class="keyword">auto</span>&amp; entry = cats_list[i];</span><br><span class="line">        <span class="comment">//取出分类中的方法</span></span><br><span class="line">        <span class="keyword">method_list_t</span> *mlist = entry.cat-&gt;methodsForMeta(isMeta);</span><br><span class="line">        <span class="keyword">if</span> (mlist) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mcount == ATTACH_BUFSIZ) &#123;</span><br><span class="line">                prepareMethodLists(cls, mlists, mcount, NO, fromBundle);</span><br><span class="line">                rwe-&gt;methods.attachLists(mlists, mcount);</span><br><span class="line">                mcount = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//ATTACH_BUFSIZ=64</span></span><br><span class="line">            <span class="comment">//这句话等于mlists[64- ++mcount] = mlist;</span></span><br><span class="line">            <span class="comment">//倒序合并分类到mlists，后面会将mlists再合并到类的方法列表中</span></span><br><span class="line">            mlists[ATTACH_BUFSIZ - ++mcount] = mlist;</span><br><span class="line">            fromBundle |= entry.hi-&gt;isBundle();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">property_list_t</span> *proplist =</span><br><span class="line">            entry.cat-&gt;propertiesForMeta(isMeta, entry.hi);</span><br><span class="line">        <span class="keyword">if</span> (proplist) &#123;</span><br><span class="line">            <span class="keyword">if</span> (propcount == ATTACH_BUFSIZ) &#123;</span><br><span class="line">                rwe-&gt;properties.attachLists(proplists, propcount);</span><br><span class="line">                propcount = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            proplists[ATTACH_BUFSIZ - ++propcount] = proplist;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">protocol_list_t</span> *protolist = entry.cat-&gt;protocolsForMeta(isMeta);</span><br><span class="line">        <span class="keyword">if</span> (protolist) &#123;</span><br><span class="line">            <span class="keyword">if</span> (protocount == ATTACH_BUFSIZ) &#123;</span><br><span class="line">                rwe-&gt;protocols.attachLists(protolists, protocount);</span><br><span class="line">                protocount = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            protolists[ATTACH_BUFSIZ - ++protocount] = protolist;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mcount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        prepareMethodLists(cls, mlists + ATTACH_BUFSIZ - mcount, mcount, NO, fromBundle);</span><br><span class="line">        <span class="comment">//将mlists合并到rwe-&gt;methods</span></span><br><span class="line">        rwe-&gt;methods.attachLists(mlists + ATTACH_BUFSIZ - mcount, mcount);</span><br><span class="line">        <span class="keyword">if</span> (flags &amp; ATTACH_EXISTING) flushCaches(cls);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    rwe-&gt;properties.attachLists(proplists + ATTACH_BUFSIZ - propcount, propcount);</span><br><span class="line"></span><br><span class="line">    rwe-&gt;protocols.attachLists(protolists + ATTACH_BUFSIZ - protocount, protocount);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//attachLists objc-runtime-new.mm</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">attachLists</span><span class="params">(List* <span class="keyword">const</span> * addedLists, <span class="keyword">uint32_t</span> addedCount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (addedCount == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (hasArray()) &#123;</span><br><span class="line">            <span class="comment">// many lists -&gt; many lists</span></span><br><span class="line">            <span class="keyword">uint32_t</span> oldCount = <span class="built_in">array</span>()-&gt;count;</span><br><span class="line">            <span class="keyword">uint32_t</span> newCount = oldCount + addedCount;</span><br><span class="line">            <span class="comment">//realloc memmove memcpy三个是C语言方法。</span></span><br><span class="line">            <span class="comment">//realloc 先判断当前的指针是否有足够的连续空间，如果有，</span></span><br><span class="line">            <span class="comment">//扩大mem_address指向的地址，并且将mem_address返回，</span></span><br><span class="line">            <span class="comment">//如果空间不够，先按照newsize指定的大小分配空间，将原有</span></span><br><span class="line">            <span class="comment">//数据从头到尾拷贝到新分配的内存区域，而后释放原来mem_address</span></span><br><span class="line">            <span class="comment">//所指内存区域（注意：原来指针是自动释放，不需要使用free），</span></span><br><span class="line">            <span class="comment">//同时返回新分配的内存区域的首地址。即重新分配存储器块的地址。</span></span><br><span class="line">            <span class="comment">//memmove 用于拷贝字节，如果目标区域和源区域有重叠的话，</span></span><br><span class="line">            <span class="comment">//memmove能够保证源串在被覆盖之前将重叠区域的字节拷贝到</span></span><br><span class="line">            <span class="comment">//目标区域中，但复制后源内容会被更改。但是当目标区域与源区域</span></span><br><span class="line">            <span class="comment">//没有重叠则和memcpy函数功能相同。</span></span><br><span class="line">            <span class="comment">//memcpy 指的是C和C++使用的内存拷贝函数，函数原型为</span></span><br><span class="line">            <span class="comment">//void *memcpy(void *destin, void *source, unsigned n)；</span></span><br><span class="line">            <span class="comment">//函数的功能是从源内存地址的起始位置开始拷贝若干个字节到目标内存</span></span><br><span class="line">            <span class="comment">//地址中，即从源source中拷贝n个字节到目标destin中。</span></span><br><span class="line">            <span class="comment">//增加数组的长度</span></span><br><span class="line">            setArray((<span class="keyword">array_t</span> *)<span class="built_in">realloc</span>(<span class="built_in">array</span>(), <span class="keyword">array_t</span>::byteSize(newCount)));</span><br><span class="line">            <span class="comment">//重设新数组的长度</span></span><br><span class="line">            <span class="built_in">array</span>()-&gt;count = newCount;</span><br><span class="line">            <span class="comment">//将array()-&gt;lists 复制到 array()-&gt;lists + addedCount，即先将 array()-&gt;lists 后移，空出位置来存放addedLists</span></span><br><span class="line">            memmove(<span class="built_in">array</span>()-&gt;lists + addedCount, <span class="built_in">array</span>()-&gt;lists, </span><br><span class="line">                    oldCount * <span class="keyword">sizeof</span>(<span class="built_in">array</span>()-&gt;lists[<span class="number">0</span>]));</span><br><span class="line">            <span class="comment">//将 addedLists 复制到 array()-&gt;lists</span></span><br><span class="line">            <span class="comment">//由此可见分类中的方法会被添加到原有方法的前面。在方法查询时，分类中的方法会先被查到并返回。如果分类中定义了和原类中一样的方法，就会只执行分类中的方法。</span></span><br><span class="line">            <span class="built_in">memcpy</span>(<span class="built_in">array</span>()-&gt;lists, addedLists, </span><br><span class="line">                   addedCount * <span class="keyword">sizeof</span>(<span class="built_in">array</span>()-&gt;lists[<span class="number">0</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">list</span>  &amp;&amp;  addedCount == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// 0 lists -&gt; 1 list</span></span><br><span class="line">            <span class="built_in">list</span> = addedLists[<span class="number">0</span>];</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 1 list -&gt; many lists</span></span><br><span class="line">            List* oldList = <span class="built_in">list</span>;</span><br><span class="line">            <span class="keyword">uint32_t</span> oldCount = oldList ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">uint32_t</span> newCount = oldCount + addedCount;</span><br><span class="line">            setArray((<span class="keyword">array_t</span> *)<span class="built_in">malloc</span>(<span class="keyword">array_t</span>::byteSize(newCount)));</span><br><span class="line">            <span class="built_in">array</span>()-&gt;count = newCount;</span><br><span class="line">            <span class="keyword">if</span> (oldList) <span class="built_in">array</span>()-&gt;lists[addedCount] = oldList;</span><br><span class="line">            <span class="built_in">memcpy</span>(<span class="built_in">array</span>()-&gt;lists, addedLists, </span><br><span class="line">                   addedCount * <span class="keyword">sizeof</span>(<span class="built_in">array</span>()-&gt;lists[<span class="number">0</span>]));</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<p>以上就是Category在运行时被加载的过程。整理一下流程：</p>
-<ol>
-<li><p><code>_objc_init()</code></p>
-</li>
-<li><p><code>map_images(...)</code></p>
-</li>
-<li><p><code>map_images_nolock(...)</code></p>
-</li>
-<li><p><code>_read_images(...)</code></p>
-</li>
-<li><p><code>load_categories_nolock()</code></p>
-</li>
-<li><p><code>attachCategories(...)</code></p>
-</li>
-</ol>
-<p>以上。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>iOS</tag>
-        <tag>Objective-C</tag>
-        <tag>Category</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一个NSObject对象占用多少内存</title>
     <url>/2023/12/13/%E4%B8%80%E4%B8%AANSObject%E5%AF%B9%E8%B1%A1%E5%8D%A0%E7%94%A8%E5%A4%9A%E5%B0%91%E5%86%85%E5%AD%98/</url>
     <content><![CDATA[<p>OC类型的代码，底层实现都是C/C++语言，可以说，OC语言就是对C/C++语言的封装，比如，任何OC对象，添加<code>__bridge const void *</code>修饰，都可以转变为void指针类型。</p>
@@ -1401,6 +1358,49 @@
       </tags>
   </entry>
   <entry>
+    <title>iOS Category源码探究</title>
+    <url>/2020/11/19/iOS-Category%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/</url>
+    <content><![CDATA[<p>Objective-C的Category特性，使的开发者在处理某些问题时，简单而又方便。理解Category的源码，对OC编程的理解会有很大的帮助。</p>
+<p>Category的处理源码在libobjc.A.dylib中，苹果已经<a href="https://opensource.apple.com/tarballs/objc4/">开源</a>，但是下载后直接使用Xcode编译，会报很多错误。网上有很多帖子，介绍如何解决libobjc编译错误，这里就不介绍了。在github上有个开源项目<a href="https://github.com/xdxu1126/objc4">objc4</a>，提供了可编译版本的objc工程，可按需索取。目前苹果刚发布macOS Big Sur 11.0.1，适配该系统的Objc还没有开源，<code>objc4</code>在这个系统上会有一点错误，不过不影响阅读，各个函数，变量定义之间的跳转也没有问题。</p>
+<a id="more"></a>
+
+<h3 id="category-t"><a href="#category-t" class="headerlink" title="category_t"></a>category_t</h3><p> 首先从源码层面来看一下Category有什么样的结构。</p>
+<p>使用clang可以将Category的.m文件编译为.cpp文件，文件中有OC对Category的处理。</p>
+<p>Category在objc中的结构体为<code>category_t</code>，该结构体中有实例方法，类方法，协议，属性，类属性等成员。Category的结构体决定了我们在使用Category时，可以为Category添加哪些代码。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">category_t</span> &#123;</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name;<span class="comment">//类名</span></span><br><span class="line">    <span class="keyword">classref_t</span> cls;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">method_list_t</span> *<span class="title">instanceMethods</span>;</span><span class="comment">//实例方法</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">method_list_t</span> *<span class="title">classMethods</span>;</span><span class="comment">//类方法</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">protocol_list_t</span> *<span class="title">protocols</span>;</span><span class="comment">//协议</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">property_list_t</span> *<span class="title">instanceProperties</span>;</span><span class="comment">//属性</span></span><br><span class="line">    <span class="comment">// Fields below this point are not always present on disk.</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">property_list_t</span> *_<span class="title">classProperties</span>;</span><span class="comment">//类属性</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">method_list_t</span> *<span class="title">methodsForMeta</span><span class="params">(<span class="keyword">bool</span> isMeta)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isMeta) <span class="keyword">return</span> classMethods;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> instanceMethods;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">property_list_t</span> *<span class="title">propertiesForMeta</span><span class="params">(<span class="keyword">bool</span> isMeta, struct header_info *hi)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protocol_list_t</span> *<span class="title">protocolsForMeta</span><span class="params">(<span class="keyword">bool</span> isMeta)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isMeta) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> protocols;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>程序初始化时，libobjc会将每个Category中的添加的属性，方法等合并到当前类的属性列表方法列表中。</p>
+<h3 id="从入口到详情"><a href="#从入口到详情" class="headerlink" title="从入口到详情"></a>从入口到详情</h3><p>以下的代码，会从一个个函数调用帮助我们认识Objc对Category的处理。</p>
+<p>objc-os.mm中的_objc_init函数是objc初始化的方法。从_objc_init出发，可以找到加载Category的方法。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// _objc_init objc-os.mm</span></span><br><span class="line"><span class="comment">// Bootstrap initialization. Registers our image notifier with dyld.</span></span><br><span class="line"><span class="comment">// Called by libSystem BEFORE library initialization tim</span></span><br><span class="line"><span class="keyword">void</span> _objc_init(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">bool</span> initialized = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (initialized) <span class="keyword">return</span>;</span><br><span class="line">    initialized = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// fixme defer initialization until an objc-using image is found?</span></span><br><span class="line">    environ_init();</span><br><span class="line">    tls_init();</span><br><span class="line">    static_init();</span><br><span class="line">    runtime_init();</span><br><span class="line">    exception_init();</span><br><span class="line">    cache_init();</span><br><span class="line">    _imp_implementationWithBlock_init();</span><br><span class="line">    <span class="comment">//_dyld_objc_notify_register注册三个回调函数，</span></span><br><span class="line">    <span class="comment">// map_images：dyld将image加载到内存时调用 </span></span><br><span class="line">    <span class="comment">// load_images：dyld初始化image，load方法都在此时调用</span></span><br><span class="line">    <span class="comment">// unmap_image：将image移除内存时调用</span></span><br><span class="line">    <span class="comment">// map_images这个方法，用来处理被dyld映射过来的镜像，注册后就会被调用</span></span><br><span class="line">    _dyld_objc_notify_register(&amp;map_images, load_images, unmap_image);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __OBJC2__</span></span><br><span class="line">    didCallDyldNotifyRegister = <span class="literal">true</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// map_images objc-runtime-new.mm</span></span><br><span class="line"><span class="comment">// Process the given images which are being mapped in by dyld.</span></span><br><span class="line"><span class="comment">// Calls ABI-agnostic code after taking ABI-specific locks.</span></span><br><span class="line"><span class="comment">// Locking: write-locks runtimeLock</span></span><br><span class="line"><span class="keyword">void</span></span><br><span class="line">map_images(<span class="keyword">unsigned</span> count, <span class="keyword">const</span> <span class="keyword">char</span> * <span class="keyword">const</span> paths[],</span><br><span class="line">           <span class="keyword">const</span> struct mach_header * <span class="keyword">const</span> mhdrs[])</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">mutex_locker_t</span> <span class="title">lock</span><span class="params">(runtimeLock)</span></span>;</span><br><span class="line">    <span class="comment">//map_images_nolock方法就是map_images的内部实现</span></span><br><span class="line">    <span class="keyword">return</span> map_images_nolock(count, paths, mhdrs);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//map_images_nolock objc-os.mm</span></span><br><span class="line"><span class="keyword">void</span> </span><br><span class="line">map_images_nolock(<span class="keyword">unsigned</span> mhCount, <span class="keyword">const</span> <span class="keyword">char</span> * <span class="keyword">const</span> mhPaths[],</span><br><span class="line">                  <span class="keyword">const</span> struct mach_header * <span class="keyword">const</span> mhdrs[])</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// Find all images with Objective-C metadata.</span></span><br><span class="line">    <span class="comment">//找到元数据中所有的镜像数量</span></span><br><span class="line">    hCount = <span class="number">0</span>;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> (hCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//读取镜像</span></span><br><span class="line">        _read_images(hList, hCount, totalClasses, unoptimizedTotalClasses);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// _read_images objc-runtime-new.mm</span></span><br><span class="line"><span class="comment">// Perform initial processing of the headers in the linked </span></span><br><span class="line"><span class="comment">// list beginning with headerList. </span></span><br><span class="line"><span class="comment">// Called by: map_images_nolock</span></span><br><span class="line"><span class="comment">// Locking: runtimeLock acquired by map_images</span></span><br><span class="line"><span class="comment">// _read_images中执行了大量的操作，比如加载类，cagetory，协议等信息到内存中</span></span><br><span class="line"><span class="keyword">void</span> _read_images(header_info **hList, <span class="keyword">uint32_t</span> hCount, <span class="keyword">int</span> totalClasses, <span class="keyword">int</span> unoptimizedTotalClasses) &#123;</span><br><span class="line">    <span class="comment">//定义header_info，读取hList中的镜像头信息</span></span><br><span class="line">    <span class="comment">//header_info中存着镜像的信息</span></span><br><span class="line">    <span class="keyword">uint32_t</span> hIndex;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// Discover categories. Only do this after the initial category</span></span><br><span class="line">    <span class="comment">// attachment has been done. For categories present at startup,</span></span><br><span class="line">    <span class="comment">// discovery is deferred until the first load_images call after</span></span><br><span class="line">    <span class="comment">// the call to _dyld_objc_notify_register completes. rdar://problem/53119145</span></span><br><span class="line">    <span class="keyword">if</span> (didInitialAttachCategories) &#123;</span><br><span class="line">        <span class="keyword">for</span> (hIndex = <span class="number">0</span>;hIndex &lt; hCount &amp;&amp; (hi = hList[hIndex]); hIndex++) &#123;</span><br><span class="line">            <span class="comment">//加载分类信息</span></span><br><span class="line">            load_categories_nolock(hi);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">load_categories_nolock</span><span class="params">(header_info *hi)</span> </span>&#123;</span><br><span class="line">     ....</span><br><span class="line">                <span class="comment">// First, register the category with its target class.</span></span><br><span class="line">                <span class="comment">// Then, rebuild the class&#x27;s method lists (etc) if</span></span><br><span class="line">                <span class="comment">// the class is realized.</span></span><br><span class="line">                <span class="keyword">if</span> (cat-&gt;instanceMethods ||  cat-&gt;protocols</span><br><span class="line">                    ||  cat-&gt;instanceProperties)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (cls-&gt;isRealized()) &#123;</span><br><span class="line">                        <span class="comment">//添加Categories</span></span><br><span class="line">                        attachCategories(cls, &amp;lc, <span class="number">1</span>, ATTACH_EXISTING);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        objc::unattachedCategories.addForClass(lc, cls);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (cat-&gt;classMethods  ||  cat-&gt;protocols</span><br><span class="line">                    ||  (hasClassProperties &amp;&amp; cat-&gt;_classProperties))</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (cls-&gt;ISA()-&gt;isRealized()) &#123;</span><br><span class="line">                        attachCategories(cls-&gt;ISA(), &amp;lc, <span class="number">1</span>, ATTACH_EXISTING | ATTACH_METACLASS);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        objc::unattachedCategories.addForClass(lc, cls-&gt;ISA());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Attach method lists and properties and protocols from categories to a class.</span></span><br><span class="line"><span class="comment">// Assumes the categories in cats are all loaded and sorted by load order, </span></span><br><span class="line"><span class="comment">// oldest categories first.</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span></span><br><span class="line">attachCategories(Class cls, <span class="keyword">const</span> <span class="keyword">locstamped_category_t</span> *cats_list, <span class="keyword">uint32_t</span> cats_count,</span><br><span class="line">                 <span class="keyword">int</span> flags)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (slowpath(PrintReplacedMethods)) &#123;</span><br><span class="line">        printReplacements(cls, cats_list, cats_count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (slowpath(PrintConnecting)) &#123;</span><br><span class="line">        _objc_inform(<span class="string">&quot;CLASS: attaching %d categories to%s class &#x27;%s&#x27;%s&quot;</span>,</span><br><span class="line">                     cats_count, (flags &amp; ATTACH_EXISTING) ? <span class="string">&quot; existing&quot;</span> : <span class="string">&quot;&quot;</span>,</span><br><span class="line">                     cls-&gt;nameForLogging(), (flags &amp; ATTACH_METACLASS) ? <span class="string">&quot; (meta)&quot;</span> : <span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * Only a few classes have more than 64 categories during launch.</span></span><br><span class="line"><span class="comment">     * This uses a little stack, and avoids malloc.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * Categories must be added in the proper order, which is back</span></span><br><span class="line"><span class="comment">     * to front. To do that with the chunking, we iterate cats_list</span></span><br><span class="line"><span class="comment">     * from front to back, build up the local buffers backwards,</span></span><br><span class="line"><span class="comment">     * and call attachLists on the chunks. attachLists prepends the</span></span><br><span class="line"><span class="comment">     * lists, so the final result is in the expected order.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">constexpr</span> <span class="keyword">uint32_t</span> ATTACH_BUFSIZ = <span class="number">64</span>;</span><br><span class="line">    <span class="keyword">method_list_t</span>   *mlists[ATTACH_BUFSIZ];</span><br><span class="line">    <span class="keyword">property_list_t</span> *proplists[ATTACH_BUFSIZ];</span><br><span class="line">    <span class="keyword">protocol_list_t</span> *protolists[ATTACH_BUFSIZ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">uint32_t</span> mcount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">uint32_t</span> propcount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">uint32_t</span> protocount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> fromBundle = NO;</span><br><span class="line">    <span class="keyword">bool</span> isMeta = (flags &amp; ATTACH_METACLASS);</span><br><span class="line">    <span class="comment">//auto是C++的语法，表示类型根据自动代码自动推断。</span></span><br><span class="line">    <span class="comment">//cls-&gt;data()-&gt;extAllocIfNeeded()返回的就是class_rw_ext_t *类型</span></span><br><span class="line">    <span class="comment">//class_rw_ext_t中存有方法，属性，协议等信息。</span></span><br><span class="line">    <span class="keyword">auto</span> rwe = cls-&gt;data()-&gt;extAllocIfNeeded();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">uint32_t</span> i = <span class="number">0</span>; i &lt; cats_count; i++) &#123;</span><br><span class="line">        <span class="comment">//entry:locstamped_category_t</span></span><br><span class="line">        <span class="keyword">auto</span>&amp; entry = cats_list[i];</span><br><span class="line">        <span class="comment">//取出分类中的方法</span></span><br><span class="line">        <span class="keyword">method_list_t</span> *mlist = entry.cat-&gt;methodsForMeta(isMeta);</span><br><span class="line">        <span class="keyword">if</span> (mlist) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mcount == ATTACH_BUFSIZ) &#123;</span><br><span class="line">                prepareMethodLists(cls, mlists, mcount, NO, fromBundle);</span><br><span class="line">                rwe-&gt;methods.attachLists(mlists, mcount);</span><br><span class="line">                mcount = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//ATTACH_BUFSIZ=64</span></span><br><span class="line">            <span class="comment">//这句话等于mlists[64- ++mcount] = mlist;</span></span><br><span class="line">            <span class="comment">//倒序合并分类到mlists，后面会将mlists再合并到类的方法列表中</span></span><br><span class="line">            mlists[ATTACH_BUFSIZ - ++mcount] = mlist;</span><br><span class="line">            fromBundle |= entry.hi-&gt;isBundle();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">property_list_t</span> *proplist =</span><br><span class="line">            entry.cat-&gt;propertiesForMeta(isMeta, entry.hi);</span><br><span class="line">        <span class="keyword">if</span> (proplist) &#123;</span><br><span class="line">            <span class="keyword">if</span> (propcount == ATTACH_BUFSIZ) &#123;</span><br><span class="line">                rwe-&gt;properties.attachLists(proplists, propcount);</span><br><span class="line">                propcount = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            proplists[ATTACH_BUFSIZ - ++propcount] = proplist;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">protocol_list_t</span> *protolist = entry.cat-&gt;protocolsForMeta(isMeta);</span><br><span class="line">        <span class="keyword">if</span> (protolist) &#123;</span><br><span class="line">            <span class="keyword">if</span> (protocount == ATTACH_BUFSIZ) &#123;</span><br><span class="line">                rwe-&gt;protocols.attachLists(protolists, protocount);</span><br><span class="line">                protocount = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            protolists[ATTACH_BUFSIZ - ++protocount] = protolist;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mcount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        prepareMethodLists(cls, mlists + ATTACH_BUFSIZ - mcount, mcount, NO, fromBundle);</span><br><span class="line">        <span class="comment">//将mlists合并到rwe-&gt;methods</span></span><br><span class="line">        rwe-&gt;methods.attachLists(mlists + ATTACH_BUFSIZ - mcount, mcount);</span><br><span class="line">        <span class="keyword">if</span> (flags &amp; ATTACH_EXISTING) flushCaches(cls);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    rwe-&gt;properties.attachLists(proplists + ATTACH_BUFSIZ - propcount, propcount);</span><br><span class="line"></span><br><span class="line">    rwe-&gt;protocols.attachLists(protolists + ATTACH_BUFSIZ - protocount, protocount);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//attachLists objc-runtime-new.mm</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">attachLists</span><span class="params">(List* <span class="keyword">const</span> * addedLists, <span class="keyword">uint32_t</span> addedCount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (addedCount == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (hasArray()) &#123;</span><br><span class="line">            <span class="comment">// many lists -&gt; many lists</span></span><br><span class="line">            <span class="keyword">uint32_t</span> oldCount = <span class="built_in">array</span>()-&gt;count;</span><br><span class="line">            <span class="keyword">uint32_t</span> newCount = oldCount + addedCount;</span><br><span class="line">            <span class="comment">//realloc memmove memcpy三个是C语言方法。</span></span><br><span class="line">            <span class="comment">//realloc 先判断当前的指针是否有足够的连续空间，如果有，</span></span><br><span class="line">            <span class="comment">//扩大mem_address指向的地址，并且将mem_address返回，</span></span><br><span class="line">            <span class="comment">//如果空间不够，先按照newsize指定的大小分配空间，将原有</span></span><br><span class="line">            <span class="comment">//数据从头到尾拷贝到新分配的内存区域，而后释放原来mem_address</span></span><br><span class="line">            <span class="comment">//所指内存区域（注意：原来指针是自动释放，不需要使用free），</span></span><br><span class="line">            <span class="comment">//同时返回新分配的内存区域的首地址。即重新分配存储器块的地址。</span></span><br><span class="line">            <span class="comment">//memmove 用于拷贝字节，如果目标区域和源区域有重叠的话，</span></span><br><span class="line">            <span class="comment">//memmove能够保证源串在被覆盖之前将重叠区域的字节拷贝到</span></span><br><span class="line">            <span class="comment">//目标区域中，但复制后源内容会被更改。但是当目标区域与源区域</span></span><br><span class="line">            <span class="comment">//没有重叠则和memcpy函数功能相同。</span></span><br><span class="line">            <span class="comment">//memcpy 指的是C和C++使用的内存拷贝函数，函数原型为</span></span><br><span class="line">            <span class="comment">//void *memcpy(void *destin, void *source, unsigned n)；</span></span><br><span class="line">            <span class="comment">//函数的功能是从源内存地址的起始位置开始拷贝若干个字节到目标内存</span></span><br><span class="line">            <span class="comment">//地址中，即从源source中拷贝n个字节到目标destin中。</span></span><br><span class="line">            <span class="comment">//增加数组的长度</span></span><br><span class="line">            setArray((<span class="keyword">array_t</span> *)<span class="built_in">realloc</span>(<span class="built_in">array</span>(), <span class="keyword">array_t</span>::byteSize(newCount)));</span><br><span class="line">            <span class="comment">//重设新数组的长度</span></span><br><span class="line">            <span class="built_in">array</span>()-&gt;count = newCount;</span><br><span class="line">            <span class="comment">//将array()-&gt;lists 复制到 array()-&gt;lists + addedCount，即先将 array()-&gt;lists 后移，空出位置来存放addedLists</span></span><br><span class="line">            memmove(<span class="built_in">array</span>()-&gt;lists + addedCount, <span class="built_in">array</span>()-&gt;lists, </span><br><span class="line">                    oldCount * <span class="keyword">sizeof</span>(<span class="built_in">array</span>()-&gt;lists[<span class="number">0</span>]));</span><br><span class="line">            <span class="comment">//将 addedLists 复制到 array()-&gt;lists</span></span><br><span class="line">            <span class="comment">//由此可见分类中的方法会被添加到原有方法的前面。在方法查询时，分类中的方法会先被查到并返回。如果分类中定义了和原类中一样的方法，就会只执行分类中的方法。</span></span><br><span class="line">            <span class="built_in">memcpy</span>(<span class="built_in">array</span>()-&gt;lists, addedLists, </span><br><span class="line">                   addedCount * <span class="keyword">sizeof</span>(<span class="built_in">array</span>()-&gt;lists[<span class="number">0</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">list</span>  &amp;&amp;  addedCount == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// 0 lists -&gt; 1 list</span></span><br><span class="line">            <span class="built_in">list</span> = addedLists[<span class="number">0</span>];</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 1 list -&gt; many lists</span></span><br><span class="line">            List* oldList = <span class="built_in">list</span>;</span><br><span class="line">            <span class="keyword">uint32_t</span> oldCount = oldList ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">uint32_t</span> newCount = oldCount + addedCount;</span><br><span class="line">            setArray((<span class="keyword">array_t</span> *)<span class="built_in">malloc</span>(<span class="keyword">array_t</span>::byteSize(newCount)));</span><br><span class="line">            <span class="built_in">array</span>()-&gt;count = newCount;</span><br><span class="line">            <span class="keyword">if</span> (oldList) <span class="built_in">array</span>()-&gt;lists[addedCount] = oldList;</span><br><span class="line">            <span class="built_in">memcpy</span>(<span class="built_in">array</span>()-&gt;lists, addedLists, </span><br><span class="line">                   addedCount * <span class="keyword">sizeof</span>(<span class="built_in">array</span>()-&gt;lists[<span class="number">0</span>]));</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上就是Category在运行时被加载的过程。整理一下流程：</p>
+<ol>
+<li><p><code>_objc_init()</code></p>
+</li>
+<li><p><code>map_images(...)</code></p>
+</li>
+<li><p><code>map_images_nolock(...)</code></p>
+</li>
+<li><p><code>_read_images(...)</code></p>
+</li>
+<li><p><code>load_categories_nolock()</code></p>
+</li>
+<li><p><code>attachCategories(...)</code></p>
+</li>
+</ol>
+<p>以上。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>Objective-C</tag>
+        <tag>Category</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一千种人生</title>
     <url>/2020/05/29/%E4%B8%80%E5%8D%83%E7%A7%8D%E4%BA%BA%E7%94%9F/</url>
     <content><![CDATA[<p>&emsp;&emsp;不知道从哪一刻开始，脑海里会如电影胶片般浮现各种场景，似是平行时空，让我觉得那就是我经历的一样。<br>&emsp;&emsp;等到这种想法蹦出的越来越多，越来越频繁的时候，我决定把这些写出来。<br>&emsp;&emsp;我在标签里面添加了一个新标签，叫做<code>一千种人生</code>。<br>&emsp;&emsp;你是否也有一千种人生？</p>
@@ -1414,16 +1414,70 @@
       </tags>
   </entry>
   <entry>
+    <title>一次漫长的AppStore审核经历</title>
+    <url>/2020/05/06/%E4%B8%80%E6%AC%A1%E6%BC%AB%E9%95%BF%E7%9A%84AppStore%E5%AE%A1%E6%A0%B8%E7%BB%8F%E5%8E%86/</url>
+    <content><![CDATA[<p>最近发布了一款Mac系统环境下的App，名字叫做“<a href="https://apps.apple.com/us/app/%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%89%A9%E5%B1%95/id1491889350?l=zh&ls=1">二维码扩展</a>”，发布过程比正常的发布过程多花了不少时间，历时一个多月。在此记录一下。</p>
+<p>第一次提交审核，第二天就出来审核结果了，是由于App的语言适配除了问题，然后我迅速修复了。</p>
+<p>再次提交审核，App审核状态变为审核中<code>In Review</code>，然后就开始了漫长的等待。</p>
+<a id="more"></a>
+
+<p>等了大概一周多的时间，我收到了苹果一封邮件，如下</p>
+<blockquote>
+<p>发件人 Apple</p>
+<p>Hello,  </p>
+<p>We are unable to continue this app’s review because your Apple Developer Program account is currently under investigation for not following the App Store Review Guidelines’ Developer Code of Conduct.  </p>
+<p>Common practices that may lead to an investigation include, but are not limited to:  </p>
+<ul>
+<li>Inaccurately describing an app or service  </li>
+<li>Misleading app content  </li>
+<li>Engaging in inauthentic ratings and reviews manipulation  </li>
+<li>Providing misleading customer support responses  </li>
+<li>Providing misleading responses in Resolution Center  </li>
+<li>Engaging in misleading purchasing or bait-and-switch schemes  </li>
+<li>Engaging in other dishonest or fraudulent activity within or outside of the app  </li>
+</ul>
+<p>During our investigation, we will not review any apps you submit. Once we have completed our investigation, we will notify you via Resolution Center.  </p>
+<p>We do not require any additional information from you at this time, nor do we have any additional details to share. We appreciate your continued patience during our investigation.  </p>
+<p>Best regards,  </p>
+<p>App Store Review</p>
+</blockquote>
+<p>简单的来说，就是我的开发者账户<code>Apple Developer Program account</code> 可能违反了苹果的某些规定，被审查了，App审核状态变为已拒绝。虽然事实上并没有违反，为什么这么说，继续看就知道了。</p>
+<p>收到这封邮件之后，我又开始了漫长的等待，因为邮件中说，不需要我提供什么额外信息，只需要等就行了。</p>
+<p>等了两周没有收到苹果的邮件，我实在焦急，便访问了<a href="https://developer.apple.com/contact/#!/topic/select">苹果技术支持</a>的站点，提交了一个issue。具体选择的是会员资格与问题，然后又选择了其他会员资格与账户问题。</p>
+<p><img src="https://raw.githubusercontent.com/lengain/LengainGraphBed/master/picture/%E6%88%AA%E5%B1%8F2020-05-06%20%E4%B8%8B%E5%8D%8812.43.30.png" alt></p>
+<p>我详细的描述了我审核的过程，并解释说我这只是个工具类App，并未违反之前苹果邮件中提到的规定，请他们协助调查，帮忙查一下审查两周还没有通过原因。</p>
+<p>第二天，我收到了苹果技术支持中心的邮件，邮件中说我的账户是正常的审查状态，要我耐心等待。</p>
+<p>不知道是不是联系苹果技术支持起了作用，之后没两天我便收到苹果的调查结果，如下：</p>
+<blockquote>
+<p>发件人 Apple</p>
+<p>Hello,  </p>
+<p>We are writing to let you know that we have completed our investigation of your Apple Developer Program account. You may now submit apps for review, and we will continue with the review of this app. If we find any issues during our review, we will communicate them via Resolution Center. Otherwise, your app will be approved.  </p>
+<p>Please note that all apps submitted to the App Store are reviewed against the  <a href="https://developer.apple.com/app-store/review/guidelines/">App Store Review Guidelines</a>, including the  <a href="https://developer.apple.com/app-store/review/guidelines/#code-of-conduct">Developer Code of Conduct</a>.  </p>
+<p>You can avoid future investigations by ensuring your apps don’t attempt to mislead or harm customers or undermine the review process. Be sure to review the  <a href="https://developer.apple.com/app-store/review/guidelines/">App Store Review Guidelines</a>  and read the  <a href="https://developer.apple.com/app-store/review/guidelines/#code-of-conduct">Developer Code of Conduct</a>  so you understand our requirements prior to submitting any apps for review.  </p>
+<p>Best regards,  </p>
+<p>App Store Review</p>
+</blockquote>
+<p>说了半天，其实我也没有违反规定，就被审查了二十天。然后状态变为正在审核，又等了一个星期，审核通过。<br>审核通过后，App并没有直接发布到AppStore，当时是搜索不到的，苹果会在24小时之内传到各个国家地区的AppStore。<br>完结，手动撒花~</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>AppStore</tag>
+        <tag>审核</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一台Mac两套Flutter：我用一个脚本解决鸿蒙/iOS 环境来回切换</title>
     <url>/2026/03/02/%E4%B8%80%E5%8F%B0Mac%E4%B8%A4%E5%A5%97Flutter%EF%BC%9A%E6%88%91%E7%94%A8-150-%E8%A1%8C%E8%84%9A%E6%9C%AC%E8%A7%A3%E5%86%B3%E9%B8%BF%E8%92%99-iOS-%E7%8E%AF%E5%A2%83%E6%9D%A5%E5%9B%9E%E5%88%87%E6%8D%A2/</url>
     <content><![CDATA[<blockquote>
-<p>每次切环境都像拆盲盒：<code>flutter</code> 到底指向哪个 SDK？<code>pub get</code> 为什么又超时了？</p>
-</blockquote>
-<blockquote>
-<p>这篇文章分享一个可落地的工程化解法：用一个 Shell 脚本，把鸿蒙与 iOS 的 Flutter 环境切换做成“可重复、可追溯、可持久化、可自愈”的标准流程。</p>
+<p>每次切环境都像拆盲盒：<code>flutter</code> 到底指向哪个 SDK？</p>
+<p><code>pub get</code> 为什么又超时了？</p>
 </blockquote>
 <hr>
-<h2 id="先说痛点：为什么“手动-export”迟早出事"><a href="#先说痛点：为什么“手动-export”迟早出事" class="headerlink" title="先说痛点：为什么“手动 export”迟早出事"></a>先说痛点：为什么“手动 export”迟早出事</h2><p>如果你和我一样，一台 Mac 同时做两类 Flutter 开发：</p>
+<p>这篇文章分享一个可落地的工程化解法：用一个 <a href="https://github.com/lengain/flutter_env_switch">Shell 脚本</a>，把鸿蒙与 iOS 的 Flutter 环境切换做成“可重复、可追溯、可持久化、可自愈”的标准流程。</p>
+<h2 id="先说痛点"><a href="#先说痛点" class="headerlink" title="先说痛点"></a>先说痛点</h2><p>如果你和我一样，一台 Mac 同时做两类 Flutter 开发：</p>
 <ul>
 <li><p><strong>鸿蒙开发</strong>：常用定制 SDK / 镜像源；</p>
 </li>
@@ -1524,6 +1578,8 @@
 <li>首次切到某个环境时，<code>flutter --version</code> 可能先触发工具链初始化下载，这是正常行为；</li>
 <li>日志里出现 <code>Downloading...</code> 不一定是错误，脚本会自动重试并提取最终版本行；</li>
 <li>若网络不稳定，脚本会给出重试与后续操作指引（例如执行 <code>check</code>、清理缓存后重试）。</li>
+<li>脚本会自动下载鸿蒙/iOS flutter，下载好后，需要手动去切换各个平台的flutter版本。</li>
+<li>在自动化打包时，可以调用本脚本，保证flutter环境正确。</li>
 </ul>
 <hr>
 <h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>很多团队在多环境开发时，卡住的不是业务代码，而是“环境不可控”。</p>
@@ -1537,61 +1593,6 @@
         <tag>Flutter</tag>
         <tag>跨平台</tag>
         <tag>鸿蒙</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一次漫长的AppStore审核经历</title>
-    <url>/2020/05/06/%E4%B8%80%E6%AC%A1%E6%BC%AB%E9%95%BF%E7%9A%84AppStore%E5%AE%A1%E6%A0%B8%E7%BB%8F%E5%8E%86/</url>
-    <content><![CDATA[<p>最近发布了一款Mac系统环境下的App，名字叫做“<a href="https://apps.apple.com/us/app/%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%89%A9%E5%B1%95/id1491889350?l=zh&ls=1">二维码扩展</a>”，发布过程比正常的发布过程多花了不少时间，历时一个多月。在此记录一下。</p>
-<p>第一次提交审核，第二天就出来审核结果了，是由于App的语言适配除了问题，然后我迅速修复了。</p>
-<p>再次提交审核，App审核状态变为审核中<code>In Review</code>，然后就开始了漫长的等待。</p>
-<a id="more"></a>
-
-<p>等了大概一周多的时间，我收到了苹果一封邮件，如下</p>
-<blockquote>
-<p>发件人 Apple</p>
-<p>Hello,  </p>
-<p>We are unable to continue this app’s review because your Apple Developer Program account is currently under investigation for not following the App Store Review Guidelines’ Developer Code of Conduct.  </p>
-<p>Common practices that may lead to an investigation include, but are not limited to:  </p>
-<ul>
-<li>Inaccurately describing an app or service  </li>
-<li>Misleading app content  </li>
-<li>Engaging in inauthentic ratings and reviews manipulation  </li>
-<li>Providing misleading customer support responses  </li>
-<li>Providing misleading responses in Resolution Center  </li>
-<li>Engaging in misleading purchasing or bait-and-switch schemes  </li>
-<li>Engaging in other dishonest or fraudulent activity within or outside of the app  </li>
-</ul>
-<p>During our investigation, we will not review any apps you submit. Once we have completed our investigation, we will notify you via Resolution Center.  </p>
-<p>We do not require any additional information from you at this time, nor do we have any additional details to share. We appreciate your continued patience during our investigation.  </p>
-<p>Best regards,  </p>
-<p>App Store Review</p>
-</blockquote>
-<p>简单的来说，就是我的开发者账户<code>Apple Developer Program account</code> 可能违反了苹果的某些规定，被审查了，App审核状态变为已拒绝。虽然事实上并没有违反，为什么这么说，继续看就知道了。</p>
-<p>收到这封邮件之后，我又开始了漫长的等待，因为邮件中说，不需要我提供什么额外信息，只需要等就行了。</p>
-<p>等了两周没有收到苹果的邮件，我实在焦急，便访问了<a href="https://developer.apple.com/contact/#!/topic/select">苹果技术支持</a>的站点，提交了一个issue。具体选择的是会员资格与问题，然后又选择了其他会员资格与账户问题。</p>
-<p><img src="https://raw.githubusercontent.com/lengain/LengainGraphBed/master/picture/%E6%88%AA%E5%B1%8F2020-05-06%20%E4%B8%8B%E5%8D%8812.43.30.png" alt></p>
-<p>我详细的描述了我审核的过程，并解释说我这只是个工具类App，并未违反之前苹果邮件中提到的规定，请他们协助调查，帮忙查一下审查两周还没有通过原因。</p>
-<p>第二天，我收到了苹果技术支持中心的邮件，邮件中说我的账户是正常的审查状态，要我耐心等待。</p>
-<p>不知道是不是联系苹果技术支持起了作用，之后没两天我便收到苹果的调查结果，如下：</p>
-<blockquote>
-<p>发件人 Apple</p>
-<p>Hello,  </p>
-<p>We are writing to let you know that we have completed our investigation of your Apple Developer Program account. You may now submit apps for review, and we will continue with the review of this app. If we find any issues during our review, we will communicate them via Resolution Center. Otherwise, your app will be approved.  </p>
-<p>Please note that all apps submitted to the App Store are reviewed against the  <a href="https://developer.apple.com/app-store/review/guidelines/">App Store Review Guidelines</a>, including the  <a href="https://developer.apple.com/app-store/review/guidelines/#code-of-conduct">Developer Code of Conduct</a>.  </p>
-<p>You can avoid future investigations by ensuring your apps don’t attempt to mislead or harm customers or undermine the review process. Be sure to review the  <a href="https://developer.apple.com/app-store/review/guidelines/">App Store Review Guidelines</a>  and read the  <a href="https://developer.apple.com/app-store/review/guidelines/#code-of-conduct">Developer Code of Conduct</a>  so you understand our requirements prior to submitting any apps for review.  </p>
-<p>Best regards,  </p>
-<p>App Store Review</p>
-</blockquote>
-<p>说了半天，其实我也没有违反规定，就被审查了二十天。然后状态变为正在审核，又等了一个星期，审核通过。<br>审核通过后，App并没有直接发布到AppStore，当时是搜索不到的，苹果会在24小时之内传到各个国家地区的AppStore。<br>完结，手动撒花~</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>iOS</tag>
-        <tag>AppStore</tag>
-        <tag>审核</tag>
       </tags>
   </entry>
   <entry>
@@ -1835,6 +1836,78 @@
       </tags>
   </entry>
   <entry>
+    <title>如何做一个CALayer 自定义属性CAAnimation动画</title>
+    <url>/2018/12/27/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AACALayer-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7CAAnimation%E5%8A%A8%E7%94%BB/</url>
+    <content><![CDATA[<p>最近在做CALayer自定义属性(<code>@property</code>修饰)动画。之前没有深究过，现在有很多有意思的发现，写出来分享给大家。</p>
+<p>首先把<a href="https://github.com/lengain/LNLoadingLayer">Demo LNLoadingLayer</a>分享给大家，这是一个loading动画。</p>
+<p>在做CALayer自定义属性动画之前，要先了解一个概念，即CALayer是一个<code>符合键值编码的容器类（Key-Value Coding Compliant Container Classes）</code>。</p>
+<h4 id="符合键值编码的容器类"><a href="#符合键值编码的容器类" class="headerlink" title="符合键值编码的容器类"></a>符合键值编码的容器类</h4><p>CALayer和CAAnimation都是符合键值编码的容器类（Key-Value Coding Compliant Container Classes），</p>
+<p>这意味着你可以用任意<code>key</code>来设置值，即使这个<code>key</code>没有声明为CALayer的property。</p>
+<a id="more"></a>
+
+<p>以下是苹果<a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Key-ValueCodingExtensions/Key-ValueCodingExtensions.html#//apple_ref/doc/uid/TP40004514-CH12-SW2">Core Animation 编程指南</a>的介绍：</p>
+<blockquote>
+<p>The<a href="https://developer.apple.com/documentation/quartzcore/caanimation">CAAnimation</a>and<a href="https://developer.apple.com/documentation/quartzcore/calayer">CALayer</a> classes are key-value coding compliant container classes, which means that you can set values for arbitrary keys. Even if the key<code>someKey</code>is not a declared property of the<code>CALayer</code>class, you can still set a value for it as follows:</p>
+<p>[ theLayer setValue:[NSNumber numberWithInteger:50] forKey:@”someKey”];</p>
+<p>You can also retrieve the value for arbitrary keys like you would retrieve the value for other key paths. For example, to retrieve the value of the<code>someKey</code>path set previously, you would use the following code:</p>
+<p>someKeyValue = [theLayer valueForKey:@”someKey”];</p>
+</blockquote>
+<p>因此，在CALayer中，用@dynamic修饰的属性，即使没有实现setter getter也不会崩溃。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DynamicTest</span> : <span class="title">CALayer</span></span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSString</span> *title;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">DynamicTest</span></span></span><br><span class="line"><span class="keyword">@dynamic</span> title;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">DynamicTest *test = [[DynamicTest alloc] init];</span><br><span class="line">test.title = <span class="string">@&quot;title&quot;</span>;<span class="comment">//正常工作，不会崩溃。</span></span><br><span class="line"><span class="comment">//另外，CALayer和CAAnimation，会自动为@dynamic修饰的属性添加NSCoding协议的支持。不用@dynamic修饰，则不支持。</span></span><br><span class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSKeyedArchiver</span> archivedDataWithRootObject:test];</span><br><span class="line">DynamicTest *unarchiveTest = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithData:data];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;unarchiveTest.title=%@&quot;</span>,unarchiveTest.title);</span><br><span class="line"><span class="comment">//输出 unarchiveTest.title=title</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="dynamic在CALayer中的特殊表现"><a href="#dynamic在CALayer中的特殊表现" class="headerlink" title="@dynamic在CALayer中的特殊表现"></a>@dynamic在CALayer中的特殊表现</h4><p>CALayer中，用@synthesize修饰的属性，可以正常使用getter/setter，而@dynamic修饰的属性，也可以实现getter/setter。但是<strong>在自定义属性动画时，就必须使用@dynamic修饰</strong>，因为<code>Core Animation</code>框架对@dynamic修饰的的属性做了一些特殊操作，使得CALayer能够在监控到属性变化时，调用相应的方法，实现动画。</p>
+<p>这个特殊操作，我目前没有查到，如果谁知道，可以联系我告知一下，我给补上。多谢。</p>
+<h4 id="id-initWithLayer-id-layer方法"><a href="#id-initWithLayer-id-layer方法" class="headerlink" title="-(id)initWithLayer:(id)layer方法"></a>-(id)initWithLayer:(id)layer方法</h4><p>我们知道，所谓动画，只不过是一帧帧静止的图片，以一定的速度（比如每秒60张）连续播放，肉眼因为视觉残象产生错觉，便以为画面是活动的。</p>
+<p>Core Animation动画也是这个原理，在Core Animation动画过程中，不断的有副本图层（或表示图层<code>copied-layer</code> or <code>presentation layer</code>）被初始化，连续播放，形成动画。<code>-initWithLayer:</code>就是Core Animation为CALayer创建副本对象的初始化方法。</p>
+<p><strong>注意：</strong></p>
+<p>1.此方法会被自动调用。</p>
+<p>2.@dynamic修饰的属性，<code>-initWithLayer:</code>后会被自动复制给副本Layer。方法中必须调用<code>[super initWithLayer:layer]</code></p>
+<p>3.@synthesize修饰或不加修饰词的@property属性，需要重写<code>-initWithLayer:</code>方法，手动将属性赋值给副本对象。如果没有这样的属性，或属性不影响显示，此方法不重写也可以。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* This initializer is used by CoreAnimation to create shadow copies of</span></span><br><span class="line"><span class="comment"> * layers, e.g. for use as presentation layers. Subclasses can override</span></span><br><span class="line"><span class="comment"> * this method to copy their instance variables into the presentation</span></span><br><span class="line"><span class="comment"> * layer (subclasses should call the superclass afterwards). Calling this</span></span><br><span class="line"><span class="comment"> * method in any other situation will result in undefined behavior. */</span></span><br><span class="line">-(<span class="keyword">id</span>)initWithLayer:(<span class="keyword">id</span>)layer &#123;    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithLayer:layer]) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([layer isKindOfClass:[<span class="built_in">CGCustomPropertyLayer</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">            <span class="built_in">CGCustomPropertyLayer</span> *cpLayer = layer;</span><br><span class="line">            <span class="comment">// Copy across ...</span></span><br><span class="line">            <span class="keyword">self</span>.nonDynamicProperty = cpLayer.nonDynamicProperty;    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="现在开始自定义属性动画"><a href="#现在开始自定义属性动画" class="headerlink" title="现在开始自定义属性动画"></a>现在开始自定义属性动画</h4><p>在添加过自定义属性后，设置一下@dynamic，如果还有额外的属性，记得重写<code>-initWithLayer:</code>。</p>
+<p>接下来要添加一个很重要的类方法<code>+needsDisplayForKey:</code></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Layer初次加载时，会调用此方法，用来判断属性的值改变时，是否需要重新绘制。因此自定义属性动画必须实现此方法且返回YES</span></span><br><span class="line"><span class="comment">//实现此方法后，自定义属性的值一旦改变,便会自动调用setNeedsDisplay，触发重绘。</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)needsDisplayForKey:(<span class="built_in">NSString</span> *)key &#123;</span><br><span class="line">    <span class="keyword">return</span> [key isEqualToString:CustomPropertyName] ? <span class="literal">YES</span> : [<span class="keyword">super</span> needsDisplayForKey:key];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，就可以写绘制的代码了，绘制时，一般写在<code>drawInContext:</code>或<code>drawLayer: inContext:</code>方法之中，当然，也可以写在<code>display</code>方法之中，但是应注意和CALayer的delegate是否会冲突。</p>
+<blockquote>
+<p>layer方法响应链有两种:</p>
+<ol>
+<li><p>[layer setNeedDisplay] -&gt; [layer displayIfNeed] -&gt; [layer display] -&gt; [layerDelegate displayLayer:]</p>
+</li>
+<li><p>[layer setNeedDisplay] -&gt; [layer displayIfNeed] -&gt; [layer display] -&gt; [layer drawInContext:] -&gt; [layerDelegate drawLayer: inContext:]</p>
+<p>如果layerDelegate实现了displayLayer:协议，之后layer就不会再调用自身的重绘代码</p>
+</li>
+</ol>
+</blockquote>
+<p><a href="https://github.com/lengain/LNLoadingLayer/blob/master/LNLoadingLayer/LNLoadingExplicitLayer.m">示例代码</a>写在<code>drawInContext:</code>中。</p>
+<p><strong>注意</strong>：绘制的CALayer图形，在默认情况下，会很糊，因此使用时要设置<code>layer.contentsScale = [UIScreen mainScreen].scale;</code>contentsScale属性，默认为1.</p>
+<p>绘制代码完成后，就可以使用动画了，添加<a href="https://github.com/lengain/LNLoadingLayer/blob/master/LNLoadingLayer/ViewController.m">动画代码</a></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">LNLoadingExplicitLayer *loadingLayer = [[LNLoadingExplicitLayer alloc] init];</span><br><span class="line">loadingLayer.frame = frame;</span><br><span class="line">loadingLayer.progressLineWidth = <span class="number">6.</span>f/[<span class="built_in">UIScreen</span> mainScreen].scale;</span><br><span class="line">loadingLayer.contentsScale = [<span class="built_in">UIScreen</span> mainScreen].scale;</span><br><span class="line">[<span class="keyword">self</span>.view.layer addSublayer:loadingLayer];</span><br><span class="line"></span><br><span class="line"><span class="built_in">CABasicAnimation</span> *animation = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:<span class="string">@&quot;progress&quot;</span>];</span><br><span class="line">animation.fromValue = @(<span class="number">0</span>);</span><br><span class="line">animation.toValue = @(<span class="number">200</span>);</span><br><span class="line">animation.duration = <span class="number">2.0</span>;</span><br><span class="line">animation.repeatCount = MAXFLOAT;</span><br><span class="line">animation.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionLinear];</span><br><span class="line">[loadingLayer addAnimation:animation forKey:<span class="string">@&quot;progressKey&quot;</span>];;</span><br></pre></td></tr></table></figure>
+
+<p>此时，自定义属性动画已经可以动起来了。</p>
+<p>下面来介绍隐式动画。</p>
+<h4 id="隐式动画（implicit-animation）"><a href="#隐式动画（implicit-animation）" class="headerlink" title="隐式动画（implicit animation）"></a>隐式动画（implicit animation）</h4><p>没有指定任何动画类型的动画叫隐式动画。即属性平滑过渡到新的值的默认行为。</p>
+<p>在demo的<code>LNLoadingExplicitLayer</code>类中，只实现了基本的显式动画。当我们想要在改变属性值自动有个过渡动画时，便要再添加一个方法<code>actionForKey:</code> ,这里是<a href="https://github.com/lengain/LNLoadingLayer/blob/master/LNLoadingLayer/LNLoadingLayer.m">示例代码</a>，当layer属性改变时，layer都会寻找合适的action来实行这个改变，<code>actionForKey:</code>便是指定属性默认隐式动画的方法。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)actionForKey:(<span class="built_in">NSString</span> *)event &#123;</span><br><span class="line">    <span class="keyword">if</span> ([event isEqualToString:LNProgressKey]) &#123;</span><br><span class="line">        <span class="built_in">CABasicAnimation</span> *actionAnimation = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:CustomPropertyName];</span><br><span class="line">        actionAnimation.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionLinear];</span><br><span class="line">        actionAnimation.fromValue = @(<span class="keyword">self</span>.progress);</span><br><span class="line">        <span class="keyword">return</span> actionAnimation;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> actionForKey:event];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://sindrilin.com/2017/12/14/bottleeneck_of_transacation.html">这里</a>有一个介绍隐式动画很好的博文，感兴趣可以看看。更多内容可以搜索iOS隐式动画。</p>
+<p>谢谢观看！</p>
+<p>参考：</p>
+<p>1.<a href="https://gist.github.com/toriaezunama/9174945#file-core-animation-of-custom-properties">Core animation of custom properties</a><br>2.<a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Key-ValueCodingExtensions/Key-ValueCodingExtensions.html#//apple_ref/doc/uid/TP40004514-CH12-SW2">Core Animation 编程指南</a></p>
+<p>3.<a href="https://www.objc.io/issues/12-animations/animating-custom-layer-properties/">Animating Custom Layer Properties</a></p>
+<p>4.<a href="https://blog.csdn.net/sinat_27706697/article/details/49738957">https://blog.csdn.net/sinat_27706697/article/details/49738957</a></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>CALayer</tag>
+        <tag>CAAnimation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>大模型基础概念</title>
     <url>/2025/11/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
     <content><![CDATA[<h1 id="大模型基础概念（适合客户端工程师的轻量入门）"><a href="#大模型基础概念（适合客户端工程师的轻量入门）" class="headerlink" title="大模型基础概念（适合客户端工程师的轻量入门）"></a>大模型基础概念（适合客户端工程师的轻量入门）</h1><p>下面内容专为客户端工程师写，不讲晦涩的数学，而是告诉你：</p>
@@ -2063,78 +2136,6 @@
         <tag>AI大模型</tag>
         <tag>LLM</tag>
         <tag>入门</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何做一个CALayer 自定义属性CAAnimation动画</title>
-    <url>/2018/12/27/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AACALayer-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7CAAnimation%E5%8A%A8%E7%94%BB/</url>
-    <content><![CDATA[<p>最近在做CALayer自定义属性(<code>@property</code>修饰)动画。之前没有深究过，现在有很多有意思的发现，写出来分享给大家。</p>
-<p>首先把<a href="https://github.com/lengain/LNLoadingLayer">Demo LNLoadingLayer</a>分享给大家，这是一个loading动画。</p>
-<p>在做CALayer自定义属性动画之前，要先了解一个概念，即CALayer是一个<code>符合键值编码的容器类（Key-Value Coding Compliant Container Classes）</code>。</p>
-<h4 id="符合键值编码的容器类"><a href="#符合键值编码的容器类" class="headerlink" title="符合键值编码的容器类"></a>符合键值编码的容器类</h4><p>CALayer和CAAnimation都是符合键值编码的容器类（Key-Value Coding Compliant Container Classes），</p>
-<p>这意味着你可以用任意<code>key</code>来设置值，即使这个<code>key</code>没有声明为CALayer的property。</p>
-<a id="more"></a>
-
-<p>以下是苹果<a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Key-ValueCodingExtensions/Key-ValueCodingExtensions.html#//apple_ref/doc/uid/TP40004514-CH12-SW2">Core Animation 编程指南</a>的介绍：</p>
-<blockquote>
-<p>The<a href="https://developer.apple.com/documentation/quartzcore/caanimation">CAAnimation</a>and<a href="https://developer.apple.com/documentation/quartzcore/calayer">CALayer</a> classes are key-value coding compliant container classes, which means that you can set values for arbitrary keys. Even if the key<code>someKey</code>is not a declared property of the<code>CALayer</code>class, you can still set a value for it as follows:</p>
-<p>[ theLayer setValue:[NSNumber numberWithInteger:50] forKey:@”someKey”];</p>
-<p>You can also retrieve the value for arbitrary keys like you would retrieve the value for other key paths. For example, to retrieve the value of the<code>someKey</code>path set previously, you would use the following code:</p>
-<p>someKeyValue = [theLayer valueForKey:@”someKey”];</p>
-</blockquote>
-<p>因此，在CALayer中，用@dynamic修饰的属性，即使没有实现setter getter也不会崩溃。</p>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DynamicTest</span> : <span class="title">CALayer</span></span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSString</span> *title;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">DynamicTest</span></span></span><br><span class="line"><span class="keyword">@dynamic</span> title;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">DynamicTest *test = [[DynamicTest alloc] init];</span><br><span class="line">test.title = <span class="string">@&quot;title&quot;</span>;<span class="comment">//正常工作，不会崩溃。</span></span><br><span class="line"><span class="comment">//另外，CALayer和CAAnimation，会自动为@dynamic修饰的属性添加NSCoding协议的支持。不用@dynamic修饰，则不支持。</span></span><br><span class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSKeyedArchiver</span> archivedDataWithRootObject:test];</span><br><span class="line">DynamicTest *unarchiveTest = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithData:data];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;unarchiveTest.title=%@&quot;</span>,unarchiveTest.title);</span><br><span class="line"><span class="comment">//输出 unarchiveTest.title=title</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="dynamic在CALayer中的特殊表现"><a href="#dynamic在CALayer中的特殊表现" class="headerlink" title="@dynamic在CALayer中的特殊表现"></a>@dynamic在CALayer中的特殊表现</h4><p>CALayer中，用@synthesize修饰的属性，可以正常使用getter/setter，而@dynamic修饰的属性，也可以实现getter/setter。但是<strong>在自定义属性动画时，就必须使用@dynamic修饰</strong>，因为<code>Core Animation</code>框架对@dynamic修饰的的属性做了一些特殊操作，使得CALayer能够在监控到属性变化时，调用相应的方法，实现动画。</p>
-<p>这个特殊操作，我目前没有查到，如果谁知道，可以联系我告知一下，我给补上。多谢。</p>
-<h4 id="id-initWithLayer-id-layer方法"><a href="#id-initWithLayer-id-layer方法" class="headerlink" title="-(id)initWithLayer:(id)layer方法"></a>-(id)initWithLayer:(id)layer方法</h4><p>我们知道，所谓动画，只不过是一帧帧静止的图片，以一定的速度（比如每秒60张）连续播放，肉眼因为视觉残象产生错觉，便以为画面是活动的。</p>
-<p>Core Animation动画也是这个原理，在Core Animation动画过程中，不断的有副本图层（或表示图层<code>copied-layer</code> or <code>presentation layer</code>）被初始化，连续播放，形成动画。<code>-initWithLayer:</code>就是Core Animation为CALayer创建副本对象的初始化方法。</p>
-<p><strong>注意：</strong></p>
-<p>1.此方法会被自动调用。</p>
-<p>2.@dynamic修饰的属性，<code>-initWithLayer:</code>后会被自动复制给副本Layer。方法中必须调用<code>[super initWithLayer:layer]</code></p>
-<p>3.@synthesize修饰或不加修饰词的@property属性，需要重写<code>-initWithLayer:</code>方法，手动将属性赋值给副本对象。如果没有这样的属性，或属性不影响显示，此方法不重写也可以。</p>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* This initializer is used by CoreAnimation to create shadow copies of</span></span><br><span class="line"><span class="comment"> * layers, e.g. for use as presentation layers. Subclasses can override</span></span><br><span class="line"><span class="comment"> * this method to copy their instance variables into the presentation</span></span><br><span class="line"><span class="comment"> * layer (subclasses should call the superclass afterwards). Calling this</span></span><br><span class="line"><span class="comment"> * method in any other situation will result in undefined behavior. */</span></span><br><span class="line">-(<span class="keyword">id</span>)initWithLayer:(<span class="keyword">id</span>)layer &#123;    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithLayer:layer]) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([layer isKindOfClass:[<span class="built_in">CGCustomPropertyLayer</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">            <span class="built_in">CGCustomPropertyLayer</span> *cpLayer = layer;</span><br><span class="line">            <span class="comment">// Copy across ...</span></span><br><span class="line">            <span class="keyword">self</span>.nonDynamicProperty = cpLayer.nonDynamicProperty;    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="现在开始自定义属性动画"><a href="#现在开始自定义属性动画" class="headerlink" title="现在开始自定义属性动画"></a>现在开始自定义属性动画</h4><p>在添加过自定义属性后，设置一下@dynamic，如果还有额外的属性，记得重写<code>-initWithLayer:</code>。</p>
-<p>接下来要添加一个很重要的类方法<code>+needsDisplayForKey:</code></p>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Layer初次加载时，会调用此方法，用来判断属性的值改变时，是否需要重新绘制。因此自定义属性动画必须实现此方法且返回YES</span></span><br><span class="line"><span class="comment">//实现此方法后，自定义属性的值一旦改变,便会自动调用setNeedsDisplay，触发重绘。</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)needsDisplayForKey:(<span class="built_in">NSString</span> *)key &#123;</span><br><span class="line">    <span class="keyword">return</span> [key isEqualToString:CustomPropertyName] ? <span class="literal">YES</span> : [<span class="keyword">super</span> needsDisplayForKey:key];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>接下来，就可以写绘制的代码了，绘制时，一般写在<code>drawInContext:</code>或<code>drawLayer: inContext:</code>方法之中，当然，也可以写在<code>display</code>方法之中，但是应注意和CALayer的delegate是否会冲突。</p>
-<blockquote>
-<p>layer方法响应链有两种:</p>
-<ol>
-<li><p>[layer setNeedDisplay] -&gt; [layer displayIfNeed] -&gt; [layer display] -&gt; [layerDelegate displayLayer:]</p>
-</li>
-<li><p>[layer setNeedDisplay] -&gt; [layer displayIfNeed] -&gt; [layer display] -&gt; [layer drawInContext:] -&gt; [layerDelegate drawLayer: inContext:]</p>
-<p>如果layerDelegate实现了displayLayer:协议，之后layer就不会再调用自身的重绘代码</p>
-</li>
-</ol>
-</blockquote>
-<p><a href="https://github.com/lengain/LNLoadingLayer/blob/master/LNLoadingLayer/LNLoadingExplicitLayer.m">示例代码</a>写在<code>drawInContext:</code>中。</p>
-<p><strong>注意</strong>：绘制的CALayer图形，在默认情况下，会很糊，因此使用时要设置<code>layer.contentsScale = [UIScreen mainScreen].scale;</code>contentsScale属性，默认为1.</p>
-<p>绘制代码完成后，就可以使用动画了，添加<a href="https://github.com/lengain/LNLoadingLayer/blob/master/LNLoadingLayer/ViewController.m">动画代码</a></p>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">LNLoadingExplicitLayer *loadingLayer = [[LNLoadingExplicitLayer alloc] init];</span><br><span class="line">loadingLayer.frame = frame;</span><br><span class="line">loadingLayer.progressLineWidth = <span class="number">6.</span>f/[<span class="built_in">UIScreen</span> mainScreen].scale;</span><br><span class="line">loadingLayer.contentsScale = [<span class="built_in">UIScreen</span> mainScreen].scale;</span><br><span class="line">[<span class="keyword">self</span>.view.layer addSublayer:loadingLayer];</span><br><span class="line"></span><br><span class="line"><span class="built_in">CABasicAnimation</span> *animation = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:<span class="string">@&quot;progress&quot;</span>];</span><br><span class="line">animation.fromValue = @(<span class="number">0</span>);</span><br><span class="line">animation.toValue = @(<span class="number">200</span>);</span><br><span class="line">animation.duration = <span class="number">2.0</span>;</span><br><span class="line">animation.repeatCount = MAXFLOAT;</span><br><span class="line">animation.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionLinear];</span><br><span class="line">[loadingLayer addAnimation:animation forKey:<span class="string">@&quot;progressKey&quot;</span>];;</span><br></pre></td></tr></table></figure>
-
-<p>此时，自定义属性动画已经可以动起来了。</p>
-<p>下面来介绍隐式动画。</p>
-<h4 id="隐式动画（implicit-animation）"><a href="#隐式动画（implicit-animation）" class="headerlink" title="隐式动画（implicit animation）"></a>隐式动画（implicit animation）</h4><p>没有指定任何动画类型的动画叫隐式动画。即属性平滑过渡到新的值的默认行为。</p>
-<p>在demo的<code>LNLoadingExplicitLayer</code>类中，只实现了基本的显式动画。当我们想要在改变属性值自动有个过渡动画时，便要再添加一个方法<code>actionForKey:</code> ,这里是<a href="https://github.com/lengain/LNLoadingLayer/blob/master/LNLoadingLayer/LNLoadingLayer.m">示例代码</a>，当layer属性改变时，layer都会寻找合适的action来实行这个改变，<code>actionForKey:</code>便是指定属性默认隐式动画的方法。</p>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)actionForKey:(<span class="built_in">NSString</span> *)event &#123;</span><br><span class="line">    <span class="keyword">if</span> ([event isEqualToString:LNProgressKey]) &#123;</span><br><span class="line">        <span class="built_in">CABasicAnimation</span> *actionAnimation = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:CustomPropertyName];</span><br><span class="line">        actionAnimation.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionLinear];</span><br><span class="line">        actionAnimation.fromValue = @(<span class="keyword">self</span>.progress);</span><br><span class="line">        <span class="keyword">return</span> actionAnimation;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> actionForKey:event];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://sindrilin.com/2017/12/14/bottleeneck_of_transacation.html">这里</a>有一个介绍隐式动画很好的博文，感兴趣可以看看。更多内容可以搜索iOS隐式动画。</p>
-<p>谢谢观看！</p>
-<p>参考：</p>
-<p>1.<a href="https://gist.github.com/toriaezunama/9174945#file-core-animation-of-custom-properties">Core animation of custom properties</a><br>2.<a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Key-ValueCodingExtensions/Key-ValueCodingExtensions.html#//apple_ref/doc/uid/TP40004514-CH12-SW2">Core Animation 编程指南</a></p>
-<p>3.<a href="https://www.objc.io/issues/12-animations/animating-custom-layer-properties/">Animating Custom Layer Properties</a></p>
-<p>4.<a href="https://blog.csdn.net/sinat_27706697/article/details/49738957">https://blog.csdn.net/sinat_27706697/article/details/49738957</a></p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>iOS</tag>
-        <tag>CALayer</tag>
-        <tag>CAAnimation</tag>
       </tags>
   </entry>
   <entry>
@@ -2780,8 +2781,8 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>鸿蒙</tag>
         <tag>工具</tag>
+        <tag>鸿蒙</tag>
       </tags>
   </entry>
 </search>
