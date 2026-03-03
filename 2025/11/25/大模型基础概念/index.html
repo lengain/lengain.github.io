@@ -2,9 +2,10 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -12,20 +13,19 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lengain.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="大模型基础概念（适合客户端工程师的轻量入门）下面内容专为客户端工程师写，不讲晦涩的数学，而是告诉你： 👉 它是什么👉 为什么重要👉 你在实际 AI 应用中怎么用  Token &#x2F; Context &#x2F; Prompt &#x2F; System Prompt 1. Token 是什么？Token 是模型处理文本的最小单位，可以是字、词或词片段。  GPT 类模型：英文按词片段、中文按字切分  Token">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lengain.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="大模型基础概念（适合客户端工程师的轻量入门）下面内容专为客户端工程师写，不讲晦涩的数学，而是告诉你： 👉 它是什么👉 为什么重要👉 你在实际 AI 应用中怎么用  Token &#x2F; Context &#x2F; Prompt &#x2F; System Prompt 1. Token 是什么？Token 是模型处理文本的最小单位，可以是字、词或词片段。  GPT 类模型：英文按词片段">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大模型基础概念">
 <meta property="og:url" content="https://lengain.github.io/2025/11/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/index.html">
 <meta property="og:site_name" content="时光地下铁">
-<meta property="og:description" content="大模型基础概念（适合客户端工程师的轻量入门）下面内容专为客户端工程师写，不讲晦涩的数学，而是告诉你： 👉 它是什么👉 为什么重要👉 你在实际 AI 应用中怎么用  Token &#x2F; Context &#x2F; Prompt &#x2F; System Prompt 1. Token 是什么？Token 是模型处理文本的最小单位，可以是字、词或词片段。  GPT 类模型：英文按词片段、中文按字切分  Token">
+<meta property="og:description" content="大模型基础概念（适合客户端工程师的轻量入门）下面内容专为客户端工程师写，不讲晦涩的数学，而是告诉你： 👉 它是什么👉 为什么重要👉 你在实际 AI 应用中怎么用  Token &#x2F; Context &#x2F; Prompt &#x2F; System Prompt 1. Token 是什么？Token 是模型处理文本的最小单位，可以是字、词或词片段。  GPT 类模型：英文按词片段">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-11-25T14:09:16.000Z">
 <meta property="article:modified_time" content="2026-03-02T14:07:30.022Z">
@@ -35,183 +35,240 @@
 <meta property="article:tag" content="入门">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lengain.github.io/2025/11/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lengain.github.io/2025/11/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/","path":"2025/11/25/大模型基础概念/","title":"大模型基础概念"}</script>
 
-  <title>大模型基础概念 | 时光地下铁</title>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>大模型基础概念 | 时光地下铁</title>
   
 
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="时光地下铁" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">时光地下铁</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">时光地下铁</p>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Software is a great combination of art and engineering.</p>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
   </ul>
 </nav>
 
 
 
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%EF%BC%88%E9%80%82%E5%90%88%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%BD%BB%E9%87%8F%E5%85%A5%E9%97%A8%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">大模型基础概念（适合客户端工程师的轻量入门）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Token-Context-Prompt-System-Prompt"><span class="nav-number">2.</span> <span class="nav-text">Token &#x2F; Context &#x2F; Prompt &#x2F; System Prompt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Token-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">1. Token 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Context%EF%BC%88%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">2. Context（上下文）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%91%89-%E5%AF%B9%E8%AF%9D%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97"><span class="nav-number">2.2.1.</span> <span class="nav-text">👉 对话上下文管理模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Prompt-System-Prompt"><span class="nav-number">2.3.</span> <span class="nav-text">3. Prompt &#x2F; System Prompt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prompt-%E4%B8%89%E7%A7%8D%E8%A7%92%E8%89%B2"><span class="nav-number">2.3.1.</span> <span class="nav-text">Prompt 三种角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#System-Prompt-%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%88%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">2.3.2.</span> <span class="nav-text">System Prompt 的作用（非常重要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%93%8C-%E5%9C%A8-iOS-%E4%B8%AD%E7%94%A8%E6%B3%95"><span class="nav-number">2.3.3.</span> <span class="nav-text">📌 在 iOS 中用法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function-Calling%EF%BC%88%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">Function Calling（工具调用）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-Calling-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">Function Calling 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%AD%90-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%98%AF-AI-%E5%BA%94%E7%94%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B%EF%BC%9F"><span class="nav-number">3.2.</span> <span class="nav-text">⭐ 为什么这是 AI 应用工程师的核心能力？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-Calling-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%EF%BC%88%E5%B7%A5%E7%A8%8B%E4%BE%A7%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">Function Calling 的使用流程（工程侧）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A0-%E5%AE%9A%E4%B9%89-functions-%E6%95%B0%E7%BB%84%EF%BC%88%E6%8F%8F%E8%BF%B0%E5%8F%AF%E8%B0%83%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%89"><span class="nav-number">3.3.1.</span> <span class="nav-text">① 定义 functions 数组（描述可调用的工具）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A1-%E6%A8%A1%E5%9E%8B%E8%BF%94%E5%9B%9E%E5%AF%B9%E5%BA%94-JSON%EF%BC%88%E5%91%8A%E8%AF%89%E6%88%91%E4%BB%AC%E8%A6%81%E8%B0%83%E5%93%AA%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-number">3.3.2.</span> <span class="nav-text">② 模型返回对应 JSON（告诉我们要调哪一个函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A2-iOS-%E4%BE%A7%E8%A7%A3%E6%9E%90-JSON-%E2%86%92-%E8%B0%83%E7%94%A8-Swift-%E5%87%BD%E6%95%B0"><span class="nav-number">3.3.3.</span> <span class="nav-text">③ iOS 侧解析 JSON → 调用 Swift 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A3-%E6%8A%8A%E7%BB%93%E6%9E%9C%E5%86%8D%E5%8F%91%E7%BB%99%E6%A8%A1%E5%9E%8B%EF%BC%8C%E8%AE%A9%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80"><span class="nav-number">3.3.4.</span> <span class="nav-text">④ 把结果再发给模型，让模型生成自然语言</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Embedding%EF%BC%88%E5%90%91%E9%87%8F%E5%8C%96%EF%BC%89%E5%8F%8A%E5%85%B6%E7%94%A8%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">Embedding（向量化）及其用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Embedding-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.1.</span> <span class="nav-text">Embedding 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-Embedding-%E5%A6%82%E6%AD%A4%E9%87%8D%E8%A6%81%EF%BC%9F"><span class="nav-number">4.2.</span> <span class="nav-text">为什么 Embedding 如此重要？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Embedding-%E7%9A%84%E4%B8%89%E4%B8%AA%E6%A0%B8%E5%BF%83%E7%94%A8%E9%80%94"><span class="nav-number">5.</span> <span class="nav-text">Embedding 的三个核心用途</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A0-%E6%96%87%E6%A1%A3%E6%90%9C%E7%B4%A2%EF%BC%88RAG-%E6%A0%B8%E5%BF%83%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">① 文档搜索（RAG 核心）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A1-%E6%84%8F%E5%9B%BE%E8%AF%86%E5%88%AB%EF%BC%88%E6%99%BA%E8%83%BD%E5%8D%A1%E7%89%87%E6%A0%B8%E5%BF%83%EF%BC%89"><span class="nav-number">5.2.</span> <span class="nav-text">② 意图识别（智能卡片核心）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A2-%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9%EF%BC%88function-calling-%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%89"><span class="nav-number">5.3.</span> <span class="nav-text">③ 工具选择（function calling 自动化）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E5%9C%A8-iOS-%E4%B8%AD%E8%B0%83%E7%94%A8-Embedding-API"><span class="nav-number">5.4.</span> <span class="nav-text">📌 在 iOS 中调用 Embedding API</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%EF%BC%9A%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">6.</span> <span class="nav-text">最后：三者之间的关系</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lengain"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Lengain</p>
+  <div class="site-description" itemprop="description">宝剑锋从磨砺出，梅花香自苦寒来</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lengain" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lengain" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lengain@yeah.net" title="E-Mail → mailto:lengain@yeah.net" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
   </div>
 
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
+        </div>
+      </div>
+    </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-book fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://casatwy.com/" title="https:&#x2F;&#x2F;casatwy.com&#x2F;" rel="noopener" target="_blank">casatwy</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.jianshu.com/u/96a14318a4de" title="https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;96a14318a4de" rel="noopener" target="_blank">iOS程序猿</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://blog.cnbang.net/" title="http:&#x2F;&#x2F;blog.cnbang.net&#x2F;" rel="noopener" target="_blank">Bang's Blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://qidiandasheng.com/" title="http:&#x2F;&#x2F;qidiandasheng.com&#x2F;" rel="noopener" target="_blank">qidiandasheng的博客</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://gc1234.top/" title="http:&#x2F;&#x2F;gc1234.top&#x2F;" rel="noopener" target="_blank">疯狂的兔子</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2025/11/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
       <meta itemprop="name" content="Lengain">
-      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="时光地下铁">
+      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="大模型基础概念 | 时光地下铁">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           大模型基础概念
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-11-25 22:09:16" itemprop="dateCreated datePublished" datetime="2025-11-25T22:09:16+08:00">2025-11-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B/" itemprop="url" rel="index"><span itemprop="name">AI大模型</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2025-11-25 22:09:16" itemprop="dateCreated datePublished" datetime="2025-11-25T22:09:16+08:00">2025-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B/" itemprop="url" rel="index"><span itemprop="name">AI大模型</span></a>
+        </span>
+    </span>
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -219,13 +276,10 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h1 id="大模型基础概念（适合客户端工程师的轻量入门）"><a href="#大模型基础概念（适合客户端工程师的轻量入门）" class="headerlink" title="大模型基础概念（适合客户端工程师的轻量入门）"></a>大模型基础概念（适合客户端工程师的轻量入门）</h1><p>下面内容专为客户端工程师写，不讲晦涩的数学，而是告诉你：</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="大模型基础概念（适合客户端工程师的轻量入门）"><a href="#大模型基础概念（适合客户端工程师的轻量入门）" class="headerlink" title="大模型基础概念（适合客户端工程师的轻量入门）"></a>大模型基础概念（适合客户端工程师的轻量入门）</h1><p>下面内容专为客户端工程师写，不讲晦涩的数学，而是告诉你：</p>
 <p>👉 <strong>它是什么</strong><br>👉 <strong>为什么重要</strong><br>👉 <strong>你在实际 AI 应用中怎么用</strong></p>
 <hr>
-<h1 id="Token-Context-Prompt-System-Prompt"><a href="#Token-Context-Prompt-System-Prompt" class="headerlink" title="Token / Context / Prompt / System Prompt"></a>Token / Context / Prompt / System Prompt</h1><hr>
+<h1 id="Token-Context-Prompt-System-Prompt"><a href="#Token-Context-Prompt-System-Prompt" class="headerlink" title="Token &#x2F; Context &#x2F; Prompt &#x2F; System Prompt"></a>Token &#x2F; Context &#x2F; Prompt &#x2F; System Prompt</h1><hr>
 <h2 id="1-Token-是什么？"><a href="#1-Token-是什么？" class="headerlink" title="1. Token 是什么？"></a>1. Token 是什么？</h2><p><strong>Token 是模型处理文本的最小单位，可以是字、词或词片段。</strong></p>
 <ul>
 <li><p>GPT 类模型：英文按词片段、中文按字切分</p>
@@ -245,7 +299,7 @@
 </li>
 </ul>
 <p>例子：<br>“我喜欢 iOS 开发”<br>→ Token 可能被切成：<br>[“我”, “喜欢”, “i”, “OS”, “开发”]</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <hr>
 <h2 id="2-Context（上下文）"><a href="#2-Context（上下文）" class="headerlink" title="2. Context（上下文）"></a>2. Context（上下文）</h2><p><strong>Context 是模型在本次推理中可记住的最大 token 数。</strong></p>
@@ -276,7 +330,7 @@
 </li>
 <li><p>“爆 context”模型会忘记前面内容</p>
 </li>
-<li><p>所以你需要 <strong>对历史对话做裁剪 / 精简 / 只保留重要内容</strong></p>
+<li><p>所以你需要 <strong>对历史对话做裁剪 &#x2F; 精简 &#x2F; 只保留重要内容</strong></p>
 </li>
 </ul>
 <p>你的 iOS Demo 里需要实现：</p>
@@ -289,7 +343,7 @@
 </li>
 </ul>
 <hr>
-<h2 id="3-Prompt-System-Prompt"><a href="#3-Prompt-System-Prompt" class="headerlink" title="3. Prompt / System Prompt"></a>3. Prompt / System Prompt</h2><p><strong>Prompt = 让模型做事的指令文本。</strong></p>
+<h2 id="3-Prompt-System-Prompt"><a href="#3-Prompt-System-Prompt" class="headerlink" title="3. Prompt &#x2F; System Prompt"></a>3. Prompt &#x2F; System Prompt</h2><p><strong>Prompt &#x3D; 让模型做事的指令文本。</strong></p>
 <h3 id="Prompt-三种角色"><a href="#Prompt-三种角色" class="headerlink" title="Prompt 三种角色"></a>Prompt 三种角色</h3><ol>
 <li><p><strong>System prompt</strong></p>
 <ul>
@@ -319,22 +373,22 @@
 </li>
 </ul>
 <h3 id="📌-在-iOS-中用法"><a href="#📌-在-iOS-中用法" class="headerlink" title="📌 在 iOS 中用法"></a>📌 在 iOS 中用法</h3><p>通常会是这样：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> systemPrompt = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">你是一名专业的 iOS AI 助手。</span></span><br><span class="line"><span class="string">所有回答必须使用简洁语言，如果用户要求代码，请使用 Swift。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> systemPrompt <span class="operator">=</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">你是一名专业的 iOS AI 助手。</span></span><br><span class="line"><span class="string">所有回答必须使用简洁语言，如果用户要求代码，请使用 Swift。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>然后在请求 body 中设置：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;messages&quot;: [</span><br><span class="line">    &#123; &quot;role&quot;: &quot;system&quot;, &quot;content&quot;: systemPrompt &#125;,</span><br><span class="line">    &#123; <span class="attr">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="attr">&quot;content&quot;</span>: userInput &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;messages&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span> <span class="attr">&quot;role&quot;</span><span class="punctuation">:</span> <span class="string">&quot;system&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;content&quot;</span><span class="punctuation">:</span> systemPrompt <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span> <span class="attr">&quot;role&quot;</span><span class="punctuation">:</span> <span class="string">&quot;user&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;content&quot;</span><span class="punctuation">:</span> userInput <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
 
 <hr>
 <h1 id="Function-Calling（工具调用）"><a href="#Function-Calling（工具调用）" class="headerlink" title="Function Calling（工具调用）"></a>Function Calling（工具调用）</h1><p>这是做AI应用的核心能力。</p>
 <hr>
-<h2 id="Function-Calling-是什么？"><a href="#Function-Calling-是什么？" class="headerlink" title="Function Calling 是什么？"></a>Function Calling 是什么？</h2><p><strong>Function Calling = 让 LLM 选择并调用某个你提供的函数。</strong></p>
+<h2 id="Function-Calling-是什么？"><a href="#Function-Calling-是什么？" class="headerlink" title="Function Calling 是什么？"></a>Function Calling 是什么？</h2><p><strong>Function Calling &#x3D; 让 LLM 选择并调用某个你提供的函数。</strong></p>
 <p>举例：</p>
 <p>你告诉模型：</p>
 <blockquote>
 <p>“如果用户说 ‘查天气’，请调用我提供的 <code>getWeather(city: String)</code> 函数。”</p>
 </blockquote>
 <p>模型不会真的执行代码，它会返回 JSON：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;getWeather&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;arguments&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;city&quot;</span>: <span class="string">&quot;上海&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;getWeather&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;arguments&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;上海&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>iOS 侧解析 JSON → 调用真实 Swift 函数 → 把结果再传回模型。</p>
 <hr>
@@ -348,13 +402,13 @@
 </ul>
 <p>这是支付宝、微信 AI 团队面试最喜欢问的部分。</p>
 <hr>
-<h2 id="Function-Calling-的使用流程（工程侧）"><a href="#Function-Calling-的使用流程（工程侧）" class="headerlink" title="Function Calling 的使用流程（工程侧）"></a>Function Calling 的使用流程（工程侧）</h2><h3 id="①-定义-functions-数组（描述可调用的工具）"><a href="#①-定义-functions-数组（描述可调用的工具）" class="headerlink" title="① 定义 functions 数组（描述可调用的工具）"></a>① 定义 functions 数组（描述可调用的工具）</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&quot;functions&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;getWeather&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;获取城市天气&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;parameters&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;object&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;properties&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;city&quot;</span>: &#123; <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;string&quot;</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;required&quot;</span>: [<span class="string">&quot;city&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="Function-Calling-的使用流程（工程侧）"><a href="#Function-Calling-的使用流程（工程侧）" class="headerlink" title="Function Calling 的使用流程（工程侧）"></a>Function Calling 的使用流程（工程侧）</h2><h3 id="①-定义-functions-数组（描述可调用的工具）"><a href="#①-定义-functions-数组（描述可调用的工具）" class="headerlink" title="① 定义 functions 数组（描述可调用的工具）"></a>① 定义 functions 数组（描述可调用的工具）</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;functions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;getWeather&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;获取城市天气&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;parameters&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;object&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;properties&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;required&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;city&quot;</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="②-模型返回对应-JSON（告诉我们要调哪一个函数）"><a href="#②-模型返回对应-JSON（告诉我们要调哪一个函数）" class="headerlink" title="② 模型返回对应 JSON（告诉我们要调哪一个函数）"></a>② 模型返回对应 JSON（告诉我们要调哪一个函数）</h3><h3 id="③-iOS-侧解析-JSON-→-调用-Swift-函数"><a href="#③-iOS-侧解析-JSON-→-调用-Swift-函数" class="headerlink" title="③ iOS 侧解析 JSON → 调用 Swift 函数"></a>③ iOS 侧解析 JSON → 调用 Swift 函数</h3><h3 id="④-把结果再发给模型，让模型生成自然语言"><a href="#④-把结果再发给模型，让模型生成自然语言" class="headerlink" title="④ 把结果再发给模型，让模型生成自然语言"></a>④ 把结果再发给模型，让模型生成自然语言</h3><p>例如智能卡片、智能助手完全基于此能力实现。</p>
 <hr>
 <h1 id="Embedding（向量化）及其用法"><a href="#Embedding（向量化）及其用法" class="headerlink" title="Embedding（向量化）及其用法"></a>Embedding（向量化）及其用法</h1><p>这是后续 RAG、意图识别、分类、召回 的核心。</p>
 <hr>
-<h2 id="Embedding-是什么？"><a href="#Embedding-是什么？" class="headerlink" title="Embedding 是什么？"></a>Embedding 是什么？</h2><p><strong>Embedding = 把一句话转成一串数字向量（如 768 维）。</strong></p>
+<h2 id="Embedding-是什么？"><a href="#Embedding-是什么？" class="headerlink" title="Embedding 是什么？"></a>Embedding 是什么？</h2><p><strong>Embedding &#x3D; 把一句话转成一串数字向量（如 768 维）。</strong></p>
 <p>例：</p>
 <p>“查快递”<br>→ [0.11, -0.23, 0.08, …]（768 个数）</p>
 <p>模型把语义含义编码到这些数字里。</p>
@@ -429,16 +483,16 @@
 </li>
 </ul>
 <p>请求 body 示意：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;model&quot;</span>: <span class="string">&quot;text-embedding&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;input&quot;</span>: <span class="string">&quot;帮我查一下快递&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;model&quot;</span><span class="punctuation">:</span> <span class="string">&quot;text-embedding&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;input&quot;</span><span class="punctuation">:</span> <span class="string">&quot;帮我查一下快递&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>返回：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;embedding&quot;</span>: [<span class="number">0.12</span>, <span class="number">-0.03</span>, ...]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;embedding&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="number">0.12</span><span class="punctuation">,</span> <span class="number">-0.03</span><span class="punctuation">,</span> ...<span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>然后存入 SQLite、CoreData，或者本地文件。</p>
 <hr>
-<h1 id="最后：三者之间的关系"><a href="#最后：三者之间的关系" class="headerlink" title="最后：三者之间的关系"></a>最后：三者之间的关系</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Prompt —— 让模型“理解你”</span><br><span class="line">Token —— 决定上下文大小与消耗</span><br><span class="line">Context —— 模型能记住多少</span><br><span class="line">Function Calling —— 让模型“操作你的 App”</span><br><span class="line">Embedding —— 让应用“理解语义”并构建智能功能</span><br></pre></td></tr></table></figure>
+<h1 id="最后：三者之间的关系"><a href="#最后：三者之间的关系" class="headerlink" title="最后：三者之间的关系"></a>最后：三者之间的关系</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Prompt —— 让模型“理解你”</span><br><span class="line">Token —— 决定上下文大小与消耗</span><br><span class="line">Context —— 模型能记住多少</span><br><span class="line">Function Calling —— 让模型“操作你的 App”</span><br><span class="line">Embedding —— 让应用“理解语义”并构建智能功能</span><br></pre></td></tr></table></figure>
 
-<p><strong>Prompt = 生成侧</strong><br><strong>Embedding = 检索侧</strong><br><strong>Function Calling = 执行侧</strong></p>
+<p><strong>Prompt &#x3D; 生成侧</strong><br><strong>Embedding &#x3D; 检索侧</strong><br><strong>Function Calling &#x3D; 执行侧</strong></p>
 <p>三者结合 → 能做出真正高级的智能助手。</p>
 
     </div>
@@ -447,7 +501,7 @@
     
     
 
-      <footer class="post-footer">
+    <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag"># AI大模型</a>
               <a href="/tags/LLM/" rel="tag"># LLM</a>
@@ -456,172 +510,43 @@
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2025/10/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%EF%BC%9A%E4%BB%A5iOS%E5%BC%80%E5%8F%91%E4%B8%BA%E4%BE%8B/" rel="prev" title="项目管理平台搭建：以iOS开发为例">
-      <i class="fa fa-chevron-left"></i> 项目管理平台搭建：以iOS开发为例
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2025/11/27/RAG-%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90/" rel="next" title="RAG:检索增强生成">
-      RAG:检索增强生成 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/10/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%EF%BC%9A%E4%BB%A5iOS%E5%BC%80%E5%8F%91%E4%B8%BA%E4%BE%8B/" rel="prev" title="项目管理平台搭建：以iOS开发为例">
+                  <i class="fa fa-angle-left"></i> 项目管理平台搭建：以iOS开发为例
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/27/RAG-%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90/" rel="next" title="RAG:检索增强生成">
+                  RAG:检索增强生成 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
           </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%EF%BC%88%E9%80%82%E5%90%88%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%BD%BB%E9%87%8F%E5%85%A5%E9%97%A8%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">大模型基础概念（适合客户端工程师的轻量入门）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Token-Context-Prompt-System-Prompt"><span class="nav-number">2.</span> <span class="nav-text">Token &#x2F; Context &#x2F; Prompt &#x2F; System Prompt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Token-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">1. Token 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Context%EF%BC%88%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">2. Context（上下文）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%91%89-%E5%AF%B9%E8%AF%9D%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97"><span class="nav-number">2.2.1.</span> <span class="nav-text">👉 对话上下文管理模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Prompt-System-Prompt"><span class="nav-number">2.3.</span> <span class="nav-text">3. Prompt &#x2F; System Prompt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prompt-%E4%B8%89%E7%A7%8D%E8%A7%92%E8%89%B2"><span class="nav-number">2.3.1.</span> <span class="nav-text">Prompt 三种角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#System-Prompt-%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%88%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">2.3.2.</span> <span class="nav-text">System Prompt 的作用（非常重要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%93%8C-%E5%9C%A8-iOS-%E4%B8%AD%E7%94%A8%E6%B3%95"><span class="nav-number">2.3.3.</span> <span class="nav-text">📌 在 iOS 中用法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function-Calling%EF%BC%88%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">Function Calling（工具调用）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-Calling-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">Function Calling 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%AD%90-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%98%AF-AI-%E5%BA%94%E7%94%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B%EF%BC%9F"><span class="nav-number">3.2.</span> <span class="nav-text">⭐ 为什么这是 AI 应用工程师的核心能力？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-Calling-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%EF%BC%88%E5%B7%A5%E7%A8%8B%E4%BE%A7%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">Function Calling 的使用流程（工程侧）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A0-%E5%AE%9A%E4%B9%89-functions-%E6%95%B0%E7%BB%84%EF%BC%88%E6%8F%8F%E8%BF%B0%E5%8F%AF%E8%B0%83%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%89"><span class="nav-number">3.3.1.</span> <span class="nav-text">① 定义 functions 数组（描述可调用的工具）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A1-%E6%A8%A1%E5%9E%8B%E8%BF%94%E5%9B%9E%E5%AF%B9%E5%BA%94-JSON%EF%BC%88%E5%91%8A%E8%AF%89%E6%88%91%E4%BB%AC%E8%A6%81%E8%B0%83%E5%93%AA%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-number">3.3.2.</span> <span class="nav-text">② 模型返回对应 JSON（告诉我们要调哪一个函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A2-iOS-%E4%BE%A7%E8%A7%A3%E6%9E%90-JSON-%E2%86%92-%E8%B0%83%E7%94%A8-Swift-%E5%87%BD%E6%95%B0"><span class="nav-number">3.3.3.</span> <span class="nav-text">③ iOS 侧解析 JSON → 调用 Swift 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A3-%E6%8A%8A%E7%BB%93%E6%9E%9C%E5%86%8D%E5%8F%91%E7%BB%99%E6%A8%A1%E5%9E%8B%EF%BC%8C%E8%AE%A9%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80"><span class="nav-number">3.3.4.</span> <span class="nav-text">④ 把结果再发给模型，让模型生成自然语言</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Embedding%EF%BC%88%E5%90%91%E9%87%8F%E5%8C%96%EF%BC%89%E5%8F%8A%E5%85%B6%E7%94%A8%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">Embedding（向量化）及其用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Embedding-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.1.</span> <span class="nav-text">Embedding 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-Embedding-%E5%A6%82%E6%AD%A4%E9%87%8D%E8%A6%81%EF%BC%9F"><span class="nav-number">4.2.</span> <span class="nav-text">为什么 Embedding 如此重要？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Embedding-%E7%9A%84%E4%B8%89%E4%B8%AA%E6%A0%B8%E5%BF%83%E7%94%A8%E9%80%94"><span class="nav-number">5.</span> <span class="nav-text">Embedding 的三个核心用途</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A0-%E6%96%87%E6%A1%A3%E6%90%9C%E7%B4%A2%EF%BC%88RAG-%E6%A0%B8%E5%BF%83%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">① 文档搜索（RAG 核心）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A1-%E6%84%8F%E5%9B%BE%E8%AF%86%E5%88%AB%EF%BC%88%E6%99%BA%E8%83%BD%E5%8D%A1%E7%89%87%E6%A0%B8%E5%BF%83%EF%BC%89"><span class="nav-number">5.2.</span> <span class="nav-text">② 意图识别（智能卡片核心）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A2-%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9%EF%BC%88function-calling-%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%89"><span class="nav-number">5.3.</span> <span class="nav-text">③ 工具选择（function calling 自动化）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E5%9C%A8-iOS-%E4%B8%AD%E8%B0%83%E7%94%A8-Embedding-API"><span class="nav-number">5.4.</span> <span class="nav-text">📌 在 iOS 中调用 Embedding API</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%EF%BC%9A%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">6.</span> <span class="nav-text">最后：三者之间的关系</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Lengain"
-      src="/images/avatar.jpeg">
-  <p class="site-author-name" itemprop="name">Lengain</p>
-  <div class="site-description" itemprop="description">宝剑锋从磨砺出，梅花香自苦寒来</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">34</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">45</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/lengain" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lengain" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:lengain@yeah.net" title="E-Mail → mailto:lengain@yeah.net" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-book fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://casatwy.com/" title="https:&#x2F;&#x2F;casatwy.com&#x2F;" rel="noopener" target="_blank">casatwy</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.jianshu.com/u/96a14318a4de" title="https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;96a14318a4de" rel="noopener" target="_blank">iOS程序猿</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://blog.cnbang.net/" title="http:&#x2F;&#x2F;blog.cnbang.net&#x2F;" rel="noopener" target="_blank">Bang's Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://qidiandasheng.com/" title="http:&#x2F;&#x2F;qidiandasheng.com&#x2F;" rel="noopener" target="_blank">qidiandasheng的博客</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://gc1234.top/" title="http:&#x2F;&#x2F;gc1234.top&#x2F;" rel="noopener" target="_blank">疯狂的兔子</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2026</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">lengain.github.io</span>
+    </footer>
+  </article>
 </div>
 
-        
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">lengain.github.io</span>
+  </div>
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
@@ -629,8 +554,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
@@ -640,90 +564,48 @@
     </span>
 </div>
 
+    </div>
+  </footer>
 
-
-
-
-
-
-
-      </div>
-    </footer>
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+{# 不蒜子统计数据备份和Fallback脚本 #}
+{# 为防止不蒜子服务不可用导致数据丢失，启用数据备份和降级方案 #}
 
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-
-
-
+{# 脚本1：不蒜子Fallback降级方案 - 必须先加载，快速提供降级方案 #}
 <script src="/js/busuanzi_fallback.js"></script>
 
-
+{# 脚本2：不蒜子数据收集和备份脚本 - 在不蒜子加载后执行，收集数据备份 #}
 <script src="/js/busuanzi_backup.js"></script>
 
+{# 备注文档 #}
+{# 
+数据备份说明：
+1. busuanzi_fallback.js - 当不蒜子超时（>8s）时自动启用，使用localStorage备份数据显示
+2. busuanzi_backup.js - 持续收集BUSUANZI对象数据，保存到localStorage和IndexedDB
 
+可用的浏览器命令（在console中运行）：
+- busuanziExportBackup()     - 导出备份数据为JSON文件下载
+- busuanziViewBackup()       - 在console查看备份数据
+- busuanziClearBackup()      - 清除本地备份数据
+- busuanziShowBackupSummary() - 显示备份数据摘要
 
+Node.js版本的导出脚本：
+- npm run export:busuanzi    - 导出统计数据到data/busuanzi_stats.json
+#}
 
 </body>
 </html>
