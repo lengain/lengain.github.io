@@ -1330,7 +1330,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #47cb8c;
+    background: #ff26ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2929,11 +2929,13 @@ header.header {
     left: auto !important;
   }
   .back-to-top.back-to-top-on {
-    bottom: calc(61px + env(safe-area-inset-bottom)) !important;
+    bottom: calc(20px + env(safe-area-inset-bottom)) !important;
   }
 }
 @media (max-width: 991px) {
   .sidebar-toggle {
-    bottom: calc(92px + env(safe-area-inset-bottom)) !important;
+    left: 20px !important;
+    right: auto !important;
+    bottom: calc(20px + env(safe-area-inset-bottom)) !important;
   }
 }
