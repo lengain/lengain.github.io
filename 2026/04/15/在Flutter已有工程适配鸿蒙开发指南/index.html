@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lengain.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="在真实的业务场景中，绝大多数Flutter项目都已完成iOS和Android双平台的开发与落地，承载着核心业务逻辑、用户交互及多端一致性体验的需求。随着鸿蒙（HarmonyOS）生态的快速崛起，覆盖手机、平板、穿戴设备等全场景的终端布局，将已有的Flutter 3.x工程适配到鸿蒙平台，成为许多企业拓展生态覆盖、触达更多用户的必然选择。本文提供将已有的 Flutter 3.x (iOS&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Flutter已有工程适配鸿蒙开发指南">
+<meta property="og:url" content="https://lengain.github.io/2026/04/15/%E5%9C%A8Flutter%E5%B7%B2%E6%9C%89%E5%B7%A5%E7%A8%8B%E9%80%82%E9%85%8D%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="时光地下铁">
+<meta property="og:description" content="在真实的业务场景中，绝大多数Flutter项目都已完成iOS和Android双平台的开发与落地，承载着核心业务逻辑、用户交互及多端一致性体验的需求。随着鸿蒙（HarmonyOS）生态的快速崛起，覆盖手机、平板、穿戴设备等全场景的终端布局，将已有的Flutter 3.x工程适配到鸿蒙平台，成为许多企业拓展生态覆盖、触达更多用户的必然选择。本文提供将已有的 Flutter 3.x (iOS&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-15T01:04:12.000Z">
+<meta property="article:modified_time" content="2026-04-15T01:06:14.181Z">
+<meta property="article:author" content="Lengain">
+<meta property="article:tag" content="iOS,开发者,程序员,编程,代码,开源,harmony,Developer,Programmer,Coder,Geek">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://lengain.github.io/2026/04/15/%E5%9C%A8Flutter%E5%B7%B2%E6%9C%89%E5%B7%A5%E7%A8%8B%E9%80%82%E9%85%8D%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lengain.github.io/2026/04/15/%E5%9C%A8Flutter%E5%B7%B2%E6%9C%89%E5%B7%A5%E7%A8%8B%E9%80%82%E9%85%8D%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/","path":"2026/04/15/在Flutter已有工程适配鸿蒙开发指南/","title":"在Flutter已有工程适配鸿蒙开发指南"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>在Flutter已有工程适配鸿蒙开发指南 | 时光地下铁</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="时光地下铁" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">时光地下铁</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Software is a great combination of art and engineering.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">一、环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E5%AE%89%E8%A3%85%E9%B8%BF%E8%92%99-flutter-flutter"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 安装鸿蒙 flutter_flutter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%88%87%E6%8D%A2%E9%B8%BF%E8%92%99flutter%E7%89%88%E6%9C%AC"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 切换鸿蒙flutter版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 验证安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E5%AE%89%E8%A3%85%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 安装鸿蒙开发工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">二、项目配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%9C%A8%E5%B7%B2%E5%AD%98%E5%9C%A8%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%B8%BF%E8%92%99%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 在已存在的项目中添加鸿蒙平台支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E9%B8%BF%E8%92%99%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 新建项目添加鸿蒙平台支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">2.3.1.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E6%9E%84%E5%BB%BA"><span class="nav-number">2.3.2.</span> <span class="nav-text">打包构建</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%85%B3%E9%94%AE%E9%80%82%E9%85%8D%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">三、关键适配步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8F%92%E4%BB%B6%E5%85%BC%E5%AE%B9%E6%80%A7%E9%80%82%E9%85%8D"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 第三方插件兼容性适配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1-%E8%BF%9B%E5%85%A5-Flutter-Packages-%E6%9F%A5%E6%89%BE"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.1.1 进入 Flutter Packages 查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-%E8%87%AA%E4%B8%BB%E5%BC%80%E5%8F%91"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.1.2 自主开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-3-%E4%B8%BB%E5%B7%A5%E7%A8%8B%E5%92%8C%E9%B8%BF%E8%92%99%E5%8F%8C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.1.3 主工程和鸿蒙双配置文件方案说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%B9%B3%E5%8F%B0%E9%80%9A%E9%81%93-Platform-Channels-%E9%80%82%E9%85%8D"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 平台通道 (Platform Channels) 适配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E9%80%82%E9%85%8D"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 资源文件适配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lengain"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Lengain</p>
+  <div class="site-description" itemprop="description">宝剑锋从磨砺出，梅花香自苦寒来</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lengain" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lengain" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lengain@yeah.net" title="E-Mail → mailto:lengain@yeah.net" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-book fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://casatwy.com/" title="https:&#x2F;&#x2F;casatwy.com&#x2F;" rel="noopener" target="_blank">casatwy</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.jianshu.com/u/96a14318a4de" title="https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;96a14318a4de" rel="noopener" target="_blank">iOS程序猿</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://blog.cnbang.net/" title="http:&#x2F;&#x2F;blog.cnbang.net&#x2F;" rel="noopener" target="_blank">Bang's Blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://qidiandasheng.com/" title="http:&#x2F;&#x2F;qidiandasheng.com&#x2F;" rel="noopener" target="_blank">qidiandasheng的博客</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://gc1234.top/" title="http:&#x2F;&#x2F;gc1234.top&#x2F;" rel="noopener" target="_blank">疯狂的兔子</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2026/04/15/%E5%9C%A8Flutter%E5%B7%B2%E6%9C%89%E5%B7%A5%E7%A8%8B%E9%80%82%E9%85%8D%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="在Flutter已有工程适配鸿蒙开发指南 | 时光地下铁">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在Flutter已有工程适配鸿蒙开发指南
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-04-15 09:04:12" itemprop="dateCreated datePublished" datetime="2026-04-15T09:04:12+08:00">2026-04-15</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>在真实的业务场景中，绝大多数Flutter项目都已完成iOS和Android双平台的开发与落地，承载着核心业务逻辑、用户交互及多端一致性体验的需求。随着鸿蒙（HarmonyOS）生态的快速崛起，覆盖手机、平板、穿戴设备等全场景的终端布局，将已有的Flutter 3.x工程适配到鸿蒙平台，成为许多企业拓展生态覆盖、触达更多用户的必然选择。本文提供将已有的 Flutter 3.x (iOS&#x2F;Android 双平台) 工程适配到鸿蒙（HarmonyOS）的详细技术方案。</p>
+<hr>
+<h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="1-1-安装鸿蒙-flutter-flutter"><a href="#1-1-安装鸿蒙-flutter-flutter" class="headerlink" title="1.1 安装鸿蒙 flutter_flutter"></a>1.1 安装鸿蒙 flutter_flutter</h3><p>Flutter鸿蒙需要使用社区版本维护的适配鸿蒙的 Flutter分支flutter_flutter：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式一：从 Gitcode 克隆</span></span><br><span class="line">git <span class="built_in">clone</span> https://gitcode.com/openharmony-tpc/flutter_flutter.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑 ~/.zshrc 或 ~/.bashrc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$PATH</span>:/path/to/flutter_flutter/bin&quot;</span></span><br><span class="line"><span class="built_in">export</span> FLUTTER_ROOT=/path/to/flutter_flutter</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使配置生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：使用开源脚本flutter_env_switch，自动添加环境变量</span></span><br><span class="line"><span class="comment"># 1. 复制脚本到本地</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/lengain/flutter_env_switch.git</span><br><span class="line"><span class="built_in">cd</span> flutter_env_switch</span><br><span class="line"><span class="built_in">cp</span> flutter_env_switch.sh ~/</span><br><span class="line"><span class="comment"># 2. 添加执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> +x ~/flutter_env_switch.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 执行环境检查（首次运行会自动初始化）</span></span><br><span class="line">sh ~/flutter_env_switch.sh harmony</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h3 id="1-2-切换鸿蒙flutter版本"><a href="#1-2-切换鸿蒙flutter版本" class="headerlink" title="1.2 切换鸿蒙flutter版本"></a>1.2 切换鸿蒙flutter版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 推荐使用3.x版本的flutter</span></span><br><span class="line">git checkout 3.35.8-ohos-0.0.3</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-验证安装"><a href="#1-3-验证安装" class="headerlink" title="1.3 验证安装"></a>1.3 验证安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor</span><br><span class="line">flutter doctor -v  <span class="comment"># 查看详细输出，确认鸿蒙支持状态</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line">Flutter 3.35.8-ohos-0.0.3 • channel [user-branch] • unknown <span class="built_in">source</span></span><br><span class="line">Framework • revision 65cbbee1fa (4 weeks ago) • 2026-03-14 19:06:02 +0800</span><br><span class="line">Engine • <span class="built_in">hash</span> 6b24e1b529bc46df7ff397667502719a2a8b6b72 (revision 035316565a) (5 months ago) • 2025-10-21</span><br><span class="line">14:28:01.000Z</span><br><span class="line">Tools • Dart 3.9.2 • DevTools 2.48.0</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-安装鸿蒙开发工具"><a href="#1-4-安装鸿蒙开发工具" class="headerlink" title="1.4 安装鸿蒙开发工具"></a>1.4 安装鸿蒙开发工具</h3><p>确保已安装以下工具：</p>
+<ul>
+<li>DevEco Studio（鸿蒙应用开发IDE）</li>
+<li>HarmonyOS SDK</li>
+<li>配置好环境变量</li>
+</ul>
+<hr>
+<h2 id="二、项目配置"><a href="#二、项目配置" class="headerlink" title="二、项目配置"></a>二、项目配置</h2><h3 id="2-1-在已存在的项目中添加鸿蒙平台支持"><a href="#2-1-在已存在的项目中添加鸿蒙平台支持" class="headerlink" title="2.1 在已存在的项目中添加鸿蒙平台支持"></a>2.1 在已存在的项目中添加鸿蒙平台支持</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入项目目录</span></span><br><span class="line"><span class="built_in">cd</span> your_flutter_project</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为现有 Flutter 项目添加鸿蒙（OpenHarmony/HarmonyOS）平台支持的代码</span></span><br><span class="line">flutter create --platforms=ohos .</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-新建项目添加鸿蒙平台支持"><a href="#2-2-新建项目添加鸿蒙平台支持" class="headerlink" title="2.2 新建项目添加鸿蒙平台支持"></a>2.2 新建项目添加鸿蒙平台支持</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter create --platforms=ohos,android,ios --org com.example. my_project</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-常用命令"><a href="#2-3-常用命令" class="headerlink" title="2.3 常用命令"></a>2.3 常用命令</h3><h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调试前务必进入ohos目录，用DevEco打开工程，配置鸿蒙证书</span></span><br><span class="line"><span class="comment"># 运行</span></span><br><span class="line">flutter run</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或指定设备</span></span><br><span class="line"><span class="comment"># 先获取device id</span></span><br><span class="line">flutter devices </span><br><span class="line"><span class="comment"># 再运行</span></span><br><span class="line">flutter run -d 6CS9K25B327084xxx</span><br><span class="line"></span><br><span class="line"><span class="comment">#flavor多目标run命令</span></span><br><span class="line">flutter run --flavor apple</span><br><span class="line">flutter run --flavor apple -d 6CS9K25B327084xxx</span><br></pre></td></tr></table></figure>
+
+<h4 id="打包构建"><a href="#打包构建" class="headerlink" title="打包构建"></a>打包构建</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建</span></span><br><span class="line">flutter build hap</span><br><span class="line"><span class="comment"># 带日志输出</span></span><br><span class="line">flutter build hap --debug -v</span><br><span class="line"><span class="comment"># Release 构建</span></span><br><span class="line">flutter build hap --release</span><br><span class="line"><span class="comment">#flavor多目标build命令</span></span><br><span class="line">flutter build hap --flavor apple</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、关键适配步骤"><a href="#三、关键适配步骤" class="headerlink" title="三、关键适配步骤"></a>三、关键适配步骤</h2><h3 id="3-1-第三方插件兼容性适配"><a href="#3-1-第三方插件兼容性适配" class="headerlink" title="3.1 第三方插件兼容性适配"></a>3.1 第三方插件兼容性适配</h3><p>根据三方插件的功能，部分是不需要适配鸿蒙的。如果调用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter pub get</span><br></pre></td></tr></table></figure>
+
+<p>调用<code>flutter run</code>，后报错，如果是由于三方库未适配鸿蒙可以做以下尝试。</p>
+<h4 id="3-1-1-进入-Flutter-Packages-查找"><a href="#3-1-1-进入-Flutter-Packages-查找" class="headerlink" title="3.1.1 进入 Flutter Packages 查找"></a>3.1.1 进入 Flutter Packages 查找</h4><p><a target="_blank" rel="noopener" href="https://gitcode.com/openharmony-tpc/flutter_packages/blob/master/README.md">Flutter Packages</a> 是由 OpenHarmony-TPC（OpenHarmony 三方库组件中心）维护的开源项目，基于 Flutter 社区官方插件库（flutter&#x2F;packages）进行扩展，新增了对 OpenHarmony 平台的兼容适配。通过最小化的业务改动，让开发者能够在 Flutter 应用中无缝集成常用插件，获得完整的 OpenHarmony 原生能力支持。<br>特性：</p>
+<ul>
+<li><p>支持 Flutter 3.7、3.22、3.27、3.35 等多个版本</p>
+</li>
+<li><p>通过 Git 仓库直接引入适配后的插件<br>目前已支持不少常用三方库，可以进行依赖的替换。</p>
+<p>使用示例：</p>
+</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">dependencies:</span></span><br><span class="line">  <span class="attr">pigeon:</span></span><br><span class="line">    <span class="attr">git:</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">https://gitcode.com/openharmony-tpc/flutter_packages.git</span></span><br><span class="line">      <span class="attr">path:</span> <span class="string">packages/pigeon</span></span><br><span class="line">      <span class="attr">ref:</span> <span class="string">br_pigeon-v26.1.5_ohos</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-2-自主开发"><a href="#3-1-2-自主开发" class="headerlink" title="3.1.2 自主开发"></a>3.1.2 自主开发</h4><p>如果在Flutter Packages中，未找到合适的插件，可以进行自主开发，自主开发插件时有以下常用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入插件工程根目录</span></span><br><span class="line"><span class="comment"># 已有插件，新增鸿蒙平台适配</span></span><br><span class="line">flutter create --template=plugin --platforms=ios .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或完全新建一个新插件</span></span><br><span class="line">flutter create --template=plugin 插件名称</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行鸿蒙示例（需连接鸿蒙设备/模拟器）</span></span><br><span class="line">flutter run --platform=harmony  </span><br></pre></td></tr></table></figure>
+
+<p>新增平台后，需手动编写对应平台的原生代码（如iOS的Swift&#x2F;OC、鸿蒙的ArkTS代码），命令仅生成基础工程结构，无法自动实现业务逻辑适配。</p>
+<p>插件的架构有单包插件架构和联邦插件架构（Federated）。通常联邦插件是Flutter官方推荐的常用架构。比如<a target="_blank" rel="noopener" href="https://gitcode.com/openharmony-tpc/flutter_packages/tree/br_url_launcher-v6.3.2_ohos/packages/url_launcher">url_launcher</a> 就是典型的联邦插件架构，实现自主实现的插件时，可以参考。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">url_launcher/</span>                <span class="comment"># 对外主包（app-facing）</span></span><br><span class="line"><span class="string">url_launcher_platform_interface/</span>  <span class="comment"># 平台接口（抽象契约）</span></span><br><span class="line"><span class="string">url_launcher_android/</span>        <span class="comment"># Android 实现</span></span><br><span class="line"><span class="string">url_launcher_ios/</span>            <span class="comment"># iOS 实现</span></span><br><span class="line"><span class="string">url_launcher_harmony/</span>        <span class="comment"># 鸿蒙实现（你要加的）</span></span><br><span class="line"><span class="string">url_launcher_web/</span></span><br><span class="line"><span class="string">url_launcher_windows/</span></span><br></pre></td></tr></table></figure>
+
+<p>依赖时，使用本地依赖：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">modal_bottom_sheet:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">&#x27;third/modal_bottom_sheet&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-3-主工程和鸿蒙双配置文件方案说明"><a href="#3-1-3-主工程和鸿蒙双配置文件方案说明" class="headerlink" title="3.1.3 主工程和鸿蒙双配置文件方案说明"></a>3.1.3 主工程和鸿蒙双配置文件方案说明</h4><p>有些读者想要原工程的pubspec.yaml使用的官方插件不变，鸿蒙的pubspec.yaml使用Flutter Packages 中社区维护的插件，这时可以考虑使用双配置文件方案。</p>
+<p>核心思路是：通过维护两份独立的 pubspec.yaml配置文件，实现原生平台（iOS&#x2F;Android）与鸿蒙平台的依赖隔离，配合脚本一键切换。<br>主要要点如下：</p>
+<ol>
+<li>三文件架构<br>• pubspec.origin.yaml：保存 iOS&#x2F;Android 的原始依赖配置。<br>• pubspec.ohos.yaml：保存鸿蒙平台专用的依赖配置（将不兼容库替换为鸿蒙版本）<br>• pubspec.yaml：当前生效配置，通过切换脚本被上述两个文件之一覆盖。</li>
+<li>一键切换机制<br>• 使用 switch_platform.sh 脚本进行平台切换。<br>• 切到鸿蒙时：备份当前配置为 pubspec.origin.yaml，再将 pubspec.ohos.yaml 复<br> pubspec.yaml。<br>• 切到原生时：备份当前配置为 pubspec.ohos.yaml，再将 pubspec.origin.yaml 复<br> pubspec.yaml。<br>• 切换后自动执行 flutter pub get，也可同步切换平台特定代码文件（如通知、蓝牙<br> 现）。</li>
+<li>鸿蒙依赖替换方式 在 pubspec.ohos.yaml 中，将无鸿蒙支持的依赖替换为：<br>• Git 仓库：引用 OpenHarmony SIG&#x2F;TPC 维护的鸿蒙分支。<br>• 本地路径：引用自研或本地适配的插件。<br>• dependency_overrides：强制覆盖特定版本或路径以解决冲突。</li>
+<li>优缺点<br>• 优点：平台隔离清晰，切换便捷，不污染原生平台代码。<br>• 缺点：需要维护多份配置文件，对依赖变更需同步更新两个文件。</li>
+</ol>
+<p>switch_platform.sh 脚本示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">  PLATFORM=<span class="variable">$&#123;1:-usage&#125;</span></span><br><span class="line">  SKIP_PUBGET=<span class="variable">$&#123;2:-&quot;&quot;&#125;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$PLATFORM</span>&quot;</span> = <span class="string">&quot;usage&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;Usage: <span class="variable">$0</span> [ohos|native] [--skip-pubget]&quot;</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;  ohos       - 切换到鸿蒙平台&quot;</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;  native     - 切换到原生平台(iOS/Android)&quot;</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;  --skip-pubget - 跳过 flutter pub get&quot;</span></span><br><span class="line">      <span class="built_in">exit</span> 1</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 检查项目根目录</span></span><br><span class="line">  <span class="keyword">if</span> [ ! -f <span class="string">&quot;pubspec.yaml&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;错误: 未找到 pubspec.yaml&quot;</span></span><br><span class="line">      <span class="built_in">exit</span> 1</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># pubspec.ohos.yaml中 设置description: &quot;ohos&quot;</span></span><br><span class="line">  <span class="comment"># pubspec.origin.yaml中 设置description: &quot;native&quot;</span></span><br><span class="line">  <span class="comment"># 读取当前 description 判断平台</span></span><br><span class="line">  CURRENT_DESC=$(grep <span class="string">&quot;^description:&quot;</span> pubspec.yaml | sed <span class="string">&#x27;s/.*description: *[&quot;&#x27;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">  &#x27;&quot;</span><span class="string">&#x27;]\?\([^&quot;&#x27;</span><span class="string">&quot;&#x27;&quot;</span><span class="string">&#x27;]*\)[&quot;&#x27;</span><span class="string">&quot;&#x27;&quot;</span><span class="string">&#x27;]\?/\1/&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="variable">$PLATFORM</span> <span class="keyword">in</span></span><br><span class="line">      <span class="string">&quot;ohos&quot;</span>)</span><br><span class="line">          <span class="comment"># 备份当前配置</span></span><br><span class="line">          <span class="keyword">if</span> [[ ! <span class="string">&quot;<span class="variable">$CURRENT_DESC</span>&quot;</span> =~ <span class="string">&quot;ohos&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">              <span class="built_in">cp</span> pubspec.yaml pubspec.origin.yaml</span><br><span class="line">          <span class="keyword">fi</span></span><br><span class="line">          <span class="comment"># 切换到鸿蒙配置</span></span><br><span class="line">          <span class="built_in">cp</span> pubspec.ohos.yaml pubspec.yaml</span><br><span class="line">          <span class="comment"># 切换平台特定代码</span></span><br><span class="line">          [ -f <span class="string">&quot;lib/services/notification_ohos.dart&quot;</span> ] &amp;&amp; \</span><br><span class="line">              <span class="built_in">cp</span> lib/services/notification_ohos.dart lib/services/platform_notif</span><br><span class="line">  ication.dart</span><br><span class="line">          <span class="built_in">echo</span> <span class="string">&quot;已切换到鸿蒙平台&quot;</span></span><br><span class="line">          ;;</span><br><span class="line">      <span class="string">&quot;native&quot;</span>)</span><br><span class="line">          <span class="comment"># 备份当前配置</span></span><br><span class="line">          <span class="keyword">if</span> [[ <span class="string">&quot;<span class="variable">$CURRENT_DESC</span>&quot;</span> =~ <span class="string">&quot;ohos&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">              <span class="built_in">cp</span> pubspec.yaml pubspec.ohos.yaml</span><br><span class="line">          <span class="keyword">fi</span></span><br><span class="line">          <span class="comment"># 切换到原生配置</span></span><br><span class="line">          <span class="built_in">cp</span> pubspec.origin.yaml pubspec.yaml</span><br><span class="line">          <span class="comment"># 切换平台特定代码</span></span><br><span class="line">          [ -f <span class="string">&quot;lib/services/notification_native.dart&quot;</span> ] &amp;&amp; \</span><br><span class="line">              <span class="built_in">cp</span> lib/services/notification_native.dart lib/services/platform_not</span><br><span class="line">  ification.dart</span><br><span class="line">          <span class="built_in">echo</span> <span class="string">&quot;已切换到原生平台&quot;</span></span><br><span class="line">          ;;</span><br><span class="line">  <span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 执行 flutter pub get</span></span><br><span class="line">  <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$SKIP_PUBGET</span>&quot;</span> != <span class="string">&quot;--skip-pubget&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">      flutter pub get</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">&quot;切换完成&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果配置CI，执行鸿蒙打包前，执行switch_platform.sh即可。</p>
+<h3 id="3-2-平台通道-Platform-Channels-适配"><a href="#3-2-平台通道-Platform-Channels-适配" class="headerlink" title="3.2 平台通道 (Platform Channels) 适配"></a>3.2 平台通道 (Platform Channels) 适配</h3><p>鸿蒙 MethodChannel 适配方案与 Android&#x2F;iOS 原理一致，仅在平台端实现语言和 API<br>上有所差异。</p>
+<p>Dart 端, 与普通多平台调用无异，Channel 名称需与平台端保持一致：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:flutter/services.dart&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> platform = MethodChannel(<span class="string">&#x27;com.example.app/channel&#x27;</span>);</span><br><span class="line"></span><br><span class="line">Future&lt;<span class="built_in">String?</span>&gt; getBatteryLevel() <span class="keyword">async</span> &#123;</span><br><span class="line">     <span class="keyword">try</span> &#123;</span><br><span class="line">         <span class="keyword">final</span> <span class="built_in">String?</span> result = <span class="keyword">await</span> platform.invokeMethod(<span class="string">&#x27;getBatteryLevel&#x27;</span>);</span><br><span class="line">         <span class="keyword">return</span> result;</span><br><span class="line">     &#125; <span class="keyword">on</span> PlatformException <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="string">&quot;Failed: <span class="subst">$&#123;e.message&#125;</span>&quot;</span>;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>鸿蒙端（ArkTS）在鸿蒙 Flutter 插件或 Entry 模块中，通过 FlutterPlugin 绑定 BinaryMessenger 注册 Channel：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">FlutterPlugin</span>, <span class="title class_">MethodChannel</span>, <span class="title class_">MethodCall</span>, <span class="title class_">MethodResult</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@ohos/flutter_ohos&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">MyPlugin</span> <span class="keyword">implements</span> <span class="title class_">FlutterPlugin</span> &#123;</span><br><span class="line">   <span class="title function_">onAttachedToEngine</span>(<span class="attr">binding</span>: <span class="title class_">FlutterPlugin</span>.<span class="property">FlutterPluginBinding</span>): <span class="built_in">void</span> &#123;</span><br><span class="line">     <span class="keyword">const</span> channel = <span class="keyword">new</span> <span class="title class_">MethodChannel</span>(binding.<span class="title function_">getBinaryMessenger</span>(), <span class="string">&#x27;com.example.app/channel&#x27;</span>);</span><br><span class="line">     channel.<span class="title function_">setMethodCallHandler</span>(&#123; <span class="title function_">onMethodCall</span>(<span class="attr">call</span>: <span class="title class_">MethodCall</span>, <span class="attr">result</span>: <span class="title class_">MethodResult</span>): <span class="built_in">void</span> &#123;</span><br><span class="line">         <span class="keyword">if</span> (call.<span class="property">method</span> === <span class="string">&#x27;getBatteryLevel&#x27;</span>) &#123;</span><br><span class="line">             <span class="comment">// 调用鸿蒙系统 API 获取电量</span></span><br><span class="line">             result.<span class="title function_">success</span>(<span class="string">&#x27;100&#x27;</span>);</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">             result.<span class="title function_">notImplemented</span>();</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">     &#125;);</span><br><span class="line"> &#125;</span><br><span class="line">  <span class="title function_">onDetachedFromEngine</span>(<span class="attr">binding</span>: <span class="title class_">FlutterPlugin</span>.<span class="property">FlutterPluginBinding</span>): <span class="built_in">void</span> &#123;</span><br><span class="line">   <span class="comment">// 清理 Channel</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>平台判断</strong>：在Flutter鸿蒙环境下，直接使用<code>Platform.isOhos</code>判断。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;dart:io&#x27;</span>;</span><br><span class="line">Platform.isOhos</span><br></pre></td></tr></table></figure>
+
+<p>但是，如果需要在官方Flutter环境兼容，Platform.isOhos是无法使用的，可以实现一个自定义类PlatformOs，利用Platform.operatingSystem判断，这些这个代码在官方Flutter环境或鸿蒙Flutter环境都可使用。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;dart:io&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PlatformOs</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="built_in">bool</span> <span class="keyword">get</span> isOhos &#123;</span><br><span class="line">    <span class="keyword">return</span> Platform.operatingSystem == <span class="string">&#x27;ohos&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-资源文件适配"><a href="#3-3-资源文件适配" class="headerlink" title="3.3 资源文件适配"></a>3.3 资源文件适配</h3><p>当使用主工程和鸿蒙双配置文件方案是，可根据不同的平台设置不同的<code>assets</code>来适配不同的资源文件。 </p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/">鸿蒙开发者文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.flutter.dev/">Flutter 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/deveco-studio/">DevEco Studio 下载</a></li>
+<li><a target="_blank" rel="noopener" href="https://gitcode.com/openharmony-tpc/flutter_packages/blob/master/README.md">Flutter Packages</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/03/04/Flutter-Flavorizr-%E9%B8%BF%E8%92%99%E5%B9%B3%E5%8F%B0%E9%80%82%E9%85%8D%E5%A4%9A%E7%9B%AE%E6%A0%87%E4%BA%A7%E7%89%A9/" rel="prev" title="Flutter Flavorizr 鸿蒙平台适配多目标产物">
+                  <i class="fa fa-angle-left"></i> Flutter Flavorizr 鸿蒙平台适配多目标产物
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">lengain.github.io</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script src="/js/busuanzi_fallback.js"></script>
+<script src="/js/busuanzi_backup.js"></script>
+
+</body>
+</html>

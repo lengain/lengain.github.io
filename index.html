@@ -144,7 +144,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -204,6 +204,85 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2026/04/15/%E5%9C%A8Flutter%E5%B7%B2%E6%9C%89%E5%B7%A5%E7%A8%8B%E9%80%82%E9%85%8D%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 时光地下铁">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/15/%E5%9C%A8Flutter%E5%B7%B2%E6%9C%89%E5%B7%A5%E7%A8%8B%E9%80%82%E9%85%8D%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">在Flutter已有工程适配鸿蒙开发指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-04-15 09:04:12" itemprop="dateCreated datePublished" datetime="2026-04-15T09:04:12+08:00">2026-04-15</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在真实的业务场景中，绝大多数Flutter项目都已完成iOS和Android双平台的开发与落地，承载着核心业务逻辑、用户交互及多端一致性体验的需求。随着鸿蒙（HarmonyOS）生态的快速崛起，覆盖手机、平板、穿戴设备等全场景的终端布局，将已有的Flutter 3.x工程适配到鸿蒙平台，成为许多企业拓展生态覆盖、触达更多用户的必然选择。本文提供将已有的 Flutter 3.x (iOS&#x2F;Android 双平台) 工程适配到鸿蒙（HarmonyOS）的详细技术方案。</p>
+<hr>
+<h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="1-1-安装鸿蒙-flutter-flutter"><a href="#1-1-安装鸿蒙-flutter-flutter" class="headerlink" title="1.1 安装鸿蒙 flutter_flutter"></a>1.1 安装鸿蒙 flutter_flutter</h3><p>Flutter鸿蒙需要使用社区版本维护的适配鸿蒙的 Flutter分支flutter_flutter：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式一：从 Gitcode 克隆</span></span><br><span class="line">git <span class="built_in">clone</span> https://gitcode.com/openharmony-tpc/flutter_flutter.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑 ~/.zshrc 或 ~/.bashrc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$PATH</span>:/path/to/flutter_flutter/bin&quot;</span></span><br><span class="line"><span class="built_in">export</span> FLUTTER_ROOT=/path/to/flutter_flutter</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使配置生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：使用开源脚本flutter_env_switch，自动添加环境变量</span></span><br><span class="line"><span class="comment"># 1. 复制脚本到本地</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/lengain/flutter_env_switch.git</span><br><span class="line"><span class="built_in">cd</span> flutter_env_switch</span><br><span class="line"><span class="built_in">cp</span> flutter_env_switch.sh ~/</span><br><span class="line"><span class="comment"># 2. 添加执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> +x ~/flutter_env_switch.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 执行环境检查（首次运行会自动初始化）</span></span><br><span class="line">sh ~/flutter_env_switch.sh harmony</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/04/15/%E5%9C%A8Flutter%E5%B7%B2%E6%9C%89%E5%B7%A5%E7%A8%8B%E9%80%82%E9%85%8D%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1149,94 +1228,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/10/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%EF%BC%9A%E4%BB%A5iOS%E5%BC%80%E5%8F%91%E4%B8%BA%E4%BE%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2025/01/16/%E9%AD%94%E6%95%B0%E9%B8%BF%E8%92%99%E6%89%AB%E6%8F%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Lengain">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时光地下铁">
-      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 时光地下铁">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/16/%E9%AD%94%E6%95%B0%E9%B8%BF%E8%92%99%E6%89%AB%E6%8F%8F/" class="post-title-link" itemprop="url">魔数鸿蒙扫描</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-16 20:06:48" itemprop="dateCreated datePublished" datetime="2025-01-16T20:06:48+08:00">2025-01-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://github.com/lengain/harmony_scan_tool">魔数鸿蒙扫描Git</a></p>
-<p>介绍</p>
-<p>魔数鸿蒙扫描是一款专为鸿蒙应用开发设计的辅助工具，旨在帮助开发者优化应用安装包结构、提升用户体验。通过深入的分析检测功能，该工具能够扫描指定路径的App包内容，并生成详细的检测结果报告。这些报告为开发者提供了宝贵的数据支撑，助力他们排查问题、优化包结构，从而打造出更加高效、稳定的应用。</p>
-<p><img src="/.io//1736427937339.jpg"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/01/16/%E9%AD%94%E6%95%B0%E9%B8%BF%E8%92%99%E6%89%AB%E6%8F%8F/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
