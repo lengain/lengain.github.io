@@ -144,7 +144,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -155,7 +155,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -204,6 +204,124 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2026/04/22/%E5%BD%B1%E5%93%8D%E7%A7%BB%E5%8A%A8%E7%AB%AF-BLE-%E4%BC%A0%E8%BE%93%E6%80%A7%E8%83%BD%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 时光地下铁">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/22/%E5%BD%B1%E5%93%8D%E7%A7%BB%E5%8A%A8%E7%AB%AF-BLE-%E4%BC%A0%E8%BE%93%E6%80%A7%E8%83%BD%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">影响移动端 BLE 传输性能的原因分析</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-04-22 16:07:05" itemprop="dateCreated datePublished" datetime="2026-04-22T16:07:05+08:00">2026-04-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>笔者最近遇到BLE传输性能问题，研究了一下BLE（低功耗蓝牙）传输效率的系统性瓶颈，涵盖链路层协议、系统调度、硬件共存、平台差异等核心维度，适用于 iOS&#x2F;Android&#x2F;HarmonyOS 三端，供大家优化参考。</p>
+<hr>
+<h2 id="1-核心链路参数：BLE-传输的”天花板”"><a href="#1-核心链路参数：BLE-传输的”天花板”" class="headerlink" title="1. 核心链路参数：BLE 传输的”天花板”"></a>1. 核心链路参数：BLE 传输的”天花板”</h2><p>BLE 的理论速度首先受制于链路层（Link Layer）参数的协商，这些参数决定了 BLE 物理信道的利用效率上限。</p>
+<h3 id="1-1-Connection-Interval（连接间隔）"><a href="#1-1-Connection-Interval（连接间隔）" class="headerlink" title="1.1 Connection Interval（连接间隔）"></a>1.1 Connection Interval（连接间隔）</h3><p>BLE 是跳频通信，每隔一个 Connection Interval，双方才进行一次数据交换（Connection Event）。间隔越短，单位时间内可用的传输次数越多，吞吐量越高。</p>
+<p>根据 Bluetooth Core Specification，Connection Interval 的规范范围为 <strong>7.5 ms ~ 4.0 s</strong>，以 1.25 ms 为步进 [1]。各平台的实际限制如下：</p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>最小值</th>
+<th>推荐值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>iOS</td>
+<td>15ms（CoreBluetooth）</td>
+<td>15~20ms</td>
+<td>HID 设备可达 11.25ms；普通设备若请求 15ms，部分机型可能平衡至 30ms [2]</td>
+</tr>
+<tr>
+<td>Android</td>
+<td>7.5ms</td>
+<td>15~20ms</td>
+<td>后台&#x2F;Doze 模式下系统可能拒绝低功耗模式外的激进参数请求 [3]</td>
+</tr>
+<tr>
+<td>HarmonyOS</td>
+<td>7.5ms</td>
+<td>15~20ms</td>
+<td>受限于系统电源策略，高功耗场景自动延长</td>
+</tr>
+</tbody></table>
+<p><strong>关键机制</strong>：每个 Connection Event 内可以包含多个 PDU（Protocol Data Unit）。若设备支持 DLE（Data Length Extension，见 <a href="#13-data-length-extensiondle">1.3</a>），单个 Connection Event 可承载更多数据。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/04/22/%E5%BD%B1%E5%93%8D%E7%A7%BB%E5%8A%A8%E7%AB%AF-BLE-%E4%BC%A0%E8%BE%93%E6%80%A7%E8%83%BD%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1132,102 +1250,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/11/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2025/10/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%EF%BC%9A%E4%BB%A5iOS%E5%BC%80%E5%8F%91%E4%B8%BA%E4%BE%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Lengain">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时光地下铁">
-      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 时光地下铁">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/10/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%EF%BC%9A%E4%BB%A5iOS%E5%BC%80%E5%8F%91%E4%B8%BA%E4%BE%8B/" class="post-title-link" itemprop="url">项目管理平台搭建：以iOS开发为例</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-10-09 22:57:58" itemprop="dateCreated datePublished" datetime="2025-10-09T22:57:58+08:00">2025-10-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在中大型项目中，目前主流的开发方式都是组件化开发，根据项目业务的大小，工程中组件一般会有几十，上百，甚至上千组件，如何在项目开发中合理的管理组件，管理项目版本，进行项目开发是个棘手的问题。</p>
-<h2 id="解决方案概览"><a href="#解决方案概览" class="headerlink" title="解决方案概览"></a>解决方案概览</h2><ul>
-<li><strong>目标</strong>：以标准化的组件模型、清晰的版本策略、可持续的交付流程，降低多组件协作成本，提升发布稳定性与可预测性。</li>
-<li><strong>关键做法</strong>：<ul>
-<li><strong>组件管理</strong>：统一命名规范、目录结构、依赖图与可见性边界，使用注册中心进行组件发现与治理。</li>
-<li><strong>版本管理</strong>：采用语义化版本（SemVer），配合发布列车（Release Train）与自动化变更日志。</li>
-<li><strong>项目开发流程</strong>：以持续集成为核心，建立变更评审、质量门禁、二进制产物缓存与可回滚发布机制。</li>
-</ul>
-</li>
-</ul>
-<p>根据该方案，建设项目后台进行统一管理，可快速进行项目开发，组件维护，推进发布列车（Release Train）。</p>
-<hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/10/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%EF%BC%9A%E4%BB%A5iOS%E5%BC%80%E5%8F%91%E4%B8%BA%E4%BE%8B/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
