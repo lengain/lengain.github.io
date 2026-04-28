@@ -28,7 +28,7 @@
 <meta property="og:description" content="你在手机上打开开发者选项，点下“启用蓝牙 HCI 信息收集日志”，然后复现那个偶现的连接闪断。十几秒后，你拿到一份日志（Android 是 btsnoop_hci.log，iOS 是 PacketLogger 捕获的 .pklg）。用 Wireshark 打开，迎面而来的是满屏的时间戳、十六进制和缩写：CMD、EVT、ACL、LE Meta。 多数移动端开发者到这里就放弃了。 但真相是：HCI 日">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-28T02:42:43.000Z">
-<meta property="article:modified_time" content="2026-04-28T02:48:15.915Z">
+<meta property="article:modified_time" content="2026-04-28T05:28:41.691Z">
 <meta property="article:author" content="Lengain">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
@@ -651,17 +651,17 @@
 <p><strong>认识不到这个机制，就很难从日志中理解为什么数据发送不是一泻千里，而是一批一批、有节奏地进行的。</strong></p>
 <h3 id="3-从日志估算吞吐量"><a href="#3-从日志估算吞吐量" class="headerlink" title="3. 从日志估算吞吐量"></a>3. 从日志估算吞吐量</h3><p>可以直接利用 <code>Number Of Completed Packets</code> 事件和时间戳快速评估当前连接的实际传输速率。</p>
 <p>拿上面这段日志举例，分三步估算：</p>
-<p><strong>第一步：从时间戳推算 Connection Interval。</strong><br>相邻 <code>Number Of Completed Packets</code> 事件的时间差就是实际的连接间隔。日志中 18:23:48.687 → 48.710 间隔约 <strong>23ms</strong>，这就是当前链路的 Connection Interval。BLE 规范允许 7.5ms ~ 4s，23ms 属于吞吐优先的紧凑配置，接近 iOS&#x2F;Android 系统推荐的 30ms 下限，说明 Host 端连接参数已配置到位。</p>
+<p><strong>第一步：从时间戳推算 Connection Interval。</strong><br>相邻 <code>Number Of Completed Packets</code> 事件的时间差就是实际的连接间隔。日志中 18:23:48.687 → 48.710 间隔约 <strong>23ms</strong>，这就是当前链路的 Connection Interval。BLE 规范允许 7.5ms ~ 4s，23ms 属于吞吐优先的紧凑配置（iOS 作为中心设备时推荐的最小连接间隔约 15ms，Android 可低至 7.5ms），说明 Host 端连接参数已配置到位。</p>
 <p><strong>第二步：从 Completed Packets 数量推算每间隔有效载荷。</strong><br>每个间隔内控制器完成 2 个数据包（<code>Packets: 0x0002</code>），紧随其后主机立刻下发 2 个新的 <code>ATT Write Command</code>。这种”完成 2 个 → 再发 2 个”的稳定节奏说明每间隔能发出 2 个链路层包，流水线跑满无空转。</p>
 <p>每个 <code>ATT Write Command</code> 的 Value 字段可直观看出有效载荷大小（日志中每行露出约 16 字节的十六进制数据）。假设使用默认 MTU&#x3D;185，则每个 Write 可携带 182 字节有效负载（ATT 头部 3 字节 + 数据 182 字节）。每间隔有效吞吐量为 2 × 182 &#x3D; <strong>364 字节</strong>。</p>
 <p><strong>第三步：计算实际速率，定位优化方向。</strong><br>当前实际吞吐量：364 字节 &#x2F; 23ms ≈ <strong>15.8 KB&#x2F;s</strong>。</p>
 <p>这个速率已经是默认 MTU 下的较优水平——23ms 间隔接近系统下限，流水线满负荷运转。要进一步提速，关键是提升<strong>单包载荷</strong>，而非继续压缩连接间隔（已经没有多少空间了）：</p>
 <ul>
-<li><p><strong>仅增大 MTU</strong>：将 MTU 从 185 协商到 512，每个 Write Command 可携带 509 字节。但若未启用 DLE，链路层单包仍被限制在 27 字节，一个 509 字节的 Write 会被拆成约 19 个链路层包分批发送。以每间隔 2 包计算，完成一次传输需约 10 个连接间隔（23 ms&#x2F;间隔），实际吞吐仅从约 2.0 KB&#x2F;s 微升至约 2.2 KB&#x2F;s，收效甚微。</p>
+<li><p><strong>仅增大 MTU</strong>：将 MTU 从 185 协商到 512，每个 Write Command 可携带 509 字节。但若未启用 DLE，链路层单包仍被限制在 27 字节，一个 509 字节的 Write 会被拆成约 19 个链路层包分批发送。以每间隔 2 包计算，完成一次传输需约 10 个连接间隔（23 ms&#x2F;间隔），实际吞吐仅从默认 MTU&#x3D;23（未协商）时的约 1.7 KB&#x2F;s 微升至约 2.2 KB&#x2F;s，收效甚微。</p>
 </li>
-<li><p><strong>MTU + DLE</strong>：启用 DLE 后链路层单包载荷从 27 字节跃升至 251 字节，一个 509 字节的 Write Command 仍需 3 个链路层包。每间隔 2 包需 2 个间隔（46 ms）完成，吞吐约为 509 &#x2F; 46 ms ≈ 11.1 KB&#x2F;s，反而不及 MTU 185 时的 15.8 KB&#x2F;s（因 182 字节可单包满载）。这揭示了一个关键点：为最大化吞吐，MTU 值应设为 n × (链路层最大载荷)，例如取 502 字节（2×251），使一个 Write 恰好被整包数装满。</p>
+<li><p><strong>MTU + DLE</strong>：启用 DLE 后链路层单包载荷从 27 字节跃升至 251 字节，一个 509 字节的 Write Command 仍需 3 个链路层包。每间隔 2 包需 2 个间隔（46 ms）完成，吞吐约为 509 &#x2F; 46 ms ≈ 11.1 KB&#x2F;s，反而不及 MTU 185 时的 15.8 KB&#x2F;s（因 182 字节可单包满载）。这揭示了一个关键点：为最大化吞吐，MTU 值应设为 n × (链路层最大载荷)，例如将 MTU 协商至约 502 字节（使 ATT PDU 接近 2×251 字节），让单个 Write 的链路层包数最少、带宽利用率最高。</p>
 </li>
-<li><p><strong>MTU + DLE + 2M PHY</strong>：若双方协商到 2M PHY，每间隔可容纳更多链路层包（假设翻倍至 4 包），则 509 字节的 3 个包可在单个间隔内发完，吞吐跃升至 509 &#x2F; 23 ms ≈ 22.1 KB&#x2F;s，较 1M PHY 下提升近一倍。若配合优化后的 MTU 值，吞吐还可进一步提高。</p>
+<li><p><strong>MTU + DLE + 2M PHY</strong>：若双方协商到 2M PHY，物理层速率翻倍后同等连接间隔下可容纳更多链路层包（假设达到 4 包&#x2F;间隔），则 509 字节的 3 个包可在单个间隔内发完，吞吐跃升至 509 &#x2F; 23 ms ≈ 22.1 KB&#x2F;s，较 1M PHY 下提升近一倍。若配合优化后的 MTU 值，吞吐还可进一步提高。</p>
 </li>
 </ul>
 <p>关键结论：<strong>DLE 是 OTA 吞吐的分水岭</strong>。未启用 DLE 时，即使 MTU 增大，链路层分片也会抵消大部分收益。抓日志时应重点检查连接建立初期是否有 <code>LE Set Data Length</code> 交互，这比盯着 Connection Interval 更能解释”为什么 OTA 还是慢”。</p>
@@ -688,7 +688,7 @@
 <li><strong>DLE (Data Length Extension)</strong> —— <strong>吞吐的第一杠杆</strong>：在连接初期检查是否有 <code>LE Set Data Length</code> 命令&#x2F;事件。若支持，链路层单包最大载荷从 27 字节提升到 251 字节，每间隔能塞入的数据量直接跃升一个数量级。<strong>注意 DLE 和 MTU 缺一不可</strong>：DLE 扩大了链路层袋子，但 MTU 决定了 ATT 层往袋子里装多少货。只有 DLE 没有 MTU 协商，袋子大了但装的还是 20 字节；只有 MTU 没有 DLE，货多了但袋子小，链路层分片会把收益吃光。前面日志示例中如果启用了 DLE + MTU&#x3D;185，吞吐量能从 1.74 KB&#x2F;s 跃升到约 15.8 KB&#x2F;s，这就是为什么 DLE 是分水岭。</li>
 <li><strong>MTU</strong>：通过 ACL 数据中的 L2CAP 信令（<code>Exchange MTU Request/Response</code>）查看是否协商了更大的 MTU。默认 MTU&#x3D;23 只能让每个 ATT Write Command 携带 20 字节有效数据。协商到 185 以上后，配合 DLE 才能充分发挥。</li>
 <li><strong>Connection Interval 和每间隔数据包数</strong>：从 <code>LE Connection Complete</code> 事件确认 <code>Interval</code> 值，再结合 <code>Number Of Completed Packets</code> 节奏判断每间隔实际完成包数。前面示例的 23ms 间隔和稳定每间隔 2 包，说明连接参数已较优。但如果你的日志显示间隔在 100ms 以上、或每间隔仅完成 1 个包，则应先排查连接参数和外设固件配置。</li>
-<li><strong>射频环境与重传</strong>：如果 <code>Number Of Completed Packets</code> 事件的间隔忽大忽小而非稳定节奏，说明信道上有干扰触发了重传，有效速率被拉低。此时检查 RSSI 变化和周边 2.4GHz 设备密度。</li>
+<li><strong>射频环境与重传</strong>：如果 <code>Number Of Completed Packets</code> 事件的间隔忽大忽小而非稳定节奏，说明链路可能存在干扰触发重传，或发生了连接事件跳帧（slave latency）、主机暂无数据发送等情况，有效速率会被拉低。此时可结合 RSSI 变化和周边 2.4GHz 设备密度综合判断。</li>
 </ul>
 <h3 id="6-iOS-蓝牙传输速率综合对比表"><a href="#6-iOS-蓝牙传输速率综合对比表" class="headerlink" title="6.  iOS 蓝牙传输速率综合对比表"></a>6.  iOS 蓝牙传输速率综合对比表</h3><table>
 <thead>
@@ -784,7 +784,7 @@
 <td>~60 KB&#x2F;s</td>
 <td>1M&#x2F;2M PHY</td>
 <td>依赖手机作为外设时的 MTU 协商策略，性能波动极大</td>
-<td>CBPeripheralManager</td>
+<td>BluetoothGattServer</td>
 </tr>
 <tr>
 <td>单经典蓝牙</td>
@@ -823,7 +823,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMD: Link Key Request Reply (回复了保存的 Link Key)</span><br><span class="line">EVT: Encryption Change (Encryption Enabled: True)</span><br><span class="line">EVT: Disconnection Complete (Reason: 0x05 - Authentication Failure)</span><br></pre></td></tr></table></figure>
 
 <p><strong>Android 端</strong>：完全相同的交互序列，但断连未发生。</p>
-<p><strong>分析</strong>：加密成功后立即断连，且 Reason 为认证失败。这往往是因为 iOS 保存的 Link Key 与对端设备当前存储的不一致（可能是外设重启后 Key 已失效，但 Android 尝试重新配对而 iOS 重连时直接使用了旧 Key）。iOS 在某些外设配对上更强调安全验证，导致快速判死。</p>
+<p><strong>分析</strong>：加密成功后立即断连，且 Reason 为认证失败。这往往是因为 iOS 保存的 Link Key 与对端设备当前存储的不一致（可能是外设重启后 Key 已失效）。从日志行为推测，Android 可能在底层自动处理了配对重协商，而 iOS 重连时直接使用了旧 Key 导致验证失败。iOS 在某些外设配对上更强调安全验证，导致快速判死。</p>
 <p><strong>解决</strong>：让用户在 iOS 上“忽略此设备”后重新配对，或在 App 中监听断连并自动触发重新配对流程。</p>
 <h3 id="案例三：BLE-Notify-数据-iOS-有时收不到，Android-正常"><a href="#案例三：BLE-Notify-数据-iOS-有时收不到，Android-正常" class="headerlink" title="案例三：BLE Notify 数据 iOS 有时收不到，Android 正常"></a>案例三：BLE Notify 数据 iOS 有时收不到，Android 正常</h3><p><strong>HCI 日志对比</strong>：</p>
 <ul>
