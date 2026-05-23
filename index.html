@@ -274,90 +274,14 @@
 <h2 id="步骤详解"><a href="#步骤详解" class="headerlink" title="步骤详解"></a>步骤详解</h2><h3 id="1-同步本地主干"><a href="#1-同步本地主干" class="headerlink" title="1. 同步本地主干"></a>1. 同步本地主干</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout dev</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
 
 <p>确保本地 <code>dev</code> 分支与远程保持一致。<code>git pull</code> 相当于 <code>git fetch origin dev:dev</code> + 快进合并，在未偏离远程的前提下不会产生额外提交。</p>
-<h3 id="2-创建功能分支"><a href="#2-创建功能分支" class="headerlink" title="2. 创建功能分支"></a>2. 创建功能分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b feature/my-feature dev</span><br></pre></td></tr></table></figure>
-
-<p>从 <code>dev</code> 最新位置切出功能分支。分支名建议使用 <code>feature/</code>、<code>fix/</code>、<code>chore/</code> 等前缀，便于 CI 和代码审查工具识别。</p>
-<h3 id="3-在功能分支上开发"><a href="#3-在功能分支上开发" class="headerlink" title="3. 在功能分支上开发"></a>3. 在功能分支上开发</h3><p>在功能分支上进行常规开发，按需提交：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;files&gt;</span><br><span class="line">git commit -m <span class="string">&quot;feat: 添加用户登录功能&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>建议遵循 <a target="_blank" rel="noopener" href="https://www.conventionalcommits.org/">Conventional Commits</a> 规范编写提交信息。</p>
-<h3 id="4-变基到主干（关键步骤）"><a href="#4-变基到主干（关键步骤）" class="headerlink" title="4. 变基到主干（关键步骤）"></a>4. 变基到主干（关键步骤）</h3><p>开发完成后（或在开发过程中需要同步主干更新时），执行变基：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git checkout dev</span><br><span class="line">git pull              <span class="comment"># 再次拉取最新 dev</span></span><br><span class="line"></span><br><span class="line">git checkout feature/my-feature                      <span class="comment"># 4.2 切回</span></span><br><span class="line"><span class="comment">#核心操作，在功能分支feature/my-feature上执行</span></span><br><span class="line">git rebase dev        <span class="comment"># 将当前分支的提交重新应用到 dev 顶端</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="变基的原理"><a href="#变基的原理" class="headerlink" title="变基的原理"></a>变基的原理</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">变基前：</span><br><span class="line">dev:     A---B---C</span><br><span class="line">              \</span><br><span class="line">feature:       D---E</span><br><span class="line"></span><br><span class="line">变基后：</span><br><span class="line">dev:     A---B---C</span><br><span class="line">                   \</span><br><span class="line">feature:           D&#x27;---E&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><code>git rebase dev</code> 会在 <code>dev</code> 的最新位置（C）上，将当前分支的每个提交（D、E）逐个重放为新提交（D’、E’）。每个重放后的提交的 hash 会改变，但内容保持不变。在此过程中可能遇到冲突——每个提交重放时都会暂停，让你手动解决冲突后执行 <code>git add</code> 和 <code>git rebase --continue</code>。</p>
-<p>在SourceTree中，选中 <code>feature/my-feature</code>，右键打开菜单，选择<code>将当前变更变基到dev</code>，此操作和<code>git rebase dev</code>一致。执行过变基后，SourceTree上会菜单区域的拉取和推送会显示多个数字，使用强制推送可消除，详细可查看第5步。</p>
-<h4 id="变基过程中的冲突处理"><a href="#变基过程中的冲突处理" class="headerlink" title="变基过程中的冲突处理"></a>变基过程中的冲突处理</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 变基过程中出现冲突时</span></span><br><span class="line">git status                             <span class="comment"># 查看冲突文件</span></span><br><span class="line"><span class="comment"># 手动解决冲突...</span></span><br><span class="line">git add &lt;resolved-files&gt;</span><br><span class="line">git rebase --<span class="built_in">continue</span>                  <span class="comment"># 继续应用下一个提交</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果某次重放发现该提交已无意义，可跳过</span></span><br><span class="line">git rebase --skip</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果变基方向错了，立即中止</span></span><br><span class="line">git rebase --abort</span><br></pre></td></tr></table></figure>
-
-<p>变基的核心价值在于：它让 feature 分支的历史看起来像是在主干最新代码之上从头开发的，消除了”我先切了分支，期间主干又合入了别人的代码”这类分叉信息。这些分叉细节在开发过程中有意义，但对最终代码审查没有价值，应当从历史中抹去。</p>
-<h3 id="5-推送变基后的分支"><a href="#5-推送变基后的分支" class="headerlink" title="5. 推送变基后的分支"></a>5. 推送变基后的分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force-with-lease</span><br></pre></td></tr></table></figure>
-
-<p><strong>必须使用 <code>--force-with-lease</code>，禁止使用裸 <code>--force</code></strong>。</p>
-<p><code>--force-with-lease</code> 是一个安全机制：推送前它会检查远程分支的最新提交是否与你上次 fetch 时一致，如果远程有人在你不察觉时推送了新提交，推送会被拒绝，避免覆盖他人的工作。裸 <code>--force</code> 不做此检查。</p>
-<p>如果你的分支是首次推送到远端，使用 <code>git push -u origin feature/my-feature</code> 建立跟踪关系，之后变基后再使用 <code>git push --force-with-lease</code>。</p>
-<p>强制推送在SourceTree中，不是默认显示的，在<code>设置</code>-<code>高级</code>，选中<code>允许强制推送</code>后，SourceTree的推送窗口中才会显示<code>强制推送</code>。推送时，选中<code>强制推送</code>,效果和<code>git push --force-with-lease</code>一样。</p>
-<h4 id="团队协作中的推送时机"><a href="#团队协作中的推送时机" class="headerlink" title="团队协作中的推送时机"></a>团队协作中的推送时机</h4><p>变基会重写历史，多人协作时需格外小心：</p>
-<ul>
-<li><strong>单人使用的功能分支</strong>：随时可以推，无风险</li>
-<li><strong>多人协作的功能分支</strong>：变基前必须通知所有协作者完成本地提交并推送，变基后所有人执行 <code>git fetch &amp;&amp; git reset --hard origin/feature/my-feature</code> 同步本地</li>
-<li><strong>已合入主干的提交</strong>：<strong>永远不要变基</strong>，这是 Git 协作的底线</li>
-</ul>
-<p>如果团队对同一个功能分支协作频繁，可以考虑改为使用普通 merge 或 squash merge，减少沟通成本。</p>
-<h3 id="6-合入主干"><a href="#6-合入主干" class="headerlink" title="6. 合入主干"></a>6. 合入主干</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout dev</span><br><span class="line">git merge feature/my-feature        <span class="comment"># 此时只能是快进合并</span></span><br></pre></td></tr></table></figure>
-
-<p>由于已在步骤 4 中变基，<code>dev</code> 的头部正是 <code>feature/my-feature</code> 的基座，<code>merge</code> 操作只会执行一次快进（fast-forward），即直接把 <code>dev</code> 指针前移到 feature 分支的最新位置，<strong>不会创建额外的 merge commit</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dev:     A---B---C---D&#x27;---E&#x27;        ← 快进合并后, dev 直接指向 E&#x27;</span><br><span class="line">feature: A---B---C---D&#x27;---E&#x27;        ← feature 与 dev 指向同一位置</span><br></pre></td></tr></table></figure>
-
-<p>如果系统配置了 <code>merge --no-ff</code>（例如 GitLab&#x2F;GitHub 的合入门禁），需要使用以下方式执行合并：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge --ff-only feature/my-feature</span><br></pre></td></tr></table></figure>
-
-<p>如果上述命令失败，说明 dev 在此期间又有新提交，应回到步骤 4 重新变基。</p>
-<h3 id="7-删除功能分支"><a href="#7-删除功能分支" class="headerlink" title="7. 删除功能分支"></a>7. 删除功能分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d feature/my-feature          <span class="comment"># 删除本地分支</span></span><br><span class="line">git push origin --delete feature/my-feature  <span class="comment"># 删除远程分支</span></span><br></pre></td></tr></table></figure>
-
-<p>本地分支使用 <code>-d</code>，Git 会检查该分支是否已完全合入；如果合入未完成会拒绝删除。如需强制删除才使用 <code>-D</code>。</p>
-<p>远程分支的清理同样重要，残留的远程分支会在 <code>git branch -r</code> 和 CI 流水线中造成干扰。</p>
-<h2 id="完整流程（快捷版）"><a href="#完整流程（快捷版）" class="headerlink" title="完整流程（快捷版）"></a>完整流程（快捷版）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git checkout dev &amp;&amp; git pull                         <span class="comment"># 1. 同步</span></span><br><span class="line">git checkout -b feature/my-feature dev               <span class="comment"># 2. 创建分支</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ... 开发、提交 ...</span></span><br><span class="line"></span><br><span class="line">git checkout dev &amp;&amp; git pull                         <span class="comment"># 4.1 再次同步</span></span><br><span class="line">git checkout feature/my-feature                      <span class="comment"># 4.2 切回</span></span><br><span class="line">git rebase dev                                       <span class="comment"># 4.3 变基</span></span><br><span class="line">git push -u origin feature/my-feature --force-with-lease  <span class="comment"># 5. 推送（首次自动设上游）</span></span><br><span class="line">git checkout dev &amp;&amp; git merge --ff-only feature/my-feature  <span class="comment"># 6. 合入</span></span><br><span class="line">git branch -d feature/my-feature                     <span class="comment"># 7.1 删除本地</span></span><br><span class="line">git push origin --delete feature/my-feature          <span class="comment"># 7.2 删除远程</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Q-为什么不用-git-merge-dev-代替-git-rebase-dev？"><a href="#Q-为什么不用-git-merge-dev-代替-git-rebase-dev？" class="headerlink" title="Q: 为什么不用 git merge dev 代替 git rebase dev？"></a>Q: 为什么不用 <code>git merge dev</code> 代替 <code>git rebase dev</code>？</h3><p>两者的效果都能把主干更新同步到功能分支，区别在于最终的历史形态：</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>历史形态</th>
-<th>可读性</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>git merge dev</code></td>
-<td>产生分叉 + merge commit</td>
-<td>主干被淹没在分叉中</td>
-</tr>
-<tr>
-<td><code>git rebase dev</code></td>
-<td>线性延展</td>
-<td>历史是一条直线</td>
-</tr>
-</tbody></table>
-<p>如果团队对历史可读性要求不高，或分支间协作者较多，merge 的开销更低。选择哪种方式取决于团队规模和审查习惯。</p>
-<h3 id="Q-force-with-lease-就一定安全吗？"><a href="#Q-force-with-lease-就一定安全吗？" class="headerlink" title="Q: --force-with-lease 就一定安全吗？"></a>Q: <code>--force-with-lease</code> 就一定安全吗？</h3><p>不是绝对安全。如果远程分支被恶意或错误地推送了内容，而你的本地恰好是最新 fetch 的状态，<code>--force-with-lease</code> 不会阻止你覆盖这些内容。在多人高频协作的场景下，不应依赖 force push，而应改用 <code>git push --atomic</code> 或通过 PR&#x2F;MR 机制合入。</p>
-<h3 id="Q-什么时候适合用-squash-代替-rebase？"><a href="#Q-什么时候适合用-squash-代替-rebase？" class="headerlink" title="Q: 什么时候适合用 squash 代替 rebase？"></a>Q: 什么时候适合用 squash 代替 rebase？</h3><p>当你认为功能分支上的多个小提交（”fix typo”、”WIP”、”add debug log”）不需要保留到主干历史中时，可以在变基时压缩：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i dev    <span class="comment"># 交互式变基</span></span><br></pre></td></tr></table></figure>
-
-<p>将次要提交标记为 <code>squash</code>，合并后保留一条清晰的提交记录。也可以直接在合并时使用 <code>git merge --squash feature/my-feature</code>，但这样会丢失分支的提交粒度。</p>
-<h2 id="推荐规范"><a href="#推荐规范" class="headerlink" title="推荐规范"></a>推荐规范</h2><ul>
-<li>每个功能分支应当只做一件事，保持职责单一</li>
-<li>提交信息遵循 Conventional Commits 规范：<code>type(scope): description</code></li>
-<li>变基前先检查是否有未推送的提交：<code>git log origin/dev..HEAD</code></li>
-<li>CI 检查通过后再合入主干</li>
-<li>禁止向 dev 直接推送（使用 Merge Request &#x2F; Pull Request）</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA">Pro Git - Rebasing</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.conventionalcommits.org/">Conventional Commits</a></li>
-<li><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-push#Documentation/git-push.txt---no-force-with-lease">Git –force-with-lease</a></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/05/23/%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8C%81Git%E7%BA%BF%E6%80%A7%E6%8F%90%E4%BA%A4%E5%B7%A5%E4%BD%9C%E6%B5%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
