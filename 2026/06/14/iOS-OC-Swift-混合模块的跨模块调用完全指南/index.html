@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lengain.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="iOS OC-Swift 混合模块的跨模块调用完全指南 一、问题的提出组件化架构下，一个模块可能同时包含 OC 和 Swift 代码。当下游模块需要同时调用这个混合模块的 OC 类和 Swift 类时，四种调用路径会产生截然不同的技术挑战：    调用方 被调用方 难度    Swift → OC 类 容易   Swift → Swift 类 最容易   OC → OC 类 容易   OC → S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS OC-Swift 混合模块的跨模块调用完全指南">
+<meta property="og:url" content="https://lengain.github.io/2026/06/14/iOS-OC-Swift-%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B7%A8%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="时光地下铁">
+<meta property="og:description" content="iOS OC-Swift 混合模块的跨模块调用完全指南 一、问题的提出组件化架构下，一个模块可能同时包含 OC 和 Swift 代码。当下游模块需要同时调用这个混合模块的 OC 类和 Swift 类时，四种调用路径会产生截然不同的技术挑战：    调用方 被调用方 难度    Swift → OC 类 容易   Swift → Swift 类 最容易   OC → OC 类 容易   OC → S">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-14T15:27:04.000Z">
+<meta property="article:modified_time" content="2026-06-14T15:27:57.681Z">
+<meta property="article:author" content="Lengain">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://lengain.github.io/2026/06/14/iOS-OC-Swift-%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B7%A8%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lengain.github.io/2026/06/14/iOS-OC-Swift-%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B7%A8%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/","path":"2026/06/14/iOS-OC-Swift-混合模块的跨模块调用完全指南/","title":"iOS OC-Swift 混合模块的跨模块调用完全指南"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>iOS OC-Swift 混合模块的跨模块调用完全指南 | 时光地下铁</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="时光地下铁" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">时光地下铁</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Software is a great combination of art and engineering.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS-OC-Swift-%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B7%A8%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97"><span class="nav-number">1.</span> <span class="nav-text">iOS OC-Swift 混合模块的跨模块调用完全指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%97%AE%E9%A2%98%E7%9A%84%E6%8F%90%E5%87%BA"><span class="nav-text">一、问题的提出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81OC-Swift-%E4%BA%92%E6%93%8D%E4%BD%9C%E7%9A%84%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6"><span class="nav-text">二、OC-Swift 互操作的核心机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Framework-%E6%A8%A1%E5%9D%97%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-text">2.1 Framework 模块的构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E4%B8%A4%E4%B8%AA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%9A%84%E5%85%B3%E9%94%AE%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-text">2.2 两个自动生成的关键头文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#umbrella-h%EF%BC%88%E7%94%B1-CocoaPods-%E7%94%9F%E6%88%90%EF%BC%89"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">&lt;Module&gt;-umbrella.h（由 CocoaPods 生成）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Swift-h%EF%BC%88%E7%94%B1-Swift-%E7%BC%96%E8%AF%91%E5%99%A8%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%EF%BC%89"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">&lt;Module&gt;-Swift.h（由 Swift 编译器自动生成）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5%EF%BC%9A-import-vs-import"><span class="nav-text">2.3 模块导入：@import vs import</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%9B%9B%E7%A7%8D%E8%B7%A8%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8%E8%B7%AF%E5%BE%84%E8%AF%A6%E8%A7%A3"><span class="nav-text">三、四种跨模块调用路径详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84-1%EF%BC%9ASwift-in-B-%E2%86%92-OC-in-A"><span class="nav-number">1.3.1.</span> <span class="nav-text">路径 1：Swift (in B) → OC (in A)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84-2%EF%BC%9ASwift-in-B-%E2%86%92-Swift-in-A"><span class="nav-number">1.3.2.</span> <span class="nav-text">路径 2：Swift (in B) → Swift (in A)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84-3%EF%BC%9AOC-in-B-%E2%86%92-OC-in-A"><span class="nav-number">1.3.3.</span> <span class="nav-text">路径 3：OC (in B) → OC (in A)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84-4%EF%BC%9AOC-in-B-%E2%86%92-Swift-in-A-%E2%9A%A0%EF%B8%8F"><span class="nav-number">1.3.4.</span> <span class="nav-text">路径 4：OC (in B) → Swift (in A) ⚠️</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Podspec-%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3"><span class="nav-text">四、Podspec 配置详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E7%BA%AF-Swift-Pod-%E2%86%92-Mixed-Pod"><span class="nav-text">4.1 纯 Swift Pod → Mixed Pod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-HEADER-SEARCH-PATHS-%E9%85%8D%E7%BD%AE%EF%BC%88%E5%AE%B9%E6%98%93%E9%81%97%E6%BC%8F%EF%BC%89"><span class="nav-text">4.2 HEADER_SEARCH_PATHS 配置（容易遗漏）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E8%B7%A8%E6%A8%A1%E5%9D%97%E4%BE%9D%E8%B5%96%E5%A3%B0%E6%98%8E"><span class="nav-text">4.3 跨模块依赖声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E5%AE%8C%E6%95%B4-Podspec-%E6%A8%A1%E6%9D%BF"><span class="nav-text">4.4 完整 Podspec 模板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E4%B8%8E%E9%98%B2%E5%9D%91%E6%8C%87%E5%8D%97"><span class="nav-text">五、最佳实践与防坑指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-objc-%E6%9A%B4%E9%9C%B2%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-text">5.1 @objc 暴露的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-init-%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95"><span class="nav-text">5.2 init() 的正确写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-import-%E6%94%BE%E5%9C%A8-m-%E8%80%8C%E9%9D%9E-h-%E4%B8%AD"><span class="nav-text">5.3 @import 放在 .m 而非 .h 中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-Podfile-%E6%98%BE%E5%BC%8F%E5%A3%B0%E6%98%8E-platform"><span class="nav-text">5.4 Podfile 显式声明 platform</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">六、常见问题与解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Q1%EF%BC%9ANo-visible-interface-for-SwiftService-declares-the-selector-fetchData"><span class="nav-number">1.6.1.</span> <span class="nav-text">Q1：No visible @interface for &#39;SwiftService&#39; declares the selector &#39;fetchData&#39;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q2%EF%BC%9A-MyHeader-h-file-not-found"><span class="nav-number">1.6.2.</span> <span class="nav-text">Q2：&#39;MyHeader.h&#39; file not found</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q3%EF%BC%9ANo-such-module-ModuleA"><span class="nav-number">1.6.3.</span> <span class="nav-text">Q3：No such module &#39;ModuleA&#39;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q4%EF%BC%9A-import-%E8%B7%A8%E6%A8%A1%E5%9D%97%E6%97%A0%E6%95%88"><span class="nav-number">1.6.4.</span> <span class="nav-text">Q4：#import &lt;ModuleA&#x2F;ModuleA-Swift.h&gt; 跨模块无效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q5%EF%BC%9Apod-install-%E5%90%8E-OC-%E6%96%87%E4%BB%B6%E6%9C%AA%E5%87%BA%E7%8E%B0%E5%9C%A8-Pods-%E9%A1%B9%E7%9B%AE%E4%B8%AD"><span class="nav-number">1.6.5.</span> <span class="nav-text">Q5：pod install 后 OC 文件未出现在 Pods 项目中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q6%EF%BC%9ASwift-%E4%B8%AD-OC-%E7%B1%BB%E6%98%BE%E7%A4%BA%E4%B8%BA%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="nav-number">1.6.6.</span> <span class="nav-text">Q6：Swift 中 OC 类显示为不可用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9D%97%E7%9A%84%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="nav-text">七、从零搭建混合模块的检查清单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E6%8F%90%E4%BE%9B%E6%96%B9%EF%BC%88%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9D%97%EF%BC%89"><span class="nav-number">1.7.1.</span> <span class="nav-text">模块提供方（混合模块）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E6%B6%88%E8%B4%B9%E6%96%B9%EF%BC%88%E4%B8%8B%E6%B8%B8%E6%A8%A1%E5%9D%97%EF%BC%89"><span class="nav-number">1.7.2.</span> <span class="nav-text">模块消费方（下游模块）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E9%AA%8C%E8%AF%81"><span class="nav-number">1.7.3.</span> <span class="nav-text">构建验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%8F%82%E8%80%83%E8%B5%84%E6%BA%90"><span class="nav-text">八、参考资源</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lengain"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Lengain</p>
+  <div class="site-description" itemprop="description">宝剑锋从磨砺出，梅花香自苦寒来</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lengain" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lengain" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lengain@yeah.net" title="E-Mail → mailto:lengain@yeah.net" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-book fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://casatwy.com/" title="https:&#x2F;&#x2F;casatwy.com&#x2F;" rel="noopener" target="_blank">casatwy</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.jianshu.com/u/96a14318a4de" title="https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;96a14318a4de" rel="noopener" target="_blank">iOS程序猿</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://blog.cnbang.net/" title="http:&#x2F;&#x2F;blog.cnbang.net&#x2F;" rel="noopener" target="_blank">Bang's Blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://qidiandasheng.com/" title="http:&#x2F;&#x2F;qidiandasheng.com&#x2F;" rel="noopener" target="_blank">qidiandasheng的博客</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://gc1234.top/" title="http:&#x2F;&#x2F;gc1234.top&#x2F;" rel="noopener" target="_blank">疯狂的兔子</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lengain.github.io/2026/06/14/iOS-OC-Swift-%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B7%A8%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Lengain">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光地下铁">
+      <meta itemprop="description" content="宝剑锋从磨砺出，梅花香自苦寒来">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="iOS OC-Swift 混合模块的跨模块调用完全指南 | 时光地下铁">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          iOS OC-Swift 混合模块的跨模块调用完全指南
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-06-14 23:27:04" itemprop="dateCreated datePublished" datetime="2026-06-14T23:27:04+08:00">2026-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="iOS-OC-Swift-混合模块的跨模块调用完全指南"><a href="#iOS-OC-Swift-混合模块的跨模块调用完全指南" class="headerlink" title="iOS OC-Swift 混合模块的跨模块调用完全指南"></a>iOS OC-Swift 混合模块的跨模块调用完全指南</h1><hr>
+<h2 id="一、问题的提出"><a href="#一、问题的提出" class="headerlink" title="一、问题的提出"></a>一、问题的提出</h2><p>组件化架构下，一个模块可能同时包含 OC 和 Swift 代码。当下游模块需要同时调用这个混合模块的 OC 类和 Swift 类时，四种调用路径会产生截然不同的技术挑战：</p>
+<table>
+<thead>
+<tr>
+<th>调用方</th>
+<th>被调用方</th>
+<th>难度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Swift →</td>
+<td>OC 类</td>
+<td>容易</td>
+</tr>
+<tr>
+<td>Swift →</td>
+<td>Swift 类</td>
+<td>最容易</td>
+</tr>
+<tr>
+<td>OC →</td>
+<td>OC 类</td>
+<td>容易</td>
+</tr>
+<tr>
+<td>OC →</td>
+<td>Swift 类</td>
+<td>⚠️ 最容易出问题</td>
+</tr>
+</tbody></table>
+<p>本文将逐一拆解这四条路径的原理和配置，并给出完整的 Podspec 最佳实践。</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="二、OC-Swift-互操作的核心机制"><a href="#二、OC-Swift-互操作的核心机制" class="headerlink" title="二、OC-Swift 互操作的核心机制"></a>二、OC-Swift 互操作的核心机制</h2><h3 id="2-1-Framework-模块的构成"><a href="#2-1-Framework-模块的构成" class="headerlink" title="2.1 Framework 模块的构成"></a>2.1 Framework 模块的构成</h3><p>CocoaPods 启用 <code>use_frameworks!</code> 后，每个 pod 被编译为独立的动态 framework。每个 framework 包含一个 Clang module map，定义了模块的边界和接口。</p>
+<p>一个典型的 module map 如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">framework module MyModule &#123;</span><br><span class="line">    umbrella header <span class="string">&quot;MyModule-umbrella.h&quot;</span></span><br><span class="line">    <span class="keyword">export</span> *</span><br><span class="line">    module * &#123; <span class="keyword">export</span> * &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-两个自动生成的关键头文件"><a href="#2-2-两个自动生成的关键头文件" class="headerlink" title="2.2 两个自动生成的关键头文件"></a>2.2 两个自动生成的关键头文件</h3><p>理解下面两个头文件，就理解了 OC-Swift 互操作的 90%。</p>
+<h4 id="umbrella-h（由-CocoaPods-生成）"><a href="#umbrella-h（由-CocoaPods-生成）" class="headerlink" title="&lt;Module&gt;-umbrella.h（由 CocoaPods 生成）"></a><code>&lt;Module&gt;-umbrella.h</code>（由 CocoaPods 生成）</h4><p>位于 <code>Pods/Target Support Files/&lt;Pod&gt;/</code> 目录，负责聚合该 pod 中<strong>所有公开的 OC 头文件</strong>：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> __OBJC__</span></span><br><span class="line"><span class="meta">#import <span class="string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="string">&quot;MyOCCalculator.h&quot;</span>   <span class="comment">// 所有公开的 OC 头文件被自动导入</span></span></span><br><span class="line"><span class="meta">#import <span class="string">&quot;MyOCCacheManager.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Swift-h（由-Swift-编译器自动生成）"><a href="#Swift-h（由-Swift-编译器自动生成）" class="headerlink" title="&lt;Module&gt;-Swift.h（由 Swift 编译器自动生成）"></a><code>&lt;Module&gt;-Swift.h</code>（由 Swift 编译器自动生成）</h4><p>这是最关键的文件。<strong>Swift 编译器读取该模块中所有 <code>@objc public</code> 的 Swift 类</strong>，生成对应的 OC <code>@interface</code> 声明。</p>
+<p>例如一个 Swift 类：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyService</span>: <span class="title class_ inherited__">NSObject</span> &#123;</span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">func</span> <span class="title function_">fetchData</span>() -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;data&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>会在 <code>MyModule-Swift.h</code> 中生成：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SWIFT_CLASS(<span class="string">&quot;_TtC8MyModule9MyService&quot;</span>)</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyService</span> : <span class="title">NSObject</span></span></span><br><span class="line">- (<span class="built_in">NSString</span> * _Nonnull)fetchData;</span><br><span class="line">- (<span class="keyword">nonnull</span> <span class="keyword">instancetype</span>)init OBJC_DESIGNATED_INITIALIZER;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-模块导入：-import-vs-import"><a href="#2-3-模块导入：-import-vs-import" class="headerlink" title="2.3 模块导入：@import vs import"></a>2.3 模块导入：<code>@import</code> vs <code>import</code></h3><p>这两种导入语法本质相同，都导入模块的<strong>全部公开接口</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>语法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Objective-C</td>
+<td><code>@import MyModule;</code></td>
+<td>&#x3D; 所有 OC 公开头 + <code>&lt;Module&gt;-Swift.h</code></td>
+</tr>
+<tr>
+<td>Swift</td>
+<td><code>import MyModule</code></td>
+<td>&#x3D; 所有 OC 公开头 + 所有 Swift 公开类</td>
+</tr>
+</tbody></table>
+<p><strong>关键结论</strong>：<code>@import MyModule;</code> 等价于 <code>#import &lt;MyModule/MyOCCalculator.h&gt;</code> + <code>#import &lt;MyModule/MyModule-Swift.h&gt;</code> 的总和。这是 OC 代码跨模块访问 Swift 类的<strong>唯一通道</strong>。</p>
+<hr>
+<h2 id="三、四种跨模块调用路径详解"><a href="#三、四种跨模块调用路径详解" class="headerlink" title="三、四种跨模块调用路径详解"></a>三、四种跨模块调用路径详解</h2><p>假设两个模块：</p>
+<ul>
+<li><strong>ModuleA</strong>：混合模块，包含 <code>OCCalculator</code>（OC 类）和 <code>SwiftService</code>（Swift 类，<code>@objc</code> 暴露）</li>
+<li><strong>ModuleB</strong>：下游模块，需要调用 ModuleA 的两种类</li>
+</ul>
+<h3 id="路径-1：Swift-in-B-→-OC-in-A"><a href="#路径-1：Swift-in-B-→-OC-in-A" class="headerlink" title="路径 1：Swift (in B) → OC (in A)"></a>路径 1：Swift (in B) → OC (in A)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ModuleB/SwiftConsumer.swift</span></span><br><span class="line"><span class="keyword">import</span> ModuleA</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> calculator <span class="operator">=</span> <span class="type">OCCalculator</span>()          <span class="comment">// OC 类通过模块接口桥接到 Swift</span></span><br><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> calculator.calculate() <span class="operator">??</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>原理</strong>：ModuleA 的 Umbrella Header 导入了 <code>OCCalculator.h</code>，Swift 编译器编译 ModuleA 的模块接口时，将该 OC 类桥接为 Swift 可用的类型。OC 中的 <code>NSString *</code> 返回类型会被桥接为 Swift 的 <code>String?</code>。</p>
+<p><strong>无需额外配置</strong>，只要 <code>OCCalculator.h</code> 是公开头文件即可。</p>
+<h3 id="路径-2：Swift-in-B-→-Swift-in-A"><a href="#路径-2：Swift-in-B-→-Swift-in-A" class="headerlink" title="路径 2：Swift (in B) → Swift (in A)"></a>路径 2：Swift (in B) → Swift (in A)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ModuleB/SwiftConsumer.swift</span></span><br><span class="line"><span class="keyword">import</span> ModuleA</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> service <span class="operator">=</span> <span class="type">SwiftService</span>()              <span class="comment">// 直接访问</span></span><br><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> service.fetchData()</span><br></pre></td></tr></table></figure>
+
+<p><strong>原理</strong>：同模块内 Swift 类互相可见，跨模块通过 <code>import ModuleA</code> 直接导入。最顺畅的路径。</p>
+<p><strong>前提</strong>：SwiftService 必须声明为 <code>public</code>（Swift 的访问控制级别）。</p>
+<h3 id="路径-3：OC-in-B-→-OC-in-A"><a href="#路径-3：OC-in-B-→-OC-in-A" class="headerlink" title="路径 3：OC (in B) → OC (in A)"></a>路径 3：OC (in B) → OC (in A)</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ModuleB/OCConsumer.m</span></span><br><span class="line"><span class="keyword">@import</span> ModuleA;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">OCConsumer</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)callOCFromA &#123;</span><br><span class="line">    OCCalculator *calc = [[OCCalculator alloc] init];</span><br><span class="line">    <span class="keyword">return</span> [calc calculate];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>原理</strong>：<code>@import ModuleA;</code> 导入后，Umbrella Header 中包含的 <code>OCCalculator.h</code> 立即可用，和同 target 内的使用体验一致。</p>
+<h3 id="路径-4：OC-in-B-→-Swift-in-A-⚠️"><a href="#路径-4：OC-in-B-→-Swift-in-A-⚠️" class="headerlink" title="路径 4：OC (in B) → Swift (in A) ⚠️"></a>路径 4：OC (in B) → Swift (in A) ⚠️</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ModuleB/OCConsumer.m</span></span><br><span class="line"><span class="keyword">@import</span> ModuleA;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)callSwiftFromA &#123;</span><br><span class="line">    SwiftService *service = [[SwiftService alloc] init];</span><br><span class="line">    <span class="keyword">return</span> [service fetchData];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>这是最隐蔽、最容易踩坑的路径</strong>。OC 代码要成功访问另一模块的 Swift 类，必须<strong>同时满足</strong>四个条件：</p>
+<ol>
+<li><strong>Swift 类继承 <code>NSObject</code></strong>（或用 <code>@objc</code> 标记整个类）</li>
+<li><strong>所有被调用方法标记 <code>@objc</code></strong></li>
+<li><strong>OC 代码使用 <code>@import ModuleA;</code></strong>（而不是 <code>#import &lt;ModuleA/ModuleA-Swift.h&gt;</code>）</li>
+<li><strong>podspec 中声明了 <code>s.dependency &#39;ModuleA&#39;</code></strong></li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✅ 正确姿势</span></span><br><span class="line"><span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SwiftService</span>: <span class="title class_ inherited__">NSObject</span> &#123;</span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">func</span> <span class="title function_">fetchData</span>() -&gt; <span class="type">String</span> &#123; <span class="operator">...</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>⚠️ 致命误区：<code>#import &lt;ModuleA/ModuleA-Swift.h&gt;</code> 只在<strong>同一 target 内</strong>有效。跨模块调用必须使用 <code>@import ModuleA;</code>，因为 <code>&lt;Module&gt;-Swift.h</code> 是构建产物，位于 DerivedData 中，不在源文件目录。</p>
+</blockquote>
+<hr>
+<h2 id="四、Podspec-配置详解"><a href="#四、Podspec-配置详解" class="headerlink" title="四、Podspec 配置详解"></a>四、Podspec 配置详解</h2><h3 id="4-1-纯-Swift-Pod-→-Mixed-Pod"><a href="#4-1-纯-Swift-Pod-→-Mixed-Pod" class="headerlink" title="4.1 纯 Swift Pod → Mixed Pod"></a>4.1 纯 Swift Pod → Mixed Pod</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ❌ 仅 Swift</span></span><br><span class="line">s.source_files = <span class="string">&#x27;Sources/**/*.swift&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ✅ 混合 OC + Swift</span></span><br><span class="line">s.source_files = <span class="string">&#x27;Sources/**/*.&#123;h,m,swift&#125;&#x27;</span></span><br><span class="line">s.public_header_files = <span class="string">&#x27;Sources/**/*.h&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>source_files</code> 必须包含 <code>h</code>、<code>m</code>、<code>swift</code> 三种扩展名，缺一不可。<code>public_header_files</code> 显式声明哪些头文件公开——不声明时，CocoaPods 默认所有 <code>.h</code> 都是公开的。</p>
+<h3 id="4-2-HEADER-SEARCH-PATHS-配置（容易遗漏）"><a href="#4-2-HEADER-SEARCH-PATHS-配置（容易遗漏）" class="headerlink" title="4.2 HEADER_SEARCH_PATHS 配置（容易遗漏）"></a>4.2 HEADER_SEARCH_PATHS 配置（容易遗漏）</h3><p>CocoaPods 生成的 Umbrella Header 位于 <code>Pods/Target Support Files/&lt;Pod&gt;/</code> 目录，它使用 <code>#import &quot;FileName.h&quot;</code>（引号导入）引用源文件头。编译器需要 HEADER_SEARCH_PATHS 来定位这些文件：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s.pod_target_xcconfig = &#123;</span><br><span class="line">    <span class="string">&#x27;HEADER_SEARCH_PATHS&#x27;</span> =&gt; <span class="string">&#x27;$&#123;PODS_TARGET_SRCROOT&#125;/Sources/**&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>不配置的后果</strong>：编译时报 <code>&#39;MyHeader.h&#39; file not found</code>，因为 Umbrella Header 找不到同目录下的 OC 头文件。</p>
+<h3 id="4-3-跨模块依赖声明"><a href="#4-3-跨模块依赖声明" class="headerlink" title="4.3 跨模块依赖声明"></a>4.3 跨模块依赖声明</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.dependency <span class="string">&#x27;ModuleA&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>这条声明实际做了三件事：</p>
+<table>
+<thead>
+<tr>
+<th>效果</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>添加 Framework 搜索路径</td>
+<td>编译器能找到 <code>ModuleA.framework</code></td>
+</tr>
+<tr>
+<td>添加链接器标志</td>
+<td><code>-framework &quot;ModuleA&quot;</code> 自动加入 <code>OTHER_LDFLAGS</code></td>
+</tr>
+<tr>
+<td>保证构建顺序</td>
+<td>ModuleA 先构建，当前模块后构建</td>
+</tr>
+</tbody></table>
+<h3 id="4-4-完整-Podspec-模板"><a href="#4-4-完整-Podspec-模板" class="headerlink" title="4.4 完整 Podspec 模板"></a>4.4 完整 Podspec 模板</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Pod::Spec</span>.new <span class="keyword">do</span> |<span class="params">s</span>|</span><br><span class="line">  s.name             = <span class="string">&#x27;MyMixedModule&#x27;</span></span><br><span class="line">  s.version          = <span class="string">&#x27;1.0.0&#x27;</span></span><br><span class="line">  s.swift_version    = <span class="string">&#x27;5.0&#x27;</span></span><br><span class="line">  s.ios.deployment_target = <span class="string">&#x27;13.0&#x27;</span></span><br><span class="line"></span><br><span class="line">  s.source_files         = <span class="string">&#x27;Sources/**/*.&#123;h,m,swift&#125;&#x27;</span></span><br><span class="line">  s.public_header_files  = <span class="string">&#x27;Sources/**/*.h&#x27;</span></span><br><span class="line"></span><br><span class="line">  s.pod_target_xcconfig = &#123;</span><br><span class="line">    <span class="string">&#x27;HEADER_SEARCH_PATHS&#x27;</span> =&gt; <span class="string">&#x27;$&#123;PODS_TARGET_SRCROOT&#125;/Sources/**&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 如果被其他模块依赖</span></span><br><span class="line">  <span class="comment"># s.dependency &#x27;SomeOtherModule&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>下游模块的 podspec：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Pod::Spec</span>.new <span class="keyword">do</span> |<span class="params">s</span>|</span><br><span class="line">  s.name             = <span class="string">&#x27;DownstreamModule&#x27;</span></span><br><span class="line">  s.source_files     = <span class="string">&#x27;Sources/**/*.&#123;h,m,swift&#125;&#x27;</span></span><br><span class="line">  s.public_header_files = <span class="string">&#x27;Sources/**/*.h&#x27;</span></span><br><span class="line">  s.dependency <span class="string">&#x27;MyMixedModule&#x27;</span>          <span class="comment"># 核心依赖</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、最佳实践与防坑指南"><a href="#五、最佳实践与防坑指南" class="headerlink" title="五、最佳实践与防坑指南"></a>五、最佳实践与防坑指南</h2><h3 id="5-1-objc-暴露的三种方式"><a href="#5-1-objc-暴露的三种方式" class="headerlink" title="5.1 @objc 暴露的三种方式"></a>5.1 <code>@objc</code> 暴露的三种方式</h3><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>用法</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类级 <code>@objc</code></td>
+<td><code>@objc public class MyClass: NSObject</code></td>
+<td>整体暴露给 OC，推荐</td>
+</tr>
+<tr>
+<td>方法级 <code>@objc</code></td>
+<td><code>@objc public func myMethod()</code></td>
+<td>只暴露特定方法</td>
+</tr>
+<tr>
+<td><code>@objcMembers</code></td>
+<td><code>@objcMembers public class MyClass</code></td>
+<td>所有成员自动暴露</td>
+</tr>
+</tbody></table>
+<p><strong>推荐策略</strong>：对需要跨模块 OC→Swift 调用的类，使用类级 <code>@objc</code> + <code>NSObject</code> 继承。颗粒度刚好，不过度暴露。</p>
+<h3 id="5-2-init-的正确写法"><a href="#5-2-init-的正确写法" class="headerlink" title="5.2 init() 的正确写法"></a>5.2 <code>init()</code> 的正确写法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NSObject 子类的 init 需要用 override 修饰</span></span><br><span class="line"><span class="keyword">@objc</span> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyService</span>: <span class="title class_ inherited__">NSObject</span> &#123;</span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">override</span> <span class="keyword">public</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-import-放在-m-而非-h-中"><a href="#5-3-import-放在-m-而非-h-中" class="headerlink" title="5.3 @import 放在 .m 而非 .h 中"></a>5.3 <code>@import</code> 放在 <code>.m</code> 而非 <code>.h</code> 中</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ===== MyConsumer.h =====</span></span><br><span class="line"><span class="comment">// ❌ 不要在头文件中 @import 其他模块</span></span><br><span class="line"><span class="keyword">@import</span> ModuleA;   <span class="comment">// 不好：暴露了依赖细节</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ⚠️ 如果头文件确实需要引用其他模块的类型，使用 @class 前向声明</span></span><br><span class="line"><span class="class"><span class="keyword">@class</span> <span class="title">SwiftServiceFromA</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyConsumer</span> : <span class="title">NSObject</span></span></span><br><span class="line">- (<span class="built_in">NSString</span> *)processService:(SwiftServiceFromA *)service;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ===== MyConsumer.m =====</span></span><br><span class="line"><span class="comment">// ✅ @import 放在实现文件中</span></span><br><span class="line"><span class="keyword">@import</span> ModuleA;</span><br><span class="line"><span class="meta">#import <span class="string">&quot;MyConsumer.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MyConsumer</span></span></span><br><span class="line"><span class="comment">// 可以自由使用 ModuleA 的所有公开类型</span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-Podfile-显式声明-platform"><a href="#5-4-Podfile-显式声明-platform" class="headerlink" title="5.4 Podfile 显式声明 platform"></a>5.4 Podfile 显式声明 platform</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, <span class="string">&#x27;13.0&#x27;</span>     <span class="comment"># ⚠️ 必填</span></span><br><span class="line"></span><br><span class="line">target <span class="string">&#x27;MyApp&#x27;</span> <span class="keyword">do</span></span><br><span class="line">  use_frameworks!</span><br><span class="line">  pod <span class="string">&#x27;MyMixedModule&#x27;</span>, <span class="symbol">:path</span> =&gt; <span class="string">&#x27;../MyMixedModule&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>不声明 platform 会导致 CocoaPods 自动选择，可能与 podspec 的 <code>deployment_target</code> 不一致，产生诡异问题。</p>
+<hr>
+<h2 id="六、常见问题与解决方案"><a href="#六、常见问题与解决方案" class="headerlink" title="六、常见问题与解决方案"></a>六、常见问题与解决方案</h2><h3 id="Q1：No-visible-interface-for-SwiftService-declares-the-selector-fetchData"><a href="#Q1：No-visible-interface-for-SwiftService-declares-the-selector-fetchData" class="headerlink" title="Q1：No visible @interface for &#39;SwiftService&#39; declares the selector &#39;fetchData&#39;"></a>Q1：<code>No visible @interface for &#39;SwiftService&#39; declares the selector &#39;fetchData&#39;</code></h3><p><strong>原因</strong>：OC 代码调用了 Swift 类的方法，但该方法未用 <code>@objc</code> 标记。</p>
+<p><strong>解决</strong>：在方法前加 <code>@objc</code>，或整个类加 <code>@objcMembers</code>。</p>
+<h3 id="Q2：-MyHeader-h-file-not-found"><a href="#Q2：-MyHeader-h-file-not-found" class="headerlink" title="Q2：&#39;MyHeader.h&#39; file not found"></a>Q2：<code>&#39;MyHeader.h&#39; file not found</code></h3><p><strong>原因</strong>：Umbrella Header 无法找到 OC 头文件，HEADER_SEARCH_PATHS 缺失。</p>
+<p><strong>解决</strong>：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s.pod_target_xcconfig = &#123;</span><br><span class="line">    <span class="string">&#x27;HEADER_SEARCH_PATHS&#x27;</span> =&gt; <span class="string">&#x27;$&#123;PODS_TARGET_SRCROOT&#125;/Sources/**&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Q3：No-such-module-ModuleA"><a href="#Q3：No-such-module-ModuleA" class="headerlink" title="Q3：No such module &#39;ModuleA&#39;"></a>Q3：<code>No such module &#39;ModuleA&#39;</code></h3><p><strong>原因</strong>：缺少 <code>s.dependency</code> 声明。</p>
+<p><strong>解决</strong>：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.dependency <span class="string">&#x27;ModuleA&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Q4：-import-跨模块无效"><a href="#Q4：-import-跨模块无效" class="headerlink" title="Q4：#import &lt;ModuleA/ModuleA-Swift.h&gt; 跨模块无效"></a>Q4：<code>#import &lt;ModuleA/ModuleA-Swift.h&gt;</code> 跨模块无效</h3><p><strong>原因</strong>：<code>&lt;Module&gt;-Swift.h</code> 是 Swift 编译器在 DerivedData 中生成的构建产物，不属于源文件，不能通过文件路径跨模块引用。</p>
+<p><strong>解决</strong>：使用 <code>@import ModuleA;</code> 代替。</p>
+<h3 id="Q5：pod-install-后-OC-文件未出现在-Pods-项目中"><a href="#Q5：pod-install-后-OC-文件未出现在-Pods-项目中" class="headerlink" title="Q5：pod install 后 OC 文件未出现在 Pods 项目中"></a>Q5：<code>pod install</code> 后 OC 文件未出现在 Pods 项目中</h3><p><strong>原因</strong>：CocoaPods 缓存了旧的 Pods 项目结构。</p>
+<p><strong>解决</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf Pods Podfile.lock</span><br><span class="line">pod install</span><br></pre></td></tr></table></figure>
+
+<h3 id="Q6：Swift-中-OC-类显示为不可用"><a href="#Q6：Swift-中-OC-类显示为不可用" class="headerlink" title="Q6：Swift 中 OC 类显示为不可用"></a>Q6：Swift 中 OC 类显示为不可用</h3><p><strong>原因</strong>：OC 头文件没有被包含在 Umbrella Header 中，或者没有正确标记为 public。</p>
+<p><strong>解决</strong>：检查 <code>public_header_files</code> 是否匹配了 OC 头文件路径；检查生成的 <code>&lt;Pod&gt;-umbrella.h</code> 是否包含对应的 <code>#import</code>。</p>
+<hr>
+<h2 id="七、从零搭建混合模块的检查清单"><a href="#七、从零搭建混合模块的检查清单" class="headerlink" title="七、从零搭建混合模块的检查清单"></a>七、从零搭建混合模块的检查清单</h2><h3 id="模块提供方（混合模块）"><a href="#模块提供方（混合模块）" class="headerlink" title="模块提供方（混合模块）"></a>模块提供方（混合模块）</h3><ul>
+<li><input disabled type="checkbox"> <code>source_files</code> 包含 <code>&#123;h,m,swift&#125;</code> 三种扩展名</li>
+<li><input disabled type="checkbox"> <code>public_header_files</code> 指向所有 OC 头文件</li>
+<li><input disabled type="checkbox"> <code>pod_target_xcconfig</code> 设置了 <code>HEADER_SEARCH_PATHS</code></li>
+<li><input disabled type="checkbox"> Swift 类用 <code>@objc public</code> + <code>NSObject</code> 暴露给 OC</li>
+<li><input disabled type="checkbox"> 需要跨 OC 调用的方法逐个加了 <code>@objc</code></li>
+</ul>
+<h3 id="模块消费方（下游模块）"><a href="#模块消费方（下游模块）" class="headerlink" title="模块消费方（下游模块）"></a>模块消费方（下游模块）</h3><ul>
+<li><input disabled type="checkbox"> <code>s.dependency &#39;提供方模块名&#39;</code> 已声明</li>
+<li><input disabled type="checkbox"> OC 文件中使用 <code>@import 提供方模块名;</code>（非 <code>#import</code> 文件路径）</li>
+<li><input disabled type="checkbox"> Swift 文件中使用 <code>import 提供方模块名</code></li>
+<li><input disabled type="checkbox"> Podfile &#x2F; MainProject 引用了所有依赖</li>
+</ul>
+<h3 id="构建验证"><a href="#构建验证" class="headerlink" title="构建验证"></a>构建验证</h3><ul>
+<li><input disabled type="checkbox"> <code>pod install</code> 成功，无警告</li>
+<li><input disabled type="checkbox"> <code>xcodebuild</code> 构建成功</li>
+<li><input disabled type="checkbox"> <code>nm Framework.framework/Framework | grep ClassName</code> 确认符号存在</li>
+<li><input disabled type="checkbox"> 四种跨模块路径均返回预期结果</li>
+</ul>
+<hr>
+<h2 id="八、参考资源"><a href="#八、参考资源" class="headerlink" title="八、参考资源"></a>八、参考资源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/swift/mixing-objective-c-and-swift">Swift and Objective-C in the Same Project - Apple</a></li>
+<li><a target="_blank" rel="noopener" href="https://guides.cocoapods.org/syntax/podspec.html">CocoaPods Podspec Syntax Reference</a></li>
+<li><a target="_blank" rel="noopener" href="https://clang.llvm.org/docs/Modules.html">Clang Module Maps</a></li>
+</ul>
+<hr>
+<p><em>欢迎转载，请注明出处。</em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/23/%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8C%81Git%E7%BA%BF%E6%80%A7%E6%8F%90%E4%BA%A4%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="prev" title="如何保持Git线性提交工作流">
+                  <i class="fa fa-angle-left"></i> 如何保持Git线性提交工作流
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">lengain.github.io</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script src="/js/busuanzi_fallback.js"></script>
+<script src="/js/busuanzi_backup.js"></script>
+
+</body>
+</html>
